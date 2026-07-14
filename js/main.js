@@ -31,7 +31,7 @@ function t(key, fallback) {
     if (val && typeof val === 'object' && p in val) val = val[p];
     else return fallback ?? key;
   }
-  return typeof val === 'string' || typeof val === 'number' ? val : fallback ?? key;
+  return val !== undefined && val !== null ? val : fallback ?? key;
 }
 
 function translatePage() {
