@@ -34,6 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const saveBtn = document.getElementById("save-btn");
   const translateBtn = document.getElementById("translate-ar-btn");
   const translateStatus = document.getElementById("translate-status");
+  const settingsBtn = document.getElementById("settings-btn");
+  const settingsPanel = document.getElementById("settings-panel");
+  const openrouterInput = document.getElementById("openrouter-key");
+  const saveSettingsBtn = document.getElementById("save-settings-btn");
+  const closeSettingsBtn = document.getElementById("close-settings-btn");
+  const settingsStatus = document.getElementById("settings-status");
 
   if (!window.PettyCashFirebase) {
     if (loginError) {
@@ -57,17 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateAuthView();
 
-  const storedApiKey = getOpenRouterKey();
-  const openrouterInput = document.getElementById("openrouter-key");
-  if (storedApiKey && openrouterInput) openrouterInput.value = storedApiKey;
-
   loginForm.addEventListener("submit", async e => {
     e.preventDefault();
     const password = document.getElementById("login-password").value;
-    const apiKey = document.getElementById("openrouter-key").value.trim();
     if (password === ADMIN_PASSWORD) {
       sessionStorage.setItem(ADMIN_AUTH_KEY, "1");
-      setOpenRouterKey(apiKey);
       loginError.classList.add("hidden");
       updateAuthView();
     } else {
@@ -80,6 +80,31 @@ document.addEventListener("DOMContentLoaded", () => {
     sessionStorage.removeItem(ADMIN_AUTH_KEY);
     updateAuthView();
   });
+
+  if (settingsBtn && settingsPanel && openrouterInput) {
+    settingsBtn.addEventListener("click", () => {
+      openrouterInput.value = getOpenRouterKey();
+      settingsPanel.classList.remove("hidden");
+      if (settingsStatus) {
+        settingsStatus.className = "text-sm hidden";
+        settingsStatus.textContent = "";
+      }
+    });
+
+    closeSettingsBtn?.addEventListener("click", () => {
+      settingsPanel.classList.add("hidden");
+    });
+
+    saveSettingsBtn?.addEventListener("click", () => {
+      const key = openrouterInput.value.trim();
+      setOpenRouterKey(key);
+      if (settingsStatus) {
+        settingsStatus.textContent = key ? "API key saved." : "API key removed.";
+        settingsStatus.className = key ? "text-sm text-green-600" : "text-sm text-amber-600";
+      }
+      setTimeout(() => settingsPanel.classList.add("hidden"), 800);
+    });
+  }
 
   imageFileInput.addEventListener("change", async () => {
     const file = imageFileInput.files[0];
@@ -279,7 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function translateWithOpenRouter(title, summary, content) {
   const apiKey = getOpenRouterKey();
   if (!apiKey) {
-    return { error: "OpenRouter API key not set. Log out and log in again with your API key." };
+    return { error: "OpenRouter API key not set. Click Settings and save your key." };
   }
   const prompt = buildTranslationPrompt(title, summary, content);
   try {
