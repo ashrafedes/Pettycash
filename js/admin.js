@@ -345,7 +345,8 @@ async function translateWithOpenRouter(title, summary, content) {
   }
   console.log("Using OpenRouter model:", OPENROUTER_MODEL, "key length:", apiKey.length);
   const prompt = buildTranslationPrompt(title, summary, content);
-  try {
+
+  async function tryTranslate() {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -365,17 +366,31 @@ async function translateWithOpenRouter(title, summary, content) {
     });
     const data = await response.json();
     if (!response.ok) {
-      return { error: data?.error?.message || `HTTP ${response.status}` };
+      const err = data?.error?.message || `HTTP ${response.status}`;
+      throw { status: response.status, message: err };
     }
-    const text = data?.choices?.[0]?.message?.content || "";
-    const parsed = parseTranslation(text);
-    if (!parsed.title && !parsed.summary && !parsed.content) {
-      return { error: "Could not parse translation." };
-    }
-    return parsed;
-  } catch (err) {
-    return { error: err.message };
+    return data;
   }
+
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const data = await tryTranslate();
+      const text = data?.choices?.[0]?.message?.content || "";
+      const parsed = parseTranslation(text);
+      if (!parsed.title && !parsed.summary && !parsed.content) {
+        return { error: "Could not parse translation." };
+      }
+      return parsed;
+    } catch (err) {
+      const isRateLimit = err.status === 429;
+      if (isRateLimit && attempt < 3) {
+        await new Promise(r => setTimeout(r, attempt * 3000));
+        continue;
+      }
+      return { error: isRateLimit ? "OpenRouter rate limit reached. Please wait a minute and try again." : err.message };
+    }
+  }
+  return { error: "Translation failed after retries." };
 }
 
 function buildTranslationPrompt(title, summary, content) {
