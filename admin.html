@@ -95,23 +95,30 @@
             </div>
 
             <div>
-              <h3 class='text-lg font-semibold text-slate-900 mb-3'>English</h3>
-              <div class='space-y-3'>
-                <input type='text' id='title-en' placeholder='English title' required class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'>
-                <textarea id='summary-en' placeholder='English summary' rows='2' required class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'></textarea>
-                <textarea id='content-en' placeholder='English content (HTML or plain text)' rows='6' class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm'></textarea>
-              </div>
-            </div>
-
-            <div>
               <div class='flex items-center justify-between mb-3'>
-                <h3 class='text-lg font-semibold text-slate-900'>Arabic</h3>
+                <div class='flex border-b border-slate-200'>
+                  <button type='button' data-tab='en' class='tab-btn px-4 py-2 text-sm font-medium text-blue-600 border-b-2 border-blue-600'>English</button>
+                  <button type='button' data-tab='ar' class='tab-btn px-4 py-2 text-sm font-medium text-slate-500 border-b-2 border-transparent hover:text-slate-700'>Arabic</button>
+                </div>
                 <button type='button' id='translate-ar-btn' class='px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors'>Translate from English</button>
               </div>
-              <div class='space-y-3'>
+
+              <div id='tab-en' class='tab-panel space-y-3'>
+                <input type='text' id='title-en' placeholder='English title' required class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'>
+                <textarea id='summary-en' placeholder='English excerpt' rows='2' required class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'></textarea>
+                <textarea id='content-en' placeholder='English content (Markdown)' rows='6' class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm'></textarea>
+                <input type='text' id='meta-title-en' placeholder='English meta title' class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'>
+                <textarea id='meta-description-en' placeholder='English meta description' rows='2' class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'></textarea>
+                <input type='text' id='keywords-en' placeholder='Keywords (comma-separated)' class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'>
+              </div>
+
+              <div id='tab-ar' class='tab-panel space-y-3 hidden'>
                 <input type='text' id='title-ar' placeholder='Arabic title' required class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'>
-                <textarea id='summary-ar' placeholder='Arabic summary' rows='2' required class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'></textarea>
-                <textarea id='content-ar' placeholder='Arabic content (HTML or plain text)' rows='6' class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm'></textarea>
+                <textarea id='summary-ar' placeholder='Arabic excerpt' rows='2' required class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'></textarea>
+                <textarea id='content-ar' placeholder='Arabic content (Markdown)' rows='6' class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm'></textarea>
+                <input type='text' id='meta-title-ar' placeholder='Arabic meta title' class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'>
+                <textarea id='meta-description-ar' placeholder='Arabic meta description' rows='2' class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'></textarea>
+                <input type='text' id='keywords-ar' placeholder='Keywords in Arabic (comma-separated)' class='w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'>
               </div>
               <p id='translate-status' class='mt-2 text-xs text-slate-500'></p>
             </div>
@@ -132,6 +139,6 @@
   <script src='./js/translations.js'></script>
   <script src='./js/firebase.js'></script>
   <script src='./js/main.js'></script>
-  <script src='./js/admin.js?v=5'></script>
+  <script src='./js/admin.js?v=6'></script>
 </body>
 </html>

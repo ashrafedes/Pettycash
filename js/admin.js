@@ -49,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const saveSettingsBtn = document.getElementById("save-settings-btn");
   const closeSettingsBtn = document.getElementById("close-settings-btn");
   const settingsStatus = document.getElementById("settings-status");
+  const tabBtns = document.querySelectorAll(".tab-btn");
+  const tabPanels = document.querySelectorAll(".tab-panel");
 
   if (!window.PettyCashFirebase) {
     if (loginError) {
@@ -71,6 +73,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   updateAuthView();
+
+  function switchTab(lang) {
+    tabBtns.forEach(btn => {
+      const active = btn.dataset.tab === lang;
+      btn.classList.toggle("text-blue-600", active);
+      btn.classList.toggle("border-blue-600", active);
+      btn.classList.toggle("border-b-2", active);
+      btn.classList.toggle("text-slate-500", !active);
+      btn.classList.toggle("border-transparent", !active);
+    });
+    tabPanels.forEach(panel => {
+      panel.classList.toggle("hidden", panel.id !== `tab-${lang}`);
+    });
+  }
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener("click", () => switchTab(btn.dataset.tab));
+  });
 
   loginForm.addEventListener("submit", async e => {
     e.preventDefault();
@@ -137,6 +157,10 @@ document.addEventListener("DOMContentLoaded", () => {
     formStatus.className = "text-sm text-blue-600";
     saveBtn.disabled = true;
 
+    function parseKeywords(input) {
+      return (input || "").split(",").map(s => s.trim()).filter(Boolean);
+    }
+
     const article = {
       id: document.getElementById("article-id").value || null,
       slug: document.getElementById("article-slug").value.trim(),
@@ -148,12 +172,18 @@ document.addEventListener("DOMContentLoaded", () => {
         en: {
           title: document.getElementById("title-en").value.trim(),
           summary: document.getElementById("summary-en").value.trim(),
-          content: document.getElementById("content-en").value.trim()
+          content: document.getElementById("content-en").value.trim(),
+          metaTitle: document.getElementById("meta-title-en")?.value.trim() || "",
+          metaDescription: document.getElementById("meta-description-en")?.value.trim() || "",
+          keywords: parseKeywords(document.getElementById("keywords-en")?.value)
         },
         ar: {
           title: document.getElementById("title-ar").value.trim(),
           summary: document.getElementById("summary-ar").value.trim(),
-          content: document.getElementById("content-ar").value.trim()
+          content: document.getElementById("content-ar").value.trim(),
+          metaTitle: document.getElementById("meta-title-ar")?.value.trim() || "",
+          metaDescription: document.getElementById("meta-description-ar")?.value.trim() || "",
+          keywords: parseKeywords(document.getElementById("keywords-ar")?.value)
         }
       }
     };
@@ -176,11 +206,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   translateBtn.addEventListener("click", async () => {
-    const title = document.getElementById("title-en").value.trim();
-    const summary = document.getElementById("summary-en").value.trim();
-    const content = document.getElementById("content-en").value.trim();
+    const source = {
+      title: document.getElementById("title-en").value.trim(),
+      summary: document.getElementById("summary-en").value.trim(),
+      content: document.getElementById("content-en").value.trim(),
+      metaTitle: document.getElementById("meta-title-en")?.value.trim() || "",
+      metaDescription: document.getElementById("meta-description-en")?.value.trim() || "",
+      keywords: document.getElementById("keywords-en")?.value.trim() || ""
+    };
 
-    if (!title && !summary && !content) {
+    if (!source.title && !source.summary && !source.content && !source.metaTitle && !source.metaDescription) {
       translateStatus.textContent = "Please enter English content first.";
       translateStatus.className = "mt-2 text-xs text-red-600";
       return;
@@ -190,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
     translateStatus.textContent = "Translating...";
     translateStatus.className = "mt-2 text-xs text-blue-600";
 
-    const result = await translateWithOpenRouter(title, summary, content);
+    const result = await translateArticle(source);
 
     translateBtn.disabled = false;
     if (result.error) {
@@ -199,9 +234,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    document.getElementById("title-ar").value = result.title || "";
-    document.getElementById("summary-ar").value = result.summary || "";
-    document.getElementById("content-ar").value = result.content || "";
+    document.getElementById("title-ar").value = result.title || source.title;
+    document.getElementById("summary-ar").value = result.summary || source.summary;
+    document.getElementById("content-ar").value = result.content || source.content;
+    if (document.getElementById("meta-title-ar")) {
+      document.getElementById("meta-title-ar").value = result.metaTitle || source.metaTitle;
+    }
+    if (document.getElementById("meta-description-ar")) {
+      document.getElementById("meta-description-ar").value = result.metaDescription || source.metaDescription;
+    }
+    if (document.getElementById("keywords-ar")) {
+      document.getElementById("keywords-ar").value = result.keywords || source.keywords;
+    }
+    switchTab("ar");
     translateStatus.textContent = "Translation completed.";
     translateStatus.className = "mt-2 text-xs text-green-600";
   });
@@ -217,6 +262,11 @@ document.addEventListener("DOMContentLoaded", () => {
       translateStatus.className = "mt-2 text-xs text-slate-500";
     }
     document.getElementById("article-date").value = new Date().toISOString().split("T")[0];
+    ["meta-title-en", "meta-description-en", "keywords-en", "meta-title-ar", "meta-description-ar", "keywords-ar"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = "";
+    });
+    switchTab("en");
   }
 
   async function fetchAdminArticles(retries = 2) {
@@ -329,6 +379,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("title-ar").value = ar.title || "";
     document.getElementById("summary-ar").value = ar.summary || "";
     document.getElementById("content-ar").value = ar.content || "";
+    const setIfExists = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.value = val || "";
+    };
+    setIfExists("meta-title-en", en.metaTitle);
+    setIfExists("meta-description-en", en.metaDescription);
+    setIfExists("keywords-en", Array.isArray(en.keywords) ? en.keywords.join(", ") : en.keywords);
+    setIfExists("meta-title-ar", ar.metaTitle);
+    setIfExists("meta-description-ar", ar.metaDescription);
+    setIfExists("keywords-ar", Array.isArray(ar.keywords) ? ar.keywords.join(", ") : ar.keywords);
+    switchTab("en");
   }
 
   function escapeHtml(str) {
@@ -338,13 +399,32 @@ document.addEventListener("DOMContentLoaded", () => {
   clearForm();
 });
 
-async function translateWithOpenRouter(title, summary, content) {
+async function translateArticle(source) {
+  const openRouterResult = await translateWithOpenRouter(source);
+  if (!openRouterResult.error) return openRouterResult;
+
+  console.warn("OpenRouter failed:", openRouterResult.error);
+  const myMemoryResult = await translateWithMyMemory(source);
+  if (!myMemoryResult.error) return myMemoryResult;
+
+  console.warn("MyMemory failed:", myMemoryResult.error);
+  return {
+    title: source.title,
+    summary: source.summary,
+    content: source.content,
+    metaTitle: source.metaTitle,
+    metaDescription: source.metaDescription,
+    keywords: source.keywords
+  };
+}
+
+async function translateWithOpenRouter(source) {
   const apiKey = getOpenRouterKey();
   if (!apiKey) {
     return { error: "OpenRouter API key not set. Click Settings and save your key." };
   }
   console.log("Using OpenRouter model:", OPENROUTER_MODEL, "key length:", apiKey.length);
-  const prompt = buildTranslationPrompt(title, summary, content);
+  const prompt = JSON.stringify(source);
 
   async function tryTranslate() {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -358,7 +438,7 @@ async function translateWithOpenRouter(title, summary, content) {
       body: JSON.stringify({
         model: OPENROUTER_MODEL,
         messages: [
-          { role: "system", content: "You are a professional translator. Translate English blog content to Modern Standard Arabic. Preserve meaning and tone." },
+          { role: "system", content: "You are a professional translator. Translate the provided English article into fluent, natural Arabic. Preserve Markdown formatting. Return ONLY a valid JSON object with these exact keys: title, summary, content, metaTitle, metaDescription, keywords (array). Do not wrap the JSON in markdown code blocks." },
           { role: "user", content: prompt }
         ],
         temperature: 0.3
@@ -376,10 +456,8 @@ async function translateWithOpenRouter(title, summary, content) {
     try {
       const data = await tryTranslate();
       const text = data?.choices?.[0]?.message?.content || "";
-      const parsed = parseTranslation(text);
-      if (!parsed.title && !parsed.summary && !parsed.content) {
-        return { error: "Could not parse translation." };
-      }
+      const parsed = parseTranslationJson(text);
+      if (parsed.error) return { error: parsed.error };
       return parsed;
     } catch (err) {
       const isRateLimit = err.status === 429;
@@ -393,40 +471,42 @@ async function translateWithOpenRouter(title, summary, content) {
   return { error: "Translation failed after retries." };
 }
 
-function buildTranslationPrompt(title, summary, content) {
-  return `Translate the following English blog article to Arabic.
-Return the result using exactly these markers and no other text outside them:
-
-===TITLE===
-[Arabic title]
-
-===SUMMARY===
-[Arabic summary]
-
-===CONTENT===
-[Arabic content]
-
-Original English:
-===TITLE===
-${title}
-
-===SUMMARY===
-${summary}
-
-===CONTENT===
-${content}`;
+async function translateWithMyMemory(source) {
+  try {
+    const fields = ["title", "summary", "content", "metaTitle", "metaDescription"];
+    const result = { ...source };
+    for (const field of fields) {
+      const text = source[field];
+      if (!text) continue;
+      const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|ar`);
+      const data = await response.json();
+      if (data.responseStatus === 200 && data.responseData?.translatedText) {
+        result[field] = data.responseData.translatedText;
+      }
+    }
+    return result;
+  } catch (err) {
+    return { error: err.message };
+  }
 }
 
-function parseTranslation(text) {
-  const result = { title: "", summary: "", content: "" };
-  const markers = {
-    title: /===TITLE===\s*\n?([\s\S]*?)(?=\n===[A-Z]+===|$)/i,
-    summary: /===SUMMARY===\s*\n?([\s\S]*?)(?=\n===[A-Z]+===|$)/i,
-    content: /===CONTENT===\s*\n?([\s\S]*?)(?=\n===[A-Z]+===|$)/i
-  };
-  for (const key of Object.keys(markers)) {
-    const match = text.match(markers[key]);
-    if (match) result[key] = match[1].trim();
+function parseTranslationJson(text) {
+  try {
+    const cleaned = text.replace(/^```json\s*/i, "").replace(/```\s*$/i, "").trim();
+    const parsed = JSON.parse(cleaned);
+    const result = {
+      title: parsed.title || "",
+      summary: parsed.summary || "",
+      content: parsed.content || "",
+      metaTitle: parsed.metaTitle || "",
+      metaDescription: parsed.metaDescription || "",
+      keywords: Array.isArray(parsed.keywords) ? parsed.keywords.join(", ") : (parsed.keywords || "")
+    };
+    if (!result.title && !result.summary && !result.content) {
+      return { error: "Could not parse translation JSON." };
+    }
+    return result;
+  } catch (err) {
+    return { error: "Invalid translation response: " + err.message };
   }
-  return result;
 }
