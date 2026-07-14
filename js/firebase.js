@@ -69,17 +69,40 @@ function withTimeout(promise, ms) {
   ]);
 }
 
+function mergeArticles(staticArticles, dbArticles) {
+  const map = new Map(staticArticles.map(a => [a.slug || a.id, a]));
+  for (const a of dbArticles) {
+    const key = a.slug || a.id;
+    if (key) {
+      const existing = map.get(key);
+      if (existing) {
+        const merged = { ...existing };
+        for (const [k, v] of Object.entries(a)) {
+          if (v !== undefined && v !== null && v !== "") merged[k] = v;
+        }
+        map.set(key, merged);
+      } else {
+        map.set(key, a);
+      }
+    }
+  }
+  return Array.from(map.values());
+}
+
 async function fetchLatestArticles(limitCount = 3) {
   const staticArticles = sortArticlesByDate(await getStaticArticles());
   const db = initFirebase();
   if (!db) return staticArticles.slice(0, limitCount);
   try {
     const snap = await withTimeout(
-      db.collection("blog_articles").orderBy("date", "desc").limit(limitCount).get(),
+      db.collection("blog_articles").orderBy("date", "desc").limit(200).get(),
       3000
     );
-    const articles = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    if (articles.length) return articles;
+    const dbArticles = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    if (dbArticles.length) {
+      const merged = sortArticlesByDate(mergeArticles(staticArticles, dbArticles));
+      return merged.slice(0, limitCount);
+    }
   } catch (err) {
     console.error("Blog fetch error:", err);
   }

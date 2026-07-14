@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fix Missing Images - Petty Cash</title>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="./js/firebase.js"></script>
+</head>
+<body class="bg-white text-slate-900 p-6">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Fix Missing Article Images</h1>
+    <p class="text-slate-600 mb-4">This tool checks all Firestore articles and adds an image to any article that does not have one.</p>
+    <button id="fix-btn" class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">Start Fix</button>
+    <div id="status" class="mt-4 text-sm"></div>
+  </div>
+
+  <script type="module">
+    import { articles as staticArticles } from './js/articles-data.js';
+
+    const DEFAULT_IMAGES = [
+      'https://images.pexels.com/photos/53621/pexels-photo-53621.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/259200/pexels-photo-259200.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/259249/pexels-photo-259249.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/290158/pexels-photo-290158.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/669454/pexels-photo-669454.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/756743/pexels-photo-756743.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/768833/pexels-photo-768833.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/776615/pexels-photo-776615.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
+      'https://images.unsplash.com/photo-1664575602276-acd073f104c1?w=800&q=80',
+      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
+      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80'
+    ];
+
+    const status = document.getElementById('status');
+    const btn = document.getElementById('fix-btn');
+
+    function log(message, type = 'info') {
+      const color = type === 'error' ? 'text-red-600' : type === 'success' ? 'text-green-600' : type === 'warn' ? 'text-amber-600' : 'text-slate-600';
+      const p = document.createElement('p');
+      p.className = color;
+      p.textContent = message;
+      status.appendChild(p);
+    }
+
+    function getImageForArticle(index, slug) {
+      // Prefer the static article image if a matching slug exists
+      const staticMatch = staticArticles.find(a => a.slug === slug);
+      if (staticMatch && staticMatch.image) return staticMatch.image;
+
+      // Use a deterministic but varied image based on slug characters
+      let hash = 0;
+      for (let i = 0; i < slug.length; i++) {
+        hash = ((hash << 5) - hash) + slug.charCodeAt(i);
+        hash |= 0;
+      }
+      const imageIndex = Math.abs(hash) % DEFAULT_IMAGES.length;
+      return DEFAULT_IMAGES[imageIndex];
+    }
+
+    btn.addEventListener('click', async () => {
+      status.innerHTML = '';
+      btn.disabled = true;
+      btn.textContent = 'Checking...';
+
+      if (!window.PettyCashFirebase) {
+        log('Firebase not loaded. Check your connection.', 'error');
+        btn.disabled = false;
+        btn.textContent = 'Start Fix';
+        return;
+      }
+
+      let checked = 0;
+      let fixed = 0;
+      let skipped = 0;
+      let failed = 0;
+
+      try {
+        if (typeof firebase === 'undefined' || !firebase.firestore) {
+          log('Firestore SDK not loaded.', 'error');
+          btn.disabled = false;
+          btn.textContent = 'Start Fix';
+          return;
+        }
+
+        const db = firebase.firestore();
+        const snap = await db.collection('blog_articles').get();
+        const docs = snap.docs;
+        log(`Found ${docs.length} articles in database.`);
+
+        for (let i = 0; i < docs.length; i++) {
+          const doc = docs[i];
+          const data = doc.data();
+          const id = doc.id;
+          const slug = data.slug || '';
+          const image = data.image || '';
+          checked++;
+
+          if (image && image.trim() !== '' && image !== 'undefined' && image !== 'null') {
+            skipped++;
+            continue;
+          }
+
+          const newImage = getImageForArticle(i, slug || id);
+          const article = { ...data, id, image: newImage };
+          const result = await window.PettyCashFirebase.saveArticle(article);
+          if (result.error) {
+            log(`Failed: ${slug || id} - ${result.error}`, 'error');
+            failed++;
+          } else {
+            log(`Fixed: ${slug || id} -> ${newImage}`, 'success');
+            fixed++;
+          }
+        }
+
+        log(`Done. Checked: ${checked}, Fixed: ${fixed}, Already had images: ${skipped}, Failed: ${failed}.`, failed > 0 ? 'warn' : 'success');
+      } catch (err) {
+        log(`Error: ${err.message}`, 'error');
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Start Fix';
+    });
+  </script>
+</body>
+</html>
