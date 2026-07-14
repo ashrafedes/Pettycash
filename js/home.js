@@ -162,26 +162,82 @@ async function renderVisitorCounter() {
   `;
 }
 
+const HOME_BLOG_CACHE_KEY = "pettycash_blog_articles";
+const HOME_BLOG_CACHE_TIME_KEY = "pettycash_blog_articles_time";
+const HOME_CACHE_TTL_MS = 1000 * 60 * 60 * 24; // 24 hours
+
+function getHomeCachedArticles() {
+  try {
+    const cached = localStorage.getItem(HOME_BLOG_CACHE_KEY);
+    const cachedTime = localStorage.getItem(HOME_BLOG_CACHE_TIME_KEY);
+    if (!cached || !cachedTime) return null;
+    const age = Date.now() - parseInt(cachedTime, 10);
+    if (age > HOME_CACHE_TTL_MS) return null;
+    return JSON.parse(cached);
+  } catch (e) { return null; }
+}
+
+function setHomeCachedArticles(articles) {
+  try {
+    localStorage.setItem(HOME_BLOG_CACHE_KEY, JSON.stringify(articles));
+    localStorage.setItem(HOME_BLOG_CACHE_TIME_KEY, String(Date.now()));
+  } catch (e) {}
+}
+
+async function fetchHomeArticlesWithRetry(limitCount, retries = 2) {
+  let lastError = null;
+  for (let i = 0; i <= retries; i++) {
+    try {
+      const articles = await window.PettyCashFirebase.fetchLatestArticles(limitCount);
+      return { success: true, articles };
+    } catch (err) {
+      lastError = err;
+      if (i < retries) await new Promise(r => setTimeout(r, 1000 * (i + 1)));
+    }
+  }
+  return { success: false, error: lastError };
+}
+
 async function renderLatestArticles() {
   const section = document.getElementById("latest-articles");
   const grid = document.getElementById("articles-grid");
   if (!section || !grid || !window.PettyCashFirebase) return;
   section.classList.remove("hidden");
   const data = t("articles");
-  grid.innerHTML = `<p class="text-slate-500 col-span-full text-center">${data.loading}</p>`;
-  const articles = await window.PettyCashFirebase.fetchLatestArticles(3);
-  if (!articles.length) {
-    grid.innerHTML = `<p class="text-slate-500 col-span-full text-center">${data.notFound}</p>`;
+  const lang = getLang();
+
+  const cached = getHomeCachedArticles();
+  if (cached && cached.length) {
+    renderHomeArticles(cached.slice(0, 3), lang, data);
+  } else {
+    grid.innerHTML = `<p class="text-slate-500 col-span-full text-center">${data.loading}</p>`;
+  }
+
+  const result = await fetchHomeArticlesWithRetry(3);
+  if (result.success && result.articles.length) {
+    setHomeCachedArticles(result.articles);
+    renderHomeArticles(result.articles.slice(0, 3), lang, data);
     return;
   }
-  const lang = getLang();
+
+  if (cached && cached.length) {
+    renderHomeArticles(cached.slice(0, 3), lang, data);
+    return;
+  }
+
+  grid.innerHTML = `<p class="text-slate-500 col-span-full text-center">${data.notFound}</p>`;
+}
+
+function renderHomeArticles(articles, lang, data) {
+  const grid = document.getElementById("articles-grid");
+  if (!grid) return;
   grid.innerHTML = articles.map(a => {
     const tr = a.translations?.[lang] || a.translations?.en || {};
     const imageUrl = a.image || a.imageUrl || "";
     const targetUrl = a.url || `./article.html?slug=${encodeURIComponent(a.slug || a.id)}`;
     return `
     <a href="${targetUrl}" class="group block bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-      ${imageUrl ? `<div class="h-40 overflow-hidden"><img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(tr.title || '')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>` : ""}
+      ${imageUrl ? `<div class="h-40 overflow-hidden"><img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(tr.title || '')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"></div>` : ""}
       <div class="p-5">
         <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">${escapeHtml(tr.title || '')}</h3>
         <p class="text-sm text-slate-500 line-clamp-2 mb-4">${escapeHtml(tr.summary || '')}</p>
