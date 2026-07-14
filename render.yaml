@@ -1,0 +1,7 @@
+services:
+  - type: static
+    name: pettycash-static
+    env: static
+    buildCommand: ""
+    staticPublishPath: ./
+    branch: main
