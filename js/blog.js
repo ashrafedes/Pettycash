@@ -97,23 +97,40 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (cachedVisible.length) {
     renderArticles(cachedVisible, lang, data);
+    showLoadingNote(lang, data);
   } else {
-    grid.innerHTML = `<p class="text-slate-500 col-span-full text-center">${data.loading}</p>`;
+    grid.innerHTML = renderSkeletonArticles(6);
   }
 
-  const result = await fetchArticlesWithRetry(50);
-  const allArticles = result.success ? result.articles : cached || [];
+  // First, fetch a small batch quickly so the page becomes usable fast.
+  const quick = await fetchArticlesWithRetry(12);
+  if (quick.success && quick.articles.length) {
+    const quickVisible = quick.articles.filter(a => a.published !== false);
+    if (quickVisible.length) {
+      renderArticles(quickVisible, lang, data);
+      showLoadingNote(lang, data);
+    }
+  }
+
+  // Then fetch full list in the background and update cache.
+  const full = await fetchArticlesWithRetry(50);
+  const allArticles = full.success ? full.articles : cached || [];
   const visibleArticles = allArticles.filter(a => a.published !== false);
 
-  if (result.success && visibleArticles.length) {
-    setCachedArticles(result.articles);
+  if (full.success && visibleArticles.length) {
+    setCachedArticles(full.articles);
     renderArticles(visibleArticles, lang, data);
     return;
   }
 
   if (cachedVisible.length) {
     renderArticles(cachedVisible, lang, data);
-    grid.insertAdjacentHTML("afterbegin", `<p class="col-span-full text-center text-xs text-slate-400 mb-4">${lang === "ar" ? "تعرض المقالات المخزنة." : "Showing cached articles."}</p>`);
+    showLoadingNote(lang, data, true);
+    return;
+  }
+
+  if (quick.success && !visibleArticles.length && !cachedVisible.length) {
+    grid.innerHTML = `<p class="text-slate-500 col-span-full text-center">${data.notFound}</p>`;
     return;
   }
 
@@ -125,3 +142,33 @@ document.addEventListener("DOMContentLoaded", async () => {
   `;
   document.getElementById("retry-blog")?.addEventListener("click", () => window.location.reload());
 });
+
+function renderSkeletonArticles(count) {
+  const cards = Array.from({ length: count }, () => `
+    <div class="block bg-white border border-slate-200 rounded-2xl overflow-hidden animate-pulse">
+      <div class="h-48 bg-slate-200"></div>
+      <div class="p-6 space-y-3">
+        <div class="h-5 bg-slate-200 rounded w-3/4"></div>
+        <div class="h-4 bg-slate-200 rounded w-full"></div>
+        <div class="h-4 bg-slate-200 rounded w-5/6"></div>
+        <div class="flex justify-between pt-2">
+          <div class="h-3 bg-slate-200 rounded w-20"></div>
+          <div class="h-3 bg-slate-200 rounded w-16"></div>
+        </div>
+      </div>
+    </div>
+  `).join("");
+  return `<div class="contents">${cards}</div>`;
+}
+
+function showLoadingNote(lang, data, offline = false) {
+  const grid = document.getElementById("blog-grid");
+  if (!grid) return;
+  const note = offline
+    ? (lang === "ar" ? "تعرض المقالات المخزنة." : "Showing cached articles.")
+    : (lang === "ar" ? "جاري تحديث المقالات..." : "Checking for more articles...");
+  grid.insertAdjacentHTML("afterbegin", `<p class="col-span-full text-center text-xs text-slate-400 mb-4 loading-note">${note}</p>`);
+  setTimeout(() => {
+    grid.querySelectorAll(".loading-note").forEach(el => el.remove());
+  }, 3000);
+}
