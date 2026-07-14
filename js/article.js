@@ -94,9 +94,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (cached) renderArticle(cached, lang);
 
   const result = await fetchArticleWithRetry(slug);
-  if (result.success && result.article) {
+  if (result.success && result.article && result.article.published !== false) {
     renderArticle(result.article, lang);
-  } else if (!cached) {
+  } else if (!cached || cached.published === false) {
     notFoundEl.classList.remove("hidden");
   }
 });

@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const uploadStatus = document.getElementById("upload-status");
   const imageFileInput = document.getElementById("article-image-file");
   const imageUrlInput = document.getElementById("article-image-url");
+  const publishedInput = document.getElementById("article-published");
   const clearBtn = document.getElementById("clear-btn");
   const saveBtn = document.getElementById("save-btn");
   const translateBtn = document.getElementById("translate-ar-btn");
@@ -108,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: new Date(document.getElementById("article-date").value).toISOString(),
       readTime: document.getElementById("article-readtime").value.trim(),
       image: imageUrlInput.value.trim(),
+      published: publishedInput ? publishedInput.checked : true,
       translations: {
         en: {
           title: document.getElementById("title-en").value.trim(),
@@ -194,19 +196,40 @@ document.addEventListener("DOMContentLoaded", () => {
     articlesList.innerHTML = articles.map(a => {
       const en = a.translations?.en || {};
       const ar = a.translations?.ar || {};
+      const isPublished = a.published !== false;
+      const statusText = isPublished ? "Published" : "Draft";
+      const statusClass = isPublished ? "text-green-600 bg-green-50" : "text-amber-600 bg-amber-50";
       return `
-        <div class="flex items-center justify-between bg-white border border-slate-200 rounded-xl p-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-white border border-slate-200 rounded-xl p-4 gap-3">
           <div>
             <p class="font-semibold text-slate-900">${escapeHtml(en.title || ar.title || a.slug)}</p>
-            <p class="text-sm text-slate-500">Slug: ${escapeHtml(a.slug || "")} · ${window.PettyCashFirebase.formatDate(a.date, "en")}</p>
+            <p class="text-sm text-slate-500">Slug: ${escapeHtml(a.slug || "")} · ${window.PettyCashFirebase.formatDate(a.date, "en")} · <span class="inline-block px-2 py-0.5 rounded text-xs font-medium ${statusClass}">${statusText}</span></p>
           </div>
           <div class="flex items-center gap-2">
+            <button data-id="${escapeHtml(a.id)}" data-published="${isPublished ? "1" : "0"}" class="toggle-btn px-3 py-1.5 text-sm font-medium border rounded-lg hover:bg-slate-50 transition-colors ${isPublished ? "text-amber-600 border-amber-200" : "text-green-600 border-green-200"}">${isPublished ? "Unpublish" : "Publish"}</button>
             <button data-id="${escapeHtml(a.id)}" class="edit-btn px-3 py-1.5 text-sm text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">Edit</button>
             <button data-id="${escapeHtml(a.id)}" class="delete-btn px-3 py-1.5 text-sm text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">Delete</button>
           </div>
         </div>
       `;
     }).join("");
+
+    articlesList.querySelectorAll(".toggle-btn").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.id;
+        const makePublished = btn.dataset.published !== "1";
+        const article = await window.PettyCashFirebase.fetchArticleById(id);
+        if (!article) return;
+        article.published = makePublished;
+        article.id = id;
+        const result = await window.PettyCashFirebase.saveArticle(article);
+        if (result.error) {
+          alert("Update failed: " + result.error);
+        } else {
+          loadArticles();
+        }
+      });
+    });
 
     articlesList.querySelectorAll(".edit-btn").forEach(btn => {
       btn.addEventListener("click", async () => {
@@ -233,6 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("article-slug").value = article.slug || "";
     document.getElementById("article-date").value = article.date ? new Date(article.date).toISOString().split("T")[0] : "";
     document.getElementById("article-readtime").value = article.readTime || "";
+    if (publishedInput) publishedInput.checked = article.published !== false;
     imageUrlInput.value = article.image || "";
     uploadStatus.textContent = article.image ? "Image already uploaded." : "";
     const en = article.translations?.en || {};

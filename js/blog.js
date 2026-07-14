@@ -93,23 +93,26 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const lang = getLang();
   const cached = getCachedArticles();
+  const cachedVisible = (cached || []).filter(a => a.published !== false);
 
-  if (cached && cached.length) {
-    renderArticles(cached, lang, data);
+  if (cachedVisible.length) {
+    renderArticles(cachedVisible, lang, data);
   } else {
     grid.innerHTML = `<p class="text-slate-500 col-span-full text-center">${data.loading}</p>`;
   }
 
   const result = await fetchArticlesWithRetry(50);
+  const allArticles = result.success ? result.articles : cached || [];
+  const visibleArticles = allArticles.filter(a => a.published !== false);
 
-  if (result.success && result.articles.length) {
+  if (result.success && visibleArticles.length) {
     setCachedArticles(result.articles);
-    renderArticles(result.articles, lang, data);
+    renderArticles(visibleArticles, lang, data);
     return;
   }
 
-  if (cached && cached.length) {
-    renderArticles(cached, lang, data);
+  if (cachedVisible.length) {
+    renderArticles(cachedVisible, lang, data);
     grid.insertAdjacentHTML("afterbegin", `<p class="col-span-full text-center text-xs text-slate-400 mb-4">${lang === "ar" ? "تعرض المقالات المخزنة." : "Showing cached articles."}</p>`);
     return;
   }

@@ -127,6 +127,7 @@ async function saveArticle(article) {
       slug: article.slug,
       image: article.image || "",
       readTime: article.readTime || "",
+      published: article.published !== false,
       date: article.date || new Date().toISOString(),
       translations: article.translations || {},
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),

@@ -207,21 +207,24 @@ async function renderLatestArticles() {
   const lang = getLang();
 
   const cached = getHomeCachedArticles();
-  if (cached && cached.length) {
-    renderHomeArticles(cached.slice(0, 3), lang, data);
+  const cachedVisible = (cached || []).filter(a => a.published !== false).slice(0, 3);
+  if (cachedVisible.length) {
+    renderHomeArticles(cachedVisible, lang, data);
   } else {
     grid.innerHTML = `<p class="text-slate-500 col-span-full text-center">${data.loading}</p>`;
   }
 
   const result = await fetchHomeArticlesWithRetry(3);
-  if (result.success && result.articles.length) {
+  const allArticles = result.success ? result.articles : cached || [];
+  const visibleArticles = allArticles.filter(a => a.published !== false).slice(0, 3);
+  if (result.success && visibleArticles.length) {
     setHomeCachedArticles(result.articles);
-    renderHomeArticles(result.articles.slice(0, 3), lang, data);
+    renderHomeArticles(visibleArticles, lang, data);
     return;
   }
 
-  if (cached && cached.length) {
-    renderHomeArticles(cached.slice(0, 3), lang, data);
+  if (cachedVisible.length) {
+    renderHomeArticles(cachedVisible, lang, data);
     return;
   }
 
