@@ -2,7 +2,7 @@
 const ADMIN_PASSWORD = "PettyCash@Admin2026";
 const ADMIN_AUTH_KEY = "pettycash-admin-auth";
 const OPENROUTER_API_KEY_KEY = "pettycash-openrouter-key";
-const OPENROUTER_MODEL = "google/gemini-2.0-flash-exp:free";
+const OPENROUTER_MODEL = "meta-llama/llama-3.3-70b-instruct:free";
 const OPENROUTER_API_KEY_PARTS = [
   "sk-or-v1-996f54942eed60552",
   "bbab9c5b43d9f73e9bc623f3",
@@ -12,7 +12,8 @@ const OPENROUTER_API_KEY = OPENROUTER_API_KEY_PARTS.join("");
 
 function getOpenRouterKey() {
   try {
-    return localStorage.getItem(OPENROUTER_API_KEY_KEY) || OPENROUTER_API_KEY;
+    const stored = localStorage.getItem(OPENROUTER_API_KEY_KEY);
+    return (stored && stored.trim()) || OPENROUTER_API_KEY;
   } catch (e) { return OPENROUTER_API_KEY; }
 }
 
@@ -340,6 +341,7 @@ async function translateWithOpenRouter(title, summary, content) {
   if (!apiKey) {
     return { error: "OpenRouter API key not set. Click Settings and save your key." };
   }
+  console.log("Using OpenRouter model:", OPENROUTER_MODEL, "key length:", apiKey.length);
   const prompt = buildTranslationPrompt(title, summary, content);
   try {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
