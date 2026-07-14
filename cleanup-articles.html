@@ -156,11 +156,16 @@
           const keep = sorted[0];
           const toDelete = sorted.slice(1);
 
-          // Fix image on kept article
-          let needsImageUpdate = isImageInvalid(keep.image);
+          // Fix image on kept article: prefer static image, otherwise default if missing
+          const staticImage = getStaticImage(slug);
+          let needsImageUpdate = false;
           let newImage = '';
-          if (needsImageUpdate) {
-            newImage = getStaticImage(slug) || getDefaultImage(slug);
+          if (staticImage && staticImage !== keep.image) {
+            needsImageUpdate = true;
+            newImage = staticImage;
+          } else if (isImageInvalid(keep.image)) {
+            needsImageUpdate = true;
+            newImage = getDefaultImage(slug);
           }
 
           // Delete duplicates
