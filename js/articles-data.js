@@ -1,3773 +1,1156 @@
-export const articles = [
+// Auto-generated from PettyCash_Marketing/src/data/articles.js
+export const articles = 
+[
   {
-    slug: 'what-is-petty-cash',
-    id: 'what-is-petty-cash',
-    date: '2026-04-10',
-    readTime: 3,
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
-    translations: {
-      en: {
-        title: 'What is Petty Cash? A Simple Guide for Businesses',
-        summary: 'Petty cash is a small amount of money kept on hand for minor business expenses. Learn how it works and why every business needs it.',
-        content: `
-## What is Petty Cash?
-
-Petty cash is a small amount of money that a business keeps on hand to pay for small, day-to-day expenses. These are expenses that are too small to justify writing a check or using a company credit card.
-
-## Common Petty Cash Expenses
-
-- Office supplies (pens, paper, staples)
-- Coffee and refreshments for meetings
-- Postage stamps and mailing costs
-- Small repairs and maintenance
-- Taxi fares and parking fees
-- Employee lunch reimbursements
-
-## How Petty Cash Works
-
-A company sets aside a fixed amount — usually between SAR 200 and SAR 2,000 — in a dedicated fund. An employee (the "petty cash custodian") is responsible for managing it.
-
-When someone needs to spend from petty cash, they take the money and provide a receipt. The custodian records the expense and keeps the receipt as proof.
-
-When the fund runs low, the manager reviews all receipts and replenishes the fund.
-
-## Why Petty Cash Matters
-
-Without a petty cash system, small expenses either get ignored (creating financial gaps) or require a lengthy approval process for tiny amounts. Petty cash solves this by giving employees quick access to funds while keeping everything organized and accountable.
-
-## The Problem with Paper-Based Petty Cash
-
-Traditional petty cash management relies on:
-- Physical cash in a box or drawer
-- Handwritten log books
-- Paper receipts that get lost
-- Manual calculations prone to error
-
-This creates problems: lost receipts, theft risk, time-consuming reconciliation, and lack of visibility for managers.
-
-## The Modern Solution
-
-A digital petty cash system like **Petty Cash** solves all these problems. Employees submit expenses from their phone, attach a photo of the receipt, and managers approve with one tap. Every transaction is recorded automatically, and balances update in real time.
-        `
+    "slug": "what-is-petty-cash",
+    "date": "2026-04-10",
+    "readTime": 3,
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "What is Petty Cash? A Simple Guide for Businesses",
+        "summary": "Petty cash is a small amount of money kept on hand for minor business expenses. Learn how it works and why every business needs it.",
+        "content": "\n## What is Petty Cash?\n\nPetty cash is a small amount of money that a business keeps on hand to pay for small, day-to-day expenses. These are expenses that are too small to justify writing a check or using a company credit card.\n\n## Common Petty Cash Expenses\n\n- Office supplies (pens, paper, staples)\n- Coffee and refreshments for meetings\n- Postage stamps and mailing costs\n- Small repairs and maintenance\n- Taxi fares and parking fees\n- Employee lunch reimbursements\n\n## How Petty Cash Works\n\nA company sets aside a fixed amount — usually between SAR 200 and SAR 2,000 — in a dedicated fund. An employee (the \"petty cash custodian\") is responsible for managing it.\n\nWhen someone needs to spend from petty cash, they take the money and provide a receipt. The custodian records the expense and keeps the receipt as proof.\n\nWhen the fund runs low, the manager reviews all receipts and replenishes the fund.\n\n## Why Petty Cash Matters\n\nWithout a petty cash system, small expenses either get ignored (creating financial gaps) or require a lengthy approval process for tiny amounts. Petty cash solves this by giving employees quick access to funds while keeping everything organized and accountable.\n\n## The Problem with Paper-Based Petty Cash\n\nTraditional petty cash management relies on:\n- Physical cash in a box or drawer\n- Handwritten log books\n- Paper receipts that get lost\n- Manual calculations prone to error\n\nThis creates problems: lost receipts, theft risk, time-consuming reconciliation, and lack of visibility for managers.\n\n## The Modern Solution\n\nA digital petty cash system like **Petty Cash** solves all these problems. Employees submit expenses from their phone, attach a photo of the receipt, and managers approve with one tap. Every transaction is recorded automatically, and balances update in real time.\n        "
       },
-      ar: {
-        title: 'ما هو صندوق العهدة؟ دليل بسيط للشركات',
-        summary: 'صندوق العهدة هو مبلغ صغير من المال يُحتفظ به لتغطية المصروفات الصغيرة في العمل. تعرف على كيفية عمله ولماذا تحتاجه كل شركة.',
-        content: `
-## ما هو صندوق العهدة؟
-
-صندوق العهدة هو مبلغ صغير من المال تحتفظ به الشركة لدفع النفقات الصغيرة اليومية. هذه نفقات صغيرة جداً لا تستحق استخدام شيك أو بطاقة ائتمان.
-
-## المصروفات الشائعة من صندوق العهدة
-
-- أدوات مكتبية (أقلام، ورق، دباسات)
-- القهوة والمرطبات للاجتماعات
-- طوابع بريدية وتكاليف الشحن
-- إصلاحات صغيرة وصيانة
-- أجرة السيارة والمواقف
-- استرداد أموال غداء الموظفين
-
-## كيف يعمل صندوق العهدة
-
-تخصص الشركة مبلغاً ثابتاً — عادةً بين 200 و2000 ريال — في صندوق مخصص. يكون موظف معين ("أمين الصندوق") مسؤولاً عن إدارته.
-
-عندما يحتاج شخص ما للإنفاق من الصندوق، يأخذ المال ويقدم إيصالاً. يسجل الأمين المصروف ويحتفظ بالإيصال كدليل.
-
-عندما ينخفض الرصيد، يراجع المدير جميع الإيصالات ويجدد الصندوق.
-
-## لماذا يهم صندوق العهدة
-
-بدون نظام صندوق عهدة، إما أن تُهمل النفقات الصغيرة (مما يخلق ثغرات مالية) أو تتطلب عملية موافقة طويلة لمبالغ صغيرة.
-
-## مشكلة الإدارة الورقية
-
-الإدارة التقليدية تعتمد على نقد في علبة، وسجلات مكتوبة بخط اليد، وإيصالات ورقية تضيع، وحسابات يدوية عرضة للخطأ.
-
-## الحل الحديث
-
-نظام رقمي مثل **صندوق العهدة** يحل كل هذه المشاكل. يقدم الموظفون المصروفات من هواتفهم، ويوافق المدير بنقرة واحدة.
-        `
-      },
-      hi: {
-        title: 'Petty Cash क्या है? व्यवसायों के लिए एक सरल मार्गदर्शिका',
-        summary: 'Petty Cash एक छोटी राशि होती है जो व्यवसाय छोटे खर्चों के लिए रखता है। जानें यह कैसे काम करता है और हर व्यवसाय को इसकी जरूरत क्यों है।',
-        content: `
-## Petty Cash क्या है?
-
-Petty Cash एक छोटी राशि है जो कोई व्यवसाय छोटे, दैनिक खर्चों के लिए हाथ में रखता है। ये खर्च इतने छोटे होते हैं कि चेक या कंपनी क्रेडिट कार्ड इस्तेमाल करना उचित नहीं होता।
-
-## सामान्य Petty Cash खर्च
-
-- ऑफिस सप्लाई (पेन, कागज, स्टेपलर)
-- मीटिंग के लिए कॉफी और जलपान
-- डाक टिकट और मेलिंग खर्च
-- छोटी मरम्मत और रखरखाव
-- टैक्सी किराया और पार्किंग शुल्क
-
-## Petty Cash कैसे काम करता है
-
-कंपनी एक निश्चित राशि — आमतौर पर ₹5,000 से ₹50,000 — एक समर्पित फंड में अलग रखती है। एक कर्मचारी इसे मैनेज करने का जिम्मेदार होता है।
-
-जब कोई petty cash से खर्च करता है, तो वह पैसे लेता है और रसीद देता है। रसीद सबूत के रूप में रखी जाती है।
-
-## आधुनिक समाधान
-
-**Petty Cash** जैसी डिजिटल प्रणाली सभी समस्याओं को हल करती है। कर्मचारी फोन से खर्च जमा करते हैं, रसीद की फोटो लगाते हैं, और मैनेजर एक टैप में अप्रूव करता है।
-        `
-      },
-      ur: {
-        title: 'Petty Cash کیا ہے؟ کاروباروں کے لیے ایک سادہ رہنما',
-        summary: 'Petty Cash ایک چھوٹی رقم ہوتی ہے جو کاروبار چھوٹے اخراجات کے لیے رکھتا ہے۔ جانیں یہ کیسے کام کرتی ہے اور ہر کاروبار کو اس کی ضرورت کیوں ہے۔',
-        content: `
-## Petty Cash کیا ہے؟
-
-Petty Cash ایک چھوٹی رقم ہے جو کوئی کاروبار چھوٹے، روزمرہ کے اخراجات کے لیے ہاتھ میں رکھتا ہے۔ یہ اخراجات اتنے چھوٹے ہوتے ہیں کہ چیک یا کمپنی کریڈٹ کارڈ استعمال کرنا مناسب نہیں ہوتا۔
-
-## عام Petty Cash اخراجات
-
-- دفتری سامان (پین، کاغذ، اسٹیپلر)
-- میٹنگ کے لیے کافی اور ریفریشمنٹ
-- ڈاک ٹکٹ اور میلنگ اخراجات
-- چھوٹی مرمت اور دیکھ بھال
-- ٹیکسی کرایہ اور پارکنگ
-
-## Petty Cash کیسے کام کرتی ہے
-
-کمپنی ایک مقررہ رقم — عام طور پر 500 سے 5,000 روپے — ایک مخصوص فنڈ میں الگ رکھتی ہے۔ ایک ملازم اسے منظم کرنے کا ذمہ دار ہوتا ہے۔
-
-## جدید حل
-
-**Petty Cash** جیسا ڈیجیٹل سسٹم تمام مسائل حل کرتا ہے۔ ملازمین فون سے اخراجات جمع کرتے ہیں اور مینیجر ایک ٹیپ میں منظور کرتا ہے۔
-        `
+      "ar": {
+        "title": "ما هو صندوق العهدة؟ دليل بسيط للشركات",
+        "summary": "صندوق العهدة هو مبلغ صغير من المال يُحتفظ به لتغطية المصروفات الصغيرة في العمل. تعرف على كيفية عمله ولماذا تحتاجه كل شركة.",
+        "content": "\n## ما هو صندوق العهدة؟\n\nصندوق العهدة هو مبلغ صغير من المال تحتفظ به الشركة لدفع النفقات الصغيرة اليومية. هذه نفقات صغيرة جداً لا تستحق استخدام شيك أو بطاقة ائتمان.\n\n## المصروفات الشائعة من صندوق العهدة\n\n- أدوات مكتبية (أقلام، ورق، دباسات)\n- القهوة والمرطبات للاجتماعات\n- طوابع بريدية وتكاليف الشحن\n- إصلاحات صغيرة وصيانة\n- أجرة السيارة والمواقف\n- استرداد أموال غداء الموظفين\n\n## كيف يعمل صندوق العهدة\n\nتخصص الشركة مبلغاً ثابتاً — عادةً بين 200 و2000 ريال — في صندوق مخصص. يكون موظف معين (\"أمين الصندوق\") مسؤولاً عن إدارته.\n\nعندما يحتاج شخص ما للإنفاق من الصندوق، يأخذ المال ويقدم إيصالاً. يسجل الأمين المصروف ويحتفظ بالإيصال كدليل.\n\nعندما ينخفض الرصيد، يراجع المدير جميع الإيصالات ويجدد الصندوق.\n\n## لماذا يهم صندوق العهدة\n\nبدون نظام صندوق عهدة، إما أن تُهمل النفقات الصغيرة (مما يخلق ثغرات مالية) أو تتطلب عملية موافقة طويلة لمبالغ صغيرة.\n\n## مشكلة الإدارة الورقية\n\nالإدارة التقليدية تعتمد على نقد في علبة، وسجلات مكتوبة بخط اليد، وإيصالات ورقية تضيع، وحسابات يدوية عرضة للخطأ.\n\n## الحل الحديث\n\nنظام رقمي مثل **صندوق العهدة** يحل كل هذه المشاكل. يقدم الموظفون المصروفات من هواتفهم، ويوافق المدير بنقرة واحدة.\n        "
       }
     }
   },
   {
-    slug: 'how-to-manage-petty-cash',
-    id: 'how-to-manage-petty-cash',
-    date: '2026-04-08',
-    readTime: 4,
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
-    translations: {
-      en: {
-        title: '5 Best Practices for Managing Petty Cash',
-        summary: 'Follow these 5 simple rules to keep your petty cash organized, secure, and easy to audit.',
-        content: `
-## 5 Best Practices for Managing Petty Cash
-
-Managing petty cash doesn't have to be complicated. Here are 5 simple rules that every business should follow.
-
-## 1. Set a Fixed Amount
-
-Decide on a fixed petty cash amount and stick to it. When the fund drops below 20%, replenish it. This makes budgeting predictable.
-
-## 2. Always Collect Receipts
-
-Every single expense must have a receipt. No receipt = no reimbursement. This is the most important rule. A photo of the receipt taken on a phone is perfectly acceptable in a digital system.
-
-## 3. Designate One Custodian
-
-Only one person should be responsible for the petty cash fund. This person records all transactions, collects receipts, and requests replenishments. Clear accountability prevents confusion and theft.
-
-## 4. Reconcile Regularly
-
-At the end of every week or month, count the remaining cash and compare it with your records. The total of receipts + remaining cash should always equal the original fund amount. Any discrepancy needs to be investigated.
-
-## 5. Use a Digital System
-
-Paper logs get lost. Spreadsheets have errors. A digital petty cash system like **Petty Cash** automatically tracks every transaction, stores receipt photos, and gives managers real-time visibility. No reconciliation headaches.
-
-## Summary
-
-Good petty cash management is about: clear rules, consistent receipts, one responsible person, regular checks, and the right tools. With a digital system, all of this happens automatically.
-        `
+    "slug": "how-to-manage-petty-cash",
+    "date": "2026-04-08",
+    "readTime": 4,
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "5 Best Practices for Managing Petty Cash",
+        "summary": "Follow these 5 simple rules to keep your petty cash organized, secure, and easy to audit.",
+        "content": "\n## 5 Best Practices for Managing Petty Cash\n\nManaging petty cash doesn't have to be complicated. Here are 5 simple rules that every business should follow.\n\n## 1. Set a Fixed Amount\n\nDecide on a fixed petty cash amount and stick to it. When the fund drops below 20%, replenish it. This makes budgeting predictable.\n\n## 2. Always Collect Receipts\n\nEvery single expense must have a receipt. No receipt = no reimbursement. This is the most important rule. A photo of the receipt taken on a phone is perfectly acceptable in a digital system.\n\n## 3. Designate One Custodian\n\nOnly one person should be responsible for the petty cash fund. This person records all transactions, collects receipts, and requests replenishments. Clear accountability prevents confusion and theft.\n\n## 4. Reconcile Regularly\n\nAt the end of every week or month, count the remaining cash and compare it with your records. The total of receipts + remaining cash should always equal the original fund amount. Any discrepancy needs to be investigated.\n\n## 5. Use a Digital System\n\nPaper logs get lost. Spreadsheets have errors. A digital petty cash system like **Petty Cash** automatically tracks every transaction, stores receipt photos, and gives managers real-time visibility. No reconciliation headaches.\n\n## Summary\n\nGood petty cash management is about: clear rules, consistent receipts, one responsible person, regular checks, and the right tools. With a digital system, all of this happens automatically.\n        "
       },
-      ar: {
-        title: '5 أفضل الممارسات لإدارة صندوق العهدة',
-        summary: 'اتبع هذه القواعد الخمس البسيطة للحفاظ على صندوق العهدة منظماً وآمناً وسهل المراجعة.',
-        content: `
-## 5 أفضل الممارسات لإدارة صندوق العهدة
-
-إدارة صندوق العهدة لا يجب أن تكون معقدة. إليك 5 قواعد بسيطة يجب على كل شركة اتباعها.
-
-## 1. حدد مبلغاً ثابتاً
-
-قرر مبلغاً ثابتاً لصندوق العهدة والتزم به. عندما ينخفض الرصيد إلى أقل من 20%، جدده. هذا يجعل الميزانية قابلة للتنبؤ.
-
-## 2. اجمع الإيصالات دائماً
-
-كل مصروف يجب أن يكون له إيصال. لا إيصال = لا سداد. هذه أهم قاعدة.
-
-## 3. عيّن أميناً واحداً للصندوق
-
-شخص واحد فقط يجب أن يكون مسؤولاً عن صندوق العهدة. هذا يمنع الارتباك والسرقة.
-
-## 4. راجع بانتظام
-
-في نهاية كل أسبوع أو شهر، عُدّ النقد المتبقي وقارنه بسجلاتك.
-
-## 5. استخدم نظاماً رقمياً
-
-السجلات الورقية تضيع. جداول البيانات بها أخطاء. نظام رقمي مثل **صندوق العهدة** يتبع كل معاملة تلقائياً.
-        `
-      },
-      hi: {
-        title: 'Petty Cash प्रबंधन के 5 सर्वोत्तम तरीके',
-        summary: 'इन 5 सरल नियमों का पालन करें और अपने petty cash को व्यवस्थित, सुरक्षित और ऑडिट में आसान बनाएं।',
-        content: `
-## Petty Cash प्रबंधन के 5 सर्वोत्तम तरीके
-
-## 1. एक निश्चित राशि तय करें
-
-Petty cash के लिए एक निश्चित राशि तय करें। जब फंड 20% से कम हो जाए, इसे फिर से भरें।
-
-## 2. हमेशा रसीदें लें
-
-हर खर्च के लिए रसीद होनी चाहिए। कोई रसीद नहीं = कोई प्रतिपूर्ति नहीं।
-
-## 3. एक जिम्मेदार व्यक्ति नियुक्त करें
-
-केवल एक व्यक्ति petty cash फंड का जिम्मेदार होना चाहिए।
-
-## 4. नियमित रूप से मिलान करें
-
-हर हफ्ते या महीने के अंत में बची हुई नकदी गिनें और अपने रिकॉर्ड से तुलना करें।
-
-## 5. डिजिटल सिस्टम का उपयोग करें
-
-**Petty Cash** जैसा डिजिटल सिस्टम हर लेनदेन को स्वचालित रूप से ट्रैक करता है।
-        `
-      },
-      ur: {
-        title: 'Petty Cash منظم کرنے کے 5 بہترین طریقے',
-        summary: 'ان 5 سادہ اصولوں پر عمل کریں اور اپنے petty cash کو منظم، محفوظ اور آڈٹ میں آسان بنائیں۔',
-        content: `
-## Petty Cash منظم کرنے کے 5 بہترین طریقے
-
-## 1. ایک مقررہ رقم طے کریں
-
-Petty cash کے لیے ایک مقررہ رقم طے کریں۔ جب فنڈ 20% سے کم ہو جائے تو اسے دوبارہ بھریں۔
-
-## 2. ہمیشہ رسیدیں لیں
-
-ہر خرچ کے لیے رسید ہونی چاہیے۔ کوئی رسید نہیں = کوئی واپسی نہیں۔
-
-## 3. ایک ذمہ دار شخص مقرر کریں
-
-صرف ایک شخص petty cash فنڈ کا ذمہ دار ہونا چاہیے۔
-
-## 4. باقاعدگی سے مطابقت کریں
-
-ہر ہفتے یا مہینے کے آخر میں بقیہ نقدی گنیں اور اپنے ریکارڈ سے موازنہ کریں۔
-
-## 5. ڈیجیٹل سسٹم استعمال کریں
-
-**Petty Cash** جیسا ڈیجیٹل سسٹم ہر لین دین کو خود بخود ٹریک کرتا ہے۔
-        `
+      "ar": {
+        "title": "5 أفضل الممارسات لإدارة صندوق العهدة",
+        "summary": "اتبع هذه القواعد الخمس البسيطة للحفاظ على صندوق العهدة منظماً وآمناً وسهل المراجعة.",
+        "content": "\n## 5 أفضل الممارسات لإدارة صندوق العهدة\n\nإدارة صندوق العهدة لا يجب أن تكون معقدة. إليك 5 قواعد بسيطة يجب على كل شركة اتباعها.\n\n## 1. حدد مبلغاً ثابتاً\n\nقرر مبلغاً ثابتاً لصندوق العهدة والتزم به. عندما ينخفض الرصيد إلى أقل من 20%، جدده. هذا يجعل الميزانية قابلة للتنبؤ.\n\n## 2. اجمع الإيصالات دائماً\n\nكل مصروف يجب أن يكون له إيصال. لا إيصال = لا سداد. هذه أهم قاعدة.\n\n## 3. عيّن أميناً واحداً للصندوق\n\nشخص واحد فقط يجب أن يكون مسؤولاً عن صندوق العهدة. هذا يمنع الارتباك والسرقة.\n\n## 4. راجع بانتظام\n\nفي نهاية كل أسبوع أو شهر، عُدّ النقد المتبقي وقارنه بسجلاتك.\n\n## 5. استخدم نظاماً رقمياً\n\nالسجلات الورقية تضيع. جداول البيانات بها أخطاء. نظام رقمي مثل **صندوق العهدة** يتبع كل معاملة تلقائياً.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-for-small-business',
-    id: 'petty-cash-for-small-business',
-    date: '2026-04-05',
-    readTime: 3,
-    image: 'https://images.unsplash.com/photo-1664575602276-acd073f104c1?w=800&q=80',
-    translations: {
-      en: {
-        title: 'Why Small Businesses Need a Petty Cash System',
-        summary: 'Small businesses often ignore petty cash management. This is a costly mistake. Here is why a proper system saves time and money.',
-        content: `
-## Why Small Businesses Need a Petty Cash System
-
-Many small business owners think petty cash management is only for large corporations. This is wrong. Small businesses actually need it more.
-
-## The Hidden Cost of Poor Petty Cash Management
-
-When petty cash is managed informally:
-- Employees spend from personal money and forget to claim it
-- Managers have no idea where the money went
-- Tax time becomes a nightmare (missing receipts)
-- Disputes arise over what was spent and by whom
-
-A study found that small businesses lose an average of 5% of their annual revenue to expense management issues.
-
-## What a Good System Looks Like
-
-A good petty cash system for a small business:
-1. Has a clear fund amount (e.g., SAR 500 per month)
-2. Requires receipts for every expense
-3. Has a designated manager who approves expenses
-4. Tracks all transactions digitally
-5. Generates reports at the end of each month
-
-## Getting Started
-
-You don't need expensive software. **Petty Cash** is free for up to 5 employees and takes less than 2 minutes to set up. Your team can start submitting expenses from their phones today.
-        `
+    "slug": "petty-cash-for-small-business",
+    "date": "2026-04-05",
+    "readTime": 3,
+    "image": "https://images.unsplash.com/photo-1664575602276-acd073f104c1?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "Why Small Businesses Need a Petty Cash System",
+        "summary": "Small businesses often ignore petty cash management. This is a costly mistake. Here is why a proper system saves time and money.",
+        "content": "\n## Why Small Businesses Need a Petty Cash System\n\nMany small business owners think petty cash management is only for large corporations. This is wrong. Small businesses actually need it more.\n\n## The Hidden Cost of Poor Petty Cash Management\n\nWhen petty cash is managed informally:\n- Employees spend from personal money and forget to claim it\n- Managers have no idea where the money went\n- Tax time becomes a nightmare (missing receipts)\n- Disputes arise over what was spent and by whom\n\nA study found that small businesses lose an average of 5% of their annual revenue to expense management issues.\n\n## What a Good System Looks Like\n\nA good petty cash system for a small business:\n1. Has a clear fund amount (e.g., SAR 500 per month)\n2. Requires receipts for every expense\n3. Has a designated manager who approves expenses\n4. Tracks all transactions digitally\n5. Generates reports at the end of each month\n\n## Getting Started\n\nYou don't need expensive software. **Petty Cash** is free for up to 5 employees and takes less than 2 minutes to set up. Your team can start submitting expenses from their phones today.\n        "
       },
-      ar: {
-        title: 'لماذا تحتاج الشركات الصغيرة إلى نظام لصندوق العهدة',
-        summary: 'كثيراً ما تتجاهل الشركات الصغيرة إدارة صندوق العهدة. هذا خطأ مكلف. إليك سبب توفير نظام مناسب للوقت والمال.',
-        content: `
-## لماذا تحتاج الشركات الصغيرة إلى نظام لصندوق العهدة
-
-يعتقد كثير من أصحاب الشركات الصغيرة أن إدارة صندوق العهدة مخصصة للشركات الكبيرة فقط. هذا خطأ.
-
-## التكلفة الخفية لسوء الإدارة
-
-عندما تُدار العهدة بشكل غير رسمي:
-- يدفع الموظفون من مالهم الشخصي وينسون المطالبة
-- لا يعرف المديرون أين ذهبت الأموال
-- تُصبح فترة الضرائب كابوساً (إيصالات مفقودة)
-
-## كيف تبدأ
-
-لا تحتاج لبرامج مكلفة. **صندوق العهدة** مجاني لما يصل إلى 5 موظفين ويستغرق أقل من دقيقتين للإعداد.
-        `
-      },
-      hi: {
-        title: 'छोटे व्यवसायों को Petty Cash सिस्टम की जरूरत क्यों है',
-        summary: 'छोटे व्यवसाय अक्सर petty cash प्रबंधन को नजरअंदाज करते हैं। यह एक महंगी गलती है। जानें एक उचित सिस्टम समय और पैसे कैसे बचाता है।',
-        content: `
-## छोटे व्यवसायों को Petty Cash सिस्टम की जरूरत क्यों है
-
-कई छोटे व्यवसाय मालिक सोचते हैं कि petty cash प्रबंधन केवल बड़ी कंपनियों के लिए है। यह गलत है।
-
-## खराब प्रबंधन की छिपी लागत
-
-जब petty cash अनौपचारिक रूप से प्रबंधित होती है:
-- कर्मचारी व्यक्तिगत पैसे खर्च करते हैं और दावा करना भूल जाते हैं
-- मैनेजरों को नहीं पता पैसे कहां गए
-
-## शुरुआत कैसे करें
-
-आपको महंगे सॉफ्टवेयर की जरूरत नहीं। **Petty Cash** 5 कर्मचारियों तक मुफ्त है और सेटअप में 2 मिनट से कम लगते हैं।
-        `
-      },
-      ur: {
-        title: 'چھوٹے کاروباروں کو Petty Cash سسٹم کی ضرورت کیوں ہے',
-        summary: 'چھوٹے کاروبار اکثر petty cash مینجمنٹ کو نظرانداز کرتے ہیں۔ یہ ایک مہنگی غلطی ہے۔ جانیں ایک مناسب سسٹم وقت اور پیسے کیسے بچاتا ہے۔',
-        content: `
-## چھوٹے کاروباروں کو Petty Cash سسٹم کی ضرورت کیوں ہے
-
-بہت سے چھوٹے کاروبار مالکان سوچتے ہیں کہ petty cash مینجمنٹ صرف بڑی کمپنیوں کے لیے ہے۔ یہ غلط ہے۔
-
-## خراب انتظام کی چھپی لاگت
-
-جب petty cash غیر رسمی طریقے سے منظم ہو:
-- ملازمین ذاتی پیسے خرچ کرتے ہیں اور دعویٰ کرنا بھول جاتے ہیں
-- مینیجرز کو نہیں پتہ پیسے کہاں گئے
-
-## شروع کیسے کریں
-
-آپ کو مہنگے سافٹ ویئر کی ضرورت نہیں۔ **Petty Cash** 5 ملازمین تک مفت ہے اور سیٹ اپ میں 2 منٹ سے کم لگتے ہیں۔
-        `
+      "ar": {
+        "title": "لماذا تحتاج الشركات الصغيرة إلى نظام لصندوق العهدة",
+        "summary": "كثيراً ما تتجاهل الشركات الصغيرة إدارة صندوق العهدة. هذا خطأ مكلف. إليك سبب توفير نظام مناسب للوقت والمال.",
+        "content": "\n## لماذا تحتاج الشركات الصغيرة إلى نظام لصندوق العهدة\n\nيعتقد كثير من أصحاب الشركات الصغيرة أن إدارة صندوق العهدة مخصصة للشركات الكبيرة فقط. هذا خطأ.\n\n## التكلفة الخفية لسوء الإدارة\n\nعندما تُدار العهدة بشكل غير رسمي:\n- يدفع الموظفون من مالهم الشخصي وينسون المطالبة\n- لا يعرف المديرون أين ذهبت الأموال\n- تُصبح فترة الضرائب كابوساً (إيصالات مفقودة)\n\n## كيف تبدأ\n\nلا تحتاج لبرامج مكلفة. **صندوق العهدة** مجاني لما يصل إلى 5 موظفين ويستغرق أقل من دقيقتين للإعداد.\n        "
       }
     }
   },
   {
-    slug: 'digital-expense-management',
-    id: 'digital-expense-management',
-    date: '2026-04-01',
-    readTime: 4,
-    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
-    translations: {
-      en: {
-        title: 'Digital vs Paper: Why You Should Switch to Digital Expense Management',
-        summary: 'Paper receipts and manual spreadsheets are costing your business time and money. Here is why going digital is the smart move.',
-        content: `
-## Digital vs Paper: The Real Comparison
-
-Most businesses still use paper for expense management. A receipt box, a spreadsheet, and a monthly headache. There is a better way.
-
-## The Problem with Paper
-
-| Problem | Impact |
-|---------|--------|
-| Lost receipts | No proof of expense, disputes arise |
-| Manual data entry | Time-consuming, error-prone |
-| No real-time visibility | Manager doesn't know balance until end of month |
-| Difficult to audit | Finding a specific receipt is a nightmare |
-| Security risk | Cash can be stolen, receipts forged |
-
-## The Benefits of Going Digital
-
-**Speed:** Employees submit expenses in under 30 seconds from their phone.
-
-**Accuracy:** No manual entry means no math errors.
-
-**Visibility:** Manager sees all expenses and balances in real time.
-
-**Security:** All transactions are logged with timestamps and user names.
-
-**Compliance:** Digital receipts are accepted by tax authorities in most countries.
-
-**Reporting:** Generate a full expense report in one click, not one hour.
-
-## The Transition is Easy
-
-Switching from paper to digital doesn't require IT expertise. With **Petty Cash**, you:
-1. Create an account (2 minutes)
-2. Add your employees
-3. Set their balances
-4. Tell them to download the app
-
-That's it. Your team can start submitting digital expenses immediately.
-
-## The Cost of Waiting
-
-Every month you delay switching to a digital system, you lose:
-- Hours of employee time on manual reconciliation
-- Money from untracked expenses
-- Visibility into your cash flow
-
-Start free today. No credit card required.
-        `
+    "slug": "digital-expense-management",
+    "date": "2026-04-01",
+    "readTime": 4,
+    "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "Digital vs Paper: Why You Should Switch to Digital Expense Management",
+        "summary": "Paper receipts and manual spreadsheets are costing your business time and money. Here is why going digital is the smart move.",
+        "content": "\n## Digital vs Paper: The Real Comparison\n\nMost businesses still use paper for expense management. A receipt box, a spreadsheet, and a monthly headache. There is a better way.\n\n## The Problem with Paper\n\n| Problem | Impact |\n|---------|--------|\n| Lost receipts | No proof of expense, disputes arise |\n| Manual data entry | Time-consuming, error-prone |\n| No real-time visibility | Manager doesn't know balance until end of month |\n| Difficult to audit | Finding a specific receipt is a nightmare |\n| Security risk | Cash can be stolen, receipts forged |\n\n## The Benefits of Going Digital\n\n**Speed:** Employees submit expenses in under 30 seconds from their phone.\n\n**Accuracy:** No manual entry means no math errors.\n\n**Visibility:** Manager sees all expenses and balances in real time.\n\n**Security:** All transactions are logged with timestamps and user names.\n\n**Compliance:** Digital receipts are accepted by tax authorities in most countries.\n\n**Reporting:** Generate a full expense report in one click, not one hour.\n\n## The Transition is Easy\n\nSwitching from paper to digital doesn't require IT expertise. With **Petty Cash**, you:\n1. Create an account (2 minutes)\n2. Add your employees\n3. Set their balances\n4. Tell them to download the app\n\nThat's it. Your team can start submitting digital expenses immediately.\n\n## The Cost of Waiting\n\nEvery month you delay switching to a digital system, you lose:\n- Hours of employee time on manual reconciliation\n- Money from untracked expenses\n- Visibility into your cash flow\n\nStart free today. No credit card required.\n        "
       },
-      ar: {
-        title: 'رقمي مقابل ورقي: لماذا يجب عليك التحول لإدارة المصروفات الرقمية',
-        summary: 'الإيصالات الورقية وجداول البيانات اليدوية تكلف شركتك الوقت والمال. إليك لماذا التحول الرقمي هو الخطوة الذكية.',
-        content: `
-## رقمي مقابل ورقي: المقارنة الحقيقية
-
-معظم الشركات لا تزال تستخدم الورق لإدارة المصروفات. صندوق الإيصالات، جدول البيانات، والصداع الشهري. هناك طريقة أفضل.
-
-## مشاكل الورق
-
-- إيصالات ضائعة = لا دليل على المصروف
-- إدخال يدوي للبيانات = مضيعة للوقت وعرضة للأخطاء
-- لا رؤية فورية = المدير لا يعرف الرصيد حتى نهاية الشهر
-
-## فوائد التحول الرقمي
-
-**السرعة:** يقدم الموظفون المصروفات في أقل من 30 ثانية من هواتفهم.
-
-**الدقة:** لا إدخال يدوي يعني لا أخطاء في الحسابات.
-
-**الرؤية:** يرى المدير جميع المصروفات والأرصدة في الوقت الفعلي.
-
-## التحول سهل
-
-مع **صندوق العهدة**، أنشئ حساباً في دقيقتين، أضف موظفيك، وابدأ فوراً.
-        `
-      },
-      hi: {
-        title: 'डिजिटल बनाम कागज: खर्च प्रबंधन में डिजिटल पर क्यों जाएं',
-        summary: 'कागजी रसीदें और मैनुअल स्प्रेडशीट आपके व्यवसाय का समय और पैसा बर्बाद कर रहे हैं। जानें डिजिटल जाना क्यों स्मार्ट कदम है।',
-        content: `
-## डिजिटल बनाम कागज: असली तुलना
-
-## कागज की समस्याएं
-
-- खोई हुई रसीदें = खर्च का कोई सबूत नहीं
-- मैनुअल डेटा एंट्री = समय बर्बाद, गलतियां ज्यादा
-- कोई रियल-टाइम विजिबिलिटी नहीं
-
-## डिजिटल जाने के फायदे
-
-**गति:** कर्मचारी 30 सेकंड से कम में फोन से खर्च जमा करते हैं।
-
-**सटीकता:** कोई मैनुअल एंट्री नहीं = कोई गणित की गलतियां नहीं।
-
-**विजिबिलिटी:** मैनेजर रियल टाइम में सभी खर्च और बैलेंस देखता है।
-
-**Petty Cash** के साथ 2 मिनट में अकाउंट बनाएं और तुरंत शुरू करें।
-        `
-      },
-      ur: {
-        title: 'ڈیجیٹل بمقابلہ کاغذ: اخراجات کے انتظام میں ڈیجیٹل کیوں اپنائیں',
-        summary: 'کاغذی رسیدیں اور دستی اسپریڈشیٹ آپ کے کاروبار کا وقت اور پیسہ ضائع کر رہی ہیں۔ جانیں ڈیجیٹل جانا کیوں سمجھداری کا قدم ہے۔',
-        content: `
-## ڈیجیٹل بمقابلہ کاغذ: اصلی موازنہ
-
-## کاغذ کے مسائل
-
-- گم رسیدیں = خرچ کا کوئی ثبوت نہیں
-- دستی ڈیٹا انٹری = وقت ضائع، غلطیاں زیادہ
-- کوئی ریئل ٹائم مرئیت نہیں
-
-## ڈیجیٹل جانے کے فوائد
-
-**رفتار:** ملازمین 30 سیکنڈ سے کم میں فون سے اخراجات جمع کرتے ہیں۔
-
-**درستگی:** کوئی دستی انٹری نہیں = کوئی حساب کی غلطیاں نہیں۔
-
-**Petty Cash** کے ساتھ 2 منٹ میں اکاؤنٹ بنائیں اور فوری شروع کریں۔
-        `
+      "ar": {
+        "title": "رقمي مقابل ورقي: لماذا يجب عليك التحول لإدارة المصروفات الرقمية",
+        "summary": "الإيصالات الورقية وجداول البيانات اليدوية تكلف شركتك الوقت والمال. إليك لماذا التحول الرقمي هو الخطوة الذكية.",
+        "content": "\n## رقمي مقابل ورقي: المقارنة الحقيقية\n\nمعظم الشركات لا تزال تستخدم الورق لإدارة المصروفات. صندوق الإيصالات، جدول البيانات، والصداع الشهري. هناك طريقة أفضل.\n\n## مشاكل الورق\n\n- إيصالات ضائعة = لا دليل على المصروف\n- إدخال يدوي للبيانات = مضيعة للوقت وعرضة للأخطاء\n- لا رؤية فورية = المدير لا يعرف الرصيد حتى نهاية الشهر\n\n## فوائد التحول الرقمي\n\n**السرعة:** يقدم الموظفون المصروفات في أقل من 30 ثانية من هواتفهم.\n\n**الدقة:** لا إدخال يدوي يعني لا أخطاء في الحسابات.\n\n**الرؤية:** يرى المدير جميع المصروفات والأرصدة في الوقت الفعلي.\n\n## التحول سهل\n\nمع **صندوق العهدة**، أنشئ حساباً في دقيقتين، أضف موظفيك، وابدأ فوراً.\n        "
       }
     }
   },
   {
-    slug: 'how-to-set-up-petty-cash',
-    id: 'how-to-set-up-petty-cash',
-    date: '2026-07-10',
-    readTime: 4,
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80',
-    translations: {
-      en: {
-        title: 'How to Set Up Petty Cash for Your Business',
-        summary: 'A step-by-step guide to creating a petty cash fund that keeps small expenses organized from day one.',
-        content: `
-## How to Set Up Petty Cash
-
-Setting up petty cash is simple, but doing it right saves you hours of headaches later.
-
-## Step 1: Decide the Fund Amount
-
-Choose a fixed amount based on your monthly small expenses. Most small businesses start with SAR 500 to SAR 2,000.
-
-## Step 2: Choose a Custodian
-
-Pick one trustworthy employee to manage the fund. This person records every transaction and keeps all receipts.
-
-## Step 3: Create a Log
-
-Use a simple log or a digital tool to record each withdrawal, the date, the amount, and the purpose.
-
-## Step 4: Set Spending Rules
-
-Define what can be paid from petty cash. Common items include office supplies, postage, and taxi fares.
-
-## Step 5: Replenish Regularly
-
-When the fund drops below 20%, review receipts and refill it. A digital system like **Petty Cash** tracks balances automatically.
-        `
+    "slug": "how-to-set-up-petty-cash",
+    "date": "2026-07-10",
+    "readTime": 4,
+    "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "How to Set Up Petty Cash for Your Business",
+        "summary": "A step-by-step guide to creating a petty cash fund that keeps small expenses organized from day one.",
+        "content": "\n## How to Set Up Petty Cash\n\nSetting up petty cash is simple, but doing it right saves you hours of headaches later.\n\n## Step 1: Decide the Fund Amount\n\nChoose a fixed amount based on your monthly small expenses. Most small businesses start with SAR 500 to SAR 2,000.\n\n## Step 2: Choose a Custodian\n\nPick one trustworthy employee to manage the fund. This person records every transaction and keeps all receipts.\n\n## Step 3: Create a Log\n\nUse a simple log or a digital tool to record each withdrawal, the date, the amount, and the purpose.\n\n## Step 4: Set Spending Rules\n\nDefine what can be paid from petty cash. Common items include office supplies, postage, and taxi fares.\n\n## Step 5: Replenish Regularly\n\nWhen the fund drops below 20%, review receipts and refill it. A digital system like **Petty Cash** tracks balances automatically.\n        "
       },
-      ar: {
-        title: 'كيفية إعداد صندوق العهدة لشركتك',
-        summary: 'دليل خطوة بخطوة لإنشاء صندوق عهدة يحافظ على تنظيم المصروفات الصغيرة من اليوم الأول.',
-        content: `
-## كيفية إعداد صندوق العهدة
-
-إعداد صندوق العهدة بسيط، لكن القيام بذلك بشكل صحيح يوفر عليك ساعات من المتاعب لاحقاً.
-
-## الخطوة 1: تحديد مبلغ الصندوق
-
-اختر مبلغاً ثابتاً بناءً على مصروفاتك الصغيرة الشهرية. معظم الشركات الصغيرة تبدأ بمبلغ بين 500 و2000 ريال.
-
-## الخطوة 2: اختيار أمين الصندوق
-
-اختر موظفاً جديراً بالثقة لإدارة الصندوق. يسجل هذا الشخص كل معاملة ويحتفظ بجميع الإيصالات.
-
-## الخطوة 3: إنشاء سجل
-
-استخدم سجلاً بسيطاً أو أداة رقمية لتسجيل كل عملية سحب والتاريخ والمبلغ والغرض.
-
-## الخطوة 4: وضع قواعد الإنفاق
-
-حدد ما يمكن دفعه من صندوق العهدة. تشمل العناصر الشائعة الأدوات المكتبية والبريد وأجرة السيارة.
-
-## الخطوة 5: التجديد بانتظام
-
-عندما ينخفض الرصيد إلى أقل من 20%، راجع الإيصالات وأعد ملء الصندوق. نظام **صندوق العهدة** الرقمي يتبع الأرصدة تلقائياً.
-        `
-      },
-      hi: {
-        title: 'अपने व्यवसाय के लिए Petty Cash कैसे सेट up करें',
-        summary: 'Petty Cash fund बनाने का चरण-दर-चरण गाइड जो छोटे खर्चों को पहले दिन से व्यवस्थित रखता है।',
-        content: `
-## Petty Cash कैसे सेट up करें
-
-Petty cash सेट up करना आसान है, लेकिन इसे सही तरीके से करने से बाद में कई परेशानियों से बचा जा सकता है।
-
-## चरण 1: Fund की राशि तय करें
-
-अपने मासिक छोटे खर्चों के आधार पर एक निश्चित राशि चुनें। अधिकांश छोटे व्यवसाय 5,000 से 50,000 रुपये से शुरू करते हैं।
-
-## चरण 2: संरक्षक चुनें
-
-Fund का प्रबंधन करने के लिए एक भरोसेमंद कर्मचारी चुनें। यह व्यक्ति हर लेनदेन रिकॉर्ड करता है और सभी रसीदें रखता है।
-
-## चरण 3: एक लॉग बनाएं
-
-प्रत्येक निकासी, तिथि, राशि और उद्देश्य रिकॉर्ड करने के लिए एक सरल लॉग या डिजिटल टूल का उपयोग करें।
-
-## चरण 4: खर्च के नियम तय करें
-
-यह निर्धारित करें कि petty cash से क्या भुगतान किया जा सकता है। आम वस्तुओं में कार्यालय सामान, डाक और टैक्सी किराया शामिल हैं।
-
-## चरण 5: नियमित रूप से पुनर्भरण करें
-
-जब fund 20% से कम हो जाए, तो रसीदों की समीक्षा करें और फिर से भरें। **Petty Cash** जैसा डिजिटल सिस्टम बैलेंस को स्वचालित रूप से ट्रैक करता है।
-        `
-      },
-      ur: {
-        title: 'اپنے کاروبار کے لیے Petty Cash کیسے سیٹ up کریں',
-        summary: 'Petty Cash fund بنانے کا مرحلہ وار گائڈ جو چھوٹے اخراجات کو پہلے دن سے منظم رکھتا ہے۔',
-        content: `
-## Petty Cash کیسے سیٹ up کریں
-
-Petty cash سیٹ up کرنا آسان ہے، لیکن اسے صحیح طریقے سے کرنے سے بعد میں درد سر سے بچا جا سکتا ہے۔
-
-## مرحلہ 1: Fund کی رقم طے کریں
-
-اپنے ماہانہ چھوٹے اخراجات کی بنیاد پر ایک مقررہ رقم منتخب کریں۔ زیادہ تر چھوٹے کاروبار 500 سے 5,000 روپے سے شروع کرتے ہیں۔
-
-## مرحلہ 2: امین منتخب کریں
-
-Fund منظم کرنے کے لیے ایک قابل اعتماد ملازم منتخب کریں۔ یہ شخص ہر لین دین ریکارڈ کرتا ہے اور تمام رسیدیں رکھتا ہے۔
-
-## مرحلہ 3: ایک لاگ بنائیں
-
-ہر نکاسی، تاریخ، رقم اور مقصد ریکارڈ کرنے کے لیے ایک سادہ لاگ یا ڈیجیٹل ٹول استعمال کریں۔
-
-## مرحلہ 4: خرچ کے اصول طے کریں
-
-یہ طے کریں کہ petty cash سے کیا ادائیگی کی جا سکتی ہے۔ عام اشیاء میں دفتری سامان، ڈاک اور ٹیکسی کرایہ شامل ہیں۔
-
-## مرحلہ 5: باقاعدگی سے دوبارہ بھریں
-
-جب fund 20% سے کم ہو جائے، تو رسیدوں کا جائزہ لیں اور دوبارہ بھریں۔ **Petty Cash** جیسا ڈیجیٹل سسٹم بیلنس کو خود بخود ٹریک کرتا ہے۔
-        `
+      "ar": {
+        "title": "كيفية إعداد صندوق العهدة لشركتك",
+        "summary": "دليل خطوة بخطوة لإنشاء صندوق عهدة يحافظ على تنظيم المصروفات الصغيرة من اليوم الأول.",
+        "content": "\n## كيفية إعداد صندوق العهدة\n\nإعداد صندوق العهدة بسيط، لكن القيام بذلك بشكل صحيح يوفر عليك ساعات من المتاعب لاحقاً.\n\n## الخطوة 1: تحديد مبلغ الصندوق\n\nاختر مبلغاً ثابتاً بناءً على مصروفاتك الصغيرة الشهرية. معظم الشركات الصغيرة تبدأ بمبلغ بين 500 و2000 ريال.\n\n## الخطوة 2: اختيار أمين الصندوق\n\nاختر موظفاً جديراً بالثقة لإدارة الصندوق. يسجل هذا الشخص كل معاملة ويحتفظ بجميع الإيصالات.\n\n## الخطوة 3: إنشاء سجل\n\nاستخدم سجلاً بسيطاً أو أداة رقمية لتسجيل كل عملية سحب والتاريخ والمبلغ والغرض.\n\n## الخطوة 4: وضع قواعد الإنفاق\n\nحدد ما يمكن دفعه من صندوق العهدة. تشمل العناصر الشائعة الأدوات المكتبية والبريد وأجرة السيارة.\n\n## الخطوة 5: التجديد بانتظام\n\nعندما ينخفض الرصيد إلى أقل من 20%، راجع الإيصالات وأعد ملء الصندوق. نظام **صندوق العهدة** الرقمي يتبع الأرصدة تلقائياً.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-policy-template',
-    id: 'petty-cash-policy-template',
-    date: '2026-07-08',
-    readTime: 3,
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
-    translations: {
-      en: {
-        title: 'Petty Cash Policy Template for Companies',
-        summary: 'Use this ready-made policy template to define rules, limits, and responsibilities for your petty cash fund.',
-        content: `
-## Petty Cash Policy Template
-
-A clear policy protects your business from misuse and makes audits easy.
-
-## Purpose
-
-This fund covers small, urgent business expenses that are not practical to process through normal payment channels.
-
-## Authorized Expenses
-
-- Office supplies and stationery
-- Postage and courier charges
-- Local travel and parking
-- Small client refreshments
-
-## Fund Limit
-
-The maximum fund balance is [enter amount]. The minimum balance before replenishment is 20% of the fund.
-
-## Custodian
-
-[Employee name] is responsible for safeguarding the fund, approving withdrawals, and maintaining records.
-
-## Receipt Rule
-
-Every withdrawal must be supported by a receipt. No receipt means no reimbursement.
-
-## Digital Upgrade
-
-Replace paper logs with **Petty Cash** to store receipts digitally and monitor balances in real time.
-        `
+    "slug": "petty-cash-policy-template",
+    "date": "2026-07-08",
+    "readTime": 3,
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "Petty Cash Policy Template for Companies",
+        "summary": "Use this ready-made policy template to define rules, limits, and responsibilities for your petty cash fund.",
+        "content": "\n## Petty Cash Policy Template\n\nA clear policy protects your business from misuse and makes audits easy.\n\n## Purpose\n\nThis fund covers small, urgent business expenses that are not practical to process through normal payment channels.\n\n## Authorized Expenses\n\n- Office supplies and stationery\n- Postage and courier charges\n- Local travel and parking\n- Small client refreshments\n\n## Fund Limit\n\nThe maximum fund balance is [enter amount]. The minimum balance before replenishment is 20% of the fund.\n\n## Custodian\n\n[Employee name] is responsible for safeguarding the fund, approving withdrawals, and maintaining records.\n\n## Receipt Rule\n\nEvery withdrawal must be supported by a receipt. No receipt means no reimbursement.\n\n## Digital Upgrade\n\nReplace paper logs with **Petty Cash** to store receipts digitally and monitor balances in real time.\n        "
       },
-      ar: {
-        title: 'نموذج سياسة صندوق العهدة للشركات',
-        summary: 'استخدم هذا النموذج الجاهز لتحديد القواعد والحدود والمسؤوليات لصندوق العهدة الخاص بك.',
-        content: `
-## نموذج سياسة صندوق العهدة
-
-السياسة الواضحة تحمي شركتك من سوء الاستخدام وتسهّل عمليات التدقيق.
-
-## الغرض
-
-يغطي هذا الصندوق المصروفات الصغيرة والعاجلة التي لا يعمل معالجتها عبر قنوات الدفع العادية.
-
-## المصروفات المصرح بها
-
-- الأدوات المكتبية والقرطاسية
-- رسوم البريد والشحن
-- السفر المحلي والمواقف
-- الضيافة البسيطة للعملاء
-
-## حد الصندوق
-
-الحد الأقصى لرصيد الصندوق هو [أدخل المبلغ]. الحد الأدنى للرصيد قبل التجديد هو 20% من الصندوق.
-
-## أمين الصندوق
-
-[اسم الموظف] مسؤول عن حماية الصندوق والموافقة على السحب والحفاظ على السجلات.
-
-## قاعدة الإيصال
-
-كل سحب يجب أن يكون مدعوماً بإيصال. لا إيصال = لا سداد.
-
-## التحول الرقمي
-
-استبدل السجلات الورقية بـ **صندوق العهدة** لتخزين الإيصالات رقمياً ومراقبة الأرصدة في الوقت الفعلي.
-        `
-      },
-      hi: {
-        title: 'कंपनियों के लिए Petty Cash Policy Template',
-        summary: 'इस तैयार टेम्पलेट का उपयोग अपने petty cash fund के नियम, सीमा और जिम्मेदारियों को परिभाषित करने के लिए करें।',
-        content: `
-## Petty Cash Policy Template
-
-एक स्पष्ट नीति आपके व्यवसाय को दुरुपयोग से बचाती है और ऑडिट को आसान बनाती है।
-
-## उद्देश्य
-
-यह fund उन छोटे, तत्काल व्यवसायिक खर्चों को कवर करता है जिन्हें सामान्य भुगतान चैनलों के माध्यम से संसाधित करना व्यावहारिक नहीं है।
-
-## अधिकृत खर्च
-
-- कार्यालय सामान और स्टेशनरी
-- डाक और कूरियर शुल्क
-- स्थानीय यात्रा और पार्किंग
-- छोटे ग्राहक रिफ्रेशमेंट
-
-## Fund की सीमा
-
-अधिकतम fund बैलेंस [राशि दर्ज करें] है। पुनर्भरण से पहला न्यूनतम बैलेंस fund का 20% है।
-
-## संरक्षक
-
-[कर्मचारी का नाम] fund की सुरक्षा, निकासी को मंजूरी देने और रिकॉर्ड बनाए रखने के लिए जिम्मेदार है।
-
-## रसीद का नियम
-
-हर निकासी के लिए रसीद जरूरी है। कोई रसीद नहीं = कोई प्रतिपूर्ति नहीं।
-
-## डिजिटल अपग्रेड
-
-**Petty Cash** के साथ कागजी लॉग को बदलें ताकि रसीदें डिजिटल रूप से संग्रहीत हों और बैलेंस को वास्तविक समय में देखा जा सके।
-        `
-      },
-      ur: {
-        title: 'کمپنیوں کے لیے Petty Cash Policy Template',
-        summary: 'اس تیار ٹیمپلیٹ کا استعمال اپنے petty cash fund کے اصول، حدود اور ذمہ داریوں کو بیان کرنے کے لیے کریں۔',
-        content: `
-## Petty Cash Policy Template
-
-ایک واضح پالیسی آپ کے کاروبار کو غلط استعمال سے بچاتی ہے اور آڈٹ کو آسان بناتی ہے۔
-
-## مقصد
-
-یہ fund ان چھوٹے، فوری کاروباری اخراجات کو پورا کرتا ہے جنہیں عام ادائیگی کے ذریعے سنبھالنا عملی نہیں۔
-
-## مجاز اخراجات
-
-- دفتری سامان اور سٹیشنری
-- ڈاک اور کورئیر چارجز
-- مقامی سفر اور پارکنگ
-- چھوٹے گاہک ریفریشمنٹ
-
-## Fund کی حد
-
-زیادہ سے زیادہ fund بیلنس [رقم درج کریں] ہے۔ دوبارہ بھرنے سے پہلے کم از کم بیلنس fund کا 20% ہے۔
-
-## امین
-
-[ملازم کا نام] fund کی حفاظت، نکاسی کی منظوری اور ریکارڈ برقرار رکھنے کا ذمہ دار ہے۔
-
-## رسید کا اصول
-
-ہر نکاسی کے لیے رسید ضروری ہے۔ کوئی رسید نہیں = کوئی واپسی نہیں۔
-
-## ڈیجیٹل اپگریڈ
-
-**Petty Cash** کے ساتھ کاغذی لاگ کو تبدیل کریں تاکہ رسیدیں ڈیجیٹل طور پر محفوظ ہوں اور بیلنس کو ریئل ٹائم میں دیکھا جا سکے۔
-        `
+      "ar": {
+        "title": "نموذج سياسة صندوق العهدة للشركات",
+        "summary": "استخدم هذا النموذج الجاهز لتحديد القواعد والحدود والمسؤوليات لصندوق العهدة الخاص بك.",
+        "content": "\n## نموذج سياسة صندوق العهدة\n\nالسياسة الواضحة تحمي شركتك من سوء الاستخدام وتسهّل عمليات التدقيق.\n\n## الغرض\n\nيغطي هذا الصندوق المصروفات الصغيرة والعاجلة التي لا يعمل معالجتها عبر قنوات الدفع العادية.\n\n## المصروفات المصرح بها\n\n- الأدوات المكتبية والقرطاسية\n- رسوم البريد والشحن\n- السفر المحلي والمواقف\n- الضيافة البسيطة للعملاء\n\n## حد الصندوق\n\nالحد الأقصى لرصيد الصندوق هو [أدخل المبلغ]. الحد الأدنى للرصيد قبل التجديد هو 20% من الصندوق.\n\n## أمين الصندوق\n\n[اسم الموظف] مسؤول عن حماية الصندوق والموافقة على السحب والحفاظ على السجلات.\n\n## قاعدة الإيصال\n\nكل سحب يجب أن يكون مدعوماً بإيصال. لا إيصال = لا سداد.\n\n## التحول الرقمي\n\nاستبدل السجلات الورقية بـ **صندوق العهدة** لتخزين الإيصالات رقمياً ومراقبة الأرصدة في الوقت الفعلي.\n        "
       }
     }
   },
   {
-    slug: 'common-petty-cash-mistakes',
-    id: 'common-petty-cash-mistakes',
-    date: '2026-07-06',
-    readTime: 3,
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
-    translations: {
-      en: {
-        title: '5 Common Petty Cash Mistakes and How to Avoid Them',
-        summary: 'Most petty cash problems come from a few simple mistakes. Here is how to fix them before they cost you money.',
-        content: `
-## 5 Common Petty Cash Mistakes
-
-## 1. No Receipts
-
-Missing receipts make audits impossible. Require a receipt or a photo for every expense.
-
-## 2. Multiple Custodians
-
-When several people access the cash, accountability disappears. Assign one custodian only.
-
-## 3. Irregular Reconciliation
-
-Waiting months to reconcile creates hidden shortfalls. Check the fund weekly or monthly.
-
-## 4. Loose Spending Rules
-
-Without clear rules, employees use petty cash for personal items. Publish a short policy.
-
-## 5. Manual Logs
-
-Paper logs are easy to lose. Switching to **Petty Cash** keeps every transaction searchable and secure.
-        `
+    "slug": "common-petty-cash-mistakes",
+    "date": "2026-07-06",
+    "readTime": 3,
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "5 Common Petty Cash Mistakes and How to Avoid Them",
+        "summary": "Most petty cash problems come from a few simple mistakes. Here is how to fix them before they cost you money.",
+        "content": "\n## 5 Common Petty Cash Mistakes\n\n## 1. No Receipts\n\nMissing receipts make audits impossible. Require a receipt or a photo for every expense.\n\n## 2. Multiple Custodians\n\nWhen several people access the cash, accountability disappears. Assign one custodian only.\n\n## 3. Irregular Reconciliation\n\nWaiting months to reconcile creates hidden shortfalls. Check the fund weekly or monthly.\n\n## 4. Loose Spending Rules\n\nWithout clear rules, employees use petty cash for personal items. Publish a short policy.\n\n## 5. Manual Logs\n\nPaper logs are easy to lose. Switching to **Petty Cash** keeps every transaction searchable and secure.\n        "
       },
-      ar: {
-        title: '5 أخطاء شائعة في صندوق العهدة وكيفية تجنبها',
-        summary: 'معظم مشاكل صندوق العهدة تأتي من أخطاء بسيطة. إليك كيفية إصلاحها قبل أن تكلفك المال.',
-        content: `
-## 5 أخطاء شائعة في صندوق العهدة
-
-## 1. عدم وجود إيصالات
-
-الإيصالات المفقودة تجعل التدقيق مستحيلاً. اشترِ إيصالاً أو صورة لكل مصروف.
-
-## 2. وجود عدة أمناء
-
-عندما يصل عدة أشخاص إلى النقد، تختفي المساءلة. عيّن أميناً واحداً فقط.
-
-## 3. عدم المطابقة بانتظام
-
-انتظار شهور للمطابقة يخلق عجزاً خفياً. راجع الصندوق أسبوعياً أو شهرياً.
-
-## 4. قواعد إنفاق فضفاضة
-
-بدون قواعد واضحة، قد يستخدم الموظفون العهدة لأغراض شخصية. انشر سياسة موجزة.
-
-## 5. السجلات اليدوية
-
-السجلات الورقية سهلة الضياع. التحول إلى **صندوق العهدة** يبقي كل معاملة قابلة للبحث والآمنة.
-        `
-      },
-      hi: {
-        title: 'Petty Cash की 5 सामान्य गलतियां और उनसे बचने के तरीके',
-        summary: 'अधिकांश petty cash समस्याएं कुछ सरल गलतियों से आती हैं। यहां बताया गया है कि उन्हें पैसा खर्च होने से पहले कैसे ठीक करें।',
-        content: `
-## Petty Cash की 5 सामान्य गलतियां
-
-## 1. कोई रसीद नहीं
-
-गायब रसीदें ऑडिट को असंभव बनाती हैं। हर खर्च के लिए रसीद या फोटो अनिवार्य करें।
-
-## 2. कई संरक्षक
-
-जब कई लोग नकदी तक पहुंचते हैं, तो जवाबदेही खत्म हो जाती है। केवल एक संरक्षक नियुक्त करें।
-
-## 3. अनियमित मिलान
-
-महीनों तक मिलान करने में देरी छिपी कमी पैदा करती है। Fund को साप्ताहिक या मासिक जांचें।
-
-## 4. ढीले खर्च के नियम
-
-स्पष्ट नियमों के बिना, कर्मचारी व्यक्तिगत वस्तुओं के लिए petty cash का उपयोग कर सकते हैं। एक छोटी नीति प्रकाशित करें।
-
-## 5. मैनुअल लॉग
-
-कागजी लॉग खोना आसान है। **Petty Cash** पर स्विच करने से हर लेनदेन खोजने योग्य और सुरक्षित रहता है।
-        `
-      },
-      ur: {
-        title: 'Petty Cash کی 5 عام غلطیاں اور ان سے بچنے کے طریقے',
-        summary: 'زیادہ تر petty cash مسائل چند سادہ غلطیوں سے آتے ہیں۔ یہاں بتایا گیا ہے کہ انھیں پیسہ خرچ ہونے سے پہلے کیسے درست کریں۔',
-        content: `
-## Petty Cash کی 5 عام غلطیاں
-
-## 1. کوئی رسید نہیں
-
-گم رسیدیں آڈٹ کو ناممکن بناتی ہیں۔ ہر خرچ کے لیے رسید یا فوٹو لازمی کریں۔
-
-## 2. کئی امین
-
-جب کئی افراد نقدی تک رسائی حاصل کرتے ہیں، تو جوابدہی ختم ہو جاتی ہے۔ صرف ایک امین مقرر کریں۔
-
-## 3. بے ترتیب موازنہ
-
-مہینوں تک موازنہ میں تاخیر چھپی کمی پیدا کرتی ہے۔ Fund کو ہفتہ وار یا ماہانہ چیک کریں۔
-
-## 4. ڈھیلے خرچ کے اصول
-
-واضح اصولوں کے بغیر، ملازمین ذاتی اشیاء کے لیے petty cash استعمال کر سکتے ہیں۔ ایک مختصر پالیسی شائع کریں۔
-
-## 5. دستی لاگ
-
-کاغذی لاگ کھونا آسان ہے۔ **Petty Cash** پر جانے سے ہر لین دین قابل تلاش اور محفوظ رہتا ہے۔
-        `
+      "ar": {
+        "title": "5 أخطاء شائعة في صندوق العهدة وكيفية تجنبها",
+        "summary": "معظم مشاكل صندوق العهدة تأتي من أخطاء بسيطة. إليك كيفية إصلاحها قبل أن تكلفك المال.",
+        "content": "\n## 5 أخطاء شائعة في صندوق العهدة\n\n## 1. عدم وجود إيصالات\n\nالإيصالات المفقودة تجعل التدقيق مستحيلاً. اشترِ إيصالاً أو صورة لكل مصروف.\n\n## 2. وجود عدة أمناء\n\nعندما يصل عدة أشخاص إلى النقد، تختفي المساءلة. عيّن أميناً واحداً فقط.\n\n## 3. عدم المطابقة بانتظام\n\nانتظار شهور للمطابقة يخلق عجزاً خفياً. راجع الصندوق أسبوعياً أو شهرياً.\n\n## 4. قواعد إنفاق فضفاضة\n\nبدون قواعد واضحة، قد يستخدم الموظفون العهدة لأغراض شخصية. انشر سياسة موجزة.\n\n## 5. السجلات اليدوية\n\nالسجلات الورقية سهلة الضياع. التحول إلى **صندوق العهدة** يبقي كل معاملة قابلة للبحث والآمنة.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-audit-checklist',
-    id: 'petty-cash-audit-checklist',
-    date: '2026-07-04',
-    readTime: 3,
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
-    translations: {
-      en: {
-        title: 'Petty Cash Audit Checklist for Small Businesses',
-        summary: 'Use this checklist to verify your petty cash fund quickly and catch discrepancies before they grow.',
-        content: `
-## Petty Cash Audit Checklist
-
-## Physical Count
-
-Count the cash on hand and compare it to the recorded balance.
-
-## Receipt Review
-
-Gather all receipts. The total spent plus cash on hand should equal the original fund amount.
-
-## Log Verification
-
-Check that every withdrawal has a matching receipt, date, and description.
-
-## Custodian Interview
-
-Ask the custodian about any unusual transactions or missing documents.
-
-## Corrective Action
-
-Investigate any difference immediately. Update controls if you find a pattern.
-
-## Easier Audits
-
-With **Petty Cash**, every receipt is stored digitally and balances update automatically.
-        `
+    "slug": "petty-cash-audit-checklist",
+    "date": "2026-07-04",
+    "readTime": 3,
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "Petty Cash Audit Checklist for Small Businesses",
+        "summary": "Use this checklist to verify your petty cash fund quickly and catch discrepancies before they grow.",
+        "content": "\n## Petty Cash Audit Checklist\n\n## Physical Count\n\nCount the cash on hand and compare it to the recorded balance.\n\n## Receipt Review\n\nGather all receipts. The total spent plus cash on hand should equal the original fund amount.\n\n## Log Verification\n\nCheck that every withdrawal has a matching receipt, date, and description.\n\n## Custodian Interview\n\nAsk the custodian about any unusual transactions or missing documents.\n\n## Corrective Action\n\nInvestigate any difference immediately. Update controls if you find a pattern.\n\n## Easier Audits\n\nWith **Petty Cash**, every receipt is stored digitally and balances update automatically.\n        "
       },
-      ar: {
-        title: 'قائمة مراجعة صندوق العهدة للشركات الصغيرة',
-        summary: 'استخدم هذه القائمة للتحقق من صندوق العهدة بسرعة والكشف عن أي فروقات قبل أن تتفاقم.',
-        content: `
-## قائمة مراجعة صندوق العهدة
-
-## العدد الفعلي
-
-عُدّ النقد المتوفر وقارنه بالرصيد المسجل.
-
-## مراجعة الإيصالات
-
-اجمع جميع الإيصالات. يجب أن يكون إجمالي المبلغ المنفق بالإضافة إلى النقد المتوفر مساوياً لمبلغ الصندوق الأصلي.
-
-## التحقق من السجل
-
-تأكد من أن كل عملية سحب لها إيصال مطابق وتاريخ ووصف.
-
-## مقابلة أمين الصندوق
-
-اسأل أمين الصندوق عن أي معاملات غير عادية أو مستندات مفقودة.
-
-## الإجراء التصحيحي
-
-حقق في أي فرق فوراً. حدّث الضوابط إذا وجدت نمطاً متكرراً.
-
-## تدقيق أسهل
-
-مع **صندوق العهدة**، تُخزّن كل إيصال رقمياً وتُحدّث الأرصدة تلقائياً.
-        `
-      },
-      hi: {
-        title: 'छोटे व्यवसायों के लिए Petty Cash Audit Checklist',
-        summary: 'इस चेकलिस्ट का उपयोग अपने petty cash fund को तेजी से सत्यापित करने और असंगतियों को बढ़ने से पहले पकड़ने के लिए करें।',
-        content: `
-## Petty Cash Audit Checklist
-
-## शारीरिक गणना
-
-हाथ में मौजूद नकदी गिनें और उसे दर्ज बैलेंस से तुलना करें।
-
-## रसीद की समीक्षा
-
-सभी रसीदें इकट्ठा करें। खर्च की गई कुल राशि और हाथ में नकदी का योग मूल fund राशि के बराबर होना चाहिए।
-
-## लॉग सत्यापन
-
-जांचें कि हर निकासी के लिए मिलान रसीद, तिथि और विवरण हो।
-
-## संरक्षक साक्षात्कार
-
-संरक्षक से किसी भी असाधारण लेनदेन या गायब दस्तावेजों के बारे में पूछें।
-
-## सुधारात्मक कार्रवाई
-
-किसी भी अंतर की तुरंत जांच करें। यदि आपको कोई पैटर्न मिलता है तो नियंत्रण अपडेट करें।
-
-## आसान ऑडिट
-
-**Petty Cash** के साथ, हर रसीद डिजिटल रूप से संग्रहीत होती है और बैलेंस स्वचालित रूप से अपडेट होता है।
-        `
-      },
-      ur: {
-        title: 'چھوٹے کاروباروں کے لیے Petty Cash Audit Checklist',
-        summary: 'اس چیک لسٹ کا استعمال اپنے petty cash fund کو تیزی سے تصدیق کرنے اور غیر مطابقتوں کو بڑھنے سے پہلے پکڑنے کے لیے کریں۔',
-        content: `
-## Petty Cash Audit Checklist
-
-## جسمانی گنتی
-
-ہاتھ میں موجود نقدی گنیں اور اسے درج بیلنس سے موازنہ کریں۔
-
-## رسید کا جائزہ
-
-تمام رسیدیں اکٹھی کریں۔ خرچ کی گئی کل رقم اور ہاتھ میں نقدی کا مجموعہ اصل fund رقم کے برابر ہونا چاہیے۔
-
-## لاگ کی تصدیق
-
-چیک کریں کہ ہر نکاسی کے لیے مماثل رسید، تاریخ اور تفصیل ہو۔
-
-## امین کا انٹرویو
-
-امین سے کسی بھی غیر معمولی لین دین یا گم شدہ دستاویزات کے بارے میں پوچھیں۔
-
-## اصلاحی کارروائی
-
-کسی بھی فرق کی فوری تحقیقات کریں۔ اگر آپ کو کوئی پیٹرن ملتا ہے تو کنٹرول اپ ڈیٹ کریں۔
-
-## آسان آڈٹ
-
-**Petty Cash** کے ساتھ، ہر رسید ڈیجیٹل طور پر محفوظ ہوتی ہے اور بیلنس خود بخود اپ ڈیٹ ہوتا ہے۔
-        `
+      "ar": {
+        "title": "قائمة مراجعة صندوق العهدة للشركات الصغيرة",
+        "summary": "استخدم هذه القائمة للتحقق من صندوق العهدة بسرعة والكشف عن أي فروقات قبل أن تتفاقم.",
+        "content": "\n## قائمة مراجعة صندوق العهدة\n\n## العدد الفعلي\n\nعُدّ النقد المتوفر وقارنه بالرصيد المسجل.\n\n## مراجعة الإيصالات\n\nاجمع جميع الإيصالات. يجب أن يكون إجمالي المبلغ المنفق بالإضافة إلى النقد المتوفر مساوياً لمبلغ الصندوق الأصلي.\n\n## التحقق من السجل\n\nتأكد من أن كل عملية سحب لها إيصال مطابق وتاريخ ووصف.\n\n## مقابلة أمين الصندوق\n\nاسأل أمين الصندوق عن أي معاملات غير عادية أو مستندات مفقودة.\n\n## الإجراء التصحيحي\n\nحقق في أي فرق فوراً. حدّث الضوابط إذا وجدت نمطاً متكرراً.\n\n## تدقيق أسهل\n\nمع **صندوق العهدة**، تُخزّن كل إيصال رقمياً وتُحدّث الأرصدة تلقائياً.\n        "
       }
     }
   },
   {
-    slug: 'reduce-petty-cash-fraud-digital',
-    id: 'reduce-petty-cash-fraud-digital',
-    date: '2026-07-02',
-    readTime: 4,
-    image: 'https://images.unsplash.com/photo-1664575602276-acd073f104c1?w=800&q=80',
-    translations: {
-      en: {
-        title: 'How to Reduce Petty Cash Fraud with Digital Tools',
-        summary: 'Petty cash is a common target for fraud. Here is how digital tracking makes misuse much harder.',
-        content: `
-## How Digital Tools Reduce Petty Cash Fraud
-
-## The Fraud Risk
-
-Cash is anonymous. Without records, it is hard to prove who spent what, and fake receipts can go unnoticed.
-
-## Digital Controls
-
-Digital systems enforce receipt photos, user login, and manager approval before any spend is recorded.
-
-## Audit Trail
-
-Every action is logged with a timestamp and user name. You can see exactly who approved each expense.
-
-## Real-Time Alerts
-
-Managers get notified of unusual spending patterns instantly instead of discovering them at month-end.
-
-## Start Today
-
-**Petty Cash** adds these controls in minutes and is free for up to 5 employees.
-        `
+    "slug": "reduce-petty-cash-fraud-digital",
+    "date": "2026-07-02",
+    "readTime": 4,
+    "image": "https://images.unsplash.com/photo-1664575602276-acd073f104c1?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "How to Reduce Petty Cash Fraud with Digital Tools",
+        "summary": "Petty cash is a common target for fraud. Here is how digital tracking makes misuse much harder.",
+        "content": "\n## How Digital Tools Reduce Petty Cash Fraud\n\n## The Fraud Risk\n\nCash is anonymous. Without records, it is hard to prove who spent what, and fake receipts can go unnoticed.\n\n## Digital Controls\n\nDigital systems enforce receipt photos, user login, and manager approval before any spend is recorded.\n\n## Audit Trail\n\nEvery action is logged with a timestamp and user name. You can see exactly who approved each expense.\n\n## Real-Time Alerts\n\nManagers get notified of unusual spending patterns instantly instead of discovering them at month-end.\n\n## Start Today\n\n**Petty Cash** adds these controls in minutes and is free for up to 5 employees.\n        "
       },
-      ar: {
-        title: 'كيفية تقليل احتيال صندوق العهدة باستخدام الأدوات الرقمية',
-        summary: 'يعد صندوق العهدة هدفاً شائعاً للاحتيال. إليك كيف يجعل التتبع الرقمي سوء الاستخدام أكثر صعوبة.',
-        content: `
-## كيف تقلل الأدوات الرقمية من احتيال العهدة
-
-## مخاطر الاحتيال
-
-النقد مجهول. بدون سجلات، من الصعب إثبات من أنفق ماذا، ويمكن أن تمر الإيصالات المزيفة دون ملاحظة.
-
-## الضوابط الرقمية
-
-الأنظمة الرقمية تفرض صور الإيصالات، وتسجيل دخول المستخدم، وموافقة المدير قبل تسجيل أي مصروف.
-
-## سجل التدقيق
-
-كل إجراء يُسجل مع وقت المستخدم. يمكنك رؤية من وافق على كل مصروف بالضبط.
-
-## التنبيهات الفورية
-
-يحصل المديرون على إشعارات بأنماط الإنفاق غير العادية فوراً بدلاً من اكتشافها في نهاية الشهر.
-
-## ابدأ اليوم
-
-يضيف **صندوق العهدة** هذه الضوابط في دقائق وهو مجاني لما يصل إلى 5 موظفين.
-        `
-      },
-      hi: {
-        title: 'डिजिटल टूल से Petty Cash Fraud कैसे कम करें',
-        summary: 'Petty cash धोखाधड़ी का एक आम निशाना है। यहां बताया गया है कि डिजिटल ट्रैकिंग दुरुपयोग को कैसे कठिन बनाती है।',
-        content: `
-## डिजिटल टूल धोखाधड़ी कैसे कम करते हैं
-
-## धोखाधड़ी का जोखिम
-
-नकदी अनाम होती है। रिकॉर्ड के बिना, यह साबित करना कठिन है कि किसने क्या खर्च किया, और नकली रसीदें अनदेखी हो सकती हैं।
-
-## डिजिटल नियंत्रण
-
-डिजिटल सिस्टम रसीद फोटो, उपयोगकर्ता लॉगिन और प्रबंधक की मंजूरी को लागू करते हैं।
-
-## ऑडिट ट्रेल
-
-हर क्रिया को टाइमस्टैम्प और उपयोगकर्ता नाम के साथ लॉग किया जाता है। आप देख सकते हैं कि हर खर्च को किसने मंजूरी दी।
-
-## रियल-टाइम अलर्ट
-
-मैनेजरों को असाधारण खर्च पैटर्न की तुरंत सूचना मिलती है, न कि महीने के अंत में।
-
-## आज ही शुरू करें
-
-**Petty Cash** ये नियंत्रण मिनटों में जोड़ता है और 5 कर्मचारियों तक मुफ्त है।
-        `
-      },
-      ur: {
-        title: 'ڈیجیٹل ٹولز سے Petty Cash Fraud کیسے کم کریں',
-        summary: 'Petty cash دھوکadhڑی کا ایک عام ہدف ہے۔ یہاں بتایا گیا ہے کہ ڈیجیٹل ٹریکنگ غلط استعمال کو کس طرح مشکل بناتی ہے۔',
-        content: `
-## ڈیجیٹل ٹولز دھوکadhڑی کیسے کم کرتے ہیں
-
-## دھوکadhڑی کا خطرہ
-
-نقدی گمنام ہوتی ہے۔ ریکارڈ کے بغیر، یہ ثابت کرنا مشکل ہے کہ کس نے کیا خرچ کیا، اور جعلی رسیدیں نظر انداز ہو سکتی ہیں۔
-
-## ڈیجیٹل کنٹرول
-
-ڈیجیٹل سسٹمز رسید فوٹو، صارف لاگ ان اور مینیجر کی منظوری کو لازمی کرتے ہیں۔
-
-## آڈٹ ٹریل
-
-ہر عمل کو ٹائم اسٹیمپ اور صارف نام کے ساتھ لاگ کیا جاتا ہے۔ آپ دیکھ سکتے ہیں کہ ہر خرچ کو کس نے منظور کیا۔
-
-## ریئل ٹائم الرٹس
-
-مینیجرز کو غیر معمولی خرچ پیٹرن کا فوری طور پر پتہ چلتا ہے، مہینے کے آخر میں نہیں۔
-
-## آج ہی شروع کریں
-
-**Petty Cash** یہ کنٹرولز منٹوں میں شامل کرتا ہے اور 5 ملازمین تک مفت ہے۔
-        `
+      "ar": {
+        "title": "كيفية تقليل احتيال صندوق العهدة باستخدام الأدوات الرقمية",
+        "summary": "يعد صندوق العهدة هدفاً شائعاً للاحتيال. إليك كيف يجعل التتبع الرقمي سوء الاستخدام أكثر صعوبة.",
+        "content": "\n## كيف تقلل الأدوات الرقمية من احتيال العهدة\n\n## مخاطر الاحتيال\n\nالنقد مجهول. بدون سجلات، من الصعب إثبات من أنفق ماذا، ويمكن أن تمر الإيصالات المزيفة دون ملاحظة.\n\n## الضوابط الرقمية\n\nالأنظمة الرقمية تفرض صور الإيصالات، وتسجيل دخول المستخدم، وموافقة المدير قبل تسجيل أي مصروف.\n\n## سجل التدقيق\n\nكل إجراء يُسجل مع وقت المستخدم. يمكنك رؤية من وافق على كل مصروف بالضبط.\n\n## التنبيهات الفورية\n\nيحصل المديرون على إشعارات بأنماط الإنفاق غير العادية فوراً بدلاً من اكتشافها في نهاية الشهر.\n\n## ابدأ اليوم\n\nيضيف **صندوق العهدة** هذه الضوابط في دقائق وهو مجاني لما يصل إلى 5 موظفين.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-vs-employee-reimbursement',
-    id: 'petty-cash-vs-employee-reimbursement',
-    date: '2026-07-12',
-    readTime: 3,
-    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
-    translations: {
-      en: {
-        title: 'Petty Cash vs Employee Reimbursement: Which is Better?',
-        summary: 'Should you keep a cash fund or reimburse employees later? Compare both approaches and pick the right one for your business.',
-        content: `
-## Petty Cash vs Employee Reimbursement
-
-## Petty Cash Pros
-
-- Employees do not pay from their own pocket
-- Fast access for urgent small expenses
-- Simple process once the fund is set up
-
-## Petty Cash Cons
-
-- Cash can be lost or misused
-- Requires a secure storage location
-- Needs regular reconciliation
-
-## Reimbursement Pros
-
-- No cash kept on site
-- Full digital paper trail from the start
-- Easier to control spending limits
-
-## Reimbursement Cons
-
-- Employees must wait for repayment
-- Can hurt morale for frequent small expenses
-- More admin per transaction
-
-## The Best Choice
-
-Many businesses use a small petty cash fund for urgent items and a digital reimbursement system for larger out-of-pocket costs. **Petty Cash** supports both workflows in one app.
-        `
+    "slug": "petty-cash-vs-employee-reimbursement",
+    "date": "2026-07-12",
+    "readTime": 3,
+    "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "Petty Cash vs Employee Reimbursement: Which is Better?",
+        "summary": "Should you keep a cash fund or reimburse employees later? Compare both approaches and pick the right one for your business.",
+        "content": "\n## Petty Cash vs Employee Reimbursement\n\n## Petty Cash Pros\n\n- Employees do not pay from their own pocket\n- Fast access for urgent small expenses\n- Simple process once the fund is set up\n\n## Petty Cash Cons\n\n- Cash can be lost or misused\n- Requires a secure storage location\n- Needs regular reconciliation\n\n## Reimbursement Pros\n\n- No cash kept on site\n- Full digital paper trail from the start\n- Easier to control spending limits\n\n## Reimbursement Cons\n\n- Employees must wait for repayment\n- Can hurt morale for frequent small expenses\n- More admin per transaction\n\n## The Best Choice\n\nMany businesses use a small petty cash fund for urgent items and a digital reimbursement system for larger out-of-pocket costs. **Petty Cash** supports both workflows in one app.\n        "
       },
-      ar: {
-        title: 'صندوق العهدة مقابل استرداد المصروفات للموظفين: أيهما أفضل؟',
-        summary: 'هل تحتفظ بصندوق نقدي أو تسدد للموظفين لاحقاً؟ قارن بين النهجين واختر الأنسب لشركتك.',
-        content: `
-## صندوق العهدة مقابل استرداد المصروفات
-
-## مميزات صندوق العهدة
-
-- لا يدفع الموظفون من جيوبهم
-- وصول سريع للمصروفات الصغيرة العاجلة
-- عملية بسيطة بمجرد إعداد الصندوق
-
-## عيوب صندوق العهدة
-
-- النقد يمكن أن يضيع أو يُسيء استخدامه
-- يحتاج إلى مكان تخزين آمن
-- يتطلب مطابقة دورية
-
-## مميزات الاسترداد
-
-- لا يوجد نقد محتفظ به في الموقع
-- أثر ورقي رقمي كامل من البداية
-- يسهل التحكم في حدود الإنفاق
-
-## أفضل خيار
-
-كثير من الشركات يستخدمون صندوق عهدة صغير للطلبات العاجلة ونظام استرداد رقمي للتكاليف الأكبر. يدعم **صندوق العهدة** كلتا العمليتين في تطبيق واحد.
-        `
-      },
-      hi: {
-        title: 'Petty Cash बनाम Employee Reimbursement: कौन सा बेहतर है?',
-        summary: 'क्या आपको नकदी fund रखना चाहिए या बाद में कर्मचारियों को भुगतान करना चाहिए? दोनों दृष्टिकोणों की तुलना करें और अपने व्यवसाय के लिए सही चुनें।',
-        content: `
-## Petty Cash बनाम Employee Reimbursement
-
-## Petty Cash के फायदे
-
-- कर्मचारी अपनी जेब से नहीं देते
-- तत्काल छोटे खर्चों के लिए तेज़ पहुंच
-- Fund सेट up होने के बाद सरल प्रक्रिया
-
-## Petty Cash के नुकसान
-
-- नकदी खो या गलत इस्तेमाल हो सकती है
-- सुरक्षित भंडारण स्थान की आवश्यकता
-- नियमित मिलान आवश्यक
-
-## Reimbursement के फायदे
-
-- साइट पर कोई नकदी नहीं
-- शुरू से पूर्ण डिजिटल पेपर ट्रेल
-- खर्च सीमा को नियंत्रित करना आसान
-
-## सबसे अच्छा विकल्प
-
-कई व्यवसाय तत्काल खर्चों के लिए छोटा petty cash fund और बड़ी जेब से खर्च के लिए डिजिटल प्रतिपूर्ति प्रणाली का उपयोग करते हैं। **Petty Cash** एक ऐप में दोनों कार्यप्रवाह का समर्थन करता है।
-        `
-      },
-      ur: {
-        title: 'Petty Cash بمقابلہ Employee Reimbursement: کون سا بہتر ہے؟',
-        summary: 'کیا آپ کو نقدی fund رکھنا چاہیے یا بعد میں ملازمین کو ادائیگی کرنی چاہیے؟ دونوں طریقوں کا موازنہ کریں اور اپنے کاروبار کے لیے صحیح انتخاب کریں۔',
-        content: `
-## Petty Cash بمقابلہ Employee Reimbursement
-
-## Petty Cash کے فائدے
-
-- ملازمین اپنی جیب سے نہیں دیتے
-- فوری چھوٹے اخراجات کے لیے تیز رسائی
-- Fund سیٹ up ہونے کے بعد آسان عمل
-
-## Petty Cash کے نقصانات
-
-- نقدی کھو یا غلط استعمال ہو سکتی ہے
-- محفوظ ذخیرہ اندوز کی جگہ کی ضرورت
-- باقاعدگی سے موازنہ ضروری
-
-## Reimbursement کے فائدے
-
-- سائٹ پر کوئی نقدی نہیں
-- شروع سے مکمل ڈیجیٹل کاغذی ٹریل
-- خرچ کی حد کو کنٹرول کرنا آسان
-
-## بہترین انتخاب
-
-بہت سے کاروبار فوری اخراجات کے لیے چھوٹا petty cash fund اور بڑے اخراجات کے لیے ڈیجیٹل واپسی کا نظام استعمال کرتے ہیں۔ **Petty Cash** ایک ایپ میں دونوں ورک فلوز کو سپورٹ کرتا ہے۔
-        `
+      "ar": {
+        "title": "صندوق العهدة مقابل استرداد المصروفات للموظفين: أيهما أفضل؟",
+        "summary": "هل تحتفظ بصندوق نقدي أو تسدد للموظفين لاحقاً؟ قارن بين النهجين واختر الأنسب لشركتك.",
+        "content": "\n## صندوق العهدة مقابل استرداد المصروفات\n\n## مميزات صندوق العهدة\n\n- لا يدفع الموظفون من جيوبهم\n- وصول سريع للمصروفات الصغيرة العاجلة\n- عملية بسيطة بمجرد إعداد الصندوق\n\n## عيوب صندوق العهدة\n\n- النقد يمكن أن يضيع أو يُسيء استخدامه\n- يحتاج إلى مكان تخزين آمن\n- يتطلب مطابقة دورية\n\n## مميزات الاسترداد\n\n- لا يوجد نقد محتفظ به في الموقع\n- أثر ورقي رقمي كامل من البداية\n- يسهل التحكم في حدود الإنفاق\n\n## أفضل خيار\n\nكثير من الشركات يستخدمون صندوق عهدة صغير للطلبات العاجلة ونظام استرداد رقمي للتكاليف الأكبر. يدعم **صندوق العهدة** كلتا العمليتين في تطبيق واحد.\n        "
       }
     }
   },
   {
-    slug: 'cloud-based-petty-cash-management',
-    id: 'cloud-based-petty-cash-management',
-    date: '2026-07-14',
-    readTime: 3,
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
-    translations: {
-      en: {
-        title: 'Benefits of Cloud-Based Petty Cash Management',
-        summary: 'Discover why businesses are moving petty cash to the cloud for better security, visibility, and control.',
-        content: `
-## Benefits of Cloud-Based Petty Cash Management
-
-## Access Anywhere
-
-Managers and employees can view balances, submit expenses, and approve requests from any device.
-
-## Automatic Backups
-
-Cloud systems store receipt photos and transaction logs safely, so nothing is lost if a phone breaks or a laptop is replaced.
-
-## Multi-Location Control
-
-If you have multiple branches, you can manage separate funds and custodians from one dashboard.
-
-## Real-Time Reports
-
-Generate spending reports by employee, department, or date range in seconds, not hours.
-
-## Better Security
-
-Digital logs, user authentication, and approval workflows make theft and misuse much harder than with a physical cash box.
-
-## Try It Free
-
-**Petty Cash** gives you cloud-based petty cash management with no setup fees and no credit card required.
-        `
+    "slug": "cloud-based-petty-cash-management",
+    "date": "2026-07-14",
+    "readTime": 3,
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "Benefits of Cloud-Based Petty Cash Management",
+        "summary": "Discover why businesses are moving petty cash to the cloud for better security, visibility, and control.",
+        "content": "\n## Benefits of Cloud-Based Petty Cash Management\n\n## Access Anywhere\n\nManagers and employees can view balances, submit expenses, and approve requests from any device.\n\n## Automatic Backups\n\nCloud systems store receipt photos and transaction logs safely, so nothing is lost if a phone breaks or a laptop is replaced.\n\n## Multi-Location Control\n\nIf you have multiple branches, you can manage separate funds and custodians from one dashboard.\n\n## Real-Time Reports\n\nGenerate spending reports by employee, department, or date range in seconds, not hours.\n\n## Better Security\n\nDigital logs, user authentication, and approval workflows make theft and misuse much harder than with a physical cash box.\n\n## Try It Free\n\n**Petty Cash** gives you cloud-based petty cash management with no setup fees and no credit card required.\n        "
       },
-      ar: {
-        title: 'فوائد إدارة صندوق العهدة المستندة إلى السحابة',
-        summary: 'اكتشف لماذا تنتقل الشركات إلى إدارة العهدة عبر السحابة لتحسين الأمان والرؤية والتحكم.',
-        content: `
-## فوائد إدارة صندوق العهدة عبر السحابة
-
-## الوصول من أي مكان
-
-يمكن للمديرين والموظفين عرض الأرصدة وتقديم المصروفات و الموافقة على الطلبات من أي جهاز.
-
-## نسخ احتياطي تلقائي
-
-أنظمة السحابة تخزن صور الإيصالات وسجلات المعاملات بأمان، بحيث لا يضيع شيء إذا تعطل الهاتف أو استُبدل الحاسوب.
-
-## التحكم متعدد المواقع
-
-إذا كان لديك فروع متعددة، يمكنك إدارة صناديق منفصلة وأمناء من لوحة تحكم واحدة.
-
-## التقارير الفورية
-
-ولّد تقارير الإنفاق حسب الموظف أو القسم أو الفترة الزمنية في ثوانٍ بدلاً من ساعات.
-
-## أمان أفضل
-
-السجلات الرقمية ومصادقة المستخدم وسير عمل الموافقات تجعل السرقة وسوء الاستخدام أصعب بكثير من صندوق النقد الورقي.
-
-## جرّبه مجاناً
-
-**صندوق العهدة** يمنحك إدارة العهدة عبر السحابة بدون رسوم إعداد وبطاقة ائتمان.
-        `
-      },
-      hi: {
-        title: 'Cloud-Based Petty Cash Management के फायदे',
-        summary: 'जानें कि क्यों व्यवसाय बेहतर सुरक्षा, दृश्यता और नियंत्रण के लिए petty cash को क्लाउड में ले जा रहे हैं।',
-        content: `
-## Cloud-Based Petty Cash Management के फायदे
-
-## कहीं से भी पहुंच
-
-प्रबंधक और कर्मचारी किसी भी डिवाइस से बैलेंस देख सकते हैं, खर्च जमा कर सकते हैं और अनुरोधों को मंजूरी दे सकते हैं।
-
-## स्वचालित बैकअप
-
-क्लाउड सिस्टम रसीद फोटो और लेनदेन लॉग को सुरक्षित रूप से संग्रहीत करते हैं, इसलिए कुछ भी खोता नहीं है।
-
-## मल्टी-लोकेशन नियंत्रण
-
-यदि आपके पास कई शाखाएं हैं, तो आप एक डैशबोर्ड से अलग fund और संरक्षकों का प्रबंधन कर सकते हैं।
-
-## रियल-टाइम रिपोर्ट
-
-कर्मचारी, विभाग या तिथि सीमा के अनुसार खर्च रिपोर्ट सेकंड में बनाएं।
-
-## बेहतर सुरक्षा
-
-डिजिटल लॉग, उपयोगकर्ता प्रमाणीकरण और अनुमोदन वर्कफ़्लो चोरी और दुरुपयोग को बहुत कठिन बनाते हैं।
-
-## मुफ्त आजमाएं
-
-**Petty Cash** आपको सेटअप शुल्क और क्रेडिट कार्ड के बिना क्लाउड-आधारित petty cash प्रबंधन देता है।
-        `
-      },
-      ur: {
-        title: 'Cloud-Based Petty Cash Management کے فوائد',
-        summary: 'جانیں کہ کیوں کاروبار بہتر سیکیورٹی، مرئیت اور کنٹرول کے لیے petty cash کو کلاؤڈ میں لے جا رہے ہیں۔',
-        content: `
-## Cloud-Based Petty Cash Management کے فوائد
-
-## کہیں سے بھی رسائی
-
-مینیجرز اور ملازمین کسی بھی ڈیوائس سے بیلنس دیکھ سکتے ہیں، اخراجات جمع کرا سکتے ہیں اور درخواستوں کی منظوری دے سکتے ہیں۔
-
-## خودکار بیک اپ
-
-کلاؤڈ سسٹم رسید فوٹو اور لین دین لاگز کو محفوظ طریقے سے ذخیرہ کرتے ہیں، اس لیے کچھ نہیں کھوٹا۔
-
-## ملٹی-لوکیشن کنٹرول
-
-اگر آپ کی کئی شاخیں ہیں، تو آپ ایک ڈیش بورڈ سے الگ fund اور امینوں کا انتظام کر سکتے ہیں۔
-
-## ریئل ٹائم رپورٹس
-
-ملازم، شعبہ یا تاریخ کی حد کے مطابق خرچ کی رپورٹس سیکنڈوں میں بنائیں۔
-
-## بہتر سیکیورٹی
-
-ڈیجیٹل لاگز، صارف کی تصدیق اور منظوری کا ورک فلو چوری اور غلط استعمال کو بہت مشکل بناتا ہے۔
-
-## مفت آزمائیں
-
-**Petty Cash** آپ کو سیٹ اپ فیس اور کریڈٹ کارڈ کے بغیر کلاؤڈ بیسڈ petty cash مینجمنٹ دیتا ہے۔
-        `
+      "ar": {
+        "title": "فوائد إدارة صندوق العهدة المستندة إلى السحابة",
+        "summary": "اكتشف لماذا تنتقل الشركات إلى إدارة العهدة عبر السحابة لتحسين الأمان والرؤية والتحكم.",
+        "content": "\n## فوائد إدارة صندوق العهدة عبر السحابة\n\n## الوصول من أي مكان\n\nيمكن للمديرين والموظفين عرض الأرصدة وتقديم المصروفات و الموافقة على الطلبات من أي جهاز.\n\n## نسخ احتياطي تلقائي\n\nأنظمة السحابة تخزن صور الإيصالات وسجلات المعاملات بأمان، بحيث لا يضيع شيء إذا تعطل الهاتف أو استُبدل الحاسوب.\n\n## التحكم متعدد المواقع\n\nإذا كان لديك فروع متعددة، يمكنك إدارة صناديق منفصلة وأمناء من لوحة تحكم واحدة.\n\n## التقارير الفورية\n\nولّد تقارير الإنفاق حسب الموظف أو القسم أو الفترة الزمنية في ثوانٍ بدلاً من ساعات.\n\n## أمان أفضل\n\nالسجلات الرقمية ومصادقة المستخدم وسير عمل الموافقات تجعل السرقة وسوء الاستخدام أصعب بكثير من صندوق النقد الورقي.\n\n## جرّبه مجاناً\n\n**صندوق العهدة** يمنحك إدارة العهدة عبر السحابة بدون رسوم إعداد وبطاقة ائتمان.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-for-remote-teams',
-    id: 'petty-cash-for-remote-teams',
-    date: '2026-07-16',
-    readTime: 3,
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80',
-    translations: {
-      en: {
-        title: 'Managing Petty Cash for Remote and Field Teams',
-        summary: 'Remote workers still need quick access to small funds. Here is how to manage petty cash without a shared office.',
-        content: `
-## Managing Petty Cash for Remote and Field Teams
-
-## The Challenge
-
-Remote employees and field staff often need to buy small items while away from the office. A physical cash box does not work for them.
-
-## Virtual Petty Cash
-
-Assign a digital balance to each employee. They submit expenses with a photo receipt, and managers approve from anywhere.
-
-## Set Team Limits
-
-Define different spending limits for different roles or locations. This keeps control even when employees are spread out.
-
-## Instant Reimbursement
-
-Approved expenses can be marked for reimbursement instantly, reducing the time employees wait to get their money back.
-
-## Visibility for Managers
-
-Even with a distributed team, managers see all spending in real time and can spot unusual activity quickly.
-
-## Built for Remote Work
-
-**Petty Cash** is designed for teams on the move, with mobile receipt capture and instant approvals.
-        `
+    "slug": "petty-cash-for-remote-teams",
+    "date": "2026-07-16",
+    "readTime": 3,
+    "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "Managing Petty Cash for Remote and Field Teams",
+        "summary": "Remote workers still need quick access to small funds. Here is how to manage petty cash without a shared office.",
+        "content": "\n## Managing Petty Cash for Remote and Field Teams\n\n## The Challenge\n\nRemote employees and field staff often need to buy small items while away from the office. A physical cash box does not work for them.\n\n## Virtual Petty Cash\n\nAssign a digital balance to each employee. They submit expenses with a photo receipt, and managers approve from anywhere.\n\n## Set Team Limits\n\nDefine different spending limits for different roles or locations. This keeps control even when employees are spread out.\n\n## Instant Reimbursement\n\nApproved expenses can be marked for reimbursement instantly, reducing the time employees wait to get their money back.\n\n## Visibility for Managers\n\nEven with a distributed team, managers see all spending in real time and can spot unusual activity quickly.\n\n## Built for Remote Work\n\n**Petty Cash** is designed for teams on the move, with mobile receipt capture and instant approvals.\n        "
       },
-      ar: {
-        title: 'إدارة صندوق العهدة للفرق عن بُعد والميدانية',
-        summary: 'لا يزال العاملون عن بُعد بحاجة إلى وصول سريع إلى أموال صغيرة. إليك كيفية إدارة العهدة بدون مكتب مشترك.',
-        content: `
-## إدارة صندوق العهدة للفرق عن بُعد
-
-## التحدي
-
-يحتاج الموظفون عن بُعد والميدانيون غالباً إلى شراء أغراض صغيرة بعيداً عن المكتب. صندوق النقد الفعلي لا يناسبهم.
-
-## العهدة الافتراضية
-
-خصص رصيداً رقمياً لكل موظف. يقدم المصروفات مع صورة الإيصال، ويوافق المدير من أي مكان.
-
-## تحديد حدود الفريق
-
-حدد حدود إنفاق مختلفة لأدوار أو مواقع مختلفة. هذا يحافظ على التحكم حتى عندما يكون الموظفون منتشرين.
-
-## السداد الفوري
-
-يمكن وضع علامة على المصروفات المعتمدة للسداد فوراً، مما يقلل الوقت الذي ينتظره الموظف لاسترداد أمواله.
-
-## رؤية المديرين
-
-حتى مع فريق موزع، يرى المديرون جميع الإنفاق في الوقت الفعلي ويمكنهم اكتشاف أي نشاط غير عادي بسرعة.
-
-## مصمم للعمل عن بُعد
-
-**صندوق العهدة** مصمم للفرق المتحركة، مع التقاط الإيصالات عبر الجوال والموافقات الفورية.
-        `
-      },
-      hi: {
-        title: 'Remote और Field Teams के लिए Petty Cash प्रबंधन',
-        summary: 'दूरस्थ कर्मचारियों को अभी भी छोटे fund तक त्वरित पहुंच की आवश्यकता होती है। यहां बिना साझा कार्यालय के petty cash प्रबंधित करने का तरीका बताया गया है।',
-        content: `
-## Remote और Field Teams के लिए Petty Cash प्रबंधन
-
-## चुनौती
-
-दूरस्थ कर्मचारी और फील्ड स्टाफ को अक्सर कार्यालय से दूर रहते हुए छोटी वस्तुएं खरीदनी होती हैं। उनके लिए भौतिक नकदी बॉक्स काम नहीं करता।
-
-## वर्चुअल Petty Cash
-
-प्रत्येक कर्मचारी को एक डिजिटल बैलेंस सौंपें। वे फोटो रसीद के साथ खर्च जमा करते हैं, और प्रबंधक कहीं से भी मंजूरी देते हैं।
-
-## टीम सीमाएं निर्धारित करें
-
-विभिन्न भूमिकाओं या स्थानों के लिए विभिन्न खर्च सीमाएं परिभाषित करें। इससे नियंत्रण बना रहता है।
-
-## त्वरित प्रतिपूर्ति
-
-मंजूर खर्चों को तुरंत प्रतिपूर्ति के लिए चिह्नित किया जा सकता है, जिससे कर्मचारियों को अपना पैसा वापस पाने का इंतजार कम होता है।
-
-## प्रबंधकों के लिए दृश्यता
-
-भीड़ी टीम के साथ भी, प्रबंधक रियल टाइम में सभी खर्च देखते हैं और असामान्य गतिविधि को तुरंत पहचान सकते हैं।
-
-## दूरस्थ कार्य के लिए बनाया गया
-
-**Petty Cash** मोबाइल रसीद कैप्चर और त्वरित अनुमोदन के साथ चलती टीमों के लिए डिज़ाइन किया गया है।
-        `
-      },
-      ur: {
-        title: 'Remote اور Field Teams کے لیے Petty Cash انتظام',
-        summary: 'دور دراز ملازمین کو اب بھی چھوٹے fund تک فوری رسائی کی ضرورت ہوتی ہے۔ یہاں بغیر مشترکہ آفس کے petty cash منظم کرنے کا طریقہ بتایا گیا ہے۔',
-        content: `
-## Remote اور Field Teams کے لیے Petty Cash انتظام
-
-## چیلنج
-
-دور دراز ملازمین اور فیلڈ سٹاف کو اکثر آفس سے دور رہتے ہوئے چھوٹی اشیاء خریدنی ہوتی ہیں۔ ان کے لیے جسمانی نقدی باکس کام نہیں کرتا۔
-
-## ورچوئل Petty Cash
-
-ہر ملازم کو ایک ڈیجیٹل بیلنس تفویض کریں۔ وہ فوٹو رسید کے ساتھ اخراجات جمع کرتے ہیں، اور مینیجر کہیں سے بھی منظوری دیتے ہیں۔
-
-## ٹیم کی حدود طے کریں
-
-مختلف کرداروں یا مقامات کے لیے مختلف خرچ کی حدود متعین کریں۔ اس سے کنٹرل برقرار رہتا ہے۔
-
-## فوری واپسی
-
-منظور شدہ اخراجات کو فوری واپسی کے لیے نشان زد کیا جا سکتا ہے، جس سے ملازمین کو اپنے پیسے واپس کرنے کا انتظار کم ہوتا ہے۔
-
-## مینیجرز کے لیے مرئیت
-
-تقسیم شدہ ٹیم کے ساتھ بھی، مینیجرز ریئل ٹائم میں تمام خرچ دیکھتے ہیں اور غیر معمولی سرگرمی کو فوری پہچان سکتے ہیں۔
-
-## دور کام کے لیے بنایا گیا
-
-**Petty Cash** موبائل رسید کیپچر اور فوری منظوری کے ساتھ متحرک ٹیموں کے لیے ڈیزائن کیا گیا ہے۔
-        `
+      "ar": {
+        "title": "إدارة صندوق العهدة للفرق عن بُعد والميدانية",
+        "summary": "لا يزال العاملون عن بُعد بحاجة إلى وصول سريع إلى أموال صغيرة. إليك كيفية إدارة العهدة بدون مكتب مشترك.",
+        "content": "\n## إدارة صندوق العهدة للفرق عن بُعد\n\n## التحدي\n\nيحتاج الموظفون عن بُعد والميدانيون غالباً إلى شراء أغراض صغيرة بعيداً عن المكتب. صندوق النقد الفعلي لا يناسبهم.\n\n## العهدة الافتراضية\n\nخصص رصيداً رقمياً لكل موظف. يقدم المصروفات مع صورة الإيصال، ويوافق المدير من أي مكان.\n\n## تحديد حدود الفريق\n\nحدد حدود إنفاق مختلفة لأدوار أو مواقع مختلفة. هذا يحافظ على التحكم حتى عندما يكون الموظفون منتشرين.\n\n## السداد الفوري\n\nيمكن وضع علامة على المصروفات المعتمدة للسداد فوراً، مما يقلل الوقت الذي ينتظره الموظف لاسترداد أمواله.\n\n## رؤية المديرين\n\nحتى مع فريق موزع، يرى المديرون جميع الإنفاق في الوقت الفعلي ويمكنهم اكتشاف أي نشاط غير عادي بسرعة.\n\n## مصمم للعمل عن بُعد\n\n**صندوق العهدة** مصمم للفرق المتحركة، مع التقاط الإيصالات عبر الجوال والموافقات الفورية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-reconciliation-step-by-step',
-    id: 'petty-cash-reconciliation-step-by-step',
-    date: '2026-07-18',
-    readTime: 4,
-    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
-    translations: {
-      en: {
-        title: 'Petty Cash Reconciliation: A Step-by-Step Guide',
-        summary: 'Reconciling petty cash ensures your records match your cash on hand. Follow these simple steps.',
-        content: `
-## Petty Cash Reconciliation: A Step-by-Step Guide
-
-## Step 1: Count the Cash
-
-Start by counting the physical cash remaining in the petty cash box or fund.
-
-## Step 2: List All Receipts
-
-Collect every receipt for expenses paid from the fund. Add them up to get the total spent.
-
-## Step 3: Check the Log
-
-Compare the receipts against your petty cash log or digital records. Every withdrawal should be documented.
-
-## Step 4: Calculate the Balance
-
-Add the cash on hand to the total receipts. This should equal the original fund amount.
-
-## Step 5: Investigate Differences
-
-If the numbers do not match, find out why. Common causes include missing receipts, math errors, or unauthorized withdrawals.
-
-## Step 6: Replenish the Fund
-
-Once the reconciliation is complete, request a refill so the fund returns to its set amount.
-
-## Make It Easier
-
-**Petty Cash** tracks every transaction and receipt automatically, so reconciliation takes minutes instead of hours.
-        `
+    "slug": "petty-cash-reconciliation-step-by-step",
+    "date": "2026-07-18",
+    "readTime": 4,
+    "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "Petty Cash Reconciliation: A Step-by-Step Guide",
+        "summary": "Reconciling petty cash ensures your records match your cash on hand. Follow these simple steps.",
+        "content": "\n## Petty Cash Reconciliation: A Step-by-Step Guide\n\n## Step 1: Count the Cash\n\nStart by counting the physical cash remaining in the petty cash box or fund.\n\n## Step 2: List All Receipts\n\nCollect every receipt for expenses paid from the fund. Add them up to get the total spent.\n\n## Step 3: Check the Log\n\nCompare the receipts against your petty cash log or digital records. Every withdrawal should be documented.\n\n## Step 4: Calculate the Balance\n\nAdd the cash on hand to the total receipts. This should equal the original fund amount.\n\n## Step 5: Investigate Differences\n\nIf the numbers do not match, find out why. Common causes include missing receipts, math errors, or unauthorized withdrawals.\n\n## Step 6: Replenish the Fund\n\nOnce the reconciliation is complete, request a refill so the fund returns to its set amount.\n\n## Make It Easier\n\n**Petty Cash** tracks every transaction and receipt automatically, so reconciliation takes minutes instead of hours.\n        "
       },
-      ar: {
-        title: 'مطابقة صندوق العهدة: دليل خطوة بخطوة',
-        summary: 'تضمن مطابقة صندوق العهدة توافق سجلاتك مع النقد المتاح لديك. اتبع هذه الخطوات البسيطة.',
-        content: `
-## مطابقة صندوق العهدة: دليل خطوة بخطوة
-
-## الخطوة 1: عدّ النقد
-
-ابدأ بعد النقد الباقي في صندوق العهدة أو الصندوق الفعلي.
-
-## الخطوة 2: ادرج جميع الإيصالات
-
-اجمع كل إيصال للمصروفات المدفوعة من الصندوق. جمّعها للحصول على إجمالي المبلغ المنفق.
-
-## الخطوة 3: راجع السجل
-
-قارن الإيصالات بسجل العهدة أو السجلات الرقمية. يجب توثيق كل عملية سحب.
-
-## الخطوة 4: احسب الرصيد
-
-أضف النقد المتاح إلى إجمالي الإيصالات. يجب أن يساوي مبلغ الصندوق الأصلي.
-
-## الخطوة 5: حقق في الاختلافات
-
-إذا لم تتطابق الأرقام، اكتشف السبب. تشمل الأسباب الشائعة الإيصالات المفقودة، أخطاء الحساب، أو السحب غير المصرح به.
-
-## الخطوة 6: جدّد الصندوق
-
-بمجرد اكتمال المطابقة، اطلب إعادة التعبئة ليعود الصندوق إلى مبلغه المحدد.
-
-## اجعلها أسهل
-
-يتتبع **صندوق العهدة** كل معاملة وإيصال تلقائياً، فتصبح المطابقة دقائق بدلاً من ساعات.
-        `
-      },
-      hi: {
-        title: 'Petty Cash Reconciliation: एक Step-by-Step Guide',
-        summary: 'Petty cash reconciliation यह सुनिश्चित करता है कि आपके रिकॉर्ड आपके हाथ में नकदी से मेल खाते हैं। इन सरल चरणों का पालन करें।',
-        content: `
-## Petty Cash Reconciliation: एक Step-by-Step Guide
-
-## चरण 1: नकदी गिनें
-
-Petty cash box या fund में बची हुई नकदी गिनकर शुरू करें।
-
-## चरण 2: सभी रसीदें सूचीबद्ध करें
-
-Fund से चुकाए गए खर्चों की हर रसीद एकत्र करें। कुल खर्च जोड़ें।
-
-## चरण 3: लॉग जांचें
-
-रसीदों की तुलना अपने petty cash लॉग या डिजिटल रिकॉर्ड से करें। हर निकासी दर्ज होनी चाहिए।
-
-## चरण 4: बैलेंस की गणना करें
-
-हाथ में नकदी को कुल रसीदों में जोड़ें। इसका मूल fund राशि के बराबर होना चाहिए।
-
-## चरण 5: अंतरों की जांच करें
-
-यदि संख्याएं मेल नहीं खाती हैं, तो कारण जानें। सामान्य कारणों में गायब रसीदें, गणित की गलतियां, या अनधिकृत निकासी शामिल हैं।
-
-## चरण 6: Fund को पुनर्भरित करें
-
-एक बार मिलान पूरा हो जाने के बाद, fund को उसकी निर्धारित राशि पर वापस लाने के लिए रिफिल का अनुरोध करें।
-
-## इसे आसान बनाएं
-
-**Petty Cash** हर लेनदेन और रसीद को स्वचालित रूप से ट्रैक करता है, इसलिए मिलान घंटों के बजाय मिनटों में होता है।
-        `
-      },
-      ur: {
-        title: 'Petty Cash Reconciliation: ایک Step-by-Step Guide',
-        summary: 'Petty cash reconciliation یہ یقینی بناتا ہے کہ آپ کے ریکارڈز آپ کے ہاتھ میں موجود نقدی سے مطابقت رکھتے ہیں۔ ان آسان مراحل پر عمل کریں۔',
-        content: `
-## Petty Cash Reconciliation: ایک Step-by-Step Guide
-
-## مرحلہ 1: نقدی گنیں
-
-Petty cash box یا fund میں بچی ہوئی نقدی گن کر شروع کریں۔
-
-## مرحلہ 2: تمام رسیدیں فہرست کریں
-
-Fund سے ادا کیے گئے اخراجات کی ہر رسید اکٹھی کریں۔ کل خرچ جمع کریں۔
-
-## مرحلہ 3: لاگ چیک کریں
-
-رسیدوں کا موازنہ اپنے petty cash لاگ یا ڈیجیٹل ریکارڈ سے کریں۔ ہر نکاسی درج ہونی چاہیے۔
-
-## مرحلہ 4: بیلنس کا حساب لگائیں
-
-ہاتھ میں موجود نقدی کو کل رسیدوں میں شامل کریں۔ اس کا اصل fund رقم کے برابر ہونا چاہیے۔
-
-## مرحلہ 5: فرق کی تحقیقات کریں
-
-اگر اعداد مطابقت نہیں رکھتے، تو وجہ جانیں۔ عام وجوہات میں گم رسیدیں، حساب کی غلطیاں، یا غیر مجاز نکاسیاں شامل ہیں۔
-
-## مرحلہ 6: Fund دوبارہ بھریں
-
-مطابقت مکمل ہونے کے بعد، fund کو اس کی مقررہ رقم پر واپس لانے کے لیے دوبارہ بھرنے کی درخواست کریں۔
-
-## آسان بنائیں
-
-**Petty Cash** ہر لین دین اور رسید کو خود بخود ٹریک کرتا ہے، اس لیے موازنہ گھنٹوں کے بجائے منٹوں میں ہوتا ہے۔
-        `
+      "ar": {
+        "title": "مطابقة صندوق العهدة: دليل خطوة بخطوة",
+        "summary": "تضمن مطابقة صندوق العهدة توافق سجلاتك مع النقد المتاح لديك. اتبع هذه الخطوات البسيطة.",
+        "content": "\n## مطابقة صندوق العهدة: دليل خطوة بخطوة\n\n## الخطوة 1: عدّ النقد\n\nابدأ بعد النقد الباقي في صندوق العهدة أو الصندوق الفعلي.\n\n## الخطوة 2: ادرج جميع الإيصالات\n\nاجمع كل إيصال للمصروفات المدفوعة من الصندوق. جمّعها للحصول على إجمالي المبلغ المنفق.\n\n## الخطوة 3: راجع السجل\n\nقارن الإيصالات بسجل العهدة أو السجلات الرقمية. يجب توثيق كل عملية سحب.\n\n## الخطوة 4: احسب الرصيد\n\nأضف النقد المتاح إلى إجمالي الإيصالات. يجب أن يساوي مبلغ الصندوق الأصلي.\n\n## الخطوة 5: حقق في الاختلافات\n\nإذا لم تتطابق الأرقام، اكتشف السبب. تشمل الأسباب الشائعة الإيصالات المفقودة، أخطاء الحساب، أو السحب غير المصرح به.\n\n## الخطوة 6: جدّد الصندوق\n\nبمجرد اكتمال المطابقة، اطلب إعادة التعبئة ليعود الصندوق إلى مبلغه المحدد.\n\n## اجعلها أسهل\n\nيتتبع **صندوق العهدة** كل معاملة وإيصال تلقائياً، فتصبح المطابقة دقائق بدلاً من ساعات.\n        "
       }
     }
   },
   {
-    slug: 'mobile-apps-for-petty-cash',
-    id: 'mobile-apps-for-petty-cash',
-    date: '2026-07-20',
-    readTime: 3,
-    image: 'https://images.unsplash.com/photo-1664575602276-acd073f104c1?w=800&q=80',
-    translations: {
-      en: {
-        title: 'Why Mobile Apps Are Changing Petty Cash Management',
-        summary: 'Paper receipts and office cash boxes are being replaced by mobile apps. Here is what that means for your business.',
-        content: `
-## Why Mobile Apps Are Changing Petty Cash Management
-
-## Submit Expenses on the Go
-
-Employees can snap a photo of a receipt and submit an expense in under a minute, wherever they are.
-
-## Instant Manager Approval
-
-Managers receive a notification and can approve or reject the expense with one tap. No paperwork, no delays.
-
-## Always Up-to-Date Balances
-
-Every approved expense updates the employee balance instantly. There is no need to wait for end-of-month reconciliation.
-
-## Digital Receipt Storage
-
-Receipts are stored securely in the cloud, searchable by date, amount, or employee. Audits become much simpler.
-
-## Better Employee Experience
-
-Staff no longer need to pay out of pocket or keep paper receipts. This saves time and reduces frustration.
-
-## Try the Modern Approach
-
-**Petty Cash** is a mobile-first petty cash system that is free for up to 5 employees.
-        `
+    "slug": "mobile-apps-for-petty-cash",
+    "date": "2026-07-20",
+    "readTime": 3,
+    "image": "https://images.unsplash.com/photo-1664575602276-acd073f104c1?w=800&q=80",
+    "translations": {
+      "en": {
+        "title": "Why Mobile Apps Are Changing Petty Cash Management",
+        "summary": "Paper receipts and office cash boxes are being replaced by mobile apps. Here is what that means for your business.",
+        "content": "\n## Why Mobile Apps Are Changing Petty Cash Management\n\n## Submit Expenses on the Go\n\nEmployees can snap a photo of a receipt and submit an expense in under a minute, wherever they are.\n\n## Instant Manager Approval\n\nManagers receive a notification and can approve or reject the expense with one tap. No paperwork, no delays.\n\n## Always Up-to-Date Balances\n\nEvery approved expense updates the employee balance instantly. There is no need to wait for end-of-month reconciliation.\n\n## Digital Receipt Storage\n\nReceipts are stored securely in the cloud, searchable by date, amount, or employee. Audits become much simpler.\n\n## Better Employee Experience\n\nStaff no longer need to pay out of pocket or keep paper receipts. This saves time and reduces frustration.\n\n## Try the Modern Approach\n\n**Petty Cash** is a mobile-first petty cash system that is free for up to 5 employees.\n        "
       },
-      ar: {
-        title: 'لماذا تُغيّر تطبيقات الجوال إدارة صندوق العهدة',
-        summary: 'الإيصالات الورقية وصناديق النقد المكتبية يتم استبدالها بتطبيقات الجوال. إليك ما يعنيه ذلك لشركتك.',
-        content: `
-## لماذا تُغيّر تطبيقات الجوال إدارة صندوق العهدة
-
-## تقديم المصروفات أثناء التنقل
-
-يمكن للموظفين التقاط صورة للإيصال وتقديم مصروف في أقل من دقيقة، أينما كانوا.
-
-## موافقة المدير الفورية
-
-يستلم المدير إشعاراً ويمكنه الموافقة على المصروف أو رفضه بنقرة واحدة. لا أوراق، لا تأخير.
-
-## أرصدة محدّثة دائماً
-
-كل مصروف معتمد يُحدّث رصيد الموظف فوراً. لا حاجة لانتظار مطابقة نهاية الشهر.
-
-## تخزين الإيصالات رقمياً
-
-تُخزّن الإيصالات بأمان في السحابة، ويمكن البحث عنها حسب التاريخ أو المبلغ أو الموظف. يصبح التدقيق أسهل بكثير.
-
-## تجربة موظف أفضل
-
-لا يحتاج الموظفون بعد الآن إلى الدفع من جيوبهم أو الاحتفاظ بإيصالات ورقية. هذا يوفر الوقت ويقلل الإحباط.
-
-## جرّب النهج الحديث
-
-**صندوق العهدة** هو نظام جوال أولاً لإدارة العهدة، وهو مجاني لما يصل إلى 5 موظفين.
-        `
-      },
-      hi: {
-        title: 'Mobile Apps Petty Cash Management को क्यों बदल रहे हैं',
-        summary: 'कागजी रसीदें और कार्यालय नकदी बॉक्स मोबाइल ऐप्स से बदल रहे हैं। यहां बताया गया है कि इसका आपके व्यवसाय पर क्या असर पड़ता है।',
-        content: `
-## Mobile Apps Petty Cash Management को क्यों बदल रहे हैं
-
-## चलते-फिरते खर्च जमा करें
-
-कर्मचारी कहीं से भी रसीद की फोटो खींचकर एक मिनट से भी कम समय में खर्च जमा कर सकते हैं।
-
-## त्वरित प्रबंधक अनुमोदन
-
-प्रबंधक को सूचना मिलती है और वे एक टैप में खर्च को मंजूरी या अस्वीकार कर सकते हैं। कोई कागजी कार्रवाई नहीं, कोई देरी नहीं।
-
-## हमेशा अद्यतन बैलेंस
-
-हर मंजूर खर्च तुरंत कर्मचारी बैलेंस को अपडेट करता है। महीने के अंत में मिलान का इंतजार करने की कोई जरूरत नहीं।
-
-## डिजिटल रसीद संग्रहण
-
-रसीदें क्लाउड में सुरक्षित रूप से संग्रहीत होती हैं, तिथि, राशि या कर्मचारी द्वारा खोज योग्य। ऑडिट बहुत सरल हो जाते हैं।
-
-## बेहतर कर्मचारी अनुभव
-
-कर्मचारियों को अब अपनी जेब से भुगतान करने या कागजी रसीदें रखने की आवश्यकता नहीं है। यह समय बचाता है और निराशा कम करता है।
-
-## आधुनिक दृष्टिकोण आजमाएं
-
-**Petty Cash** एक मोबाइल-फर्स्ट petty cash सिस्टम है जो 5 कर्मचारियों तक मुफ्त है।
-        `
-      },
-      ur: {
-        title: 'Mobile Apps Petty Cash Management کیوں تبدیل کر رہے ہیں',
-        summary: 'کاغذی رسیدیں اور آفس نقدی باکسز موبائل ایپس سے بدل رہے ہیں۔ یہاں بتایا گیا ہے کہ اس کا آپ کے کاروبار پر کیا مطلب ہے۔',
-        content: `
-## Mobile Apps Petty Cash Management کیوں تبدیل کر رہے ہیں
-
-## چلتے پھرتے اخراجات جمع کریں
-
-ملازم کہیں سے بھی رسید کی فوٹو لے کر ایک منٹ سے بھی کم وقت میں خرچ جمع کرا سکتے ہیں۔
-
-## فوری مینیجر کی منظوری
-
-مینیجر کو نوٹیفکیشن ملتا ہے اور وہ ایک ٹیپ میں خرچ کو منظور یا مسترد کر سکتے ہیں۔ کوئی کاغذی کارروائی نہیں، کوئی تاخیر نہیں۔
-
-## ہمیشہ تازہ ترین بیلنس
-
-ہر منظور شدہ خرچ فوری طور پر ملازم کے بیلنس کو اپ ڈیٹ کرتا ہے۔ مہینے کے آخر میں موازنہ کا انتظار کرنے کی ضرورت نہیں۔
-
-## ڈیجیٹل رسید ذخیرہ اندازی
-
-رسیدیں کلاؤڈ میں محفوظ طریقے سے محفوظ ہوتی ہیں، تاریخ، رقم یا ملازم کے لحاظ سے تلاش کے قابل۔ آڈٹ بہت آسان ہو جاتے ہیں۔
-
-## بہتر ملازم کا تجربہ
-
-ملازمین کو اب اپنی جیب سے ادائیگی کرنے یا کاغذی رسیدیں رکھنے کی ضرورت نہیں ہے۔ یہ وقت بچاتا ہے اور مایوسی کم کرتا ہے۔
-
-## جدید طریقہ آزمائیں
-
-**Petty Cash** ایک موبائل فرسٹ petty cash سسٹم ہے جو 5 ملازمین تک مفت ہے۔
-        `
+      "ar": {
+        "title": "لماذا تُغيّر تطبيقات الجوال إدارة صندوق العهدة",
+        "summary": "الإيصالات الورقية وصناديق النقد المكتبية يتم استبدالها بتطبيقات الجوال. إليك ما يعنيه ذلك لشركتك.",
+        "content": "\n## لماذا تُغيّر تطبيقات الجوال إدارة صندوق العهدة\n\n## تقديم المصروفات أثناء التنقل\n\nيمكن للموظفين التقاط صورة للإيصال وتقديم مصروف في أقل من دقيقة، أينما كانوا.\n\n## موافقة المدير الفورية\n\nيستلم المدير إشعاراً ويمكنه الموافقة على المصروف أو رفضه بنقرة واحدة. لا أوراق، لا تأخير.\n\n## أرصدة محدّثة دائماً\n\nكل مصروف معتمد يُحدّث رصيد الموظف فوراً. لا حاجة لانتظار مطابقة نهاية الشهر.\n\n## تخزين الإيصالات رقمياً\n\nتُخزّن الإيصالات بأمان في السحابة، ويمكن البحث عنها حسب التاريخ أو المبلغ أو الموظف. يصبح التدقيق أسهل بكثير.\n\n## تجربة موظف أفضل\n\nلا يحتاج الموظفون بعد الآن إلى الدفع من جيوبهم أو الاحتفاظ بإيصالات ورقية. هذا يوفر الوقت ويقلل الإحباط.\n\n## جرّب النهج الحديث\n\n**صندوق العهدة** هو نظام جوال أولاً لإدارة العهدة، وهو مجاني لما يصل إلى 5 موظفين.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-tracking-apps',
-    id: 'petty-cash-tracking-apps',
-    date: '2026-07-15',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Best Petty Cash Tracking Apps for Small Businesses`,
-        summary: `Learn about best petty cash tracking apps for small businesses and how it helps businesses manage small expenses more effectively.`,
-        content: `## Best Petty Cash Tracking Apps for Small Businesses
-
-Best Petty Cash Tracking Apps for Small Businesses is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "what-is-cost-management",
+    "date": "2026-07-21",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/53621/pexels-photo-53621.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "What Is Cost Management?",
+        "summary": "Learn how what is cost management? can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## What Is Cost Management?\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `أفضل تطبيقات تتبع صندوق العهدة للشركات الصغيرة`,
-        summary: `تعرّف على أفضل تطبيقات تتبع صندوق العهدة للشركات الصغيرة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## أفضل تطبيقات تتبع صندوق العهدة للشركات الصغيرة
-
-أفضل تطبيقات تتبع صندوق العهدة للشركات الصغيرة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "ما هو إدارة التكاليف؟",
+        "summary": "تعرف على كيفية مساعدة ما هو إدارة التكاليف؟ للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## ما هو إدارة التكاليف؟\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-vs-corporate-cards',
-    id: 'petty-cash-vs-corporate-cards',
-    date: '2026-07-16',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash vs Corporate Cards: Which is Better?`,
-        summary: `Learn about petty cash vs corporate cards: which is better? and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash vs Corporate Cards: Which is Better?
-
-Petty Cash vs Corporate Cards: Which is Better? is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-management-strategies-for-small-businesses",
+    "date": "2026-07-22",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/259200/pexels-photo-259200.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management Strategies for Small Businesses",
+        "summary": "Learn how cost management strategies for small businesses can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management Strategies for Small Businesses\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `صندوق العهدة مقابل بطاقات الشركات: أيهما أفضل؟`,
-        summary: `تعرّف على صندوق العهدة مقابل بطاقات الشركات: أيهما أفضل؟ وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## صندوق العهدة مقابل بطاقات الشركات: أيهما أفضل؟
-
-صندوق العهدة مقابل بطاقات الشركات: أيهما أفضل؟ جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "استراتيجيات إدارة التكاليف للشركات الصغيرة",
+        "summary": "تعرف على كيفية مساعدة استراتيجيات إدارة التكاليف للشركات الصغيرة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## استراتيجيات إدارة التكاليف للشركات الصغيرة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-expense-categories',
-    id: 'petty-cash-expense-categories',
-    date: '2026-07-17',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `How to Categorize Petty Cash Expenses`,
-        summary: `Learn about how to categorize petty cash expenses and how it helps businesses manage small expenses more effectively.`,
-        content: `## How to Categorize Petty Cash Expenses
-
-How to Categorize Petty Cash Expenses is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "the-importance-of-budgeting-in-cost-management",
+    "date": "2026-07-23",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/259249/pexels-photo-259249.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "The Importance of Budgeting in Cost Management",
+        "summary": "Learn how the importance of budgeting in cost management can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## The Importance of Budgeting in Cost Management\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `كيفية تصنيف مصروفات صندوق العهدة`,
-        summary: `تعرّف على كيفية تصنيف مصروفات صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## كيفية تصنيف مصروفات صندوق العهدة
-
-كيفية تصنيف مصروفات صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "أهمية التخطيط المالي في إدارة التكاليف",
+        "summary": "تعرف على كيفية مساعدة أهمية التخطيط المالي في إدارة التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## أهمية التخطيط المالي في إدارة التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-for-startups',
-    id: 'petty-cash-for-startups',
-    date: '2026-07-18',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash Management for Startups`,
-        summary: `Learn about petty cash management for startups and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash Management for Startups
-
-Petty Cash Management for Startups is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "how-to-track-business-expenses-effectively",
+    "date": "2026-07-24",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/290158/pexels-photo-290158.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "How to Track Business Expenses Effectively",
+        "summary": "Learn how how to track business expenses effectively can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## How to Track Business Expenses Effectively\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `إدارة صندوق العهدة للشركات الناشئة`,
-        summary: `تعرّف على إدارة صندوق العهدة للشركات الناشئة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## إدارة صندوق العهدة للشركات الناشئة
-
-إدارة صندوق العهدة للشركات الناشئة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "كيفية تتبع نفقات العمل بفعالية",
+        "summary": "تعرف على كيفية مساعدة كيفية تتبع نفقات العمل بفعالية للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## كيفية تتبع نفقات العمل بفعالية\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-for-restaurants',
-    id: 'petty-cash-for-restaurants',
-    date: '2026-07-19',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash Best Practices for Restaurants`,
-        summary: `Learn about petty cash best practices for restaurants and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash Best Practices for Restaurants
-
-Petty Cash Best Practices for Restaurants is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "fixed-vs-variable-costs-explained",
+    "date": "2026-07-25",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Fixed vs Variable Costs Explained",
+        "summary": "Learn how fixed vs variable costs explained can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Fixed vs Variable Costs Explained\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `أفضل ممارسات صندوق العهدة للمطاعم`,
-        summary: `تعرّف على أفضل ممارسات صندوق العهدة للمطاعم وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## أفضل ممارسات صندوق العهدة للمطاعم
-
-أفضل ممارسات صندوق العهدة للمطاعم جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "الفرق بين التكاليف الثابتة والمتغيرة",
+        "summary": "تعرف على كيفية مساعدة الفرق بين التكاليف الثابتة والمتغيرة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## الفرق بين التكاليف الثابتة والمتغيرة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-for-retail',
-    id: 'petty-cash-for-retail',
-    date: '2026-07-20',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash Control for Retail Stores`,
-        summary: `Learn about petty cash control for retail stores and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash Control for Retail Stores
-
-Petty Cash Control for Retail Stores is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "reducing-operational-costs",
+    "date": "2026-07-26",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Reducing Operational Costs",
+        "summary": "Learn how reducing operational costs can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Reducing Operational Costs\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `التحكم في صندوق العهدة لمتاجر التجزئة`,
-        summary: `تعرّف على التحكم في صندوق العهدة لمتاجر التجزئة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## التحكم في صندوق العهدة لمتاجر التجزئة
-
-التحكم في صندوق العهدة لمتاجر التجزئة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "تقليل التكاليف التشغيلية",
+        "summary": "تعرف على كيفية مساعدة تقليل التكاليف التشغيلية للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## تقليل التكاليف التشغيلية\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-for-construction',
-    id: 'petty-cash-for-construction',
-    date: '2026-07-21',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Managing Petty Cash on Construction Sites`,
-        summary: `Learn about managing petty cash on construction sites and how it helps businesses manage small expenses more effectively.`,
-        content: `## Managing Petty Cash on Construction Sites
-
-Managing Petty Cash on Construction Sites is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-control-techniques",
+    "date": "2026-07-27",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/669454/pexels-photo-669454.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Control Techniques",
+        "summary": "Learn how cost control techniques can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Control Techniques\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `إدارة صندوق العهدة في مواقع البناء`,
-        summary: `تعرّف على إدارة صندوق العهدة في مواقع البناء وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## إدارة صندوق العهدة في مواقع البناء
-
-إدارة صندوق العهدة في مواقع البناء جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "تقنيات الرقابة على التكاليف",
+        "summary": "تعرف على كيفية مساعدة تقنيات الرقابة على التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## تقنيات الرقابة على التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-for-healthcare',
-    id: 'petty-cash-for-healthcare',
-    date: '2026-07-22',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash for Healthcare Clinics`,
-        summary: `Learn about petty cash for healthcare clinics and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash for Healthcare Clinics
-
-Petty Cash for Healthcare Clinics is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-management-in-project-management",
+    "date": "2026-07-28",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/756743/pexels-photo-756743.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management in Project Management",
+        "summary": "Learn how cost management in project management can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management in Project Management\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `صندوق العهدة للعيادات الصحية`,
-        summary: `تعرّف على صندوق العهدة للعيادات الصحية وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## صندوق العهدة للعيادات الصحية
-
-صندوق العهدة للعيادات الصحية جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "إدارة التكاليف في إدارة المشاريع",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف في إدارة المشاريع للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف في إدارة المشاريع\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-for-schools',
-    id: 'petty-cash-for-schools',
-    date: '2026-07-23',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash Management for Schools`,
-        summary: `Learn about petty cash management for schools and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash Management for Schools
-
-Petty Cash Management for Schools is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "activity-based-costing-basics",
+    "date": "2026-07-29",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/768833/pexels-photo-768833.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Activity-Based Costing Basics",
+        "summary": "Learn how activity-based costing basics can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Activity-Based Costing Basics\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `إدارة صندوق العهدة للمدارس`,
-        summary: `تعرّف على إدارة صندوق العهدة للمدارس وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## إدارة صندوق العهدة للمدارس
-
-إدارة صندوق العهدة للمدارس جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "أساسيات التكاليف القائمة على الأنشطة",
+        "summary": "تعرف على كيفية مساعدة أساسيات التكاليف القائمة على الأنشطة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## أساسيات التكاليف القائمة على الأنشطة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-for-nonprofits',
-    id: 'petty-cash-for-nonprofits',
-    date: '2026-07-24',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash for Nonprofit Organizations`,
-        summary: `Learn about petty cash for nonprofit organizations and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash for Nonprofit Organizations
-
-Petty Cash for Nonprofit Organizations is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "how-to-create-a-cost-management-plan",
+    "date": "2026-07-30",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/776615/pexels-photo-776615.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "How to Create a Cost Management Plan",
+        "summary": "Learn how how to create a cost management plan can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## How to Create a Cost Management Plan\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `صندوق العهدة للمنظمات غير الربحية`,
-        summary: `تعرّف على صندوق العهدة للمنظمات غير الربحية وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## صندوق العهدة للمنظمات غير الربحية
-
-صندوق العهدة للمنظمات غير الربحية جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "كيفية إنشاء خطة إدارة التكاليف",
+        "summary": "تعرف على كيفية مساعدة كيفية إنشاء خطة إدارة التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## كيفية إنشاء خطة إدارة التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-compliance',
-    id: 'petty-cash-compliance',
-    date: '2026-07-25',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash Compliance: What You Need to Know`,
-        summary: `Learn about petty cash compliance: what you need to know and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash Compliance: What You Need to Know
-
-Petty Cash Compliance: What You Need to Know is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "direct-vs-indirect-costs",
+    "date": "2026-07-31",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Direct vs Indirect Costs",
+        "summary": "Learn how direct vs indirect costs can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Direct vs Indirect Costs\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `الامتثال لصندوق العهدة: ما تحتاج إلى معرفته`,
-        summary: `تعرّف على الامتثال لصندوق العهدة: ما تحتاج إلى معرفته وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## الامتثال لصندوق العهدة: ما تحتاج إلى معرفته
-
-الامتثال لصندوق العهدة: ما تحتاج إلى معرفته جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "الفرق بين التكاليف المباشرة وغير المباشرة",
+        "summary": "تعرف على كيفية مساعدة الفرق بين التكاليف المباشرة وغير المباشرة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## الفرق بين التكاليف المباشرة وغير المباشرة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-tax-deductions',
-    id: 'petty-cash-tax-deductions',
-    date: '2026-07-26',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash and Tax Deductions`,
-        summary: `Learn about petty cash and tax deductions and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash and Tax Deductions
-
-Petty Cash and Tax Deductions is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-reduction-without-sacrificing-quality",
+    "date": "2026-08-01",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/1181408/pexels-photo-1181408.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Reduction Without Sacrificing Quality",
+        "summary": "Learn how cost reduction without sacrificing quality can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Reduction Without Sacrificing Quality\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `صندوق العهدة والخصومات الضريبية`,
-        summary: `تعرّف على صندوق العهدة والخصومات الضريبية وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## صندوق العهدة والخصومات الضريبية
-
-صندوق العهدة والخصومات الضريبية جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "تقليل التكاليف دون المساس بالجودة",
+        "summary": "تعرف على كيفية مساعدة تقليل التكاليف دون المساس بالجودة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## تقليل التكاليف دون المساس بالجودة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-reporting',
-    id: 'petty-cash-reporting',
-    date: '2026-07-27',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash Reporting for Managers`,
-        summary: `Learn about petty cash reporting for managers and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash Reporting for Managers
-
-Petty Cash Reporting for Managers is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "the-role-of-technology-in-cost-management",
+    "date": "2026-08-02",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "The Role of Technology in Cost Management",
+        "summary": "Learn how the role of technology in cost management can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## The Role of Technology in Cost Management\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `إعداد تقارير صندوق العهدة للمديرين`,
-        summary: `تعرّف على إعداد تقارير صندوق العهدة للمديرين وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## إعداد تقارير صندوق العهدة للمديرين
-
-إعداد تقارير صندوق العهدة للمديرين جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "دور التكنولوجيا في إدارة التكاليف",
+        "summary": "تعرف على كيفية مساعدة دور التكنولوجيا في إدارة التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## دور التكنولوجيا في إدارة التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-approval-workflow',
-    id: 'petty-cash-approval-workflow',
-    date: '2026-07-28',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `How to Build a Petty Cash Approval Workflow`,
-        summary: `Learn about how to build a petty cash approval workflow and how it helps businesses manage small expenses more effectively.`,
-        content: `## How to Build a Petty Cash Approval Workflow
-
-How to Build a Petty Cash Approval Workflow is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cloud-based-cost-management-tools",
+    "date": "2026-08-03",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cloud-Based Cost Management Tools",
+        "summary": "Learn how cloud-based cost management tools can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cloud-Based Cost Management Tools\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `كيفية بناء مسار موافقة لصندوق العهدة`,
-        summary: `تعرّف على كيفية بناء مسار موافقة لصندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## كيفية بناء مسار موافقة لصندوق العهدة
-
-كيفية بناء مسار موافقة لصندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "أدوات إدارة التكاليف المستندة إلى السحابة",
+        "summary": "تعرف على كيفية مساعدة أدوات إدارة التكاليف المستندة إلى السحابة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## أدوات إدارة التكاليف المستندة إلى السحابة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-mobile-approval',
-    id: 'petty-cash-mobile-approval',
-    date: '2026-07-29',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Mobile Approval for Petty Cash Expenses`,
-        summary: `Learn about mobile approval for petty cash expenses and how it helps businesses manage small expenses more effectively.`,
-        content: `## Mobile Approval for Petty Cash Expenses
-
-Mobile Approval for Petty Cash Expenses is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-management-for-startups",
+    "date": "2026-08-04",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management for Startups",
+        "summary": "Learn how cost management for startups can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management for Startups\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `الموافقة عبر الجوال لمصروفات صندوق العهدة`,
-        summary: `تعرّف على الموافقة عبر الجوال لمصروفات صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## الموافقة عبر الجوال لمصروفات صندوق العهدة
-
-الموافقة عبر الجوال لمصروفات صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "إدارة التكاليف للشركات الناشئة",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف للشركات الناشئة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف للشركات الناشئة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-receipt-management',
-    id: 'petty-cash-receipt-management',
-    date: '2026-07-30',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash Receipt Management Guide`,
-        summary: `Learn about petty cash receipt management guide and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash Receipt Management Guide
-
-Petty Cash Receipt Management Guide is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "managing-labor-costs",
+    "date": "2026-08-05",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Managing Labor Costs",
+        "summary": "Learn how managing labor costs can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Managing Labor Costs\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `دليل إدارة إيصالات صندوق العهدة`,
-        summary: `تعرّف على دليل إدارة إيصالات صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## دليل إدارة إيصالات صندوق العهدة
-
-دليل إدارة إيصالات صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "إدارة تكاليف العمالة",
+        "summary": "تعرف على كيفية مساعدة إدارة تكاليف العمالة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة تكاليف العمالة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-fraud-prevention',
-    id: 'petty-cash-fraud-prevention',
-    date: '2026-07-31',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `How to Prevent Petty Cash Fraud`,
-        summary: `Learn about how to prevent petty cash fraud and how it helps businesses manage small expenses more effectively.`,
-        content: `## How to Prevent Petty Cash Fraud
-
-How to Prevent Petty Cash Fraud is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "overhead-cost-reduction",
+    "date": "2026-08-06",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/1550561/pexels-photo-1550561.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Overhead Cost Reduction",
+        "summary": "Learn how overhead cost reduction can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Overhead Cost Reduction\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `كيفية منع الاحتيال في صندوق العهدة`,
-        summary: `تعرّف على كيفية منع الاحتيال في صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## كيفية منع الاحتيال في صندوق العهدة
-
-كيفية منع الاحتيال في صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "تقليل التكاليف العامة",
+        "summary": "تعرف على كيفية مساعدة تقليل التكاليف العامة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## تقليل التكاليف العامة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-custodian-duties',
-    id: 'petty-cash-custodian-duties',
-    date: '2026-08-01',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash Custodian: Roles and Responsibilities`,
-        summary: `Learn about petty cash custodian: roles and responsibilities and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash Custodian: Roles and Responsibilities
-
-Petty Cash Custodian: Roles and Responsibilities is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-management-best-practices",
+    "date": "2026-08-07",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/1645018/pexels-photo-1645018.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management Best Practices",
+        "summary": "Learn how cost management best practices can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management Best Practices\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `أمين صندوق العهدة: الأدوار والمسؤوليات`,
-        summary: `تعرّف على أمين صندوق العهدة: الأدوار والمسؤوليات وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## أمين صندوق العهدة: الأدوار والمسؤوليات
-
-أمين صندوق العهدة: الأدوار والمسؤوليات جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "أفضل ممارسات إدارة التكاليف",
+        "summary": "تعرف على كيفية مساعدة أفضل ممارسات إدارة التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## أفضل ممارسات إدارة التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-float-calculation',
-    id: 'petty-cash-float-calculation',
-    date: '2026-08-02',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `How to Calculate the Right Petty Cash Float`,
-        summary: `Learn about how to calculate the right petty cash float and how it helps businesses manage small expenses more effectively.`,
-        content: `## How to Calculate the Right Petty Cash Float
-
-How to Calculate the Right Petty Cash Float is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "how-to-forecast-costs",
+    "date": "2026-08-08",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/1864640/pexels-photo-1864640.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "How to Forecast Costs",
+        "summary": "Learn how how to forecast costs can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## How to Forecast Costs\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `كيفية حساب عائمة صندوق العهدة المناسبة`,
-        summary: `تعرّف على كيفية حساب عائمة صندوق العهدة المناسبة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## كيفية حساب عائمة صندوق العهدة المناسبة
-
-كيفية حساب عائمة صندوق العهدة المناسبة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "كيفية التنبؤ بالتكاليف",
+        "summary": "تعرف على كيفية مساعدة كيفية التنبؤ بالتكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## كيفية التنبؤ بالتكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-monthly-close',
-    id: 'petty-cash-monthly-close',
-    date: '2026-08-03',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash Monthly Close Process`,
-        summary: `Learn about petty cash monthly close process and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash Monthly Close Process
-
-Petty Cash Monthly Close Process is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "variance-analysis-in-cost-management",
+    "date": "2026-08-09",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/210990/pexels-photo-210990.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Variance Analysis in Cost Management",
+        "summary": "Learn how variance analysis in cost management can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Variance Analysis in Cost Management\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `عملية إغلاق صندوق العهدة الشهري`,
-        summary: `تعرّف على عملية إغلاق صندوق العهدة الشهري وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## عملية إغلاق صندوق العهدة الشهري
-
-عملية إغلاق صندوق العهدة الشهري جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "تحليل الانحرافات في إدارة التكاليف",
+        "summary": "تعرف على كيفية مساعدة تحليل الانحرافات في إدارة التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## تحليل الانحرافات في إدارة التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-automation',
-    id: 'petty-cash-automation',
-    date: '2026-08-04',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash Automation: Save Time and Reduce Errors`,
-        summary: `Learn about petty cash automation: save time and reduce errors and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash Automation: Save Time and Reduce Errors
-
-Petty Cash Automation: Save Time and Reduce Errors is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "standard-costing-explained",
+    "date": "2026-08-10",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/242492/pexels-photo-242492.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Standard Costing Explained",
+        "summary": "Learn how standard costing explained can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Standard Costing Explained\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `أتمتة صندوق العهدة: وفّر الوقت وقلل الأخطاء`,
-        summary: `تعرّف على أتمتة صندوق العهدة: وفّر الوقت وقلل الأخطاء وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## أتمتة صندوق العهدة: وفّر الوقت وقلل الأخطاء
-
-أتمتة صندوق العهدة: وفّر الوقت وقلل الأخطاء جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "شرح التكاليف القياسية",
+        "summary": "تعرف على كيفية مساعدة شرح التكاليف القياسية للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## شرح التكاليف القياسية\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-integration-accounting',
-    id: 'petty-cash-integration-accounting',
-    date: '2026-08-05',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Integrating Petty Cash with Accounting Software`,
-        summary: `Learn about integrating petty cash with accounting software and how it helps businesses manage small expenses more effectively.`,
-        content: `## Integrating Petty Cash with Accounting Software
-
-Integrating Petty Cash with Accounting Software is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-management-for-nonprofits",
+    "date": "2026-08-11",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management for Nonprofits",
+        "summary": "Learn how cost management for nonprofits can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management for Nonprofits\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `ربط صندوق العهدة ببرنامج المحاسبة`,
-        summary: `تعرّف على ربط صندوق العهدة ببرنامج المحاسبة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## ربط صندوق العهدة ببرنامج المحاسبة
-
-ربط صندوق العهدة ببرنامج المحاسبة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "إدارة التكاليف للمنظمات غير الربحية",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف للمنظمات غير الربحية للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف للمنظمات غير الربحية\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-real-time-alerts',
-    id: 'petty-cash-real-time-alerts',
-    date: '2026-08-06',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Real-Time Alerts for Petty Cash Spending`,
-        summary: `Learn about real-time alerts for petty cash spending and how it helps businesses manage small expenses more effectively.`,
-        content: `## Real-Time Alerts for Petty Cash Spending
-
-Real-Time Alerts for Petty Cash Spending is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-management-in-manufacturing",
+    "date": "2026-08-12",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/296888/pexels-photo-296888.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management in Manufacturing",
+        "summary": "Learn how cost management in manufacturing can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management in Manufacturing\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `تنبيهات فورية لإنفاق صندوق العهدة`,
-        summary: `تعرّف على تنبيهات فورية لإنفاق صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## تنبيهات فورية لإنفاق صندوق العهدة
-
-تنبيهات فورية لإنفاق صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "إدارة التكاليف في التصنيع",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف في التصنيع للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف في التصنيع\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-spending-limits',
-    id: 'petty-cash-spending-limits',
-    date: '2026-08-07',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Setting Petty Cash Spending Limits`,
-        summary: `Learn about setting petty cash spending limits and how it helps businesses manage small expenses more effectively.`,
-        content: `## Setting Petty Cash Spending Limits
-
-Setting Petty Cash Spending Limits is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-management-in-retail",
+    "date": "2026-08-13",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management in Retail",
+        "summary": "Learn how cost management in retail can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management in Retail\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `تحديد حدود الإنفاق لصندوق العهدة`,
-        summary: `تعرّف على تحديد حدود الإنفاق لصندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## تحديد حدود الإنفاق لصندوق العهدة
-
-تحديد حدود الإنفاق لصندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "إدارة التكاليف في التجزئة",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف في التجزئة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف في التجزئة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-multi-currency',
-    id: 'petty-cash-multi-currency',
-    date: '2026-08-08',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash in Multiple Currencies`,
-        summary: `Learn about petty cash in multiple currencies and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash in Multiple Currencies
-
-Petty Cash in Multiple Currencies is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-management-in-construction",
+    "date": "2026-08-14",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management in Construction",
+        "summary": "Learn how cost management in construction can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management in Construction\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `صندوق العهدة بعملات متعددة`,
-        summary: `تعرّف على صندوق العهدة بعملات متعددة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## صندوق العهدة بعملات متعددة
-
-صندوق العهدة بعملات متعددة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "إدارة التكاليف في الإنشاءات",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف في الإنشاءات للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف في الإنشاءات\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-for-remote-workers',
-    id: 'petty-cash-for-remote-workers',
-    date: '2026-08-09',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash for Remote Teams`,
-        summary: `Learn about petty cash for remote teams and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash for Remote Teams
-
-Petty Cash for Remote Teams is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-management-for-restaurants",
+    "date": "2026-08-15",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/326576/pexels-photo-326576.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management for Restaurants",
+        "summary": "Learn how cost management for restaurants can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management for Restaurants\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `صندوق العهدة للفرق عن بُعد`,
-        summary: `تعرّف على صندوق العهدة للفرق عن بُعد وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## صندوق العهدة للفرق عن بُعد
-
-صندوق العهدة للفرق عن بُعد جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "إدارة التكاليف للمطاعم",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف للمطاعم للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف للمطاعم\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-best-practices-2026',
-    id: 'petty-cash-best-practices-2026',
-    date: '2026-08-10',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash Best Practices for 2026`,
-        summary: `Learn about petty cash best practices for 2026 and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash Best Practices for 2026
-
-Petty Cash Best Practices for 2026 is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "travel-and-entertainment-cost-control",
+    "date": "2026-08-16",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/34140/pexels-photo-34140.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Travel and Entertainment Cost Control",
+        "summary": "Learn how travel and entertainment cost control can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Travel and Entertainment Cost Control\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `أفضل ممارسات صندوق العهدة لعام 2026`,
-        summary: `تعرّف على أفضل ممارسات صندوق العهدة لعام 2026 وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## أفضل ممارسات صندوق العهدة لعام 2026
-
-أفضل ممارسات صندوق العهدة لعام 2026 جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "الرقابة على تكاليف السفر والترفيه",
+        "summary": "تعرف على كيفية مساعدة الرقابة على تكاليف السفر والترفيه للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## الرقابة على تكاليف السفر والترفيه\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-digital-wallet',
-    id: 'petty-cash-digital-wallet',
-    date: '2026-08-11',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Using Digital Wallets for Petty Cash`,
-        summary: `Learn about using digital wallets for petty cash and how it helps businesses manage small expenses more effectively.`,
-        content: `## Using Digital Wallets for Petty Cash
-
-Using Digital Wallets for Petty Cash is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "supplier-negotiation-strategies",
+    "date": "2026-08-17",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Supplier Negotiation Strategies",
+        "summary": "Learn how supplier negotiation strategies can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Supplier Negotiation Strategies\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `استخدام المحافظ الرقمية لصندوق العهدة`,
-        summary: `تعرّف على استخدام المحافظ الرقمية لصندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## استخدام المحافظ الرقمية لصندوق العهدة
-
-استخدام المحافظ الرقمية لصندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "استراتيجيات التفاوض مع الموردين",
+        "summary": "تعرف على كيفية مساعدة استراتيجيات التفاوض مع الموردين للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## استراتيجيات التفاوض مع الموردين\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-qr-code-receipts',
-    id: 'petty-cash-qr-code-receipts',
-    date: '2026-08-12',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `QR Code Receipts for Petty Cash`,
-        summary: `Learn about qr code receipts for petty cash and how it helps businesses manage small expenses more effectively.`,
-        content: `## QR Code Receipts for Petty Cash
-
-QR Code Receipts for Petty Cash is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "inventory-cost-management",
+    "date": "2026-08-18",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386371/pexels-photo-4386371.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Inventory Cost Management",
+        "summary": "Learn how inventory cost management can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Inventory Cost Management\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `إيصالات رمز الاستجابة السريعة لصندوق العهدة`,
-        summary: `تعرّف على إيصالات رمز الاستجابة السريعة لصندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## إيصالات رمز الاستجابة السريعة لصندوق العهدة
-
-إيصالات رمز الاستجابة السريعة لصندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "إدارة تكاليف المخزون",
+        "summary": "تعرف على كيفية مساعدة إدارة تكاليف المخزون للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة تكاليف المخزون\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-expense-policy',
-    id: 'petty-cash-expense-policy',
-    date: '2026-08-13',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `How to Write a Petty Cash Expense Policy`,
-        summary: `Learn about how to write a petty cash expense policy and how it helps businesses manage small expenses more effectively.`,
-        content: `## How to Write a Petty Cash Expense Policy
-
-How to Write a Petty Cash Expense Policy is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "energy-cost-reduction",
+    "date": "2026-08-19",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386421/pexels-photo-4386421.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Energy Cost Reduction",
+        "summary": "Learn how energy cost reduction can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Energy Cost Reduction\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `كتابة سياسة مصروفات صندوق العهدة`,
-        summary: `تعرّف على كتابة سياسة مصروفات صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## كتابة سياسة مصروفات صندوق العهدة
-
-كتابة سياسة مصروفات صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "تقليل تكاليف الطاقة",
+        "summary": "تعرف على كيفية مساعدة تقليل تكاليف الطاقة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## تقليل تكاليف الطاقة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-internal-controls',
-    id: 'petty-cash-internal-controls',
-    date: '2026-08-14',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Internal Controls for Petty Cash`,
-        summary: `Learn about internal controls for petty cash and how it helps businesses manage small expenses more effectively.`,
-        content: `## Internal Controls for Petty Cash
-
-Internal Controls for Petty Cash is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "outsourcing-vs-in-house-costs",
+    "date": "2026-08-20",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386471/pexels-photo-4386471.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Outsourcing vs In-House Costs",
+        "summary": "Learn how outsourcing vs in-house costs can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Outsourcing vs In-House Costs\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `الضوابط الداخلية لصندوق العهدة`,
-        summary: `تعرّف على الضوابط الداخلية لصندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## الضوابط الداخلية لصندوق العهدة
-
-الضوابط الداخلية لصندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "الت outsourcing مقابل التكاليف الداخلية",
+        "summary": "تعرف على كيفية مساعدة الت outsourcing مقابل التكاليف الداخلية للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## الت outsourcing مقابل التكاليف الداخلية\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-audit-trail',
-    id: 'petty-cash-audit-trail',
-    date: '2026-08-15',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Building a Petty Cash Audit Trail`,
-        summary: `Learn about building a petty cash audit trail and how it helps businesses manage small expenses more effectively.`,
-        content: `## Building a Petty Cash Audit Trail
-
-Building a Petty Cash Audit Trail is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-management-metrics",
+    "date": "2026-08-21",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386521/pexels-photo-4386521.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management Metrics",
+        "summary": "Learn how cost management metrics can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management Metrics\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `بناء سجل تدقيق صندوق العهدة`,
-        summary: `تعرّف على بناء سجل تدقيق صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## بناء سجل تدقيق صندوق العهدة
-
-بناء سجل تدقيق صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "مقاييس إدارة التكاليف",
+        "summary": "تعرف على كيفية مساعدة مقاييس إدارة التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## مقاييس إدارة التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-vs-p-cards',
-    id: 'petty-cash-vs-p-cards',
-    date: '2026-08-16',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Petty Cash vs Purchasing Cards (P-Cards)`,
-        summary: `Learn about petty cash vs purchasing cards (p-cards) and how it helps businesses manage small expenses more effectively.`,
-        content: `## Petty Cash vs Purchasing Cards (P-Cards)
-
-Petty Cash vs Purchasing Cards (P-Cards) is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "cost-benefit-analysis",
+    "date": "2026-08-22",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386571/pexels-photo-4386571.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost-Benefit Analysis",
+        "summary": "Learn how cost-benefit analysis can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost-Benefit Analysis\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `صندوق العهدة مقابل بطاقات الشراء`,
-        summary: `تعرّف على صندوق العهدة مقابل بطاقات الشراء وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## صندوق العهدة مقابل بطاقات الشراء
-
-صندوق العهدة مقابل بطاقات الشراء جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "تحليل التكلفة والفائدة",
+        "summary": "تعرف على كيفية مساعدة تحليل التكلفة والفائدة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## تحليل التكلفة والفائدة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-employee-experience',
-    id: 'petty-cash-employee-experience',
-    date: '2026-08-17',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Improving Employee Experience with Petty Cash`,
-        summary: `Learn about improving employee experience with petty cash and how it helps businesses manage small expenses more effectively.`,
-        content: `## Improving Employee Experience with Petty Cash
-
-Improving Employee Experience with Petty Cash is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "break-even-analysis",
+    "date": "2026-08-23",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386621/pexels-photo-4386621.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Break-Even Analysis",
+        "summary": "Learn how break-even analysis can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Break-Even Analysis\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `تحسين تجربة الموظفين مع صندوق العهدة`,
-        summary: `تعرّف على تحسين تجربة الموظفين مع صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## تحسين تجربة الموظفين مع صندوق العهدة
-
-تحسين تجربة الموظفين مع صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "تحليل التعادل",
+        "summary": "تعرف على كيفية مساعدة تحليل التعادل للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## تحليل التعادل\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-sustainability',
-    id: 'petty-cash-sustainability',
-    date: '2026-08-18',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `Sustainable Petty Cash: Going Paperless`,
-        summary: `Learn about sustainable petty cash: going paperless and how it helps businesses manage small expenses more effectively.`,
-        content: `## Sustainable Petty Cash: Going Paperless
-
-Sustainable Petty Cash: Going Paperless is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "lifecycle-costing",
+    "date": "2026-08-24",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386671/pexels-photo-4386671.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Lifecycle Costing",
+        "summary": "Learn how lifecycle costing can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Lifecycle Costing\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `صندوق العهدة المستدام: الانتقال إلى عدم استخدام الورق`,
-        summary: `تعرّف على صندوق العهدة المستدام: الانتقال إلى عدم استخدام الورق وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## صندوق العهدة المستدام: الانتقال إلى عدم استخدام الورق
-
-صندوق العهدة المستدام: الانتقال إلى عدم استخدام الورق جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "التكلفة على مدى دورة الحياة",
+        "summary": "تعرف على كيفية مساعدة التكلفة على مدى دورة الحياة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## التكلفة على مدى دورة الحياة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
   {
-    slug: 'petty-cash-ai-automation',
-    id: 'petty-cash-ai-automation',
-    date: '2026-08-19',
-    readTime: 3,
-    image: './images/article-placeholder.svg',
-    published: true,
-    translations: {
-      en: {
-        title: `AI and the Future of Petty Cash Management`,
-        summary: `Learn about ai and the future of petty cash management and how it helps businesses manage small expenses more effectively.`,
-        content: `## AI and the Future of Petty Cash Management
-
-AI and the Future of Petty Cash Management is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
-
-## Why It Matters
-
-Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
-
-## Best Practices
-
-- Keep clear records for every transaction
-- Require receipts for all expenses
-- Review balances regularly
-- Use a digital tool when possible
-
-## Getting Started
-
-Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+    "slug": "target-costing",
+    "date": "2026-08-25",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386721/pexels-photo-4386721.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Target Costing",
+        "summary": "Learn how target costing can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Target Costing\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
       },
-      ar: {
-        title: `الذكاء الاصطناعي ومستقبل إدارة صندوق العهدة`,
-        summary: `تعرّف على الذكاء الاصطناعي ومستقبل إدارة صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
-        content: `## الذكاء الاصطناعي ومستقبل إدارة صندوق العهدة
-
-الذكاء الاصطناعي ومستقبل إدارة صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
-
-## لماذا يهم ذلك
-
-تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
-
-## أفضل الممارسات
-
-- احتفظ بسجلات واضحة لكل معاملة
-- اطلب إيصالات لجميع المصروفات
-- راجع الأرصدة بانتظام
-- استخدم أداة رقمية عندما يكون ذلك ممكناً
-
-## البدء
-
-ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      "ar": {
+        "title": "تحديد التكاليف المستهدفة",
+        "summary": "تعرف على كيفية مساعدة تحديد التكاليف المستهدفة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## تحديد التكاليف المستهدفة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
       }
     }
   },
+  {
+    "slug": "value-engineering-for-cost-reduction",
+    "date": "2026-08-26",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386771/pexels-photo-4386771.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Value Engineering for Cost Reduction",
+        "summary": "Learn how value engineering for cost reduction can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Value Engineering for Cost Reduction\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "هندسة القيمة لتقليل التكاليف",
+        "summary": "تعرف على كيفية مساعدة هندسة القيمة لتقليل التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## هندسة القيمة لتقليل التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "lean-cost-management",
+    "date": "2026-08-27",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386821/pexels-photo-4386821.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Lean Cost Management",
+        "summary": "Learn how lean cost management can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Lean Cost Management\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "إدارة التكاليف الرشيقة",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف الرشيقة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف الرشيقة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "total-cost-of-ownership",
+    "date": "2026-08-28",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386871/pexels-photo-4386871.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Total Cost of Ownership",
+        "summary": "Learn how total cost of ownership can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Total Cost of Ownership\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "إجمالي تكلفة الملكية",
+        "summary": "تعرف على كيفية مساعدة إجمالي تكلفة الملكية للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إجمالي تكلفة الملكية\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "cost-management-reporting",
+    "date": "2026-08-29",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386921/pexels-photo-4386921.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management Reporting",
+        "summary": "Learn how cost management reporting can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management Reporting\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "إعداد تقارير إدارة التكاليف",
+        "summary": "تعرف على كيفية مساعدة إعداد تقارير إدارة التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إعداد تقارير إدارة التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "automated-expense-tracking",
+    "date": "2026-08-30",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4386971/pexels-photo-4386971.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Automated Expense Tracking",
+        "summary": "Learn how automated expense tracking can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Automated Expense Tracking\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "التتبع الآلي للنفقات",
+        "summary": "تعرف على كيفية مساعدة التتبع الآلي للنفقات للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## التتبع الآلي للنفقات\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "cost-management-for-remote-teams",
+    "date": "2026-08-31",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4387021/pexels-photo-4387021.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management for Remote Teams",
+        "summary": "Learn how cost management for remote teams can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management for Remote Teams\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "إدارة التكاليف للفرق عن بُعد",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف للفرق عن بُعد للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف للفرق عن بُعد\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "cost-management-during-inflation",
+    "date": "2026-09-01",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4387071/pexels-photo-4387071.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management During Inflation",
+        "summary": "Learn how cost management during inflation can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management During Inflation\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "إدارة التكاليف خلال التضخم",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف خلال التضخم للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف خلال التضخم\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "cost-management-for-freelancers",
+    "date": "2026-09-02",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4387121/pexels-photo-4387121.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management for Freelancers",
+        "summary": "Learn how cost management for freelancers can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management for Freelancers\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "إدارة التكاليف للمستقلين",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف للمستقلين للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف للمستقلين\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "cost-management-mistakes-to-avoid",
+    "date": "2026-09-03",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4387171/pexels-photo-4387171.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management Mistakes to Avoid",
+        "summary": "Learn how cost management mistakes to avoid can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management Mistakes to Avoid\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "أخطاء إدارة التكاليف التي يجب تجنبها",
+        "summary": "تعرف على كيفية مساعدة أخطاء إدارة التكاليف التي يجب تجنبها للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## أخطاء إدارة التكاليف التي يجب تجنبها\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "cost-management-frameworks",
+    "date": "2026-09-04",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4387221/pexels-photo-4387221.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management Frameworks",
+        "summary": "Learn how cost management frameworks can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management Frameworks\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "أطر إدارة التكاليف",
+        "summary": "تعرف على كيفية مساعدة أطر إدارة التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## أطر إدارة التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "sustainable-cost-management",
+    "date": "2026-09-05",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4387271/pexels-photo-4387271.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Sustainable Cost Management",
+        "summary": "Learn how sustainable cost management can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Sustainable Cost Management\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "إدارة التكاليف المستدامة",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف المستدامة للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف المستدامة\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "cost-management-kpis",
+    "date": "2026-09-06",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4387321/pexels-photo-4387321.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management KPIs",
+        "summary": "Learn how cost management kpis can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management KPIs\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "مؤشرات أداء إدارة التكاليف",
+        "summary": "تعرف على كيفية مساعدة مؤشرات أداء إدارة التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## مؤشرات أداء إدارة التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "cost-management-for-e-commerce",
+    "date": "2026-09-07",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4387371/pexels-photo-4387371.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Cost Management for E-commerce",
+        "summary": "Learn how cost management for e-commerce can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Cost Management for E-commerce\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "إدارة التكاليف للتجارة الإلكترونية",
+        "summary": "تعرف على كيفية مساعدة إدارة التكاليف للتجارة الإلكترونية للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## إدارة التكاليف للتجارة الإلكترونية\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  },
+  {
+    "slug": "future-of-cost-management",
+    "date": "2026-09-08",
+    "readTime": 3,
+    "image": "https://images.pexels.com/photos/4387421/pexels-photo-4387421.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "translations": {
+      "en": {
+        "title": "Future of Cost Management",
+        "summary": "Learn how future of cost management can help businesses reduce expenses, improve control, and build stronger financial discipline.",
+        "content": "## Future of Cost Management\n\n## Understanding the Concept\n\nCost management is a critical discipline that helps organizations plan, monitor, and control their spending. Understanding the fundamentals allows leaders to make informed financial decisions every day. Every business, regardless of size, benefits from clear visibility into where money goes. Without this understanding, expenses can grow unnoticed and reduce profitability over time.\n\n## Key Benefits for Businesses\n\nImplementing strong cost management practices leads to better resource allocation and higher profit margins. Companies can identify waste and redirect funds toward growth opportunities. Employees become more mindful of spending when clear guidelines exist. Over time, this builds a culture of accountability and financial discipline.\n\n## Practical Steps to Get Started\n\nStart by reviewing all current expenses and categorizing them clearly. Set realistic budgets based on historical data and future goals. Monitor spending regularly and compare actual costs against planned amounts. Adjust quickly when you notice overspending or unexpected changes.\n\n## Common Mistakes to Avoid\n\nMany businesses fail because they ignore small recurring costs that add up. Another common mistake is cutting expenses in ways that harm product quality or customer service. Some companies also forget to involve their teams in cost-saving efforts. Successful cost management requires balance, communication, and consistent review.\n\n## Final Thoughts\n\nEffective cost management is not about being cheap; it is about being smart with resources. Businesses that master this skill can weather economic downturns and seize new opportunities. Start with simple tracking, then build more advanced processes over time. With commitment, cost management becomes a competitive advantage.\n        "
+      },
+      "ar": {
+        "title": "مستقبل إدارة التكاليف",
+        "summary": "تعرف على كيفية مساعدة مستقبل إدارة التكاليف للشركات في تقليل النفقات وتحسين الرقابة وبناء انضباط مالي أقوى.",
+        "content": "## مستقبل إدارة التكاليف\n\n## فهم المفهوم\n\nإدارة التكاليف هي مهمة أساسية تساعد المنظمات على التخطيط والمراقبة والتحكم في إنفاقها. يتيح فهم الأساسيات للقادة اتخاذ قرارات مالية صائبة كل يوم. كل شركة، بغض النظر عن حجمها، تستفيد من رؤية واضحة لوجهة الأموال. بدون هذا الفهم، يمكن للنفقات أن تنمو دون ملاحظة وتقلل الربحية مع مرور الوقت.\n\n## الفوائد الرئيسية للشركات\n\nتؤدي ممارسات إدارة التكاليف القوية إلى توزيع موارد أفضل وهوامش ربح أعلى. يمكن للشركات تحديد الهدر وإعادة توجيه الأموال نحو فرص النمو. يصبح الموظفون أكثر وعياً بالإنفاق عندما توجد إرشادات واضحة. وبمرور الوقت، يبني ذلك ثقافة المساءلة والانضباط المالي.\n\n## خطوات عملية للبدء\n\nابدأ بمراجعة جميع النفقات الحالية وتصنيفها بوضوح. ضع ميزانيات واقعية بناءً على البيانات التاريخية والأهداف المستقبلية. راقب الإنفاق بانتظام وقارن التكاليف الفعلية بالمخطط لها. تكيف بسرعة عندما تلاحظ إنفاقاً زائداً أو تغيرات غير متوقعة.\n\n## أخطاء شائعة يجب تجنبها\n\nتفشل العديد من الشركات لأنها تتجاهل التكاليف المتكررة الصغيرة التي تتراكم. خطأ شائع آخر هو تقليل النفقات بطرق تضر بجودة المنتج أو خدمة العملاء. كما تنسى بعض الشركات إشراك فرقها في جهود توفير التكاليف. تتطلب إدارة التكاليف الناجحة التوازن والتواصل والمراجعة المستمرة.\n\n## الخلاصة\n\nإدارة التكاليف الفعالة لا تعني البخل، بل تعني الذكاء في استخدام الموارد. يمكن للشركات التي تتقن هذه المهارة تجاوز فترات الركود الاقتصادي والاستفادة من الفرص الجديدة. ابدأ بتتبع بسيط، ثم ابنِ عمليات أكثر تقدماً مع مرور الوقت. مع الالتزام، تصبح إدارة التكاليف ميزة تنافسية.\n        "
+      }
+    }
+  }
 ];
-
-export function getArticle(slug) {
-  return articles.find(a => a.slug === slug);
-}
