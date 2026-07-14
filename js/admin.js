@@ -13,8 +13,10 @@ const OPENROUTER_API_KEY = OPENROUTER_API_KEY_PARTS.join("");
 function getOpenRouterKey() {
   try {
     const stored = localStorage.getItem(OPENROUTER_API_KEY_KEY);
-    return (stored && stored.trim()) || OPENROUTER_API_KEY;
-  } catch (e) { return OPENROUTER_API_KEY; }
+    const key = stored ? stored.trim() : "";
+    if (key.startsWith("sk-or-v1-") && key.length >= 70) return key;
+  } catch (e) {}
+  return OPENROUTER_API_KEY;
 }
 
 function setOpenRouterKey(key) {
