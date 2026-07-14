@@ -208,4 +208,4 @@ async function deleteArticle(id) {
   }
 }
 
-window.PettyCashFirebase = { trackVisitor, fetchLatestArticles, fetchArticleBySlug, fetchArticleById, formatDate, uploadImage, saveArticle, deleteArticle };
+window.PettyCashFirebase = { initFirebase, trackVisitor, fetchLatestArticles, fetchArticleBySlug, fetchArticleById, formatDate, uploadImage, saveArticle, deleteArticle };
