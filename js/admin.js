@@ -1,4 +1,7 @@
-// Admin panel for blog articles
+// Admin panel for blog articles with built-in password
+const ADMIN_PASSWORD = "PettyCash@Admin2026";
+const ADMIN_AUTH_KEY = "pettycash-admin-auth";
+
 document.addEventListener("DOMContentLoaded", () => {
   const loginSection = document.getElementById("login-section");
   const adminSection = document.getElementById("admin-section");
@@ -22,8 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  window.PettyCashFirebase.onAuthChanged(user => {
-    if (user) {
+  function updateAuthView() {
+    const authed = sessionStorage.getItem(ADMIN_AUTH_KEY) === "1";
+    if (authed) {
       loginSection.classList.add("hidden");
       adminSection.classList.remove("hidden");
       loadArticles();
@@ -31,23 +35,26 @@ document.addEventListener("DOMContentLoaded", () => {
       loginSection.classList.remove("hidden");
       adminSection.classList.add("hidden");
     }
-  });
+  }
+
+  updateAuthView();
 
   loginForm.addEventListener("submit", async e => {
     e.preventDefault();
-    const email = document.getElementById("login-email").value.trim();
     const password = document.getElementById("login-password").value;
-    const result = await window.PettyCashFirebase.signIn(email, password);
-    if (result.error) {
-      loginError.textContent = result.error;
-      loginError.classList.remove("hidden");
-    } else {
+    if (password === ADMIN_PASSWORD) {
+      sessionStorage.setItem(ADMIN_AUTH_KEY, "1");
       loginError.classList.add("hidden");
+      updateAuthView();
+    } else {
+      loginError.textContent = "Wrong password.";
+      loginError.classList.remove("hidden");
     }
   });
 
-  logoutBtn.addEventListener("click", async () => {
-    await window.PettyCashFirebase.signOut();
+  logoutBtn.addEventListener("click", () => {
+    sessionStorage.removeItem(ADMIN_AUTH_KEY);
+    updateAuthView();
   });
 
   imageFileInput.addEventListener("change", async () => {

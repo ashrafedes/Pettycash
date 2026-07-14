@@ -23,14 +23,6 @@ function initFirebase() {
   return firebaseDb;
 }
 
-function initAuth() {
-  if (typeof firebase === "undefined" || !firebase.auth) {
-    console.warn("Firebase Auth SDK not loaded");
-    return null;
-  }
-  return firebase.auth();
-}
-
 function initStorage() {
   if (typeof firebase === "undefined" || !firebase.storage) {
     console.warn("Firebase Storage SDK not loaded");
@@ -111,34 +103,6 @@ function formatDate(dateValue, lang = "en") {
   return new Intl.DateTimeFormat(lang, { dateStyle: "medium" }).format(date);
 }
 
-function onAuthChanged(callback) {
-  const auth = initAuth();
-  if (!auth) return () => {};
-  return auth.onAuthStateChanged(callback);
-}
-
-async function signIn(email, password) {
-  const auth = initAuth();
-  if (!auth) return { error: "Auth SDK not loaded" };
-  try {
-    await auth.signInWithEmailAndPassword(email, password);
-    return { success: true };
-  } catch (err) {
-    return { error: err.message };
-  }
-}
-
-async function signOut() {
-  const auth = initAuth();
-  if (!auth) return { error: "Auth SDK not loaded" };
-  try {
-    await auth.signOut();
-    return { success: true };
-  } catch (err) {
-    return { error: err.message };
-  }
-}
-
 async function uploadImage(file, path = "blog_images") {
   const storage = initStorage();
   if (!storage) return { error: "Storage SDK not loaded" };
@@ -190,4 +154,4 @@ async function deleteArticle(id) {
   }
 }
 
-window.PettyCashFirebase = { trackVisitor, fetchLatestArticles, fetchArticleBySlug, fetchArticleById, formatDate, onAuthChanged, signIn, signOut, uploadImage, saveArticle, deleteArticle };
+window.PettyCashFirebase = { trackVisitor, fetchLatestArticles, fetchArticleBySlug, fetchArticleById, formatDate, uploadImage, saveArticle, deleteArticle };
