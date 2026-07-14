@@ -318,9 +318,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="text-sm text-slate-500">Slug: ${escapeHtml(a.slug || "")} · ${window.PettyCashFirebase.formatDate(a.date, "en")} · <span class="inline-block px-2 py-0.5 rounded text-xs font-medium ${statusClass}">${statusText}</span></p>
           </div>
           <div class="flex items-center gap-2">
-            <button data-id="${escapeHtml(a.id)}" data-published="${isPublished ? "1" : "0"}" class="toggle-btn px-3 py-1.5 text-sm font-medium border rounded-lg hover:bg-slate-50 transition-colors ${isPublished ? "text-amber-600 border-amber-200" : "text-green-600 border-green-200"}">${isPublished ? "Unpublish" : "Publish"}</button>
-            <button data-id="${escapeHtml(a.id)}" class="edit-btn px-3 py-1.5 text-sm text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">Edit</button>
-            <button data-id="${escapeHtml(a.id)}" class="delete-btn px-3 py-1.5 text-sm text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">Delete</button>
+            <button data-id="${escapeHtml(a.id || '')}" data-slug="${escapeHtml(a.slug || '')}" data-published="${isPublished ? "1" : "0"}" class="toggle-btn px-3 py-1.5 text-sm font-medium border rounded-lg hover:bg-slate-50 transition-colors ${isPublished ? "text-amber-600 border-amber-200" : "text-green-600 border-green-200"}">${isPublished ? "Unpublish" : "Publish"}</button>
+            <button data-id="${escapeHtml(a.id || '')}" data-slug="${escapeHtml(a.slug || '')}" class="edit-btn px-3 py-1.5 text-sm text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">Edit</button>
+            <button data-id="${escapeHtml(a.id || '')}" data-slug="${escapeHtml(a.slug || '')}" class="delete-btn px-3 py-1.5 text-sm text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">Delete</button>
           </div>
         </div>
       `;
@@ -329,11 +329,14 @@ document.addEventListener("DOMContentLoaded", () => {
     articlesList.querySelectorAll(".toggle-btn").forEach(btn => {
       btn.addEventListener("click", async () => {
         const id = btn.dataset.id;
+        const slug = btn.dataset.slug;
         const makePublished = btn.dataset.published !== "1";
-        const article = await window.PettyCashFirebase.fetchArticleById(id);
+        const article = id
+          ? await window.PettyCashFirebase.fetchArticleById(id)
+          : await window.PettyCashFirebase.fetchArticleBySlug(slug);
         if (!article) return;
         article.published = makePublished;
-        article.id = id;
+        article.id = id || null;
         const result = await window.PettyCashFirebase.saveArticle(article);
         if (result.error) {
           alert("Update failed: " + result.error);
@@ -345,7 +348,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     articlesList.querySelectorAll(".edit-btn").forEach(btn => {
       btn.addEventListener("click", async () => {
-        const article = await window.PettyCashFirebase.fetchArticleById(btn.dataset.id);
+        const id = btn.dataset.id;
+        const slug = btn.dataset.slug;
+        const article = id
+          ? await window.PettyCashFirebase.fetchArticleById(id)
+          : await window.PettyCashFirebase.fetchArticleBySlug(slug);
         if (article) fillForm(article);
       });
     });
@@ -353,7 +360,13 @@ document.addEventListener("DOMContentLoaded", () => {
     articlesList.querySelectorAll(".delete-btn").forEach(btn => {
       btn.addEventListener("click", async () => {
         if (!confirm("Delete this article?")) return;
-        const result = await window.PettyCashFirebase.deleteArticle(btn.dataset.id);
+        const id = btn.dataset.id;
+        const slug = btn.dataset.slug;
+        if (!id) {
+          alert("This article is in the static file and cannot be deleted from Firestore. To remove it, edit the source files.");
+          return;
+        }
+        const result = await window.PettyCashFirebase.deleteArticle(id);
         if (result.error) {
           alert("Delete failed: " + result.error);
         } else {
