@@ -96,9 +96,20 @@
           btn.textContent = 'Start Fix';
           return;
         }
+
+        log(`Connected to project: ${firebase.app().options.projectId}`);
+        log(`Querying collection: blog_articles`);
+
         const snap = await db.collection('blog_articles').get();
         const docs = snap.docs;
         log(`Found ${docs.length} articles in database.`);
+
+        if (docs.length === 0) {
+          log('No articles found. Please check the Admin page to confirm the article count.', 'warn');
+          btn.disabled = false;
+          btn.textContent = 'Start Fix';
+          return;
+        }
 
         for (let i = 0; i < docs.length; i++) {
           const doc = docs[i];
