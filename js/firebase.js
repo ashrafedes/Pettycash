@@ -62,34 +62,40 @@ function sortArticlesByDate(articles) {
   return [...articles].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
 }
 
+function withTimeout(promise, ms) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => setTimeout(() => reject(new Error("Firestore timeout")), ms))
+  ]);
+}
+
 async function fetchLatestArticles(limitCount = 3) {
+  const staticArticles = sortArticlesByDate(await getStaticArticles());
   const db = initFirebase();
-  if (!db) return sortArticlesByDate(await getStaticArticles()).slice(0, limitCount);
+  if (!db) return staticArticles.slice(0, limitCount);
   try {
-    const snap = await db.collection("blog_articles")
-      .orderBy("date", "desc")
-      .limit(limitCount)
-      .get();
+    const snap = await withTimeout(
+      db.collection("blog_articles").orderBy("date", "desc").limit(limitCount).get(),
+      3000
+    );
     const articles = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     if (articles.length) return articles;
   } catch (err) {
     console.error("Blog fetch error:", err);
   }
-  return sortArticlesByDate(await getStaticArticles()).slice(0, limitCount);
+  return staticArticles.slice(0, limitCount);
 }
 
 async function fetchArticleBySlug(slug) {
+  const staticArticles = await getStaticArticles();
+  const fallback = () => staticArticles.find(a => a.slug === slug) || null;
   const db = initFirebase();
-  const fallback = async () => {
-    const staticArticles = await getStaticArticles();
-    return staticArticles.find(a => a.slug === slug) || null;
-  };
   if (!db || !slug) return fallback();
   try {
-    const snap = await db.collection("blog_articles")
-      .where("slug", "==", slug)
-      .limit(1)
-      .get();
+    const snap = await withTimeout(
+      db.collection("blog_articles").where("slug", "==", slug).limit(1).get(),
+      3000
+    );
     if (!snap.empty) {
       const doc = snap.docs[0];
       return { id: doc.id, ...doc.data() };
