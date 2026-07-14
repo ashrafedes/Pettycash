@@ -210,14 +210,37 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("article-date").value = new Date().toISOString().split("T")[0];
   }
 
+  async function fetchAdminArticles(retries = 2) {
+    let lastError = null;
+    for (let i = 0; i <= retries; i++) {
+      try {
+        const articles = await window.PettyCashFirebase.fetchLatestArticles(100);
+        return { success: true, articles };
+      } catch (err) {
+        lastError = err;
+        if (i < retries) await new Promise(r => setTimeout(r, 1000 * (i + 1)));
+      }
+    }
+    return { success: false, error: lastError };
+  }
+
   async function loadArticles() {
     if (!articlesList) return;
     articlesList.innerHTML = "<p class='text-slate-500'>Loading articles...</p>";
-    const articles = await window.PettyCashFirebase.fetchLatestArticles(100);
-    if (!articles.length) {
+    const result = await fetchAdminArticles(2);
+    if (!result.success) {
+      articlesList.innerHTML = `
+        <p class="text-red-600">Failed to load articles: ${escapeHtml(result.error?.message || "Connection error")}</p>
+        <button id="retry-load-articles" class="mt-3 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">Retry</button>
+      `;
+      document.getElementById("retry-load-articles")?.addEventListener("click", loadArticles);
+      return;
+    }
+    if (!result.articles.length) {
       articlesList.innerHTML = "<p class='text-slate-500'>No articles yet.</p>";
       return;
     }
+    const articles = result.articles;
     articlesList.innerHTML = articles.map(a => {
       const en = a.translations?.en || {};
       const ar = a.translations?.ar || {};
