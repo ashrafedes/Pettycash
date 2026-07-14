@@ -1,6 +1,21 @@
 // Admin panel for blog articles with built-in password
 const ADMIN_PASSWORD = "PettyCash@Admin2026";
 const ADMIN_AUTH_KEY = "pettycash-admin-auth";
+const OPENROUTER_API_KEY_KEY = "pettycash-openrouter-key";
+const OPENROUTER_MODEL = "google/gemini-2.0-flash-exp:free";
+
+function getOpenRouterKey() {
+  try {
+    return localStorage.getItem(OPENROUTER_API_KEY_KEY) || "";
+  } catch (e) { return ""; }
+}
+
+function setOpenRouterKey(key) {
+  try {
+    if (key) localStorage.setItem(OPENROUTER_API_KEY_KEY, key.trim());
+    else localStorage.removeItem(OPENROUTER_API_KEY_KEY);
+  } catch (e) {}
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const loginSection = document.getElementById("login-section");
@@ -16,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const imageUrlInput = document.getElementById("article-image-url");
   const clearBtn = document.getElementById("clear-btn");
   const saveBtn = document.getElementById("save-btn");
+  const translateBtn = document.getElementById("translate-ar-btn");
+  const translateStatus = document.getElementById("translate-status");
 
   if (!window.PettyCashFirebase) {
     if (loginError) {
@@ -39,11 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateAuthView();
 
+  const storedApiKey = getOpenRouterKey();
+  const openrouterInput = document.getElementById("openrouter-key");
+  if (storedApiKey && openrouterInput) openrouterInput.value = storedApiKey;
+
   loginForm.addEventListener("submit", async e => {
     e.preventDefault();
     const password = document.getElementById("login-password").value;
+    const apiKey = document.getElementById("openrouter-key").value.trim();
     if (password === ADMIN_PASSWORD) {
       sessionStorage.setItem(ADMIN_AUTH_KEY, "1");
+      setOpenRouterKey(apiKey);
       loginError.classList.add("hidden");
       updateAuthView();
     } else {
@@ -116,12 +139,47 @@ document.addEventListener("DOMContentLoaded", () => {
     clearForm();
   });
 
+  translateBtn.addEventListener("click", async () => {
+    const title = document.getElementById("title-en").value.trim();
+    const summary = document.getElementById("summary-en").value.trim();
+    const content = document.getElementById("content-en").value.trim();
+
+    if (!title && !summary && !content) {
+      translateStatus.textContent = "Please enter English content first.";
+      translateStatus.className = "mt-2 text-xs text-red-600";
+      return;
+    }
+
+    translateBtn.disabled = true;
+    translateStatus.textContent = "Translating...";
+    translateStatus.className = "mt-2 text-xs text-blue-600";
+
+    const result = await translateWithOpenRouter(title, summary, content);
+
+    translateBtn.disabled = false;
+    if (result.error) {
+      translateStatus.textContent = "Translation failed: " + result.error;
+      translateStatus.className = "mt-2 text-xs text-red-600";
+      return;
+    }
+
+    document.getElementById("title-ar").value = result.title || "";
+    document.getElementById("summary-ar").value = result.summary || "";
+    document.getElementById("content-ar").value = result.content || "";
+    translateStatus.textContent = "Translation completed.";
+    translateStatus.className = "mt-2 text-xs text-green-600";
+  });
+
   function clearForm() {
     articleForm.reset();
     document.getElementById("article-id").value = "";
     imageUrlInput.value = "";
     uploadStatus.textContent = "";
     formStatus.textContent = "";
+    if (translateStatus) {
+      translateStatus.textContent = "";
+      translateStatus.className = "mt-2 text-xs text-slate-500";
+    }
     document.getElementById("article-date").value = new Date().toISOString().split("T")[0];
   }
 
@@ -193,3 +251,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
   clearForm();
 });
+
+async function translateWithOpenRouter(title, summary, content) {
+  const apiKey = getOpenRouterKey();
+  if (!apiKey) {
+    return { error: "OpenRouter API key not set. Log out and log in again with your API key." };
+  }
+  const prompt = buildTranslationPrompt(title, summary, content);
+  try {
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+        "HTTP-Referer": location.origin,
+        "X-Title": "Petty Cash Admin"
+      },
+      body: JSON.stringify({
+        model: OPENROUTER_MODEL,
+        messages: [
+          { role: "system", content: "You are a professional translator. Translate English blog content to Modern Standard Arabic. Preserve meaning and tone." },
+          { role: "user", content: prompt }
+        ],
+        temperature: 0.3
+      })
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      return { error: data?.error?.message || `HTTP ${response.status}` };
+    }
+    const text = data?.choices?.[0]?.message?.content || "";
+    const parsed = parseTranslation(text);
+    if (!parsed.title && !parsed.summary && !parsed.content) {
+      return { error: "Could not parse translation." };
+    }
+    return parsed;
+  } catch (err) {
+    return { error: err.message };
+  }
+}
+
+function buildTranslationPrompt(title, summary, content) {
+  return `Translate the following English blog article to Arabic.
+Return the result using exactly these markers and no other text outside them:
+
+===TITLE===
+[Arabic title]
+
+===SUMMARY===
+[Arabic summary]
+
+===CONTENT===
+[Arabic content]
+
+Original English:
+===TITLE===
+${title}
+
+===SUMMARY===
+${summary}
+
+===CONTENT===
+${content}`;
+}
+
+function parseTranslation(text) {
+  const result = { title: "", summary: "", content: "" };
+  const markers = {
+    title: /===TITLE===\s*\n?([\s\S]*?)(?=\n===[A-Z]+===|$)/i,
+    summary: /===SUMMARY===\s*\n?([\s\S]*?)(?=\n===[A-Z]+===|$)/i,
+    content: /===CONTENT===\s*\n?([\s\S]*?)(?=\n===[A-Z]+===|$)/i
+  };
+  for (const key of Object.keys(markers)) {
+    const match = text.match(markers[key]);
+    if (match) result[key] = match[1].trim();
+  }
+  return result;
+}
