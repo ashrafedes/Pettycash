@@ -107,16 +107,17 @@ async function fetchArticleBySlug(slug) {
 }
 
 async function fetchArticleById(id) {
+  const staticArticles = await getStaticArticles();
+  const staticMatch = staticArticles.find(a => a.id === id);
   const db = initFirebase();
-  if (!db || !id) return null;
+  if (!db || !id) return staticMatch || null;
   try {
-    const snap = await db.collection("blog_articles").doc(id).get();
-    if (!snap.exists) return null;
-    return { id: snap.id, ...snap.data() };
+    const snap = await withTimeout(db.collection("blog_articles").doc(id).get(), 3000);
+    if (snap.exists) return { id: snap.id, ...snap.data() };
   } catch (err) {
     console.error("Article fetch error:", err);
-    return null;
   }
+  return staticMatch || null;
 }
 
 function formatDate(dateValue, lang = "en") {

@@ -1,6 +1,7 @@
 export const articles = [
   {
     slug: 'what-is-petty-cash',
+    id: 'what-is-petty-cash',
     date: '2026-04-10',
     readTime: 3,
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
@@ -143,6 +144,7 @@ Petty Cash ایک چھوٹی رقم ہے جو کوئی کاروبار چھوٹے
   },
   {
     slug: 'how-to-manage-petty-cash',
+    id: 'how-to-manage-petty-cash',
     date: '2026-04-08',
     readTime: 4,
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
@@ -267,6 +269,7 @@ Petty cash کے لیے ایک مقررہ رقم طے کریں۔ جب فنڈ 20% 
   },
   {
     slug: 'petty-cash-for-small-business',
+    id: 'petty-cash-for-small-business',
     date: '2026-04-05',
     readTime: 3,
     image: 'https://images.unsplash.com/photo-1664575602276-acd073f104c1?w=800&q=80',
@@ -365,6 +368,7 @@ You don't need expensive software. **Petty Cash** is free for up to 5 employees 
   },
   {
     slug: 'digital-expense-management',
+    id: 'digital-expense-management',
     date: '2026-04-01',
     readTime: 4,
     image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
@@ -496,6 +500,7 @@ Start free today. No credit card required.
   },
   {
     slug: 'how-to-set-up-petty-cash',
+    id: 'how-to-set-up-petty-cash',
     date: '2026-07-10',
     readTime: 4,
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80',
@@ -620,6 +625,7 @@ Fund منظم کرنے کے لیے ایک قابل اعتماد ملازم من�
   },
   {
     slug: 'petty-cash-policy-template',
+    id: 'petty-cash-policy-template',
     date: '2026-07-08',
     readTime: 3,
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
@@ -772,6 +778,7 @@ Replace paper logs with **Petty Cash** to store receipts digitally and monitor b
   },
   {
     slug: 'common-petty-cash-mistakes',
+    id: 'common-petty-cash-mistakes',
     date: '2026-07-06',
     readTime: 3,
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
@@ -888,6 +895,7 @@ Paper logs are easy to lose. Switching to **Petty Cash** keeps every transaction
   },
   {
     slug: 'petty-cash-audit-checklist',
+    id: 'petty-cash-audit-checklist',
     date: '2026-07-04',
     readTime: 3,
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
@@ -1020,6 +1028,7 @@ With **Petty Cash**, every receipt is stored digitally and balances update autom
   },
   {
     slug: 'reduce-petty-cash-fraud-digital',
+    id: 'reduce-petty-cash-fraud-digital',
     date: '2026-07-02',
     readTime: 4,
     image: 'https://images.unsplash.com/photo-1664575602276-acd073f104c1?w=800&q=80',
@@ -1136,6 +1145,7 @@ Managers get notified of unusual spending patterns instantly instead of discover
   },
   {
     slug: 'petty-cash-vs-employee-reimbursement',
+    id: 'petty-cash-vs-employee-reimbursement',
     date: '2026-07-12',
     readTime: 3,
     image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
@@ -1266,6 +1276,7 @@ Many businesses use a small petty cash fund for urgent items and a digital reimb
   },
   {
     slug: 'cloud-based-petty-cash-management',
+    id: 'cloud-based-petty-cash-management',
     date: '2026-07-14',
     readTime: 3,
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
@@ -1398,6 +1409,7 @@ Digital logs, user authentication, and approval workflows make theft and misuse 
   },
   {
     slug: 'petty-cash-for-remote-teams',
+    id: 'petty-cash-for-remote-teams',
     date: '2026-07-16',
     readTime: 3,
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80',
@@ -1530,6 +1542,7 @@ Even with a distributed team, managers see all spending in real time and can spo
   },
   {
     slug: 'petty-cash-reconciliation-step-by-step',
+    id: 'petty-cash-reconciliation-step-by-step',
     date: '2026-07-18',
     readTime: 4,
     image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
@@ -1678,6 +1691,7 @@ Fund سے ادا کیے گئے اخراجات کی ہر رسید اکٹھی کر
   },
   {
     slug: 'mobile-apps-for-petty-cash',
+    id: 'mobile-apps-for-petty-cash',
     date: '2026-07-20',
     readTime: 3,
     image: 'https://images.unsplash.com/photo-1664575602276-acd073f104c1?w=800&q=80',
@@ -1810,6 +1824,7 @@ Staff no longer need to pay out of pocket or keep paper receipts. This saves tim
   },
   {
     slug: 'petty-cash-tracking-apps',
+    id: 'petty-cash-tracking-apps',
     date: '2026-07-15',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -1863,6 +1878,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-vs-corporate-cards',
+    id: 'petty-cash-vs-corporate-cards',
     date: '2026-07-16',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -1916,6 +1932,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-expense-categories',
+    id: 'petty-cash-expense-categories',
     date: '2026-07-17',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -1969,6 +1986,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-for-startups',
+    id: 'petty-cash-for-startups',
     date: '2026-07-18',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2022,6 +2040,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-for-restaurants',
+    id: 'petty-cash-for-restaurants',
     date: '2026-07-19',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2075,6 +2094,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-for-retail',
+    id: 'petty-cash-for-retail',
     date: '2026-07-20',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2128,6 +2148,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-for-construction',
+    id: 'petty-cash-for-construction',
     date: '2026-07-21',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2181,6 +2202,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-for-healthcare',
+    id: 'petty-cash-for-healthcare',
     date: '2026-07-22',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2234,6 +2256,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-for-schools',
+    id: 'petty-cash-for-schools',
     date: '2026-07-23',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2287,6 +2310,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-for-nonprofits',
+    id: 'petty-cash-for-nonprofits',
     date: '2026-07-24',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2340,6 +2364,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-compliance',
+    id: 'petty-cash-compliance',
     date: '2026-07-25',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2393,6 +2418,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-tax-deductions',
+    id: 'petty-cash-tax-deductions',
     date: '2026-07-26',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2446,6 +2472,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-reporting',
+    id: 'petty-cash-reporting',
     date: '2026-07-27',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2499,6 +2526,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-approval-workflow',
+    id: 'petty-cash-approval-workflow',
     date: '2026-07-28',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2552,6 +2580,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-mobile-approval',
+    id: 'petty-cash-mobile-approval',
     date: '2026-07-29',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2605,6 +2634,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-receipt-management',
+    id: 'petty-cash-receipt-management',
     date: '2026-07-30',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2658,6 +2688,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-fraud-prevention',
+    id: 'petty-cash-fraud-prevention',
     date: '2026-07-31',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2711,6 +2742,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-custodian-duties',
+    id: 'petty-cash-custodian-duties',
     date: '2026-08-01',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2764,6 +2796,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-float-calculation',
+    id: 'petty-cash-float-calculation',
     date: '2026-08-02',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2817,6 +2850,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-monthly-close',
+    id: 'petty-cash-monthly-close',
     date: '2026-08-03',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2870,6 +2904,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-automation',
+    id: 'petty-cash-automation',
     date: '2026-08-04',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2923,6 +2958,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-integration-accounting',
+    id: 'petty-cash-integration-accounting',
     date: '2026-08-05',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -2976,6 +3012,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-real-time-alerts',
+    id: 'petty-cash-real-time-alerts',
     date: '2026-08-06',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3029,6 +3066,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-spending-limits',
+    id: 'petty-cash-spending-limits',
     date: '2026-08-07',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3082,6 +3120,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-multi-currency',
+    id: 'petty-cash-multi-currency',
     date: '2026-08-08',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3135,6 +3174,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-for-remote-workers',
+    id: 'petty-cash-for-remote-workers',
     date: '2026-08-09',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3188,6 +3228,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-best-practices-2026',
+    id: 'petty-cash-best-practices-2026',
     date: '2026-08-10',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3241,6 +3282,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-digital-wallet',
+    id: 'petty-cash-digital-wallet',
     date: '2026-08-11',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3294,6 +3336,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-qr-code-receipts',
+    id: 'petty-cash-qr-code-receipts',
     date: '2026-08-12',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3347,6 +3390,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-expense-policy',
+    id: 'petty-cash-expense-policy',
     date: '2026-08-13',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3400,6 +3444,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-internal-controls',
+    id: 'petty-cash-internal-controls',
     date: '2026-08-14',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3453,6 +3498,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-audit-trail',
+    id: 'petty-cash-audit-trail',
     date: '2026-08-15',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3506,6 +3552,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-vs-p-cards',
+    id: 'petty-cash-vs-p-cards',
     date: '2026-08-16',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3559,6 +3606,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-employee-experience',
+    id: 'petty-cash-employee-experience',
     date: '2026-08-17',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3612,6 +3660,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-sustainability',
+    id: 'petty-cash-sustainability',
     date: '2026-08-18',
     readTime: 3,
     image: './images/article-placeholder.svg',
@@ -3665,6 +3714,7 @@ Start by reviewing your current process. Identify weak points and introduce simp
   },
   {
     slug: 'petty-cash-ai-automation',
+    id: 'petty-cash-ai-automation',
     date: '2026-08-19',
     readTime: 3,
     image: './images/article-placeholder.svg',
