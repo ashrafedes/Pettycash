@@ -45,36 +45,59 @@ async function trackVisitor() {
   }
 }
 
+async function getStaticArticles() {
+  if (typeof window !== "undefined" && window.PettyCashArticlesData) {
+    return window.PettyCashArticlesData;
+  }
+  try {
+    const m = await import('./articles-data.js');
+    return m.articles || [];
+  } catch (err) {
+    console.error("Failed to load static articles:", err);
+    return [];
+  }
+}
+
+function sortArticlesByDate(articles) {
+  return [...articles].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+}
+
 async function fetchLatestArticles(limitCount = 3) {
   const db = initFirebase();
-  if (!db) return [];
+  if (!db) return sortArticlesByDate(await getStaticArticles()).slice(0, limitCount);
   try {
     const snap = await db.collection("blog_articles")
       .orderBy("date", "desc")
       .limit(limitCount)
       .get();
-    return snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const articles = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    if (articles.length) return articles;
   } catch (err) {
     console.error("Blog fetch error:", err);
-    return [];
   }
+  return sortArticlesByDate(await getStaticArticles()).slice(0, limitCount);
 }
 
 async function fetchArticleBySlug(slug) {
   const db = initFirebase();
-  if (!db || !slug) return null;
+  const fallback = async () => {
+    const staticArticles = await getStaticArticles();
+    return staticArticles.find(a => a.slug === slug) || null;
+  };
+  if (!db || !slug) return fallback();
   try {
     const snap = await db.collection("blog_articles")
       .where("slug", "==", slug)
       .limit(1)
       .get();
-    if (snap.empty) return null;
-    const doc = snap.docs[0];
-    return { id: doc.id, ...doc.data() };
+    if (!snap.empty) {
+      const doc = snap.docs[0];
+      return { id: doc.id, ...doc.data() };
+    }
   } catch (err) {
     console.error("Article fetch error:", err);
-    return null;
   }
+  return fallback();
 }
 
 async function fetchArticleById(id) {

@@ -1807,7 +1807,1915 @@ Staff no longer need to pay out of pocket or keep paper receipts. This saves tim
         `
       }
     }
-  }
+  },
+  {
+    slug: 'petty-cash-tracking-apps',
+    date: '2026-07-15',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Best Petty Cash Tracking Apps for Small Businesses`,
+        summary: `Learn about best petty cash tracking apps for small businesses and how it helps businesses manage small expenses more effectively.`,
+        content: `## Best Petty Cash Tracking Apps for Small Businesses
+
+Best Petty Cash Tracking Apps for Small Businesses is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `أفضل تطبيقات تتبع صندوق العهدة للشركات الصغيرة`,
+        summary: `تعرّف على أفضل تطبيقات تتبع صندوق العهدة للشركات الصغيرة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## أفضل تطبيقات تتبع صندوق العهدة للشركات الصغيرة
+
+أفضل تطبيقات تتبع صندوق العهدة للشركات الصغيرة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-vs-corporate-cards',
+    date: '2026-07-16',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash vs Corporate Cards: Which is Better?`,
+        summary: `Learn about petty cash vs corporate cards: which is better? and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash vs Corporate Cards: Which is Better?
+
+Petty Cash vs Corporate Cards: Which is Better? is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `صندوق العهدة مقابل بطاقات الشركات: أيهما أفضل؟`,
+        summary: `تعرّف على صندوق العهدة مقابل بطاقات الشركات: أيهما أفضل؟ وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## صندوق العهدة مقابل بطاقات الشركات: أيهما أفضل؟
+
+صندوق العهدة مقابل بطاقات الشركات: أيهما أفضل؟ جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-expense-categories',
+    date: '2026-07-17',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `How to Categorize Petty Cash Expenses`,
+        summary: `Learn about how to categorize petty cash expenses and how it helps businesses manage small expenses more effectively.`,
+        content: `## How to Categorize Petty Cash Expenses
+
+How to Categorize Petty Cash Expenses is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `كيفية تصنيف مصروفات صندوق العهدة`,
+        summary: `تعرّف على كيفية تصنيف مصروفات صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## كيفية تصنيف مصروفات صندوق العهدة
+
+كيفية تصنيف مصروفات صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-for-startups',
+    date: '2026-07-18',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash Management for Startups`,
+        summary: `Learn about petty cash management for startups and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash Management for Startups
+
+Petty Cash Management for Startups is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `إدارة صندوق العهدة للشركات الناشئة`,
+        summary: `تعرّف على إدارة صندوق العهدة للشركات الناشئة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## إدارة صندوق العهدة للشركات الناشئة
+
+إدارة صندوق العهدة للشركات الناشئة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-for-restaurants',
+    date: '2026-07-19',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash Best Practices for Restaurants`,
+        summary: `Learn about petty cash best practices for restaurants and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash Best Practices for Restaurants
+
+Petty Cash Best Practices for Restaurants is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `أفضل ممارسات صندوق العهدة للمطاعم`,
+        summary: `تعرّف على أفضل ممارسات صندوق العهدة للمطاعم وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## أفضل ممارسات صندوق العهدة للمطاعم
+
+أفضل ممارسات صندوق العهدة للمطاعم جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-for-retail',
+    date: '2026-07-20',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash Control for Retail Stores`,
+        summary: `Learn about petty cash control for retail stores and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash Control for Retail Stores
+
+Petty Cash Control for Retail Stores is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `التحكم في صندوق العهدة لمتاجر التجزئة`,
+        summary: `تعرّف على التحكم في صندوق العهدة لمتاجر التجزئة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## التحكم في صندوق العهدة لمتاجر التجزئة
+
+التحكم في صندوق العهدة لمتاجر التجزئة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-for-construction',
+    date: '2026-07-21',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Managing Petty Cash on Construction Sites`,
+        summary: `Learn about managing petty cash on construction sites and how it helps businesses manage small expenses more effectively.`,
+        content: `## Managing Petty Cash on Construction Sites
+
+Managing Petty Cash on Construction Sites is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `إدارة صندوق العهدة في مواقع البناء`,
+        summary: `تعرّف على إدارة صندوق العهدة في مواقع البناء وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## إدارة صندوق العهدة في مواقع البناء
+
+إدارة صندوق العهدة في مواقع البناء جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-for-healthcare',
+    date: '2026-07-22',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash for Healthcare Clinics`,
+        summary: `Learn about petty cash for healthcare clinics and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash for Healthcare Clinics
+
+Petty Cash for Healthcare Clinics is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `صندوق العهدة للعيادات الصحية`,
+        summary: `تعرّف على صندوق العهدة للعيادات الصحية وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## صندوق العهدة للعيادات الصحية
+
+صندوق العهدة للعيادات الصحية جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-for-schools',
+    date: '2026-07-23',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash Management for Schools`,
+        summary: `Learn about petty cash management for schools and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash Management for Schools
+
+Petty Cash Management for Schools is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `إدارة صندوق العهدة للمدارس`,
+        summary: `تعرّف على إدارة صندوق العهدة للمدارس وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## إدارة صندوق العهدة للمدارس
+
+إدارة صندوق العهدة للمدارس جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-for-nonprofits',
+    date: '2026-07-24',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash for Nonprofit Organizations`,
+        summary: `Learn about petty cash for nonprofit organizations and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash for Nonprofit Organizations
+
+Petty Cash for Nonprofit Organizations is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `صندوق العهدة للمنظمات غير الربحية`,
+        summary: `تعرّف على صندوق العهدة للمنظمات غير الربحية وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## صندوق العهدة للمنظمات غير الربحية
+
+صندوق العهدة للمنظمات غير الربحية جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-compliance',
+    date: '2026-07-25',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash Compliance: What You Need to Know`,
+        summary: `Learn about petty cash compliance: what you need to know and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash Compliance: What You Need to Know
+
+Petty Cash Compliance: What You Need to Know is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `الامتثال لصندوق العهدة: ما تحتاج إلى معرفته`,
+        summary: `تعرّف على الامتثال لصندوق العهدة: ما تحتاج إلى معرفته وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## الامتثال لصندوق العهدة: ما تحتاج إلى معرفته
+
+الامتثال لصندوق العهدة: ما تحتاج إلى معرفته جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-tax-deductions',
+    date: '2026-07-26',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash and Tax Deductions`,
+        summary: `Learn about petty cash and tax deductions and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash and Tax Deductions
+
+Petty Cash and Tax Deductions is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `صندوق العهدة والخصومات الضريبية`,
+        summary: `تعرّف على صندوق العهدة والخصومات الضريبية وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## صندوق العهدة والخصومات الضريبية
+
+صندوق العهدة والخصومات الضريبية جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-reporting',
+    date: '2026-07-27',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash Reporting for Managers`,
+        summary: `Learn about petty cash reporting for managers and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash Reporting for Managers
+
+Petty Cash Reporting for Managers is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `إعداد تقارير صندوق العهدة للمديرين`,
+        summary: `تعرّف على إعداد تقارير صندوق العهدة للمديرين وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## إعداد تقارير صندوق العهدة للمديرين
+
+إعداد تقارير صندوق العهدة للمديرين جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-approval-workflow',
+    date: '2026-07-28',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `How to Build a Petty Cash Approval Workflow`,
+        summary: `Learn about how to build a petty cash approval workflow and how it helps businesses manage small expenses more effectively.`,
+        content: `## How to Build a Petty Cash Approval Workflow
+
+How to Build a Petty Cash Approval Workflow is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `كيفية بناء مسار موافقة لصندوق العهدة`,
+        summary: `تعرّف على كيفية بناء مسار موافقة لصندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## كيفية بناء مسار موافقة لصندوق العهدة
+
+كيفية بناء مسار موافقة لصندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-mobile-approval',
+    date: '2026-07-29',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Mobile Approval for Petty Cash Expenses`,
+        summary: `Learn about mobile approval for petty cash expenses and how it helps businesses manage small expenses more effectively.`,
+        content: `## Mobile Approval for Petty Cash Expenses
+
+Mobile Approval for Petty Cash Expenses is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `الموافقة عبر الجوال لمصروفات صندوق العهدة`,
+        summary: `تعرّف على الموافقة عبر الجوال لمصروفات صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## الموافقة عبر الجوال لمصروفات صندوق العهدة
+
+الموافقة عبر الجوال لمصروفات صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-receipt-management',
+    date: '2026-07-30',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash Receipt Management Guide`,
+        summary: `Learn about petty cash receipt management guide and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash Receipt Management Guide
+
+Petty Cash Receipt Management Guide is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `دليل إدارة إيصالات صندوق العهدة`,
+        summary: `تعرّف على دليل إدارة إيصالات صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## دليل إدارة إيصالات صندوق العهدة
+
+دليل إدارة إيصالات صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-fraud-prevention',
+    date: '2026-07-31',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `How to Prevent Petty Cash Fraud`,
+        summary: `Learn about how to prevent petty cash fraud and how it helps businesses manage small expenses more effectively.`,
+        content: `## How to Prevent Petty Cash Fraud
+
+How to Prevent Petty Cash Fraud is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `كيفية منع الاحتيال في صندوق العهدة`,
+        summary: `تعرّف على كيفية منع الاحتيال في صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## كيفية منع الاحتيال في صندوق العهدة
+
+كيفية منع الاحتيال في صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-custodian-duties',
+    date: '2026-08-01',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash Custodian: Roles and Responsibilities`,
+        summary: `Learn about petty cash custodian: roles and responsibilities and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash Custodian: Roles and Responsibilities
+
+Petty Cash Custodian: Roles and Responsibilities is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `أمين صندوق العهدة: الأدوار والمسؤوليات`,
+        summary: `تعرّف على أمين صندوق العهدة: الأدوار والمسؤوليات وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## أمين صندوق العهدة: الأدوار والمسؤوليات
+
+أمين صندوق العهدة: الأدوار والمسؤوليات جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-float-calculation',
+    date: '2026-08-02',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `How to Calculate the Right Petty Cash Float`,
+        summary: `Learn about how to calculate the right petty cash float and how it helps businesses manage small expenses more effectively.`,
+        content: `## How to Calculate the Right Petty Cash Float
+
+How to Calculate the Right Petty Cash Float is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `كيفية حساب عائمة صندوق العهدة المناسبة`,
+        summary: `تعرّف على كيفية حساب عائمة صندوق العهدة المناسبة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## كيفية حساب عائمة صندوق العهدة المناسبة
+
+كيفية حساب عائمة صندوق العهدة المناسبة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-monthly-close',
+    date: '2026-08-03',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash Monthly Close Process`,
+        summary: `Learn about petty cash monthly close process and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash Monthly Close Process
+
+Petty Cash Monthly Close Process is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `عملية إغلاق صندوق العهدة الشهري`,
+        summary: `تعرّف على عملية إغلاق صندوق العهدة الشهري وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## عملية إغلاق صندوق العهدة الشهري
+
+عملية إغلاق صندوق العهدة الشهري جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-automation',
+    date: '2026-08-04',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash Automation: Save Time and Reduce Errors`,
+        summary: `Learn about petty cash automation: save time and reduce errors and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash Automation: Save Time and Reduce Errors
+
+Petty Cash Automation: Save Time and Reduce Errors is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `أتمتة صندوق العهدة: وفّر الوقت وقلل الأخطاء`,
+        summary: `تعرّف على أتمتة صندوق العهدة: وفّر الوقت وقلل الأخطاء وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## أتمتة صندوق العهدة: وفّر الوقت وقلل الأخطاء
+
+أتمتة صندوق العهدة: وفّر الوقت وقلل الأخطاء جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-integration-accounting',
+    date: '2026-08-05',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Integrating Petty Cash with Accounting Software`,
+        summary: `Learn about integrating petty cash with accounting software and how it helps businesses manage small expenses more effectively.`,
+        content: `## Integrating Petty Cash with Accounting Software
+
+Integrating Petty Cash with Accounting Software is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `ربط صندوق العهدة ببرنامج المحاسبة`,
+        summary: `تعرّف على ربط صندوق العهدة ببرنامج المحاسبة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## ربط صندوق العهدة ببرنامج المحاسبة
+
+ربط صندوق العهدة ببرنامج المحاسبة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-real-time-alerts',
+    date: '2026-08-06',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Real-Time Alerts for Petty Cash Spending`,
+        summary: `Learn about real-time alerts for petty cash spending and how it helps businesses manage small expenses more effectively.`,
+        content: `## Real-Time Alerts for Petty Cash Spending
+
+Real-Time Alerts for Petty Cash Spending is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `تنبيهات فورية لإنفاق صندوق العهدة`,
+        summary: `تعرّف على تنبيهات فورية لإنفاق صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## تنبيهات فورية لإنفاق صندوق العهدة
+
+تنبيهات فورية لإنفاق صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-spending-limits',
+    date: '2026-08-07',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Setting Petty Cash Spending Limits`,
+        summary: `Learn about setting petty cash spending limits and how it helps businesses manage small expenses more effectively.`,
+        content: `## Setting Petty Cash Spending Limits
+
+Setting Petty Cash Spending Limits is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `تحديد حدود الإنفاق لصندوق العهدة`,
+        summary: `تعرّف على تحديد حدود الإنفاق لصندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## تحديد حدود الإنفاق لصندوق العهدة
+
+تحديد حدود الإنفاق لصندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-multi-currency',
+    date: '2026-08-08',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash in Multiple Currencies`,
+        summary: `Learn about petty cash in multiple currencies and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash in Multiple Currencies
+
+Petty Cash in Multiple Currencies is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `صندوق العهدة بعملات متعددة`,
+        summary: `تعرّف على صندوق العهدة بعملات متعددة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## صندوق العهدة بعملات متعددة
+
+صندوق العهدة بعملات متعددة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-for-remote-workers',
+    date: '2026-08-09',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash for Remote Teams`,
+        summary: `Learn about petty cash for remote teams and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash for Remote Teams
+
+Petty Cash for Remote Teams is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `صندوق العهدة للفرق عن بُعد`,
+        summary: `تعرّف على صندوق العهدة للفرق عن بُعد وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## صندوق العهدة للفرق عن بُعد
+
+صندوق العهدة للفرق عن بُعد جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-best-practices-2026',
+    date: '2026-08-10',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash Best Practices for 2026`,
+        summary: `Learn about petty cash best practices for 2026 and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash Best Practices for 2026
+
+Petty Cash Best Practices for 2026 is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `أفضل ممارسات صندوق العهدة لعام 2026`,
+        summary: `تعرّف على أفضل ممارسات صندوق العهدة لعام 2026 وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## أفضل ممارسات صندوق العهدة لعام 2026
+
+أفضل ممارسات صندوق العهدة لعام 2026 جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-digital-wallet',
+    date: '2026-08-11',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Using Digital Wallets for Petty Cash`,
+        summary: `Learn about using digital wallets for petty cash and how it helps businesses manage small expenses more effectively.`,
+        content: `## Using Digital Wallets for Petty Cash
+
+Using Digital Wallets for Petty Cash is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `استخدام المحافظ الرقمية لصندوق العهدة`,
+        summary: `تعرّف على استخدام المحافظ الرقمية لصندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## استخدام المحافظ الرقمية لصندوق العهدة
+
+استخدام المحافظ الرقمية لصندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-qr-code-receipts',
+    date: '2026-08-12',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `QR Code Receipts for Petty Cash`,
+        summary: `Learn about qr code receipts for petty cash and how it helps businesses manage small expenses more effectively.`,
+        content: `## QR Code Receipts for Petty Cash
+
+QR Code Receipts for Petty Cash is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `إيصالات رمز الاستجابة السريعة لصندوق العهدة`,
+        summary: `تعرّف على إيصالات رمز الاستجابة السريعة لصندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## إيصالات رمز الاستجابة السريعة لصندوق العهدة
+
+إيصالات رمز الاستجابة السريعة لصندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-expense-policy',
+    date: '2026-08-13',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `How to Write a Petty Cash Expense Policy`,
+        summary: `Learn about how to write a petty cash expense policy and how it helps businesses manage small expenses more effectively.`,
+        content: `## How to Write a Petty Cash Expense Policy
+
+How to Write a Petty Cash Expense Policy is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `كتابة سياسة مصروفات صندوق العهدة`,
+        summary: `تعرّف على كتابة سياسة مصروفات صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## كتابة سياسة مصروفات صندوق العهدة
+
+كتابة سياسة مصروفات صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-internal-controls',
+    date: '2026-08-14',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Internal Controls for Petty Cash`,
+        summary: `Learn about internal controls for petty cash and how it helps businesses manage small expenses more effectively.`,
+        content: `## Internal Controls for Petty Cash
+
+Internal Controls for Petty Cash is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `الضوابط الداخلية لصندوق العهدة`,
+        summary: `تعرّف على الضوابط الداخلية لصندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## الضوابط الداخلية لصندوق العهدة
+
+الضوابط الداخلية لصندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-audit-trail',
+    date: '2026-08-15',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Building a Petty Cash Audit Trail`,
+        summary: `Learn about building a petty cash audit trail and how it helps businesses manage small expenses more effectively.`,
+        content: `## Building a Petty Cash Audit Trail
+
+Building a Petty Cash Audit Trail is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `بناء سجل تدقيق صندوق العهدة`,
+        summary: `تعرّف على بناء سجل تدقيق صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## بناء سجل تدقيق صندوق العهدة
+
+بناء سجل تدقيق صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-vs-p-cards',
+    date: '2026-08-16',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Petty Cash vs Purchasing Cards (P-Cards)`,
+        summary: `Learn about petty cash vs purchasing cards (p-cards) and how it helps businesses manage small expenses more effectively.`,
+        content: `## Petty Cash vs Purchasing Cards (P-Cards)
+
+Petty Cash vs Purchasing Cards (P-Cards) is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `صندوق العهدة مقابل بطاقات الشراء`,
+        summary: `تعرّف على صندوق العهدة مقابل بطاقات الشراء وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## صندوق العهدة مقابل بطاقات الشراء
+
+صندوق العهدة مقابل بطاقات الشراء جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-employee-experience',
+    date: '2026-08-17',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Improving Employee Experience with Petty Cash`,
+        summary: `Learn about improving employee experience with petty cash and how it helps businesses manage small expenses more effectively.`,
+        content: `## Improving Employee Experience with Petty Cash
+
+Improving Employee Experience with Petty Cash is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `تحسين تجربة الموظفين مع صندوق العهدة`,
+        summary: `تعرّف على تحسين تجربة الموظفين مع صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## تحسين تجربة الموظفين مع صندوق العهدة
+
+تحسين تجربة الموظفين مع صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-sustainability',
+    date: '2026-08-18',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `Sustainable Petty Cash: Going Paperless`,
+        summary: `Learn about sustainable petty cash: going paperless and how it helps businesses manage small expenses more effectively.`,
+        content: `## Sustainable Petty Cash: Going Paperless
+
+Sustainable Petty Cash: Going Paperless is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `صندوق العهدة المستدام: الانتقال إلى عدم استخدام الورق`,
+        summary: `تعرّف على صندوق العهدة المستدام: الانتقال إلى عدم استخدام الورق وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## صندوق العهدة المستدام: الانتقال إلى عدم استخدام الورق
+
+صندوق العهدة المستدام: الانتقال إلى عدم استخدام الورق جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
+  {
+    slug: 'petty-cash-ai-automation',
+    date: '2026-08-19',
+    readTime: 3,
+    image: './images/article-placeholder.svg',
+    published: true,
+    translations: {
+      en: {
+        title: `AI and the Future of Petty Cash Management`,
+        summary: `Learn about ai and the future of petty cash management and how it helps businesses manage small expenses more effectively.`,
+        content: `## AI and the Future of Petty Cash Management
+
+AI and the Future of Petty Cash Management is an important part of managing small business expenses. When handled correctly, it saves time, reduces errors, and improves accountability.
+
+## Why It Matters
+
+Many businesses lose money because small expenses are not tracked properly. Without a clear process, receipts get lost and balances become unclear.
+
+## Best Practices
+
+- Keep clear records for every transaction
+- Require receipts for all expenses
+- Review balances regularly
+- Use a digital tool when possible
+
+## Getting Started
+
+Start by reviewing your current process. Identify weak points and introduce simple controls. A digital petty cash system can automate most of these tasks and give managers real-time visibility.`
+      },
+      ar: {
+        title: `الذكاء الاصطناعي ومستقبل إدارة صندوق العهدة`,
+        summary: `تعرّف على الذكاء الاصطناعي ومستقبل إدارة صندوق العهدة وكيفية مساعدة الشركات على إدارة النفقات الصغيرة بفعالية أكبر.`,
+        content: `## الذكاء الاصطناعي ومستقبل إدارة صندوق العهدة
+
+الذكاء الاصطناعي ومستقبل إدارة صندوق العهدة جزء مهم من إدارة مصروفات الأعمال الصغيرة. عند التعامل معها بشكل صحيح، توفر الوقت وتقلل الأخطاء وتحسن المساءلة.
+
+## لماذا يهم ذلك
+
+تخسر العديد من الشركات أموالاً لأن النفقات الصغيرة لا يتم تتبعها بشكل صحيح. بدون عملية واضحة، تضيع الإيصالات وتصبح الأرصدة غير واضحة.
+
+## أفضل الممارسات
+
+- احتفظ بسجلات واضحة لكل معاملة
+- اطلب إيصالات لجميع المصروفات
+- راجع الأرصدة بانتظام
+- استخدم أداة رقمية عندما يكون ذلك ممكناً
+
+## البدء
+
+ابدأ بمراجعة عمليتك الحالية. حدد نقاط الضعف وقدم ضوابط بسيطة. يمكن لنظام صندوق العهدة الرقمي أتمتة معظم هذه المهام ومنح المديرين رؤية فورية.`
+      }
+    }
+  },
 ];
 
 export function getArticle(slug) {

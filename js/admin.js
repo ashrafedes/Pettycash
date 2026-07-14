@@ -237,7 +237,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     if (!result.articles.length) {
-      articlesList.innerHTML = "<p class='text-slate-500'>No articles yet.</p>";
+      articlesList.innerHTML = `
+        <div class="bg-white border border-slate-200 rounded-xl p-6 text-center">
+          <p class="text-slate-600 mb-4">No articles yet in Firestore.</p>
+          <a href="./import-articles.html" class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">Import Articles</a>
+        </div>
+      `;
       return;
     }
     const articles = result.articles;
