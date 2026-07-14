@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cleanup Articles - Petty Cash</title>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="./js/firebase.js?v=2"></script>
+</head>
+<body class="bg-white text-slate-900 p-6">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Cleanup Articles</h1>
+    <p class="text-slate-600 mb-4">This tool removes duplicate Firestore articles and ensures every article has a valid image.</p>
+    <div class="space-x-3">
+      <button id="analyze-btn" class="px-4 py-2 bg-slate-600 text-white font-semibold rounded-lg hover:bg-slate-700 transition-colors">Analyze</button>
+      <button id="cleanup-btn" class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors" disabled>Run Cleanup</button>
+    </div>
+    <div id="status" class="mt-4 text-sm"></div>
+  </div>
+
+  <script type="module">
+    import { articles as staticArticles } from './js/articles-data.js?v=2';
+
+    const DEFAULT_IMAGES = [
+      'https://images.pexels.com/photos/53621/pexels-photo-53621.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/259200/pexels-photo-259200.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/259249/pexels-photo-259249.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/290158/pexels-photo-290158.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/669454/pexels-photo-669454.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/756743/pexels-photo-756743.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/768833/pexels-photo-768833.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/776615/pexels-photo-776615.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
+      'https://images.unsplash.com/photo-1664575602276-acd073f104c1?w=800&q=80',
+      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
+      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80'
+    ];
+
+    const status = document.getElementById('status');
+    const analyzeBtn = document.getElementById('analyze-btn');
+    const cleanupBtn = document.getElementById('cleanup-btn');
+
+    let analysis = null;
+
+    function log(message, type = 'info') {
+      const color = type === 'error' ? 'text-red-600' : type === 'success' ? 'text-green-600' : type === 'warn' ? 'text-amber-600' : 'text-slate-600';
+      const p = document.createElement('p');
+      p.className = color;
+      p.textContent = message;
+      status.appendChild(p);
+    }
+
+    function isImageInvalid(image) {
+      if (!image) return true;
+      const s = String(image).trim();
+      return s === '' || s === 'undefined' || s === 'null' || s === 'NaN';
+    }
+
+    function getStaticImage(slug) {
+      const match = staticArticles.find(a => a.slug === slug);
+      return match?.image || '';
+    }
+
+    function getDefaultImage(slug) {
+      let hash = 0;
+      for (let i = 0; i < slug.length; i++) {
+        hash = ((hash << 5) - hash) + slug.charCodeAt(i);
+        hash |= 0;
+      }
+      return DEFAULT_IMAGES[Math.abs(hash) % DEFAULT_IMAGES.length];
+    }
+
+    async function analyze() {
+      status.innerHTML = '';
+      analyzeBtn.disabled = true;
+      cleanupBtn.disabled = true;
+      analysis = null;
+
+      try {
+        if (!window.PettyCashFirebase) {
+          log('Firebase integration not loaded.', 'error');
+          return;
+        }
+
+        const db = window.PettyCashFirebase.initFirebase();
+        if (!db) {
+          log('Firestore not initialized.', 'error');
+          return;
+        }
+
+        log(`Connected to project: ${firebase.app().options.projectId}`);
+        const snap = await db.collection('blog_articles').get();
+        const docs = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        log(`Found ${docs.length} articles.`);
+
+        const bySlug = {};
+        let missingImage = 0;
+        const duplicates = [];
+
+        for (const doc of docs) {
+          const slug = doc.slug || doc.id;
+          if (!bySlug[slug]) {
+            bySlug[slug] = [];
+          }
+          bySlug[slug].push(doc);
+          if (isImageInvalid(doc.image)) {
+            missingImage++;
+          }
+        }
+
+        for (const [slug, items] of Object.entries(bySlug)) {
+          if (items.length > 1) {
+            duplicates.push({ slug, count: items.length, ids: items.map(i => i.id) });
+          }
+        }
+
+        analysis = { docs, bySlug, missingImage, duplicates };
+
+        log(`Articles missing/invalid image: ${missingImage}`, missingImage > 0 ? 'warn' : 'success');
+        log(`Duplicate slugs: ${duplicates.length}`, duplicates.length > 0 ? 'warn' : 'success');
+
+        for (const d of duplicates) {
+          log(`  Duplicate: "${d.slug}" appears ${d.count} times (${d.ids.join(', ')})`, 'warn');
+        }
+
+        if (duplicates.length > 0 || missingImage > 0) {
+          cleanupBtn.disabled = false;
+        }
+      } catch (err) {
+        log(`Error: ${err.message}`, 'error');
+      } finally {
+        analyzeBtn.disabled = false;
+      }
+    }
+
+    async function cleanup() {
+      if (!analysis) return;
+      status.innerHTML = '';
+      analyzeBtn.disabled = true;
+      cleanupBtn.disabled = true;
+
+      try {
+        const db = window.PettyCashFirebase.initFirebase();
+        let deleted = 0;
+        let imageFixed = 0;
+        let skipped = 0;
+
+        for (const [slug, items] of Object.entries(analysis.bySlug)) {
+          // Sort by date desc, keep first
+          const sorted = items.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+          const keep = sorted[0];
+          const toDelete = sorted.slice(1);
+
+          // Fix image on kept article
+          let needsImageUpdate = isImageInvalid(keep.image);
+          let newImage = '';
+          if (needsImageUpdate) {
+            newImage = getStaticImage(slug) || getDefaultImage(slug);
+          }
+
+          // Delete duplicates
+          for (const dup of toDelete) {
+            await db.collection('blog_articles').doc(dup.id).delete();
+            deleted++;
+            log(`Deleted duplicate: ${slug} (${dup.id})`);
+          }
+
+          // Update kept article image if needed
+          if (needsImageUpdate) {
+            await db.collection('blog_articles').doc(keep.id).set({ image: newImage }, { merge: true });
+            imageFixed++;
+            log(`Fixed image: ${slug} -> ${newImage}`, 'success');
+          } else {
+            skipped++;
+          }
+        }
+
+        log(`Done. Deleted ${deleted} duplicates, fixed ${imageFixed} images, ${skipped} already OK.`, deleted + imageFixed > 0 ? 'success' : 'info');
+      } catch (err) {
+        log(`Error during cleanup: ${err.message}`, 'error');
+      } finally {
+        analyzeBtn.disabled = false;
+        cleanupBtn.disabled = true;
+        analysis = null;
+      }
+    }
+
+    analyzeBtn.addEventListener('click', analyze);
+    cleanupBtn.addEventListener('click', cleanup);
+  </script>
+</body>
+</html>
