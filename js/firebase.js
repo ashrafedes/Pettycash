@@ -23,6 +23,22 @@ function initFirebase() {
   return firebaseDb;
 }
 
+function initAuth() {
+  if (typeof firebase === "undefined" || !firebase.auth) {
+    console.warn("Firebase Auth SDK not loaded");
+    return null;
+  }
+  return firebase.auth();
+}
+
+function initStorage() {
+  if (typeof firebase === "undefined" || !firebase.storage) {
+    console.warn("Firebase Storage SDK not loaded");
+    return null;
+  }
+  return firebase.storage();
+}
+
 async function trackVisitor() {
   const db = initFirebase();
   if (!db) return null;
@@ -52,6 +68,36 @@ async function fetchLatestArticles(limitCount = 3) {
   }
 }
 
+async function fetchArticleBySlug(slug) {
+  const db = initFirebase();
+  if (!db || !slug) return null;
+  try {
+    const snap = await db.collection("blog_articles")
+      .where("slug", "==", slug)
+      .limit(1)
+      .get();
+    if (snap.empty) return null;
+    const doc = snap.docs[0];
+    return { id: doc.id, ...doc.data() };
+  } catch (err) {
+    console.error("Article fetch error:", err);
+    return null;
+  }
+}
+
+async function fetchArticleById(id) {
+  const db = initFirebase();
+  if (!db || !id) return null;
+  try {
+    const snap = await db.collection("blog_articles").doc(id).get();
+    if (!snap.exists) return null;
+    return { id: snap.id, ...snap.data() };
+  } catch (err) {
+    console.error("Article fetch error:", err);
+    return null;
+  }
+}
+
 function formatDate(dateValue, lang = "en") {
   let date;
   if (dateValue && dateValue.toDate) {
@@ -65,4 +111,83 @@ function formatDate(dateValue, lang = "en") {
   return new Intl.DateTimeFormat(lang, { dateStyle: "medium" }).format(date);
 }
 
-window.PettyCashFirebase = { trackVisitor, fetchLatestArticles, formatDate };
+function onAuthChanged(callback) {
+  const auth = initAuth();
+  if (!auth) return () => {};
+  return auth.onAuthStateChanged(callback);
+}
+
+async function signIn(email, password) {
+  const auth = initAuth();
+  if (!auth) return { error: "Auth SDK not loaded" };
+  try {
+    await auth.signInWithEmailAndPassword(email, password);
+    return { success: true };
+  } catch (err) {
+    return { error: err.message };
+  }
+}
+
+async function signOut() {
+  const auth = initAuth();
+  if (!auth) return { error: "Auth SDK not loaded" };
+  try {
+    await auth.signOut();
+    return { success: true };
+  } catch (err) {
+    return { error: err.message };
+  }
+}
+
+async function uploadImage(file, path = "blog_images") {
+  const storage = initStorage();
+  if (!storage) return { error: "Storage SDK not loaded" };
+  if (!file) return { error: "No file selected" };
+  try {
+    const ext = file.name.split(".").pop();
+    const filename = `${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`;
+    const ref = storage.ref(`${path}/${filename}`);
+    const snap = await ref.put(file);
+    const url = await snap.ref.getDownloadURL();
+    return { url };
+  } catch (err) {
+    return { error: err.message };
+  }
+}
+
+async function saveArticle(article) {
+  const db = initFirebase();
+  if (!db) return { error: "Firestore SDK not loaded" };
+  try {
+    const data = {
+      slug: article.slug,
+      image: article.image || "",
+      readTime: article.readTime || "",
+      date: article.date || new Date().toISOString(),
+      translations: article.translations || {},
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    };
+    if (article.id) {
+      await db.collection("blog_articles").doc(article.id).update(data);
+      return { id: article.id };
+    }
+    const docRef = await db.collection("blog_articles").add(data);
+    return { id: docRef.id };
+  } catch (err) {
+    return { error: err.message };
+  }
+}
+
+async function deleteArticle(id) {
+  const db = initFirebase();
+  if (!db) return { error: "Firestore SDK not loaded" };
+  try {
+    await db.collection("blog_articles").doc(id).delete();
+    return { success: true };
+  } catch (err) {
+    return { error: err.message };
+  }
+}
+
+window.PettyCashFirebase = { trackVisitor, fetchLatestArticles, fetchArticleBySlug, fetchArticleById, formatDate, onAuthChanged, signIn, signOut, uploadImage, saveArticle, deleteArticle };

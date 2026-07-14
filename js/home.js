@@ -175,19 +175,23 @@ async function renderLatestArticles() {
     return;
   }
   const lang = getLang();
-  grid.innerHTML = articles.map(a => `
-    <a href="${a.url || './blog.html'}" class="group block bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-      ${a.imageUrl ? `<div class="h-40 overflow-hidden"><img src="${escapeHtml(a.imageUrl)}" alt="${escapeHtml(a.title || '')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>` : ""}
+  grid.innerHTML = articles.map(a => {
+    const tr = a.translations?.[lang] || a.translations?.en || {};
+    const imageUrl = a.image || a.imageUrl || "";
+    const targetUrl = a.url || `./article.html?slug=${encodeURIComponent(a.slug || a.id)}`;
+    return `
+    <a href="${targetUrl}" class="group block bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+      ${imageUrl ? `<div class="h-40 overflow-hidden"><img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(tr.title || '')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>` : ""}
       <div class="p-5">
-        <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">${escapeHtml(a.title || a[`title_${lang}`] || '')}</h3>
-        <p class="text-sm text-slate-500 line-clamp-2 mb-4">${escapeHtml(a.summary || a[`summary_${lang}`] || '')}</p>
+        <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">${escapeHtml(tr.title || '')}</h3>
+        <p class="text-sm text-slate-500 line-clamp-2 mb-4">${escapeHtml(tr.summary || '')}</p>
         <div class="flex items-center justify-between text-xs text-slate-400">
           <span>${window.PettyCashFirebase.formatDate(a.date, lang)}</span>
           ${a.readTime ? `<span>${a.readTime} ${data.readTime}</span>` : ""}
         </div>
       </div>
     </a>
-  `).join("");
+  `}).join("");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
