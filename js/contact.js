@@ -10,43 +10,80 @@ const ENTRY_IDS = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  const data = window.PettyCash?.t ? window.PettyCash.t("contact") : {
+    title: "Contact Us",
+    subtitle: "We are here to help.",
+    subject: "Subject",
+    email: "Email",
+    name: "Your Name",
+    message: "Your Message",
+    send: "Send Message",
+    sent: "Message sent! We will reply soon.",
+    emailAddress: "ashrafede@gmail.com"
+  };
+
+  const title = document.querySelector("[data-i18n='contact.title']");
+  const subtitle = document.querySelector("[data-i18n='contact.subtitle']");
+  const emailEl = document.getElementById("contact-email");
+
+  if (title) title.textContent = data.title;
+  if (subtitle) subtitle.textContent = data.subtitle;
+  if (emailEl) emailEl.textContent = data.emailAddress;
+
+  document.querySelectorAll("[data-i18n='contact.name']").forEach(el => { if (el.placeholder === "") el.placeholder = data.name; else el.textContent = data.name; });
+  document.querySelectorAll("[data-i18n='contact.email']").forEach(el => { if (el.placeholder === "") el.placeholder = data.email; else el.textContent = data.email; });
+  document.querySelectorAll("[data-i18n='contact.subject']").forEach(el => { if (el.placeholder === "") el.placeholder = data.subject; else el.textContent = data.subject; });
+  document.querySelectorAll("[data-i18n='contact.message']").forEach(el => { if (el.placeholder === "") el.placeholder = data.message; else el.textContent = data.message; });
+
   const form = document.getElementById("contact-form");
   if (!form) return;
 
+  const status = document.getElementById("form-status");
+  const submitBtn = document.getElementById("submit-btn");
+  const btnText = document.getElementById("btn-text");
+  const spinner = document.getElementById("btn-spinner");
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    const originalText = btn.innerHTML;
-    btn.disabled = true;
-    btn.innerHTML = `<span class="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Sending...`;
+
+    if (status) {
+      status.className = "text-sm text-slate-500";
+      status.textContent = "...";
+    }
+    if (submitBtn) submitBtn.disabled = true;
+    if (btnText) btnText.textContent = "...";
+    if (spinner) spinner.classList.remove("hidden");
 
     try {
-      const data = new FormData();
-      data.append(ENTRY_IDS.name, form.name.value);
-      data.append(ENTRY_IDS.email, form.email.value);
-      data.append(ENTRY_IDS.subject, form.subject.value || "Contact from Marketing Site");
-      data.append(ENTRY_IDS.message, form.message.value);
+      const formData = new FormData(form);
+      const payload = new URLSearchParams();
+      payload.append(ENTRY_IDS.name, formData.get("name"));
+      payload.append(ENTRY_IDS.email, formData.get("email"));
+      payload.append(ENTRY_IDS.subject, formData.get("subject"));
+      payload.append(ENTRY_IDS.message, formData.get("message"));
 
       await fetch(GOOGLE_FORM_ACTION, {
         method: "POST",
         mode: "no-cors",
-        body: data,
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: payload.toString(),
       });
 
-      document.getElementById("contact-success").classList.remove("hidden");
-      document.getElementById("contact-form-fields").classList.add("hidden");
+      if (status) {
+        status.className = "text-sm text-green-600 font-medium";
+        status.textContent = data.sent;
+      }
       form.reset();
     } catch (err) {
       console.error(err);
-      document.getElementById("contact-error").classList.remove("hidden");
+      if (status) {
+        status.className = "text-sm text-red-600 font-medium";
+        status.textContent = window.PettyCash?.getLang() === "ar" ? "حدث خطأ. حاول مرة أخرى." : "Something went wrong. Please try again.";
+      }
     } finally {
-      btn.disabled = false;
-      btn.innerHTML = originalText;
+      if (submitBtn) submitBtn.disabled = false;
+      if (btnText) btnText.textContent = data.send;
+      if (spinner) spinner.classList.add("hidden");
     }
-  });
-
-  document.getElementById("send-another")?.addEventListener("click", () => {
-    document.getElementById("contact-success").classList.add("hidden");
-    document.getElementById("contact-form-fields").classList.remove("hidden");
   });
 });

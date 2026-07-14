@@ -8,6 +8,13 @@ body { font-family: 'Inter', sans-serif; }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .animate-spin {
   animation: spin 1s linear infinite;
 }

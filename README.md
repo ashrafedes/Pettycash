@@ -5,9 +5,13 @@ A static HTML/CSS/JS marketing website for the Petty Cash Management System, des
 ## What's Included
 
 - Static HTML pages: Home, Features, Pricing, About, Contact, Blog, Help
+- Bilingual support: English and Arabic with language switcher and RTL layout
 - Shared navbar and footer loaded via vanilla JavaScript
 - Tailwind CSS via CDN (no build step required)
 - Contact form submits to a hidden Google Form
+- Blog articles fetched from Firebase Firestore
+- Live visitor counter via Firebase Firestore
+- All 4 pricing plans: Free, Basic, Pro, Premium
 - Responsive design
 - Favicon support
 
@@ -50,8 +54,16 @@ Then visit `http://localhost:8000`.
 ├── css/
 │   └── styles.css    # Custom styles
 ├── js/
-│   ├── main.js       # Navbar, footer, FAQ toggles
-│   └── contact.js    # Google Form submission
+│   ├── main.js         # Navbar, footer, language switcher, FAQ toggles
+│   ├── translations.js # English and Arabic content
+│   ├── firebase.js     # Firebase config and helpers
+│   ├── home.js         # Home page dynamic sections
+│   ├── features.js     # Features page content
+│   ├── pricing.js      # Pricing cards
+│   ├── about.js        # About page content
+│   ├── contact.js      # Google Form submission
+│   ├── help.js         # Help center sections
+│   └── blog.js         # Blog articles from Firebase
 ├── images/
 │   └── favicon.png   # Site favicon
 ├── render.yaml       # Render static site configuration
