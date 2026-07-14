@@ -195,7 +195,11 @@ const TRANSLATIONS = {
       legal: "Legal",
       privacy: "Privacy Policy",
       terms: "Terms of Use",
-      rights: "All rights reserved."
+      rights: "All rights reserved.",
+      contact: "Contact",
+      email: "ashrafede@gmail.com",
+      phone: "",
+      copyright: "{{year}} Petty Cash. All rights reserved."
     },
     articles: {
       title: "Latest Articles",
@@ -404,7 +408,11 @@ const TRANSLATIONS = {
       legal: "قانوني",
       privacy: "سياسة الخصوصية",
       terms: "شروط الاستخدام",
-      rights: "جميع الحقوق محفوظة."
+      rights: "جميع الحقوق محفوظة.",
+      contact: "اتصل بنا",
+      email: "ashrafede@gmail.com",
+      phone: "",
+      copyright: "{{year}} صندوق العهدة. جميع الحقوق محفوظة."
     },
     articles: {
       title: "أحدث المقالات",
