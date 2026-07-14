@@ -460,12 +460,14 @@ async function translateWithOpenRouter(source) {
       if (parsed.error) return { error: parsed.error };
       return parsed;
     } catch (err) {
-      const isRateLimit = err.status === 429;
-      if (isRateLimit && attempt < 3) {
-        await new Promise(r => setTimeout(r, attempt * 3000));
+      if (err.status === 429) {
+        return { error: "OpenRouter rate limit reached." };
+      }
+      if (attempt < 3) {
+        await new Promise(r => setTimeout(r, attempt * 2000));
         continue;
       }
-      return { error: isRateLimit ? "OpenRouter rate limit reached. Please wait a minute and try again." : err.message };
+      return { error: err.message };
     }
   }
   return { error: "Translation failed after retries." };

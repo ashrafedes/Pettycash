@@ -164,7 +164,7 @@ async function saveArticle(article) {
       updatedAt: firebase.firestore.FieldValue.serverTimestamp()
     };
     if (article.id) {
-      await db.collection("blog_articles").doc(article.id).update(data);
+      await db.collection("blog_articles").doc(article.id).set(data, { merge: true });
       return { id: article.id };
     }
     const docRef = await db.collection("blog_articles").add(data);
