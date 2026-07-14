@@ -47,11 +47,11 @@ function renderArticles(articles, lang, data) {
   if (!grid) return;
   grid.innerHTML = articles.map(a => {
     const tr = getArticleLocale(a, lang);
-    const imageUrl = a.image || a.imageUrl || "";
+    const imageUrl = a.image || a.imageUrl || "./images/article-placeholder.svg";
     const targetUrl = a.url || `./article.html?slug=${encodeURIComponent(a.slug || a.id)}`;
     return `
     <a href="${targetUrl}" class="group block bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-      ${imageUrl ? `<div class="h-48 overflow-hidden"><img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(tr.title || '')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"></div>` : ""}
+      <div class="h-48 overflow-hidden bg-slate-100"><img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(tr.title || '')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"></div>
       <div class="p-6">
         <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">${escapeHtml(tr.title || '')}</h3>
         <p class="text-sm text-slate-500 line-clamp-3 mb-4">${escapeHtml(tr.summary || '')}</p>

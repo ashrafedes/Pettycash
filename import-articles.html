@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Import Articles - Petty Cash</title>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="./js/firebase.js"></script>
+</head>
+<body class="bg-white text-slate-900 p-6">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Import Articles</h1>
+    <p class="text-slate-600 mb-4">This page imports articles from the PettyCash_Marketing project into this site's Firestore.</p>
+    <button id="import-btn" class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">Start Import</button>
+    <div id="status" class="mt-4 text-sm"></div>
+  </div>
+
+  <script type="module">
+    import { articles } from '../PettyCash_Marketing/src/data/articles.js';
+
+    const status = document.getElementById('status');
+    const btn = document.getElementById('import-btn');
+
+    function log(message, type = 'info') {
+      const color = type === 'error' ? 'text-red-600' : type === 'success' ? 'text-green-600' : 'text-slate-600';
+      const p = document.createElement('p');
+      p.className = color;
+      p.textContent = message;
+      status.appendChild(p);
+    }
+
+    btn.addEventListener('click', async () => {
+      status.innerHTML = '';
+      btn.disabled = true;
+      btn.textContent = 'Importing...';
+
+      if (!window.PettyCashFirebase) {
+        log('Firebase not loaded. Check your connection.', 'error');
+        btn.disabled = false;
+        btn.textContent = 'Start Import';
+        return;
+      }
+
+      let added = 0;
+      let failed = 0;
+
+      for (const article of articles) {
+        const adapted = {
+          slug: article.slug,
+          date: article.date,
+          readTime: article.readTime,
+          image: article.image,
+          published: true,
+          translations: {
+            en: article.translations?.en || {},
+            ar: article.translations?.ar || {}
+          }
+        };
+
+        const result = await window.PettyCashFirebase.saveArticle(adapted);
+        if (result.error) {
+          log(`Failed: ${article.slug} - ${result.error}`, 'error');
+          failed++;
+        } else {
+          log(`Imported: ${article.slug}`, 'success');
+          added++;
+        }
+      }
+
+      log(`Done. ${added} imported, ${failed} failed.`, failed > 0 ? 'error' : 'success');
+      btn.disabled = false;
+      btn.textContent = 'Start Import';
+    });
+  </script>
+</body>
+</html>

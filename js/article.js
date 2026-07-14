@@ -56,7 +56,7 @@ function renderArticle(article, lang) {
   const title = tr.title || article.slug || "Article";
   const summary = tr.summary || "";
   const content = tr.content || summary || "";
-  const imageUrl = article.image || article.imageUrl || "";
+  const imageUrl = article.image || article.imageUrl || "./images/article-placeholder.svg";
 
   document.title = `${title} - Petty Cash`;
 
@@ -67,7 +67,7 @@ function renderArticle(article, lang) {
     metaEl.textContent = [date, readTime].filter(Boolean).join(" · ");
   }
 
-  if (imageUrl && imageEl) {
+  if (imageEl) {
     imageEl.innerHTML = `<img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}" class="w-full h-auto object-cover">`;
     imageEl.classList.remove("hidden");
   }

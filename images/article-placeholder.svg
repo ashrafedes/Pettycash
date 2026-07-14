@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#f1f5f9"/>
+  <path d="M350 180c0-13.8 11.2-25 25-25h50c13.8 0 25 11.2 25 25v90c0 13.8-11.2 25-25 25h-50c-13.8 0-25-11.2-25-25v-90z" fill="#e2e8f0"/>
+  <circle cx="400" cy="210" r="22" fill="#cbd5e1"/>
+  <path d="M375 245l20-20 15 15 30-35 25 40H375z" fill="#cbd5e1"/>
+  <text x="400" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#94a3b8">No image</text>
+</svg>
