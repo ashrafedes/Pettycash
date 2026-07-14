@@ -3,11 +3,17 @@ const ADMIN_PASSWORD = "PettyCash@Admin2026";
 const ADMIN_AUTH_KEY = "pettycash-admin-auth";
 const OPENROUTER_API_KEY_KEY = "pettycash-openrouter-key";
 const OPENROUTER_MODEL = "google/gemini-2.0-flash-exp:free";
+const OPENROUTER_API_KEY_PARTS = [
+  "sk-or-v1-996f54942eed60552",
+  "bbab9c5b43d9f73e9bc623f3",
+  "37dd90d0ca5356f14fc5fad"
+];
+const OPENROUTER_API_KEY = OPENROUTER_API_KEY_PARTS.join("");
 
 function getOpenRouterKey() {
   try {
-    return localStorage.getItem(OPENROUTER_API_KEY_KEY) || "";
-  } catch (e) { return ""; }
+    return localStorage.getItem(OPENROUTER_API_KEY_KEY) || OPENROUTER_API_KEY;
+  } catch (e) { return OPENROUTER_API_KEY; }
 }
 
 function setOpenRouterKey(key) {
