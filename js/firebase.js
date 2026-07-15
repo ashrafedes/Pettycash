@@ -50,7 +50,7 @@ async function getStaticArticles() {
     return window.PettyCashArticlesData;
   }
   try {
-    const m = await import('./articles-data.js');
+    const m = await import('./articles-data.js?v=3');
     return m.articles || [];
   } catch (err) {
     console.error("Failed to load static articles:", err);
@@ -104,7 +104,7 @@ async function fetchLatestArticles(limitCount = 3) {
   if (!db) return staticArticles.slice(0, limitCount);
   try {
     const snap = await withTimeout(
-      db.collection("blog_articles").orderBy("date", "desc").limit(200).get(),
+      db.collection("blog_articles").orderBy("date", "desc").limit(50).get(),
       3000
     );
     const dbArticles = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -226,4 +226,4 @@ async function deleteArticle(id) {
   }
 }
 
-window.PettyCashFirebase = { initFirebase, trackVisitor, fetchLatestArticles, fetchArticleBySlug, fetchArticleById, formatDate, uploadImage, saveArticle, deleteArticle };
+window.PettyCashFirebase = { initFirebase, trackVisitor, fetchLatestArticles, fetchArticleBySlug, fetchArticleById, formatDate, uploadImage, saveArticle, deleteArticle, getStaticArticles, sortArticlesByDate, mergeArticles };
