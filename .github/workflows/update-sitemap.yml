@@ -1,0 +1,26 @@
+name: Update Sitemap
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'js/articles-data.js'
+      - '.github/workflows/update-sitemap.yml'
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Update sitemap
+        run: node update-sitemap.js
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Auto-update sitemap.xml'
+          file_pattern: 'sitemap.xml'

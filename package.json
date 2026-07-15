@@ -1,0 +1,9 @@
+{
+  "name": "pettycash-static-web",
+  "version": "1.0.0",
+  "description": "Petty Cash static website",
+  "scripts": {
+    "update-sitemap": "node update-sitemap.js"
+  },
+  "private": true
+}
