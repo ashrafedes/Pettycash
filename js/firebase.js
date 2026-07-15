@@ -69,6 +69,11 @@ function withTimeout(promise, ms) {
   ]);
 }
 
+function hasValidImage(a) {
+  const img = (a && a.image) || "";
+  return img && img.trim() !== "" && img !== "undefined" && img !== "null";
+}
+
 function mergeArticles(staticArticles, dbArticles) {
   const map = new Map(staticArticles.map(a => [a.slug || a.id, a]));
   for (const a of dbArticles) {
@@ -79,6 +84,10 @@ function mergeArticles(staticArticles, dbArticles) {
         const merged = { ...existing };
         for (const [k, v] of Object.entries(a)) {
           if (v !== undefined && v !== null && v !== "") merged[k] = v;
+        }
+        // Prefer the version with a valid image
+        if (hasValidImage(a) && !hasValidImage(merged)) {
+          merged.image = a.image;
         }
         map.set(key, merged);
       } else {
@@ -183,13 +192,22 @@ async function saveArticle(article) {
       published: article.published !== false,
       date: article.date || new Date().toISOString(),
       translations: article.translations || {},
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       updatedAt: firebase.firestore.FieldValue.serverTimestamp()
     };
     if (article.id) {
       await db.collection("blog_articles").doc(article.id).set(data, { merge: true });
       return { id: article.id };
     }
+    // Prevent duplicates: if a doc with the same slug exists, update it instead of adding
+    if (article.slug) {
+      const existing = await db.collection("blog_articles").where("slug", "==", article.slug).limit(1).get();
+      if (!existing.empty) {
+        const id = existing.docs[0].id;
+        await db.collection("blog_articles").doc(id).set(data, { merge: true });
+        return { id };
+      }
+    }
+    data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
     const docRef = await db.collection("blog_articles").add(data);
     return { id: docRef.id };
   } catch (err) {
