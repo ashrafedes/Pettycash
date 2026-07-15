@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const uploadStatus = document.getElementById("upload-status");
   const imageFileInput = document.getElementById("article-image-file");
   const imageUrlInput = document.getElementById("article-image-url");
+  const imagePreview = document.getElementById("image-preview");
   const publishedInput = document.getElementById("article-published");
   const clearBtn = document.getElementById("clear-btn");
   const saveBtn = document.getElementById("save-btn");
@@ -135,6 +136,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function updateImagePreview(url) {
+    if (!imagePreview) return;
+    if (url && url.trim()) {
+      imagePreview.src = url.trim();
+      imagePreview.classList.remove("hidden");
+    } else {
+      imagePreview.src = "";
+      imagePreview.classList.add("hidden");
+    }
+  }
+
   imageFileInput.addEventListener("change", async () => {
     const file = imageFileInput.files[0];
     if (!file) return;
@@ -146,9 +158,14 @@ document.addEventListener("DOMContentLoaded", () => {
       uploadStatus.className = "mt-1 text-xs text-red-600";
     } else {
       imageUrlInput.value = result.url;
+      updateImagePreview(result.url);
       uploadStatus.textContent = "Image uploaded successfully.";
       uploadStatus.className = "mt-1 text-xs text-green-600";
     }
+  });
+
+  imageUrlInput.addEventListener("input", () => {
+    updateImagePreview(imageUrlInput.value);
   });
 
   articleForm.addEventListener("submit", async e => {
@@ -255,6 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
     articleForm.reset();
     document.getElementById("article-id").value = "";
     imageUrlInput.value = "";
+    updateImagePreview("");
     uploadStatus.textContent = "";
     formStatus.textContent = "";
     if (translateStatus) {
@@ -383,6 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("article-readtime").value = article.readTime || "";
     if (publishedInput) publishedInput.checked = article.published !== false;
     imageUrlInput.value = article.image || "";
+    updateImagePreview(article.image || "");
     uploadStatus.textContent = article.image ? "Image already uploaded." : "";
     const en = article.translations?.en || {};
     const ar = article.translations?.ar || {};
