@@ -20,9 +20,9 @@
     { "@type": "BreadcrumbList", "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
       { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
-      { "@type": "ListItem", "position": 3, "name": "Add Watermark", "item": "https://pettycash.site/pdf-tools/watermark-pdf.html" }
+      { "@type": "ListItem", "position": 3, "name": "Add Watermark", "item": "https://pettycash.site/pdf-tools/add-watermark.html" }
     ]},
-    { "@type": "SoftwareApplication", "name": "Add Watermark", "description": "Add text or image watermark to your PDF. Free online tool.", "url": "https://pettycash.site/pdf-tools/watermark-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "SoftwareApplication", "name": "Add Watermark", "description": "Add text or image watermark to your PDF. Free online tool.", "url": "https://pettycash.site/pdf-tools/add-watermark.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
     { "@type": "FAQPage", "mainEntity": [
       { "@type": "Question", "name": "Is watermarking PDF free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free." } },
       { "@type": "Question", "name": "Are my files uploaded?", "acceptedAnswer": { "@type": "Answer", "text": "No. All processing happens in your browser." } },
@@ -77,12 +77,12 @@
               <div>
                 <label class="block text-xs font-semibold mb-1" id="type-label">Watermark type</label>
                 <div class="flex gap-2">
-                  <label class="flex-1 cursor-pointer text-center text-sm border-2 border-slate-200 dark:border-slate-600 rounded-lg py-2 peer-checked:border-blue-600 transition-all" id="text-type-label">
-                    <input type="radio" name="wm-type" value="text" checked class="hidden peer">
+                  <label class="flex-1 cursor-pointer text-center text-sm border-2 border-slate-200 dark:border-slate-600 rounded-lg py-2 transition-all" id="text-type-label">
+                    <input type="radio" name="wm-type" value="text" checked class="sr-only">
                     <span id="opt-text">Text</span>
                   </label>
-                  <label class="flex-1 cursor-pointer text-center text-sm border-2 border-slate-200 dark:border-slate-600 rounded-lg py-2 peer-checked:border-blue-600 transition-all" id="image-type-label">
-                    <input type="radio" name="wm-type" value="image" class="hidden peer">
+                  <label class="flex-1 cursor-pointer text-center text-sm border-2 border-slate-200 dark:border-slate-600 rounded-lg py-2 transition-all" id="image-type-label">
+                    <input type="radio" name="wm-type" value="image" class="sr-only">
                     <span id="opt-image">Image</span>
                   </label>
                 </div>
@@ -222,19 +222,23 @@
         const imageLabel = document.getElementById('image-type-label');
         const textRadio = textLabel.querySelector('input');
         const imageRadio = imageLabel.querySelector('input');
-        textLabel.classList.toggle('border-blue-600', textRadio.checked);
-        textLabel.classList.toggle('bg-blue-50', textRadio.checked);
-        textLabel.classList.toggle('text-blue-600', textRadio.checked);
-        imageLabel.classList.toggle('border-blue-600', imageRadio.checked);
-        imageLabel.classList.toggle('bg-blue-50', imageRadio.checked);
-        imageLabel.classList.toggle('text-blue-600', imageRadio.checked);
+        if (textRadio.checked) {
+          textLabel.style.borderColor = '#2563eb'; textLabel.style.backgroundColor = 'rgba(37,99,235,0.08)'; textLabel.style.color = '#2563eb';
+        } else {
+          textLabel.style.borderColor = ''; textLabel.style.backgroundColor = ''; textLabel.style.color = '';
+        }
+        if (imageRadio.checked) {
+          imageLabel.style.borderColor = '#2563eb'; imageLabel.style.backgroundColor = 'rgba(37,99,235,0.08)'; imageLabel.style.color = '#2563eb';
+        } else {
+          imageLabel.style.borderColor = ''; imageLabel.style.backgroundColor = ''; imageLabel.style.color = '';
+        }
       }
       document.querySelectorAll('input[name="wm-type"]').forEach(r => {
         r.addEventListener('change', () => {
           updateTypeLabels();
           document.getElementById('text-wm-input').classList.toggle('hidden', r.value !== 'text');
           document.getElementById('image-wm-input').classList.toggle('hidden', r.value !== 'image');
-          updatePreview();
+          updateOverlayOnly();
         });
       });
       updateTypeLabels();
@@ -283,7 +287,6 @@
         wmImageType = f.type;
         const buf = await f.arrayBuffer();
         wmImageBytes = buf;
-        // Cache decoded image for fast overlay redraw
         cachedWmImage = new Image();
         cachedWmImage.src = URL.createObjectURL(new Blob([buf], { type: wmImageType }));
         await new Promise(r => cachedWmImage.onload = r);
@@ -291,9 +294,9 @@
       });
 
       // Live preview: cache base page render, only redraw watermark overlay on slider change
-      let baseCanvas = null; // cached off-screen render of page 1
-      let previewCanvas = null; // visible canvas
-      let cachedWmImage = null; // decoded image element for image watermark
+      let baseCanvas = null;
+      let previewCanvas = null;
+      let cachedWmImage = null;
 
       async function renderBasePage() {
         const pdfjs = await PDFTools.ensurePDFJS();
@@ -306,7 +309,6 @@
         baseCanvas.height = viewport.height;
         const ctx = baseCanvas.getContext('2d');
         await page.render({ canvasContext: ctx, viewport }).promise;
-        // Create visible canvas if not exists
         if (!previewCanvas || previewCanvas.width !== baseCanvas.width) {
           previewCanvas = document.createElement('canvas');
           previewCanvas.width = baseCanvas.width;
@@ -320,19 +322,15 @@
       function drawWatermarkOverlay() {
         if (!baseCanvas || !previewCanvas) return;
         const ctx = previewCanvas.getContext('2d');
-        // Copy base page image (fast, no PDF re-render)
         ctx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
         ctx.drawImage(baseCanvas, 0, 0);
-
         const wmType = document.querySelector('input[name="wm-type"]:checked').value;
         const opacity = parseInt(document.getElementById('wm-opacity').value) / 100;
         const rotation = parseInt(document.getElementById('wm-rotation').value);
         const position = document.getElementById('wm-position').value;
         const color = document.getElementById('wm-color').value;
-
         ctx.save();
         ctx.globalAlpha = opacity;
-
         if (wmType === 'text') {
           const text = document.getElementById('wm-text').value || 'WATERMARK';
           const fontSize = parseInt(document.getElementById('wm-size').value);
@@ -370,7 +368,6 @@
         ctx.restore();
       }
 
-      // Full preview (re-renders base page) — only on file load or type/image change
       async function updatePreview() {
         if (!pdfFile) return;
         previewArea.innerHTML = '<p class="text-sm text-slate-500">Loading preview...</p>';
@@ -379,12 +376,10 @@
         drawWatermarkOverlay();
       }
 
-      // Fast overlay-only update (sliders, text, color, position)
       function updateOverlayOnly() {
         if (baseCanvas) drawWatermarkOverlay();
       }
 
-      // Slider/text/position/color changes → fast overlay redraw only
       ['wm-text', 'wm-position', 'wm-opacity', 'wm-rotation', 'wm-size', 'wm-color'].forEach(id => {
         document.getElementById(id).addEventListener('input', updateOverlayOnly);
       });
@@ -403,7 +398,6 @@
           const bytes = await pdfFile.arrayBuffer();
           const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
           const pages = doc.getPages();
-
           const opacity = parseInt(document.getElementById('wm-opacity').value) / 100;
           const rotation = parseInt(document.getElementById('wm-rotation').value);
           const position = document.getElementById('wm-position').value;
@@ -427,7 +421,7 @@
             const pad = 40;
 
             if (wmType === 'text') {
-              const tw = doc.font ? fontSize * wmText.length * 0.6 : 300;
+              const tw = fontSize * wmText.length * 0.6;
               const th = fontSize;
               if (position === 'center') { x = width / 2; y = height / 2; }
               else if (position === 'top-left') { x = pad + 100; y = height - pad - th / 2; }
