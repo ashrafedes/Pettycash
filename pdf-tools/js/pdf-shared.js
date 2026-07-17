@@ -230,6 +230,9 @@
     const scale = opts.scale || 0.4;
     const onProgress = opts.onProgress;
     const selectable = opts.selectable || false;
+    const selectionClass = opts.selectionClass ? opts.selectionClass.split(' ').filter(Boolean) : ['ring-4', 'ring-green-500', 'rounded-lg'];
+    const badgeClass = opts.badgeClass || 'select-badge absolute top-1 end-1 bg-green-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shadow-lg';
+    const selectionLabel = opts.selectionLabel;
     const disabledPages = opts.disabledPages ? new Set(opts.disabledPages) : new Set();
     const disabledLabel = opts.disabledLabel || 'Assigned';
     const rotationMap = opts.rotationMap || null; // { pageIndex: angle }
@@ -269,25 +272,38 @@
         item.classList.add('cursor-pointer');
         item.addEventListener('click', () => {
           const idx = parseInt(item.dataset.pageIndex);
+          const pageNum = parseInt(item.dataset.pageNum);
           if (selectedSet.has(idx)) {
             selectedSet.delete(idx);
-            item.classList.remove('ring-4', 'ring-green-500', 'rounded-lg');
+            item.classList.remove(...selectionClass);
             const badge = item.querySelector('.select-badge');
             if (badge) badge.remove();
           } else {
             selectedSet.add(idx);
-            item.classList.add('ring-4', 'ring-green-500', 'rounded-lg');
+            item.classList.add(...selectionClass);
             const badge = document.createElement('div');
-            badge.className = 'select-badge absolute top-1 end-1 bg-green-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shadow-lg';
-            badge.textContent = Array.from(selectedSet).indexOf(idx) + 1;
+            badge.className = badgeClass;
+            if (typeof selectionLabel === 'function') {
+              badge.textContent = selectionLabel(idx, pageNum, Array.from(selectedSet).indexOf(idx) + 1);
+            } else if (typeof selectionLabel === 'string') {
+              badge.textContent = selectionLabel;
+            } else {
+              badge.textContent = Array.from(selectedSet).indexOf(idx) + 1;
+            }
             item.appendChild(badge);
           }
-          // Re-number badges
-          let order = 0;
-          wrapper.querySelectorAll('[data-page-index]').forEach(el => {
-            const b = el.querySelector('.select-badge');
-            if (b) b.textContent = ++order;
-          });
+          // Re-number badges when using order labels
+          if (typeof selectionLabel !== 'string') {
+            let order = 0;
+            wrapper.querySelectorAll('[data-page-index]').forEach(el => {
+              const b = el.querySelector('.select-badge');
+              if (b && typeof selectionLabel !== 'function' && typeof selectionLabel !== 'string') {
+                b.textContent = ++order;
+              } else if (b && typeof selectionLabel !== 'string') {
+                // keep existing label (string) or function-based label is set once
+              }
+            });
+          }
           if (onSelectionChange) onSelectionChange(Array.from(selectedSet).sort((a, b) => a - b));
         });
       } else if (isDisabled) {
