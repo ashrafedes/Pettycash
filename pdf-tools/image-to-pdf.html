@@ -97,6 +97,10 @@
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
                   <span id="add-more-label">Add more</span>
                 </button>
+                <button id="clear-all" class="btn-pdf btn-pdf-danger text-sm">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  <span id="clear-all-label">Clear all</span>
+                </button>
                 <button id="convert-btn" class="btn-pdf btn-pdf-primary text-sm">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
                   <span id="convert-btn-label">Convert to PDF</span>
@@ -142,14 +146,14 @@
       const lang = PDFTools.getLang();
       const T = lang === 'ar' ? {
         title: 'صور إلى PDF', desc: 'تحويل صور JPG و PNG و BMP و WebP إلى ملف PDF واحد. اسحب لإعادة الترتيب، معاينة كل صورة.',
-        dropHere: 'أفلت صورك هنا', addMore: 'إضافة المزيد من الصور', convertBtn: 'تحويل إلى PDF',
+        dropHere: 'أفلت صورك هنا', addMore: 'إضافة المزيد من الصور', clearAll: 'مسح الكل', convertBtn: 'تحويل إلى PDF',
         pageSize: 'حجم الصفحة', fit: 'ملاءمة للصورة', a4: 'A4', letter: 'US Letter',
         orientation: 'الاتجاه', portrait: 'عمودي', landscape: 'أفقي',
         fitPage: 'ملاءمة الصورة للصفحة (مع هامش)',
         atLeast1: 'أضف صورة واحدة على الأقل'
       } : {
         title: 'Image to PDF', desc: 'Convert JPG, PNG, BMP, and WebP images into a single PDF. Drag to reorder, preview each image.',
-        dropHere: 'Drop your images here', addMore: 'Add more images', convertBtn: 'Convert to PDF',
+        dropHere: 'Drop your images here', addMore: 'Add more images', clearAll: 'Clear all', convertBtn: 'Convert to PDF',
         pageSize: 'Page size', fit: 'Fit to image', a4: 'A4', letter: 'US Letter',
         orientation: 'Orientation', portrait: 'Portrait', landscape: 'Landscape',
         fitPage: 'Fit image to page (with margin)',
@@ -160,6 +164,7 @@
       document.getElementById('tool-desc').textContent = T.desc;
       document.getElementById('drop-label').textContent = T.dropHere;
       document.getElementById('add-more-label').textContent = T.addMore;
+      document.getElementById('clear-all-label').textContent = T.clearAll;
       document.getElementById('convert-btn-label').textContent = T.convertBtn;
       document.getElementById('page-size-label').textContent = T.pageSize;
       document.getElementById('opt-fit').textContent = T.fit;
@@ -260,6 +265,16 @@
       }
 
       addMore.addEventListener('click', () => fileInput.click());
+
+      document.getElementById('clear-all').addEventListener('click', () => {
+        images = [];
+        resultBlob = null;
+        fileInput.value = '';
+        actions.classList.add('hidden');
+        result.classList.add('hidden');
+        progressArea.innerHTML = '';
+        document.getElementById('image-grid').innerHTML = '';
+      });
 
       const PAGE_SIZES = {
         a4: { w: 595.28, h: 841.89 },
