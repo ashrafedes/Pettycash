@@ -353,7 +353,8 @@
     formatBytes, downloadBlob, toast,
     ensurePDFLib, ensureFileSaver, ensurePDFJS, ensureJSZip,
     renderPDFPreview,
-    loadLib
+    loadLib,
+    loadScript: loadLib
   };
 
   global.PDFTools = PDFTools;
