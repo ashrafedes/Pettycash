@@ -183,15 +183,20 @@
         previewArea.innerHTML = '';
       });
 
+      let thumbElements = []; // cached DOM elements
+      let dragIdx = null;
+
       async function renderThumbnails() {
         previewArea.innerHTML = '<p class="text-sm text-slate-500 text-center">Loading...</p>';
         const pdfjs = await PDFTools.ensurePDFJS();
         const buf = await pdfFile.arrayBuffer();
         const pdf = await pdfjs.getDocument({ data: buf }).promise;
-        const maxPreview = Math.min(pageOrder.length, 20);
         const wrapper = document.createElement('div');
         wrapper.className = 'flex flex-wrap gap-3 justify-center';
+        wrapper.id = 'thumb-wrapper';
         wrapper.addEventListener('dragover', (e) => { e.preventDefault(); });
+
+        thumbElements = [];
 
         for (let i = 0; i < pageOrder.length; i++) {
           const origIdx = pageOrder[i];
@@ -209,6 +214,7 @@
           item.className = 'relative cursor-move group';
           item.dataset.orderIdx = i;
           item.draggable = true;
+          canvas.draggable = false;
 
           const badge = document.createElement('div');
           badge.className = 'absolute top-0.5 start-0.5 bg-slate-700 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow';
@@ -220,8 +226,12 @@
           delBtn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6 6 18M6 6l12 12"/></svg>';
           delBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            pageOrder.splice(i, 1);
-            renderThumbnails();
+            const idx = parseInt(item.dataset.orderIdx);
+            pageOrder.splice(idx, 1);
+            // Remove DOM element, reindex remaining
+            item.remove();
+            thumbElements.splice(idx, 1);
+            reindexThumbs();
           });
           item.appendChild(delBtn);
 
@@ -231,29 +241,58 @@
           label.textContent = (lang === 'ar' ? 'صفحة ' : 'Page ') + (origIdx + 1);
           item.appendChild(label);
 
-          canvas.draggable = false;
-
           // Drag events
-          item.addEventListener('dragstart', (e) => { item.classList.add('opacity-50'); dragIdx = i; e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', String(i)); });
+          item.addEventListener('dragstart', (e) => {
+            item.classList.add('opacity-50');
+            dragIdx = parseInt(item.dataset.orderIdx);
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', String(dragIdx));
+          });
           item.addEventListener('dragend', () => { item.classList.remove('opacity-50'); });
           item.addEventListener('dragover', (e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; });
           item.addEventListener('drop', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            if (dragIdx !== null && dragIdx !== i) {
+            const dropIdx = parseInt(item.dataset.orderIdx);
+            if (dragIdx !== null && dragIdx !== dropIdx) {
+              // Reorder pageOrder array
               const moved = pageOrder.splice(dragIdx, 1)[0];
-              pageOrder.splice(i, 0, moved);
-              renderThumbnails();
+              pageOrder.splice(dropIdx, 0, moved);
+              // Reorder DOM elements
+              const wrapperEl = document.getElementById('thumb-wrapper');
+              const movedEl = thumbElements.splice(dragIdx, 1)[0];
+              thumbElements.splice(dropIdx, 0, movedEl);
+              // Reorder in DOM
+              if (dropIdx < wrapperEl.children.length) {
+                wrapperEl.insertBefore(movedEl, thumbElements[dropIdx + 1] || null);
+              } else {
+                wrapperEl.appendChild(movedEl);
+              }
+              reindexThumbs();
             }
           });
 
           wrapper.appendChild(item);
+          thumbElements.push(item);
         }
         previewArea.innerHTML = '';
         previewArea.appendChild(wrapper);
       }
 
-      let dragIdx = null;
+      // Update badges and dataset after reorder/delete — no PDF re-render
+      function reindexThumbs() {
+        const wrapper = document.getElementById('thumb-wrapper');
+        if (!wrapper) return;
+        // Re-append in thumbElements order to ensure DOM matches
+        thumbElements.forEach((el, i) => {
+          el.dataset.orderIdx = i;
+          const badge = el.querySelector('.bg-slate-700');
+          if (badge) badge.textContent = i + 1;
+          const label = el.querySelector('.text-xs.text-center');
+          if (label) label.textContent = (lang === 'ar' ? 'صفحة ' : 'Page ') + (pageOrder[i] + 1);
+          wrapper.appendChild(el);
+        });
+      }
 
       reorderBtn.addEventListener('click', async () => {
         if (!pdfFile) { PDFTools.toast(T.noFile); return; }
