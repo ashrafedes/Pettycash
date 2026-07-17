@@ -101,8 +101,11 @@
       
       let pdfFile=null, resultBlob=null;
       let annotations={}; let currentPageIndex=0; let pageSizes=[];
+      let pdfDoc=null, pdfPageCanvases=[], pdfPageViewports=[];
+      let previewInitialized=false;
       PDFTools.initDropZone(document.getElementById('drop-zone'), document.getElementById('file-input'), async (f) => {
         pdfFile=f[0]; resultBlob=null; annotations={}; currentPageIndex=0;
+        pdfDoc=null; pdfPageCanvases=[]; pdfPageViewports=[]; previewInitialized=false;
         const {PDFDocument}=await PDFTools.ensurePDFLib();
         const bytes=await pdfFile.arrayBuffer();
         const doc=await PDFDocument.load(bytes,{ignoreEncryption:true});
@@ -113,11 +116,12 @@
         document.getElementById('file-info').classList.remove('hidden');
         document.getElementById('edit-options').classList.remove('hidden');
         document.getElementById('result').classList.add('hidden');
-        await renderEditPreview();
+        await initEditPreview();
       }, {accept:'.pdf', multiple:false});
       document.getElementById('remove-file').addEventListener('click', () => {
         document.getElementById('file-input').value = '';
         pdfFile=null; resultBlob=null; annotations={};
+        pdfDoc=null; pdfPageCanvases=[]; pdfPageViewports=[]; previewInitialized=false;
         document.getElementById('file-name-display').textContent = '';
         document.getElementById('file-meta-display').textContent = '';
         document.getElementById('file-info').classList.add('hidden');
@@ -127,30 +131,74 @@
         document.getElementById('preview-area').innerHTML = '';
         document.getElementById('progress-area').innerHTML = '';
       });
-      async function renderEditPreview(){
+
+      async function initEditPreview(){
         const pa=document.getElementById('preview-area');
         pa.innerHTML='<p class="text-sm text-slate-500">Loading...</p>';
         const pdfjs=await PDFTools.ensurePDFJS();
         const buf=await pdfFile.arrayBuffer();
-        const pdf=await pdfjs.getDocument({data:buf}).promise;
-        const page=await pdf.getPage(currentPageIndex+1);
-        const viewport=page.getViewport({scale:1});
-        const scale=Math.min(600/viewport.width,650/viewport.height);
-        const sv=page.getViewport({scale});
+        pdfDoc=await pdfjs.getDocument({data:buf}).promise;
+        const numPages=pdfDoc.numPages;
+        // Pre-render all page canvases at display scale
+        for(let i=0;i<numPages;i++){
+          const page=await pdfDoc.getPage(i+1);
+          const vp=page.getViewport({scale:1});
+          const scale=Math.min(600/vp.width,650/vp.height);
+          const sv=page.getViewport({scale});
+          const canvas=document.createElement('canvas');
+          canvas.width=sv.width; canvas.height=sv.height;
+          const ctx=canvas.getContext('2d');
+          await page.render({canvasContext:ctx,viewport:sv}).promise;
+          pdfPageCanvases.push(canvas);
+          pdfPageViewports.push({vp,scale,sv});
+        }
+        previewInitialized=true;
+        // Build the static UI shell
+        pa.innerHTML='';
         const wrapper=document.createElement('div'); wrapper.className='inline-block';
+        // Nav bar
         const nav=document.createElement('div'); nav.className='flex items-center gap-3 mb-3 justify-center';
-        nav.innerHTML='<button id="prev-p" class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-700 text-sm '+(currentPageIndex===0?'opacity-50':'')+'">‹</button><span class="text-sm font-semibold">'+(currentPageIndex+1)+' / '+pdf.numPages+'</span><button id="next-p" class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-700 text-sm '+(currentPageIndex===pdf.numPages-1?'opacity-50':'')+'">›</button>';
+        nav.innerHTML='<button id="prev-p" class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-700 text-sm">‹</button><span id="page-indicator" class="text-sm font-semibold"></span><button id="next-p" class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-700 text-sm">›</button>';
         wrapper.appendChild(nav);
-        const container=document.createElement('div'); container.className='relative inline-block border-2 border-slate-300 dark:border-slate-600 rounded-lg overflow-hidden';
-        const canvas=document.createElement('canvas'); canvas.width=sv.width; canvas.height=sv.height; canvas.className='block';
-        const ctx=canvas.getContext('2d');
-        await page.render({canvasContext:ctx,viewport:sv}).promise;
-        container.appendChild(canvas);
-        // Draw existing annotations
-        if(annotations[currentPageIndex]){annotations[currentPageIndex].forEach(a=>{
-          if(a.type==='text'){const el=document.createElement('div');el.className='absolute pointer-events-none';el.style.left=(a.x/viewport.width*sv.width)+'px';el.style.top=((viewport.height-a.y-a.size)/viewport.height*sv.height)+'px';el.style.color=a.color;el.style.fontSize=(a.size*scale)+'px';el.textContent=a.text;container.appendChild(el);}
-          else if(a.type==='rect'){const el=document.createElement('div');el.className='absolute pointer-events-none border-2';el.style.left=(a.x/viewport.width*sv.width)+'px';el.style.top=((viewport.height-a.y-a.h)/viewport.height*sv.height)+'px';el.style.width=(a.w/viewport.width*sv.width)+'px';el.style.height=(a.h/viewport.height*sv.height)+'px';el.style.borderColor=a.color;container.appendChild(el);}
-        });}
+        // Container with canvas + annotation overlay
+        const container=document.createElement('div'); container.id='edit-canvas-container';
+        container.className='relative inline-block border-2 border-slate-300 dark:border-slate-600 rounded-lg overflow-hidden';
+        wrapper.appendChild(container);
+        pa.appendChild(wrapper);
+
+        // Nav button handlers
+        document.getElementById('prev-p').addEventListener('click',()=>{
+          if(currentPageIndex>0){currentPageIndex--;showPage();}
+        });
+        document.getElementById('next-p').addEventListener('click',()=>{
+          if(currentPageIndex<pdfDoc.numPages-1){currentPageIndex++;showPage();}
+        });
+
+        showPage();
+      }
+
+      function showPage(){
+        if(!previewInitialized) return;
+        const container=document.getElementById('edit-canvas-container');
+        const canvas=pdfPageCanvases[currentPageIndex];
+        const {vp,scale,sv}=pdfPageViewports[currentPageIndex];
+        // Update page indicator
+        document.getElementById('page-indicator').textContent=(currentPageIndex+1)+' / '+pdfDoc.numPages;
+        document.getElementById('prev-p').classList.toggle('opacity-50',currentPageIndex===0);
+        document.getElementById('next-p').classList.toggle('opacity-50',currentPageIndex===pdfDoc.numPages-1);
+        // Rebuild container content: canvas + annotation layer + overlay
+        container.innerHTML='';
+        // Clone the cached canvas (so we don't lose it)
+        const displayCanvas=document.createElement('canvas');
+        displayCanvas.width=canvas.width; displayCanvas.height=canvas.height;
+        displayCanvas.className='block';
+        displayCanvas.getContext('2d').drawImage(canvas,0,0);
+        container.appendChild(displayCanvas);
+        // Draw existing annotations as DOM elements
+        if(annotations[currentPageIndex]){
+          annotations[currentPageIndex].forEach(a=>addAnnotationEl(container,a,vp,scale,sv));
+        }
+        // Interaction overlay
         const overlay=document.createElement('div'); overlay.className='absolute inset-0 cursor-crosshair';
         let isDragging=false,startX=0,startY=0;
         overlay.addEventListener('mousedown',(e)=>{
@@ -162,9 +210,10 @@
             if(!text)return;
             const color=document.getElementById('edit-color').value;
             const size=parseInt(document.getElementById('edit-size').value)||14;
+            const ann={type:'text',text,color,size,x:(startX/rect.width)*vp.width,y:vp.height-((startY+size)/rect.height)*vp.height};
             if(!annotations[currentPageIndex])annotations[currentPageIndex]=[];
-            annotations[currentPageIndex].push({type:'text',text,color,size,x:(startX/rect.width)*viewport.width,y:viewport.height-((startY+size)/rect.height)*viewport.height});
-            renderEditPreview();
+            annotations[currentPageIndex].push(ann);
+            addAnnotationEl(container,ann,vp,scale,sv);
           } else {
             isDragging=true;
             const box=document.createElement('div');box.className='absolute border-2 pointer-events-none';box.style.left=startX+'px';box.style.top=startY+'px';box.style.borderColor=document.getElementById('edit-color').value;container.appendChild(box);
@@ -185,14 +234,31 @@
           if(pw<5||ph<5){overlay._box.remove();overlay._box=null;return;}
           const rect=overlay.getBoundingClientRect();
           const px=parseFloat(overlay._box.style.left),py=parseFloat(overlay._box.style.top);
+          const ann={type:'rect',color:document.getElementById('edit-color').value,x:(px/rect.width)*vp.width,y:vp.height-((py+ph)/rect.height)*vp.height,w:(pw/rect.width)*vp.width,h:(ph/rect.height)*vp.height};
           if(!annotations[currentPageIndex])annotations[currentPageIndex]=[];
-          annotations[currentPageIndex].push({type:'rect',color:document.getElementById('edit-color').value,x:(px/rect.width)*viewport.width,y:viewport.height-((py+ph)/rect.height)*viewport.height,w:(pw/rect.width)*viewport.width,h:(ph/rect.height)*viewport.height});
-          overlay._box=null;renderEditPreview();
+          annotations[currentPageIndex].push(ann);
+          overlay._box.remove();
+          addAnnotationEl(container,ann,vp,scale,sv);
+          overlay._box=null;
         });
-        container.appendChild(overlay);wrapper.appendChild(container);
-        pa.innerHTML='';pa.appendChild(wrapper);
-        document.getElementById('prev-p')?.addEventListener('click',()=>{if(currentPageIndex>0){currentPageIndex--;renderEditPreview();}});
-        document.getElementById('next-p')?.addEventListener('click',()=>{if(currentPageIndex<pdf.numPages-1){currentPageIndex++;renderEditPreview();}});
+        container.appendChild(overlay);
+      }
+
+      function addAnnotationEl(container,a,vp,scale,sv){
+        if(a.type==='text'){
+          const el=document.createElement('div');el.className='absolute pointer-events-none';
+          el.style.left=(a.x/vp.width*sv.width)+'px';
+          el.style.top=((vp.height-a.y-a.size)/vp.height*sv.height)+'px';
+          el.style.color=a.color;el.style.fontSize=(a.size*scale)+'px';el.textContent=a.text;
+          container.appendChild(el);
+        } else if(a.type==='rect'){
+          const el=document.createElement('div');el.className='absolute pointer-events-none border-2';
+          el.style.left=(a.x/vp.width*sv.width)+'px';
+          el.style.top=((vp.height-a.y-a.h)/vp.height*sv.height)+'px';
+          el.style.width=(a.w/vp.width*sv.width)+'px';
+          el.style.height=(a.h/vp.height*sv.height)+'px';
+          el.style.borderColor=a.color;container.appendChild(el);
+        }
       }
       document.getElementById('save-btn').addEventListener('click',async()=>{
         if(!pdfFile)return;
