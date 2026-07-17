@@ -116,6 +116,17 @@
       let pdfDoc=null, pdfPageCanvases=[], pdfPageViewports=[];
       let previewInitialized=false;
       let boldActive=false, underlineActive=false;
+      let activeTextBox=null;
+      function refreshActiveTextBox(){
+        if(!activeTextBox) return;
+        const ta=activeTextBox.ta;
+        const fontColor=document.getElementById('font-color').value;
+        const fontSize=parseInt(document.getElementById('font-size').value)||14;
+        ta.style.color=fontColor;
+        ta.style.fontSize=(fontSize*activeTextBox.scale)+'px';
+        ta.style.fontWeight=boldActive?'bold':'normal';
+        ta.style.textDecoration=underlineActive?'underline':'none';
+      }
 
       // Toggle button styles
       function updateToggleBtn(btn,active){
@@ -124,16 +135,18 @@
       }
       const btnBold=document.getElementById('btn-bold');
       const btnUnderline=document.getElementById('btn-underline');
-      btnBold.addEventListener('click',()=>{boldActive=!boldActive;updateToggleBtn(btnBold,boldActive);});
-      btnUnderline.addEventListener('click',()=>{underlineActive=!underlineActive;updateToggleBtn(btnUnderline,underlineActive);});
+      btnBold.addEventListener('click',()=>{boldActive=!boldActive;updateToggleBtn(btnBold,boldActive);refreshActiveTextBox();});
+      btnUnderline.addEventListener('click',()=>{underlineActive=!underlineActive;updateToggleBtn(btnUnderline,underlineActive);refreshActiveTextBox();});
       document.getElementById('border-mode').addEventListener('change',e=>{
         document.getElementById('border-color-wrap').classList.toggle('hidden',e.target.value!=='color');
       });
       document.getElementById('fill-mode').addEventListener('change',e=>{
         document.getElementById('fill-color-wrap').classList.toggle('hidden',e.target.value!=='color');
       });
+      document.getElementById('font-color').addEventListener('input',refreshActiveTextBox);
+      document.getElementById('font-size').addEventListener('input',refreshActiveTextBox);
       document.getElementById('edit-mode').addEventListener('change',e=>{
-        document.getElementById('text-hint').textContent=e.target.value==='text'?'Draw a text area on the page, then type and press Enter to set.':'Draw a rectangle on the page.';
+        document.getElementById('text-hint').textContent=e.target.value==='text'?'Draw a text area, type, then press Enter or Escape.':'Draw a rectangle on the page.';
       });
 
       PDFTools.initDropZone(document.getElementById('drop-zone'), document.getElementById('file-input'), async (f) => {
@@ -293,37 +306,72 @@
         const borderColor=borderMode==='color'?document.getElementById('border-color').value:null;
         const fillMode=document.getElementById('fill-mode').value;
         const fillColor=fillMode==='color'?document.getElementById('fill-color').value:null;
+        const capturedBold=boldActive, capturedUnderline=underlineActive;
+
+        const overlay=container.querySelector('.cursor-crosshair');
+        if(overlay){ overlay.style.pointerEvents='none'; overlay.style.cursor='default'; }
+
+        const wrapper=document.createElement('div');
+        wrapper.className='absolute';
+        wrapper.style.left=px+'px';wrapper.style.top=py+'px';wrapper.style.width=pw+'px';wrapper.style.height=ph+'px';
+        wrapper.style.backgroundColor=fillColor||'transparent';
+        wrapper.style.boxSizing='border-box';
+        if(borderColor){ wrapper.style.border='2px solid '+borderColor; } else { wrapper.style.border='2px dashed #3b82f6'; }
+
+        const handle=document.createElement('div');
+        handle.className='absolute top-0 left-0 right-0';
+        handle.style.height='10px';handle.style.cursor='move';handle.style.background='rgba(59,130,246,0.5)';
+        wrapper.appendChild(handle);
 
         const ta=document.createElement('div');
         ta.contentEditable='true';
-        ta.className='absolute outline-none cursor-text';
-        ta.style.left=px+'px';ta.style.top=py+'px';ta.style.width=pw+'px';ta.style.height=ph+'px';
+        ta.className='outline-none cursor-text';
+        ta.style.width='100%';ta.style.height='calc(100% - 10px)';ta.style.marginTop='10px';
         ta.style.color=fontColor;
         ta.style.fontSize=(fontSize*scale)+'px';
         ta.style.fontFamily='Inter,Arial,sans-serif';
         ta.style.lineHeight='1.3';
         ta.style.padding='2px';
-        ta.style.overflow='hidden';
-        ta.style.backgroundColor=fillColor||'transparent';
-        if(borderColor){
-          ta.style.border='2px solid '+borderColor;
-        } else {
-          ta.style.border='2px dashed #3b82f6';
-        }
-        if(boldActive) ta.style.fontWeight='bold';
-        if(underlineActive) ta.style.textDecoration='underline';
-        container.appendChild(ta);
+        ta.style.overflow='auto';
+        ta.style.whiteSpace='pre-wrap';
+        ta.style.wordBreak='break-word';
+        ta.style.backgroundColor='transparent';
+        ta.style.fontWeight=capturedBold?'bold':'normal';
+        ta.style.textDecoration=capturedUnderline?'underline':'none';
+        wrapper.appendChild(ta);
+        container.appendChild(wrapper);
         ta.focus();
+        activeTextBox={wrapper,ta,scale};
 
-        // Store the styling at creation time
-        const capturedBold=boldActive, capturedUnderline=underlineActive;
+        let dragging=false,dragStartX,dragStartY,wrapStartX,wrapStartY;
+        handle.addEventListener('mousedown',e=>{
+          dragging=true;
+          dragStartX=e.clientX; dragStartY=e.clientY;
+          wrapStartX=wrapper.offsetLeft; wrapStartY=wrapper.offsetTop;
+          e.preventDefault(); e.stopPropagation();
+        });
+        const moveHandler=e=>{
+          if(!dragging) return;
+          const cr=container.getBoundingClientRect();
+          let nx=wrapStartX+(e.clientX-dragStartX);
+          let ny=wrapStartY+(e.clientY-dragStartY);
+          nx=Math.max(0,Math.min(nx,cr.width-wrapper.offsetWidth));
+          ny=Math.max(0,Math.min(ny,cr.height-wrapper.offsetHeight));
+          wrapper.style.left=nx+'px'; wrapper.style.top=ny+'px';
+        };
+        const upHandler=()=>{ dragging=false; };
+        window.addEventListener('mousemove',moveHandler);
+        window.addEventListener('mouseup',upHandler);
 
         function commit(){
+          window.removeEventListener('mousemove',moveHandler);
+          window.removeEventListener('mouseup',upHandler);
+          activeTextBox=null;
+          if(overlay){ overlay.style.pointerEvents=''; overlay.style.cursor=''; }
           const text=ta.textContent.trim();
-          if(!text){
-            ta.remove();
-            return;
-          }
+          if(!text){ wrapper.remove(); return; }
+          const finalX=wrapper.offsetLeft, finalY=wrapper.offsetTop;
+          const finalW=wrapper.offsetWidth, finalH=wrapper.offsetHeight;
           const ann={
             type:'textarea',
             text:text,
@@ -333,29 +381,20 @@
             underline:capturedUnderline,
             borderColor:borderColor,
             fillColor:fillColor,
-            x:(px/rect.width)*vp.width,
-            y:vp.height-((py+ph)/rect.height)*vp.height,
-            w:(pw/rect.width)*vp.width,
-            h:(ph/rect.height)*vp.height
+            x:(finalX/rect.width)*vp.width,
+            y:vp.height-((finalY+finalH)/rect.height)*vp.height,
+            w:(finalW/rect.width)*vp.width,
+            h:(finalH/rect.height)*vp.height
           };
           if(!annotations[currentPageIndex])annotations[currentPageIndex]=[];
           annotations[currentPageIndex].push(ann);
-          ta.remove();
+          wrapper.remove();
           addAnnotationEl(container,ann,vp,scale,sv);
         }
 
-        ta.addEventListener('keydown',(e)=>{
-          if(e.key==='Enter'&&!e.shiftKey){
-            e.preventDefault();
-            commit();
-          } else if(e.key==='Escape'){
-            e.preventDefault();
-            ta.remove();
-          }
-        });
-        ta.addEventListener('blur',()=>{
-          // Commit on blur too, but with small delay to allow click events
-          setTimeout(()=>{ if(ta.parentNode){commit();} },100);
+        ta.addEventListener('keydown',e=>{
+          if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); commit(); }
+          else if(e.key==='Escape'){ e.preventDefault(); wrapper.remove(); activeTextBox=null; window.removeEventListener('mousemove',moveHandler); window.removeEventListener('mouseup',upHandler); if(overlay){ overlay.style.pointerEvents=''; overlay.style.cursor=''; } }
         });
       }
 
