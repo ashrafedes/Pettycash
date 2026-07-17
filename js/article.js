@@ -7,12 +7,23 @@ function escapeHtml(str) {
 
 function getArticleLocale(article, lang) {
   if (article.translations && typeof article.translations === "object") {
-    return article.translations[lang] || article.translations["en"] || {};
+    const t = article.translations[lang] || article.translations["en"] || {};
+    return {
+      title: t.title || article.title || "",
+      summary: t.summary || article.summary || "",
+      content: t.content || article.content || "",
+      metaTitle: t.metaTitle || "",
+      metaDescription: t.metaDescription || "",
+      keywords: Array.isArray(t.keywords) ? t.keywords : []
+    };
   }
   return {
-    title: article.title || article[`title_${lang}`] || "",
-    summary: article.summary || article[`summary_${lang}`] || "",
-    content: article.content || article[`content_${lang}`] || ""
+    title: article.title || "",
+    summary: article.summary || "",
+    content: article.content || "",
+    metaTitle: "",
+    metaDescription: "",
+    keywords: []
   };
 }
 
@@ -56,6 +67,7 @@ function renderArticle(article, lang) {
   const title = tr.title || article.slug || "Article";
   const summary = tr.summary || "";
   const content = tr.content || summary || "";
+  const keywords = tr.keywords || [];
   const imageUrl = article.image || article.imageUrl || "./images/article-placeholder.svg";
   const canonicalUrl = `${window.location.origin}${window.location.pathname}?slug=${encodeURIComponent(article.slug || article.id)}`;
   const metaTitle = tr.metaTitle || title;
@@ -64,6 +76,7 @@ function renderArticle(article, lang) {
   // Update SEO meta dynamically
   document.title = metaTitle ? `${metaTitle}` : `${title} - PettyCash`;
   setOrCreateMeta("description", metaDescription || summary);
+  setOrCreateMeta("keywords", keywords.join(", "));
   setOrCreateLink("canonical", canonicalUrl);
   setOrCreateMeta("og:title", metaTitle || title, true);
   setOrCreateMeta("og:description", metaDescription || summary, true);
@@ -74,6 +87,7 @@ function renderArticle(article, lang) {
   setOrCreateMeta("twitter:description", metaDescription || summary, true);
   setOrCreateMeta("twitter:image", imageUrl, true);
   setOrCreateMeta("twitter:card", "summary_large_image", true);
+  setOrCreateMeta("article:tag", keywords.slice(0, 5).join(","), true);
   setArticleSchema(article, tr, lang, canonicalUrl, imageUrl);
 
   if (titleEl) titleEl.textContent = title;
@@ -84,12 +98,24 @@ function renderArticle(article, lang) {
   }
 
   if (imageEl) {
-    imageEl.innerHTML = `<img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}" class="w-full h-auto object-cover">`;
+    imageEl.innerHTML = `<img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}" class="w-full h-auto object-cover" loading="eager">`;
     imageEl.classList.remove("hidden");
   }
 
   if (contentEl) {
     contentEl.innerHTML = content ? content.replace(/\n/g, "<br>") : `<p class="text-slate-500">${summary}</p>`;
+  }
+
+  const tagsEl = document.getElementById("article-tags");
+  if (tagsEl) {
+    if (keywords.length) {
+      const langForTags = lang === "ar" ? "ar" : "en";
+      const tagsHtml = keywords.map(k => `<span class="inline-block text-sm bg-white/20 text-white px-3 py-1 rounded-full">#${escapeHtml(k)}</span>`).join("");
+      tagsEl.innerHTML = `<div class="flex flex-wrap gap-2 justify-center">${tagsHtml}</div>`;
+      tagsEl.classList.remove("hidden");
+    } else {
+      tagsEl.classList.add("hidden");
+    }
   }
 
   hero.classList.remove("hidden");
@@ -121,6 +147,7 @@ function setArticleSchema(article, tr, lang, url, imageUrl) {
   const title = tr.title || article.slug || "Article";
   const summary = tr.summary || "";
   const date = article.date || "";
+  const keywords = Array.isArray(tr.keywords) ? tr.keywords : [];
   const publisher = { "@type": "Organization", "name": "PettyCash", "logo": `${window.location.origin}/images/favicon.png` };
   const schema = {
     "@context": "https://schema.org",
@@ -133,7 +160,8 @@ function setArticleSchema(article, tr, lang, url, imageUrl) {
     "author": publisher,
     "publisher": publisher,
     "mainEntityOfPage": { "@type": "WebPage", "@id": url },
-    "inLanguage": lang
+    "inLanguage": lang,
+    "keywords": keywords.join(", ")
   };
   let script = document.getElementById("article-schema");
   if (!script) {

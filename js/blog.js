@@ -1,8 +1,13 @@
-// Blog page - fast static-first rendering with background Firestore sync
+// Blog page - fast static-first rendering with pagination and tag filters
 const BLOG_CACHE_KEY = "pettycash_blog_articles";
 const BLOG_CACHE_TIME_KEY = "pettycash_blog_articles_time";
 const CACHE_TTL_MS = 1000 * 60 * 60 * 24; // 24 hours
 const PAGE_SIZE = 12;
+const INITIAL_DISPLAY_LIMIT = 1000;
+
+let allArticles = [];
+let displayLimit = INITIAL_DISPLAY_LIMIT;
+let activeTag = null;
 
 function escapeHtml(str) {
   return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -10,12 +15,23 @@ function escapeHtml(str) {
 
 function getArticleLocale(article, lang) {
   if (article.translations && typeof article.translations === "object") {
-    return article.translations[lang] || article.translations["en"] || {};
+    const t = article.translations[lang] || article.translations["en"] || {};
+    return {
+      title: t.title || article.title || "",
+      summary: t.summary || article.summary || "",
+      content: t.content || article.content || "",
+      metaTitle: t.metaTitle || "",
+      metaDescription: t.metaDescription || "",
+      keywords: Array.isArray(t.keywords) ? t.keywords : []
+    };
   }
   return {
-    title: article.title || article[`title_${lang}`] || "",
-    summary: article.summary || article[`summary_${lang}`] || "",
-    content: article.content || article[`content_${lang}`] || ""
+    title: article.title || "",
+    summary: article.summary || "",
+    content: article.content || "",
+    metaTitle: "",
+    metaDescription: "",
+    keywords: []
   };
 }
 
@@ -43,21 +59,45 @@ function setCachedArticles(articles) {
   } catch (e) {}
 }
 
+function formatDate(article, lang) {
+  if (window.PettyCashFirebase && window.PettyCashFirebase.formatDate) {
+    return window.PettyCashFirebase.formatDate(article.date, lang);
+  }
+  return article.date || "";
+}
+
+function prepareArticles(articles) {
+  const sorted = window.PettyCashFirebase && window.PettyCashFirebase.sortArticlesByDate
+    ? window.PettyCashFirebase.sortArticlesByDate(articles)
+    : [...articles].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+  return sorted.filter(a => a.published !== false);
+}
+
+function renderTagPills(keywords) {
+  return keywords.slice(0, 5).map(k => `<span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-full">#${escapeHtml(k)}</span>`).join("");
+}
+
 function renderArticles(articles, lang, data) {
   const grid = document.getElementById("blog-grid");
   if (!grid) return;
+  if (!articles.length) {
+    grid.innerHTML = `<p class="text-slate-500 col-span-full text-center">${data.notFound}</p>`;
+    return;
+  }
   grid.innerHTML = articles.map(a => {
     const tr = getArticleLocale(a, lang);
     const imageUrl = a.image || a.imageUrl || "./images/article-placeholder.svg";
     const targetUrl = a.url || `./article.html?slug=${encodeURIComponent(a.slug || a.id)}`;
+    const tagsHtml = renderTagPills(tr.keywords);
     return `
     <a href="${targetUrl}" class="group block bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
       <div class="h-48 overflow-hidden bg-slate-100"><img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(tr.title || '')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="192"></div>
       <div class="p-6">
         <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">${escapeHtml(tr.title || '')}</h3>
         <p class="text-sm text-slate-500 line-clamp-3 mb-4">${escapeHtml(tr.summary || '')}</p>
+        ${tagsHtml ? `<div class="flex flex-wrap gap-2 mb-4">${tagsHtml}</div>` : ""}
         <div class="flex items-center justify-between text-xs text-slate-400">
-          <span>${window.PettyCashFirebase.formatDate(a.date, lang)}</span>
+          <span>${formatDate(a, lang)}</span>
           ${a.readTime ? `<span>${a.readTime} ${data.readTime}</span>` : ""}
         </div>
       </div>
@@ -83,6 +123,69 @@ function renderSkeletonArticles(count) {
   return `<div class="contents">${cards}</div>`;
 }
 
+function renderTagCloud(all, lang, data) {
+  const container = document.getElementById("tag-cloud");
+  if (!container) return;
+  const tagCounts = {};
+  all.forEach(a => {
+    const tr = getArticleLocale(a, lang);
+    (tr.keywords || []).forEach(k => {
+      const key = String(k).trim().toLowerCase();
+      if (key) tagCounts[key] = (tagCounts[key] || 0) + 1;
+    });
+  });
+  const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]).slice(0, 30);
+  if (!sortedTags.length) { container.innerHTML = ""; return; }
+  let html = `<span class="text-sm font-semibold text-slate-700 me-2">${data.tags}:</span>`;
+  html += `<button class="tag-filter text-xs px-3 py-1 rounded-full ${!activeTag ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}" data-tag="">#${data.allTags}</button>`;
+  html += sortedTags.map(([tag, count]) => {
+    const isActive = activeTag === tag;
+    return `<button class="tag-filter text-xs px-3 py-1 rounded-full ${isActive ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}" data-tag="${escapeHtml(tag)}">#${escapeHtml(tag)} (${count})</button>`;
+  }).join("");
+  container.innerHTML = `<div class="flex flex-wrap items-center gap-2">${html}</div>`;
+  container.querySelectorAll(".tag-filter").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      activeTag = e.target.dataset.tag || null;
+      displayLimit = PAGE_SIZE;
+      updateView(lang, data);
+    });
+  });
+}
+
+function renderControls(visibleCount, totalFiltered, lang, data) {
+  const container = document.getElementById("blog-controls");
+  if (!container) return;
+  if (visibleCount >= totalFiltered && !activeTag) { container.innerHTML = ""; return; }
+  let html = "";
+  if (visibleCount < totalFiltered) {
+    html += `<button id="load-more" class="px-5 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-50 transition-colors">${data.loadMore}</button>`;
+    html += `<button id="show-all" class="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-colors">${data.showAll}</button>`;
+  }
+  if (activeTag) {
+    html += `<button id="clear-filter" class="px-5 py-2.5 bg-slate-100 text-slate-600 text-sm font-semibold rounded-xl hover:bg-slate-200 transition-colors">${data.allTags}</button>`;
+  }
+  container.innerHTML = `<div class="flex flex-wrap justify-center gap-3 mt-8">${html}</div>`;
+  const loadMore = document.getElementById("load-more");
+  if (loadMore) loadMore.addEventListener("click", () => { displayLimit += PAGE_SIZE; updateView(lang, data); });
+  const showAll = document.getElementById("show-all");
+  if (showAll) showAll.addEventListener("click", () => { displayLimit = totalFiltered; updateView(lang, data); });
+  const clear = document.getElementById("clear-filter");
+  if (clear) clear.addEventListener("click", () => { activeTag = null; displayLimit = INITIAL_DISPLAY_LIMIT; updateView(lang, data); });
+}
+
+function updateView(lang, data) {
+  const filtered = activeTag
+    ? allArticles.filter(a => {
+        const tr = getArticleLocale(a, lang);
+        return (tr.keywords || []).some(k => String(k).trim().toLowerCase() === activeTag);
+      })
+    : allArticles;
+  const visible = filtered.slice(0, displayLimit);
+  renderArticles(visible, lang, data);
+  renderTagCloud(allArticles, lang, data);
+  renderControls(visible.length, filtered.length, lang, data);
+}
+
 function showLoadingNote(lang, data, offline = false) {
   const grid = document.getElementById("blog-grid");
   if (!grid) return;
@@ -95,10 +198,11 @@ function showLoadingNote(lang, data, offline = false) {
   }, 3000);
 }
 
-async function fetchArticlesFromFirestore(limitCount) {
+async function fetchArticlesFromFirestore() {
   try {
-    if (!window.PettyCashFirebase) return [];
-    return await window.PettyCashFirebase.fetchLatestArticles(limitCount);
+    if (!window.PettyCashFirebase || !window.PettyCashFirebase.fetchLatestArticles) return [];
+    // Fetch enough articles so the full blog index is available.
+    return await window.PettyCashFirebase.fetchLatestArticles(1000);
   } catch (err) {
     console.warn("Firestore fetch failed:", err);
     return [];
@@ -112,18 +216,12 @@ function getStaticArticlesSync() {
   return [];
 }
 
-function prepareArticles(articles, limitCount) {
-  const sorted = window.PettyCashFirebase ? window.PettyCashFirebase.sortArticlesByDate(articles) : [...articles].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-  const visible = sorted.filter(a => a.published !== false);
-  return visible.slice(0, limitCount);
-}
-
 function mergeWithStatic(staticArticles, dbArticles) {
   if (!window.PettyCashFirebase || !window.PettyCashFirebase.mergeArticles) return dbArticles.length ? dbArticles : staticArticles;
   return window.PettyCashFirebase.mergeArticles(staticArticles, dbArticles);
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+async function initBlog() {
   const data = t("articles");
   const title = document.querySelector("[data-i18n='articles.title']");
   if (title) title.textContent = data.title;
@@ -136,36 +234,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const lang = getLang();
   const cached = getCachedArticles();
-
-  // 1. Render static articles immediately (fastest path)
   const staticArticles = getStaticArticlesSync();
+
   if (staticArticles.length) {
-    renderArticles(prepareArticles(staticArticles, PAGE_SIZE), lang, data);
-    showLoadingNote(lang, data);
+    allArticles = prepareArticles(mergeWithStatic(staticArticles, []));
   } else if (cached && cached.length) {
-    renderArticles(prepareArticles(cached, PAGE_SIZE), lang, data);
-    showLoadingNote(lang, data, true);
+    allArticles = prepareArticles(cached);
   } else {
     grid.innerHTML = renderSkeletonArticles(PAGE_SIZE);
   }
 
-  // 2. Fetch Firestore in background and re-render if it returns fresh data
-  const dbArticles = await fetchArticlesFromFirestore(PAGE_SIZE);
-  if (dbArticles.length) {
-    const merged = mergeWithStatic(staticArticles, dbArticles);
-    const visible = prepareArticles(merged, PAGE_SIZE);
-    renderArticles(visible, lang, data);
-    setCachedArticles(merged);
-  } else if (cached && cached.length && !staticArticles.length) {
-    renderArticles(prepareArticles(cached, PAGE_SIZE), lang, data);
-    showLoadingNote(lang, data, true);
-  } else if (!staticArticles.length && !cached) {
-    grid.innerHTML = `
-      <p class="text-slate-500 col-span-full text-center">${data.notFound}</p>
-      <div class="col-span-full text-center mt-4">
-        <button id="retry-blog" class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">${lang === "ar" ? "إعادة المحاولة" : "Retry"}</button>
-      </div>
-    `;
-    document.getElementById("retry-blog")?.addEventListener("click", () => window.location.reload());
-  }
-});
+  updateView(lang, data);
+  showLoadingNote(lang, data);
+
+  const dbArticles = await fetchArticlesFromFirestore();
+  const merged = mergeWithStatic(staticArticles, dbArticles);
+  allArticles = prepareArticles(merged);
+  setCachedArticles(merged);
+  updateView(lang, data);
+}
+
+document.addEventListener("DOMContentLoaded", initBlog);

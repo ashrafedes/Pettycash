@@ -351,7 +351,11 @@ const TRANSLATIONS = {
       "readTime": "min read",
       "published": "Published",
       "notFound": "No articles found.",
-      "loading": "Loading articles..."
+      "loading": "Loading articles...",
+      "tags": "Tags",
+      "allTags": "All",
+      "loadMore": "Load more",
+      "showAll": "Show all"
     },
     "video": {
       "title": "Watch How It Works",
@@ -710,7 +714,11 @@ const TRANSLATIONS = {
       "readTime": "دقيقة قراءة",
       "published": "تاريخ النشر",
       "notFound": "لا توجد مقالات.",
-      "loading": "جاري تحميل المقالات..."
+      "loading": "جاري تحميل المقالات...",
+      "tags": "الوسوم",
+      "allTags": "الكل",
+      "loadMore": "عرض المزيد",
+      "showAll": "عرض الكل"
     },
     "video": {
       "title": "شاهد كيف يعمل",
