@@ -1,0 +1,99 @@
+/* PDF Tools Shared Styles */
+:root {
+  --pdf-bg: #f8fafc;
+  --pdf-card: #ffffff;
+  --pdf-text: #0f172a;
+  --pdf-muted: #64748b;
+  --pdf-border: #e2e8f0;
+  --pdf-primary: #2563eb;
+  --pdf-primary-dark: #1d4ed8;
+  --pdf-primary-light: #eff6ff;
+  --pdf-danger: #dc2626;
+  --pdf-success: #16a34a;
+  --pdf-radius: 1rem;
+  --pdf-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+.dark {
+  --pdf-bg: #0f172a;
+  --pdf-card: #1e293b;
+  --pdf-text: #f8fafc;
+  --pdf-muted: #94a3b8;
+  --pdf-border: #334155;
+  --pdf-primary-light: #1e293b;
+  --pdf-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+
+body {
+  background: var(--pdf-bg);
+  color: var(--pdf-text);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Drag & Drop Zone */
+.drop-zone {
+  border: 2px dashed var(--pdf-border);
+  border-radius: var(--pdf-radius);
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: var(--pdf-card);
+}
+.drop-zone:hover { border-color: var(--pdf-primary); background: var(--pdf-primary-light); }
+.drop-zone.dragover { border-color: var(--pdf-primary); background: var(--pdf-primary-light); transform: scale(1.01); }
+
+/* Progress Bar */
+.progress-track { background: var(--pdf-border); border-radius: 999px; height: 8px; overflow: hidden; }
+.progress-fill { background: linear-gradient(90deg, var(--pdf-primary), var(--pdf-primary-dark)); height: 100%; border-radius: 999px; transition: width 0.3s ease; }
+
+/* Tool Card */
+.tool-card {
+  background: var(--pdf-card);
+  border: 1px solid var(--pdf-border);
+  border-radius: var(--pdf-radius);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.tool-card:hover { box-shadow: var(--pdf-shadow); transform: translateY(-2px); border-color: var(--pdf-primary); }
+
+/* Category Badge */
+.cat-badge { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.625rem; border-radius: 999px; }
+
+/* Buttons */
+.btn-pdf {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.625rem 1.5rem; border-radius: 0.75rem;
+  font-weight: 600; font-size: 0.875rem;
+  transition: all 0.15s ease; cursor: pointer; border: none;
+}
+.btn-pdf-primary { background: linear-gradient(135deg, var(--pdf-primary), var(--pdf-primary-dark)); color: #fff; box-shadow: 0 4px 14px rgba(37,99,235,0.25); }
+.btn-pdf-primary:hover { transform: translateY(-1px); opacity: 0.95; }
+.btn-pdf-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-pdf-secondary { background: var(--pdf-card); border: 1px solid var(--pdf-border); color: var(--pdf-text); }
+.btn-pdf-secondary:hover { background: var(--pdf-primary-light); border-color: var(--pdf-primary); }
+
+/* File List Item */
+.file-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: var(--pdf-card); border: 1px solid var(--pdf-border); border-radius: 0.625rem; }
+.file-item .file-icon { flex-shrink: 0; width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center; background: var(--pdf-primary-light); border-radius: 0.5rem; color: var(--pdf-primary); }
+.file-item .file-info { flex: 1; min-width: 0; }
+.file-item .file-name { font-weight: 500; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.file-item .file-meta { font-size: 0.75rem; color: var(--pdf-muted); }
+
+/* Form Inputs */
+.pdf-input {
+  width: 100%; padding: 0.5rem 0.75rem; border-radius: 0.5rem;
+  border: 1px solid var(--pdf-border); background: var(--pdf-card);
+  color: var(--pdf-text); font-size: 0.875rem;
+}
+.pdf-input:focus { outline: none; border-color: var(--pdf-primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+
+/* Animations */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-up { animation: fadeInUp 0.3s ease forwards; }
+
+/* RTL */
+[dir="rtl"] .drop-zone { text-align: right; }
