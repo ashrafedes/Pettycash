@@ -37,7 +37,7 @@
     handleLogoUpload($('#logo-input'), (base64) => { state.logo = base64; saveToolState(STORAGE_KEY, state); renderPreview(); }, 'voucher_logo');
     loadLogo('voucher_logo', (base64) => { state.logo = base64; renderPreview(); });
 
-    window.addEventListener('pctool-lang-change', () => { renderNav(); translatePreviewLabels(); renderPreview(); });
+    window.addEventListener('pctool-lang-change', () => { renderNav(); renderItems(); translatePreviewLabels(); renderPreview(); });
   }
 
   function bindTheme() {

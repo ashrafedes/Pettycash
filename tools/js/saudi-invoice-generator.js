@@ -40,7 +40,7 @@
     loadLogo('saudi_invoice_logo', (base64) => { state.logo = base64; renderPreview(); });
 
     document.getElementById('invoice-form').addEventListener('input', debounce(() => { syncState(); renderPreview(); }, 100));
-    window.addEventListener('pctool-lang-change', () => { renderNav(); translatePreviewLabels(); renderPreview(); });
+    window.addEventListener('pctool-lang-change', () => { renderNav(); renderItems(); translatePreviewLabels(); renderPreview(); });
   }
 
   function bindTheme() {

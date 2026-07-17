@@ -304,8 +304,8 @@
     localStorage.setItem('pctool_lang', lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    translatePage();
     window.dispatchEvent(new CustomEvent('pctool-lang-change', { detail: { lang } }));
+    translatePage();
   }
 
   function translatePage() {

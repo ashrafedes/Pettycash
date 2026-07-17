@@ -97,13 +97,16 @@
   <script src="./js/shared.js"></script>
   <script>
     (function () {
+      function updateMeta() {
+        document.title = PCTools.t('tools.heroTitle') + ' | PettyCash.site';
+        document.querySelector('meta[name="description"]')?.setAttribute('content', PCTools.t('tools.heroSubtitle'));
+      }
       PCTools.renderNav();
       PCTools.initTheme();
       document.getElementById('pctool-theme')?.addEventListener('click', PCTools.toggleTheme);
       PCTools.setLang(PCTools.currentLang);
-      const title = PCTools.t('tools.heroTitle') + ' | PettyCash.site';
-      document.title = title;
-      document.querySelector('meta[name="description"]')?.setAttribute('content', PCTools.t('tools.heroSubtitle'));
+      updateMeta();
+      window.addEventListener('pctool-lang-change', () => { PCTools.renderNav(); updateMeta(); });
     })();
   </script>
 </body>
