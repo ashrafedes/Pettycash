@@ -82,12 +82,12 @@ function renderNavbar() {
       const childrenHtml = l.children.map(c => {
         return `<a href="${c.href}" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md">${c.label}</a>`;
       }).join('');
-      return `<div class="relative group">
-        <button class="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">
+      return `<div class="relative">
+        <button id="tools-btn" class="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">
           <span>${l.label}</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
-        <div class="hidden group-hover:block absolute top-full start-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg p-1 z-50">
+        <div id="tools-menu" class="hidden absolute top-full start-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg p-1 z-50">
           ${childrenHtml}
         </div>
       </div>`;
@@ -157,8 +157,18 @@ function renderNavbar() {
   const langMenu = document.getElementById('lang-menu');
   if (langBtn && langMenu) {
     langBtn.addEventListener('click', (e) => { e.stopPropagation(); langMenu.classList.toggle('hidden'); });
-    document.addEventListener('click', () => langMenu.classList.add('hidden'));
   }
+
+  const toolsBtn = document.getElementById('tools-btn');
+  const toolsMenu = document.getElementById('tools-menu');
+  if (toolsBtn && toolsMenu) {
+    toolsBtn.addEventListener('click', (e) => { e.stopPropagation(); toolsMenu.classList.toggle('hidden'); });
+  }
+
+  document.addEventListener('click', () => {
+    if (langMenu) langMenu.classList.add('hidden');
+    if (toolsMenu) toolsMenu.classList.add('hidden');
+  });
 
   document.querySelectorAll('[data-lang]').forEach(b => {
     b.addEventListener('click', () => { setLang(b.dataset.lang); window.location.reload(); });
