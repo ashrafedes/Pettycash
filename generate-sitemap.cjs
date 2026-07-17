@@ -1,5 +1,6 @@
 ﻿const fs = require('fs');
 const path = require('path');
+const { pathToFileURL } = require('url');
 
 const BASE_URL = 'https://pettycash.site';
 const OUTPUT_PATH = path.join(__dirname, 'sitemap.xml');
@@ -48,8 +49,8 @@ function articleEntry(article) {
 }
 
 async function generate() {
-  const articlesPath = path.join(__dirname, '..', 'PettyCash_Marketing', 'src', 'data', 'articles.js');
-  const { articles } = await import('file://' + articlesPath.replace(/\\/g, '/'));
+  const articlesPath = path.join(__dirname, "js", "articles-data.js");
+  const { articles } = await import(pathToFileURL(articlesPath).href);
   console.log(`Found ${articles.length} articles`);
 
   const staticEntries = STATIC_PAGES.map(p => urlEntry(p)).join('\n');
