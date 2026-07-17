@@ -9,11 +9,13 @@ window.AI_CONFIG = {
   },
   baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
   models: [
-    'meta-llama/llama-3.2-3b-instruct:free',
-    'google/gemma-2-9b-it:free',
-    'mistralai/mistral-7b-instruct:free',
+    'openrouter/free',
+    'deepseek/deepseek-r1:free',
+    'meta-llama/llama-3.3-70b-instruct:free',
     'qwen/qwen-2.5-7b-instruct:free',
-    'meta-llama/llama-3.1-8b-instruct:free'
+    'google/gemini-flash-1.5:free',
+    'mistralai/mistral-7b-instruct:free',
+    'meta-llama/llama-3.2-3b-instruct:free'
   ],
 
   ensureApiKey() {
