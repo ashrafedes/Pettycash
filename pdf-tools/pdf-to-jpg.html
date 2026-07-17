@@ -216,13 +216,18 @@
       }, { accept: '.pdf', multiple: false });
 
       document.getElementById('remove-file').addEventListener('click', () => {
+        if (fileInput) fileInput.value = '';
         pdfFile = null; selectedFromPreview.clear();
+        document.getElementById('file-name-display').textContent = '';
+        document.getElementById('file-meta-display').textContent = '';
         fileInfo.classList.add('hidden');
         convertOptions.classList.add('hidden');
         dropZone.classList.remove('hidden');
         results.classList.add('hidden');
         previewArea.classList.add('hidden');
+        previewArea.innerHTML = '';
         previewHint.classList.add('hidden');
+        document.getElementById('progress-area').innerHTML = '';
       });
 
       document.querySelectorAll('input[name="pages-mode"]').forEach(r => {
