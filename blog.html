@@ -64,6 +64,15 @@
     </section>
     <section class='py-16 sm:py-20 bg-slate-50'>
       <div class='max-w-5xl mx-auto px-4 sm:px-6'>
+        <div class='mb-8'>
+          <div class='relative max-w-xl mx-auto'>
+            <input type='text' id='blog-search' class='w-full ps-11 pe-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white' placeholder='Search articles...' data-i18n-placeholder='articles.searchPlaceholder'>
+            <svg class='absolute start-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><circle cx='11' cy='11' r='8'/><path d='m21 21-4.3-4.3'/></svg>
+            <button id='blog-search-clear' class='absolute end-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 hidden'>
+              <svg class='w-5 h-5' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path d='M18 6 6 18'/><path d='m6 6 12 12'/></svg>
+            </button>
+          </div>
+        </div>
         <div id='tag-cloud'></div>
         <div id='blog-grid' class='grid sm:grid-cols-2 lg:grid-cols-3 gap-5'></div>
         <div id='blog-controls'></div>
@@ -78,6 +87,6 @@
   <script defer src='./js/translations.js'></script>
   <script defer src='./js/firebase.js?v=3'></script>
   <script defer src='./js/main.js'></script>
-  <script type='module' src='./js/blog.js?v=4'></script>
+  <script type='module' src='./js/blog.js?v=5'></script>
 </body>
 </html>

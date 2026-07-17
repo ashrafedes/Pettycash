@@ -8,9 +8,15 @@ const INITIAL_DISPLAY_LIMIT = 1000;
 let allArticles = [];
 let displayLimit = INITIAL_DISPLAY_LIMIT;
 let activeTag = null;
+let searchQuery = '';
 
 function escapeHtml(str) {
   return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function debounce(fn, ms = 250) {
+  let timer;
+  return (...args) => { clearTimeout(timer); timer = setTimeout(() => fn(...args), ms); };
 }
 
 function getArticleLocale(article, lang) {
@@ -173,14 +179,42 @@ function renderControls(visibleCount, totalFiltered, lang, data) {
   if (clear) clear.addEventListener("click", () => { activeTag = null; displayLimit = INITIAL_DISPLAY_LIMIT; updateView(lang, data); });
 }
 
+function matchesSearch(article, lang, query) {
+  if (!query) return true;
+  const tr = getArticleLocale(article, lang);
+  const haystack = [
+    tr.title || '',
+    tr.summary || '',
+    tr.content || '',
+    (tr.keywords || []).join(' '),
+    article.slug || '',
+    article.author || ''
+  ].join(' ').toLowerCase();
+  const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+  return terms.every(term => haystack.includes(term));
+}
+
 function updateView(lang, data) {
-  const filtered = activeTag
-    ? allArticles.filter(a => {
-        const tr = getArticleLocale(a, lang);
-        return (tr.keywords || []).some(k => String(k).trim().toLowerCase() === activeTag);
-      })
-    : allArticles;
+  let filtered = allArticles;
+  if (searchQuery) {
+    filtered = filtered.filter(a => matchesSearch(a, lang, searchQuery));
+  }
+  if (activeTag) {
+    filtered = filtered.filter(a => {
+      const tr = getArticleLocale(a, lang);
+      return (tr.keywords || []).some(k => String(k).trim().toLowerCase() === activeTag);
+    });
+  }
   const visible = filtered.slice(0, displayLimit);
+  if (searchQuery && filtered.length === 0) {
+    const grid = document.getElementById('blog-grid');
+    if (grid) grid.innerHTML = `<p class="text-slate-500 col-span-full text-center">${data.searchNoResults}</p>`;
+    const controls = document.getElementById('blog-controls');
+    if (controls) controls.innerHTML = '';
+    const tagCloud = document.getElementById('tag-cloud');
+    if (tagCloud) tagCloud.innerHTML = '';
+    return;
+  }
   renderArticles(visible, lang, data);
   renderTagCloud(allArticles, lang, data);
   renderControls(visible.length, filtered.length, lang, data);
@@ -221,6 +255,29 @@ function mergeWithStatic(staticArticles, dbArticles) {
   return window.PettyCashFirebase.mergeArticles(staticArticles, dbArticles);
 }
 
+function initSearch(lang, data) {
+  const searchInput = document.getElementById('blog-search');
+  const clearBtn = document.getElementById('blog-search-clear');
+  if (!searchInput) return;
+  searchInput.placeholder = data.searchPlaceholder || 'Search articles...';
+  const debouncedSearch = debounce((value) => {
+    searchQuery = value.trim();
+    displayLimit = INITIAL_DISPLAY_LIMIT;
+    if (clearBtn) clearBtn.classList.toggle('hidden', !searchQuery);
+    updateView(lang, data);
+  }, 250);
+  searchInput.addEventListener('input', (e) => debouncedSearch(e.target.value));
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      clearBtn.classList.add('hidden');
+      displayLimit = INITIAL_DISPLAY_LIMIT;
+      updateView(lang, data);
+    });
+  }
+}
+
 async function initBlog() {
   const data = t("articles");
   const title = document.querySelector("[data-i18n='articles.title']");
@@ -233,6 +290,7 @@ async function initBlog() {
   }
 
   const lang = getLang();
+  initSearch(lang, data);
   const cached = getCachedArticles();
   const staticArticles = getStaticArticlesSync();
 

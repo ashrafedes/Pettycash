@@ -355,7 +355,10 @@ const TRANSLATIONS = {
       "tags": "Tags",
       "allTags": "All",
       "loadMore": "Load more",
-      "showAll": "Show all"
+      "showAll": "Show all",
+      "searchPlaceholder": "Search articles...",
+      "searchNoResults": "No articles found for your search.",
+      "searchResults": "results found"
     },
     "video": {
       "title": "Watch How It Works",
@@ -718,7 +721,10 @@ const TRANSLATIONS = {
       "tags": "الوسوم",
       "allTags": "الكل",
       "loadMore": "عرض المزيد",
-      "showAll": "عرض الكل"
+      "showAll": "عرض الكل",
+      "searchPlaceholder": "ابحث في المقالات...",
+      "searchNoResults": "لا توجد مقالات تطابق بحثك.",
+      "searchResults": "نتيجة"
     },
     "video": {
       "title": "شاهد كيف يعمل",
