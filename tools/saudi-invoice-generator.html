@@ -108,6 +108,8 @@
           <h2 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-300 flex items-center justify-center text-sm">3</span><span data-i18n="invoice.invoiceInfo">Invoice Information</span></h2>
           <div class="grid sm:grid-cols-2 gap-4">
             <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.invoiceNumber">Invoice Number</label><input required name="invoiceNumber" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.invoiceTitleEn">Invoice Title (English)</label><input name="invoiceTitleEn" data-i18n-placeholder="invoice.invoiceTitleEn" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.invoiceTitleAr">Invoice Title (Arabic)</label><input name="invoiceTitleAr" data-i18n-placeholder="invoice.invoiceTitleAr" class="form-input"></div>
             <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.currency">Currency</label><select name="currency" class="form-input"><option value="SAR">SAR</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option></select></div>
             <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.issueDate">Issue Date</label><input required name="issueDate" type="date" class="form-input"></div>
             <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.dueDate">Due Date</label><input name="dueDate" type="date" class="form-input"></div>
@@ -183,7 +185,7 @@
                 <p class="text-sm text-slate-600" id="preview-company-contact"></p>
               </div>
               <div class="text-end">
-                <h1 class="text-3xl font-extrabold text-blue-700" data-i18n-ar="فاتورة ضريبية مبسطة" data-i18n-en="Simplified Tax Invoice">Simplified Tax Invoice</h1>
+                <h1 id="preview-title" class="text-3xl font-extrabold text-blue-700">Simplified Tax Invoice</h1>
                 <p class="text-sm text-slate-600 mt-1"><span data-i18n-en="Invoice No:" data-i18n-ar="رقم الفاتورة:">Invoice No:</span> <strong id="preview-invoice-number"></strong></p>
                 <p class="text-sm text-slate-600"><span data-i18n-en="Issue Date:" data-i18n-ar="تاريخ الإصدار:">Issue Date:</span> <span id="preview-issue-date"></span></p>
                 <p class="text-sm text-slate-600"><span data-i18n-en="Due Date:" data-i18n-ar="تاريخ الاستحقاق:">Due Date:</span> <span id="preview-due-date"></span></p>
