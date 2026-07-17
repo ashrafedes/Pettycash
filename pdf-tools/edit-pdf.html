@@ -262,10 +262,6 @@
         displayCanvas.className='block';
         displayCanvas.getContext('2d').drawImage(canvas,0,0);
         container.appendChild(displayCanvas);
-        // Draw existing annotations as DOM elements
-        if(annotations[currentPageIndex]){
-          annotations[currentPageIndex].forEach(a=>addAnnotationEl(container,a,vp,scale,sv));
-        }
         // Interaction overlay
         const overlay=document.createElement('div'); overlay.className='absolute inset-0 cursor-crosshair';
         let isDragging=false,startX=0,startY=0;
@@ -314,11 +310,15 @@
             if(!annotations[currentPageIndex])annotations[currentPageIndex]=[];
             annotations[currentPageIndex].push(ann);
             overlay._box.remove();
-            addAnnotationEl(container,ann,vp,scale,sv);
+            addAnnotationEl(container,ann,vp,scale,sv,annotations[currentPageIndex].length-1);
           }
           overlay._box=null;
         });
         container.appendChild(overlay);
+        // Draw existing annotations on top so their delete buttons are clickable
+        if(annotations[currentPageIndex]){
+          annotations[currentPageIndex].forEach((a,i)=>addAnnotationEl(container,a,vp,scale,sv,i));
+        }
       }
 
       function createEditableTextArea(container,px,py,pw,ph,rect,vp,scale,sv){
@@ -434,7 +434,7 @@
           if(!annotations[currentPageIndex])annotations[currentPageIndex]=[];
           annotations[currentPageIndex].push(ann);
           wrapper.remove();
-          addAnnotationEl(container,ann,vp,scale,sv);
+          addAnnotationEl(container,ann,vp,scale,sv,annotations[currentPageIndex].length-1);
         }
 
         ta.addEventListener('keydown',e=>{
@@ -443,7 +443,7 @@
         });
       }
 
-      function addAnnotationEl(container,a,vp,scale,sv){
+      function addAnnotationEl(container,a,vp,scale,sv,idx){
         if(a.type==='text'){
           const el=document.createElement('div');el.className='absolute pointer-events-none';
           el.style.left=(a.x/vp.width*sv.width)+'px';
@@ -451,7 +451,7 @@
           el.style.color=a.color;el.style.fontSize=(a.size*scale)+'px';el.textContent=a.text;
           container.appendChild(el);
         } else if(a.type==='textarea'){
-          const el=document.createElement('div');el.className='absolute pointer-events-none';
+          const el=document.createElement('div');el.className='absolute';
           el.style.left=(a.x/vp.width*sv.width)+'px';
           el.style.top=((vp.height-a.y-a.h)/vp.height*sv.height)+'px';
           el.style.width=(a.w/vp.width*sv.width)+'px';
@@ -461,14 +461,20 @@
           el.style.fontFamily='Inter,Arial,sans-serif';
           el.style.lineHeight='1.3';
           el.style.padding='2px';
-          el.style.overflow='hidden';
           el.style.whiteSpace='pre-wrap';
           el.style.wordBreak='break-word';
+          el.style.cursor='default';
           if(a.bold) el.style.fontWeight='bold';
           if(a.underline) el.style.textDecoration='underline';
           if(a.fillColor) el.style.backgroundColor=a.fillColor;
           if(a.borderColor) el.style.border='2px solid '+a.borderColor;
           el.textContent=a.text;
+          const del=document.createElement('button');
+          del.textContent='×';del.title='Delete';
+          del.className='absolute flex items-center justify-center w-6 h-6 rounded-full bg-red-500 text-white text-xs font-bold shadow hover:bg-red-600 transition-colors';
+          del.style.top='-10px';del.style.right='-10px';del.style.cursor='pointer';
+          del.addEventListener('click',e=>{ e.stopPropagation(); if(annotations[currentPageIndex]){ annotations[currentPageIndex].splice(idx,1); } showPage(); });
+          el.appendChild(del);
           container.appendChild(el);
         } else if(a.type==='rect'){
           const el=document.createElement('div');el.className='absolute pointer-events-none';
