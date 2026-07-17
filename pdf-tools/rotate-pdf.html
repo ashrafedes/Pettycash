@@ -89,6 +89,7 @@
               <div class="flex flex-wrap gap-3">
                 <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="pages-mode" value="all" checked class="accent-blue-600"> <span data-pt="rotate.allPages">All pages</span></label>
                 <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="pages-mode" value="custom" class="accent-blue-600"> <span data-pt="rotate.specificPages">Specific pages</span></label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="pages-mode" value="preview" class="accent-blue-600"> <span data-pt="rotate.fromPreview">Select from preview</span></label>
               </div>
               <div id="pages-custom" class="hidden mt-2">
                 <input type="text" id="page-ranges" class="pdf-input" placeholder="1-3, 5, 8-10">
@@ -105,6 +106,7 @@
 
         <!-- Preview -->
         <div id="preview-area" class="hidden"></div>
+        <p id="preview-hint" class="hidden text-xs text-center text-slate-400 mt-2"></p>
 
         <div id="progress-area"></div>
 
@@ -171,6 +173,8 @@
       let pdfFile = null;
       let pageCount = 0;
       let resultBlob = null;
+      let rotationMap = {}; // { pageIndex: cumulativeAngle }
+      let selectedFromPreview = new Set();
       const dropZone = document.getElementById('drop-zone');
       const fileInput = document.getElementById('file-input');
       const fileInfo = document.getElementById('file-info');
@@ -179,8 +183,20 @@
       const progressArea = document.getElementById('progress-area');
       const result = document.getElementById('result');
       const downloadBtn = document.getElementById('download-btn');
-
       const previewArea = document.getElementById('preview-area');
+      const previewHint = document.getElementById('preview-hint');
+
+      async function renderPreview(selectable = false) {
+        previewArea.classList.remove('hidden');
+        previewArea.innerHTML = '<p class="text-sm text-slate-500 text-center mb-3">Loading preview...</p>';
+        const source = resultBlob || pdfFile;
+        if (!source) return;
+        await PDFTools.renderPDFPreview(previewArea, source, {
+          maxPages: 20, scale: 0.4, selectable,
+          rotationMap,
+          onSelectionChange: (pages) => { selectedFromPreview = new Set(pages); }
+        });
+      }
 
       PDFTools.initDropZone(dropZone, fileInput, async (newFiles) => {
         pdfFile = newFiles[0];
@@ -188,29 +204,39 @@
         const bytes = await pdfFile.arrayBuffer();
         const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
         pageCount = doc.getPageCount();
+        rotationMap = {};
+        resultBlob = null;
         document.getElementById('file-name-display').textContent = pdfFile.name;
         document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' • ' + pageCount + ' ' + (lang === 'ar' ? 'صفحة' : 'pages');
         dropZone.classList.add('hidden');
         fileInfo.classList.remove('hidden');
         rotateOptions.classList.remove('hidden');
-        // Render preview
-        previewArea.classList.remove('hidden');
-        previewArea.innerHTML = '<p class="text-sm text-slate-500 text-center mb-3">Loading preview...</p>';
-        await PDFTools.renderPDFPreview(previewArea, pdfFile, { maxPages: 20, scale: 0.4 });
+        await renderPreview(false);
       }, { accept: '.pdf', multiple: false });
 
       document.getElementById('remove-file').addEventListener('click', () => {
-        pdfFile = null;
+        pdfFile = null; resultBlob = null; rotationMap = {};
         fileInfo.classList.add('hidden');
         rotateOptions.classList.add('hidden');
         dropZone.classList.remove('hidden');
         result.classList.add('hidden');
         previewArea.classList.add('hidden');
+        previewHint.classList.add('hidden');
       });
 
       document.querySelectorAll('input[name="pages-mode"]').forEach(r => {
         r.addEventListener('change', () => {
-          document.getElementById('pages-custom').classList.toggle('hidden', r.value !== 'custom' || !r.checked);
+          const isCustom = r.value === 'custom' && r.checked;
+          const isPreview = r.value === 'preview' && r.checked;
+          document.getElementById('pages-custom').classList.toggle('hidden', !isCustom);
+          previewHint.classList.toggle('hidden', !isPreview);
+          if (isPreview) {
+            previewHint.textContent = lang === 'ar' ? 'انقر على الصفحات لتحديدها للتدوير' : 'Click pages to select them for rotation';
+            selectedFromPreview.clear();
+            renderPreview(true);
+          } else if (r.checked) {
+            renderPreview(false);
+          }
         });
       });
 
@@ -238,25 +264,32 @@
         PDFTools.showProgress(progressArea, 10);
 
         try {
-          const { PDFDocument, degrees } = await PDFTools.ensurePDFLib();
-          const bytes = await pdfFile.arrayBuffer();
-          const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
-
           const angle = parseInt(document.querySelector('input[name="angle"]:checked').value);
           const pagesMode = document.querySelector('input[name="pages-mode"]:checked').value;
           let targetPages = new Set();
           if (pagesMode === 'all') {
             for (let i = 0; i < pageCount; i++) targetPages.add(i);
-          } else {
+          } else if (pagesMode === 'custom') {
             targetPages = parseRanges(document.getElementById('page-ranges').value, pageCount);
+          } else if (pagesMode === 'preview') {
+            targetPages = selectedFromPreview;
+            if (!targetPages.size) { PDFTools.toast(lang === 'ar' ? 'اختر صفحات من المعاينة' : 'Select pages from preview'); rotateBtn.disabled = false; return; }
           }
 
+          // Update rotationMap cumulatively — rotate from current preview state
+          targetPages.forEach(idx => {
+            const current = rotationMap[idx] || 0;
+            rotationMap[idx] = (current + angle) % 360;
+          });
+
+          // Build the rotated PDF from the ORIGINAL file, applying cumulative rotations
+          const { PDFDocument, degrees } = await PDFTools.ensurePDFLib();
+          const bytes = await pdfFile.arrayBuffer();
+          const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
           const pages = doc.getPages();
           pages.forEach((page, i) => {
-            if (targetPages.has(i)) {
-              const current = page.getRotation().angle || 0;
-              page.setRotation(degrees((current + angle) % 360));
-            }
+            const rot = rotationMap[i] || 0;
+            if (rot) page.setRotation(degrees(rot));
           });
 
           PDFTools.showProgress(progressArea, 80);
@@ -264,8 +297,9 @@
           resultBlob = new Blob([out], { type: 'application/pdf' });
           PDFTools.showProgress(progressArea, 100);
           result.classList.remove('hidden');
-          // Update preview with rotated PDF
-          await PDFTools.renderPDFPreview(previewArea, resultBlob, { maxPages: 20, scale: 0.4 });
+          // Re-render preview from the new result, with rotationMap for badges
+          const wasSelectable = pagesMode === 'preview';
+          await renderPreview(wasSelectable);
           PDFTools.toast(PDFTools.t('common.done'));
         } catch (err) {
           console.error(err);

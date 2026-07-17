@@ -229,11 +229,15 @@
     const maxPages = opts.maxPages || 20;
     const scale = opts.scale || 0.4;
     const onProgress = opts.onProgress;
+    const selectable = opts.selectable || false;
+    const rotationMap = opts.rotationMap || null; // { pageIndex: angle }
+    const onSelectionChange = opts.onSelectionChange;
     const pdfjs = await ensurePDFJS();
     const arrayBuffer = await (fileOrBlob.arrayBuffer ? fileOrBlob.arrayBuffer() : fileOrBlob);
     const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
     const totalPages = pdf.numPages;
     const pagesToShow = Math.min(totalPages, maxPages);
+    const selectedSet = new Set();
 
     container.innerHTML = '';
     container.classList.remove('hidden');
@@ -244,7 +248,8 @@
 
     for (let i = 1; i <= pagesToShow; i++) {
       const page = await pdf.getPage(i);
-      const viewport = page.getViewport({ scale });
+      const pageRotation = rotationMap ? (rotationMap[i - 1] || 0) : 0;
+      const viewport = page.getViewport({ scale, rotation: pageRotation });
       const canvas = document.createElement('canvas');
       canvas.className = 'rounded-lg shadow-md bg-white';
       canvas.width = viewport.width;
@@ -253,13 +258,49 @@
       await page.render({ canvasContext: ctx, viewport }).promise;
 
       const item = document.createElement('div');
-      item.className = 'relative';
+      item.className = 'relative cursor-pointer';
+      item.dataset.pageIndex = i - 1;
+      item.dataset.pageNum = i;
+
+      if (selectable) {
+        item.addEventListener('click', () => {
+          const idx = parseInt(item.dataset.pageIndex);
+          if (selectedSet.has(idx)) {
+            selectedSet.delete(idx);
+            item.classList.remove('ring-4', 'ring-blue-500', 'rounded-lg');
+            const badge = item.querySelector('.select-badge');
+            if (badge) badge.remove();
+          } else {
+            selectedSet.add(idx);
+            item.classList.add('ring-4', 'ring-blue-500', 'rounded-lg');
+            const badge = document.createElement('div');
+            badge.className = 'select-badge absolute top-1 end-1 bg-blue-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shadow-lg';
+            badge.textContent = Array.from(selectedSet).indexOf(idx) + 1;
+            item.appendChild(badge);
+          }
+          // Re-number badges
+          let order = 0;
+          wrapper.querySelectorAll('[data-page-index]').forEach(el => {
+            const b = el.querySelector('.select-badge');
+            if (b) b.textContent = ++order;
+          });
+          if (onSelectionChange) onSelectionChange(Array.from(selectedSet).sort((a, b) => a - b));
+        });
+      }
+
       item.appendChild(canvas);
 
       const label = document.createElement('div');
       label.className = 'text-xs text-center text-slate-500 dark:text-slate-400 mt-1';
       label.textContent = 'Page ' + i;
       item.appendChild(label);
+
+      if (pageRotation) {
+        const rotBadge = document.createElement('div');
+        rotBadge.className = 'absolute bottom-1 start-1 bg-amber-500 text-white text-xs font-bold px-1.5 py-0.5 rounded shadow-lg';
+        rotBadge.textContent = pageRotation + '°';
+        item.appendChild(rotBadge);
+      }
 
       wrapper.appendChild(item);
       if (onProgress) onProgress(i, pagesToShow);
@@ -272,6 +313,8 @@
       wrapper.appendChild(note);
     }
 
+    container._selectedPages = selectedSet;
+    container._totalPages = totalPages;
     return totalPages;
   }
 
