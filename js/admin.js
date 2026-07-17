@@ -1,4 +1,4 @@
-// Admin panel for blog articles with built-in password
+﻿// Admin panel for blog articles with built-in password
 const ADMIN_PASSWORD = "PettyCash@Admin2026";
 const ADMIN_AUTH_KEY = "pettycash-admin-auth";
 const OPENROUTER_API_KEY_KEY = "pettycash-openrouter-key";
@@ -26,14 +26,20 @@ function setOpenRouterKey(key) {
   } catch (e) {}
 }
 
+function escapeHtml(str) {
+  return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const loginSection = document.getElementById("login-section");
-  const adminSection = document.getElementById("admin-section");
+  const gridView = document.getElementById("grid-view");
+  const editView = document.getElementById("edit-view");
   const loginForm = document.getElementById("login-form");
   const loginError = document.getElementById("login-error");
   const logoutBtn = document.getElementById("logout-btn");
   const articleForm = document.getElementById("article-form");
-  const articlesList = document.getElementById("articles-list");
+  const articlesGrid = document.getElementById("articles-grid");
+  const articleCount = document.getElementById("article-count");
   const formStatus = document.getElementById("form-status");
   const uploadStatus = document.getElementById("upload-status");
   const imageFileInput = document.getElementById("article-image-file");
@@ -52,6 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const settingsStatus = document.getElementById("settings-status");
   const tabBtns = document.querySelectorAll(".tab-btn");
   const tabPanels = document.querySelectorAll(".tab-panel");
+  const newArticleBtn = document.getElementById("new-article-btn");
+  const backToGridBtn = document.getElementById("back-to-grid-btn");
+  const editViewTitle = document.getElementById("edit-view-title");
+  const searchInput = document.getElementById("admin-search");
+
+  let allArticles = [];
+  let searchQuery = "";
 
   if (!window.PettyCashFirebase) {
     if (loginError) {
@@ -61,15 +74,19 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  function showView(name) {
+    loginSection.classList.toggle("hidden", name !== "login");
+    gridView.classList.toggle("hidden", name !== "grid");
+    editView.classList.toggle("hidden", name !== "edit");
+  }
+
   function updateAuthView() {
     const authed = sessionStorage.getItem(ADMIN_AUTH_KEY) === "1";
     if (authed) {
-      loginSection.classList.add("hidden");
-      adminSection.classList.remove("hidden");
+      showView("grid");
       loadArticles();
     } else {
-      loginSection.classList.remove("hidden");
-      adminSection.classList.add("hidden");
+      showView("login");
     }
   }
 
@@ -133,6 +150,24 @@ document.addEventListener("DOMContentLoaded", () => {
         settingsStatus.className = key ? "text-sm text-green-600" : "text-sm text-amber-600";
       }
       setTimeout(() => settingsPanel.classList.add("hidden"), 800);
+    });
+  }
+
+  newArticleBtn.addEventListener("click", () => {
+    clearForm();
+    editViewTitle.textContent = "New Article";
+    showView("edit");
+  });
+
+  backToGridBtn.addEventListener("click", () => {
+    showView("grid");
+    loadArticles();
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      renderGrid();
     });
   }
 
@@ -214,7 +249,10 @@ document.addEventListener("DOMContentLoaded", () => {
       formStatus.textContent = "Article saved successfully.";
       formStatus.className = "text-sm text-green-600";
       clearForm();
-      loadArticles();
+      setTimeout(() => {
+        showView("grid");
+        loadArticles();
+      }, 800);
     }
   });
 
@@ -302,49 +340,118 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function loadArticles() {
-    if (!articlesList) return;
-    articlesList.innerHTML = "<p class='text-slate-500'>Loading articles...</p>";
+    if (!articlesGrid) return;
+    articlesGrid.innerHTML = renderSkeletonCards(6);
     const result = await fetchAdminArticles(2);
     if (!result.success) {
-      articlesList.innerHTML = `
-        <p class="text-red-600">Failed to load articles: ${escapeHtml(result.error?.message || "Connection error")}</p>
-        <button id="retry-load-articles" class="mt-3 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">Retry</button>
+      articlesGrid.innerHTML = `
+        <div class="col-span-full text-center py-12">
+          <p class="text-red-600 mb-3">Failed to load articles: ${escapeHtml(result.error?.message || "Connection error")}</p>
+          <button id="retry-load-articles" class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">Retry</button>
+        </div>
       `;
       document.getElementById("retry-load-articles")?.addEventListener("click", loadArticles);
       return;
     }
-    if (!result.articles.length) {
-      articlesList.innerHTML = `
-        <div class="bg-white border border-slate-200 rounded-xl p-6 text-center">
+    allArticles = result.articles;
+    if (articleCount) {
+      articleCount.textContent = allArticles.length + " article" + (allArticles.length !== 1 ? "s" : "");
+    }
+    renderGrid();
+  }
+
+  function renderSkeletonCards(count) {
+    return Array.from({ length: count }, () => `
+      <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden animate-pulse">
+        <div class="h-40 bg-slate-200"></div>
+        <div class="p-5 space-y-3">
+          <div class="h-5 bg-slate-200 rounded w-3/4"></div>
+          <div class="h-4 bg-slate-200 rounded w-full"></div>
+          <div class="h-4 bg-slate-200 rounded w-5/6"></div>
+          <div class="flex justify-between pt-2">
+            <div class="h-3 bg-slate-200 rounded w-20"></div>
+            <div class="h-3 bg-slate-200 rounded w-16"></div>
+          </div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function renderGrid() {
+    if (!articlesGrid) return;
+    if (!allArticles.length) {
+      articlesGrid.innerHTML = `
+        <div class="col-span-full text-center py-12">
           <p class="text-slate-600 mb-4">No articles yet in Firestore.</p>
           <a href="./import-articles.html" class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">Import Articles</a>
         </div>
       `;
       return;
     }
-    const articles = result.articles;
-    articlesList.innerHTML = articles.map(a => {
+
+    let filtered = allArticles;
+    if (searchQuery) {
+      filtered = allArticles.filter(a => {
+        const en = a.translations?.en || {};
+        const ar = a.translations?.ar || {};
+        const haystack = [en.title, en.summary, ar.title, a.slug, a.author].join(" ").toLowerCase();
+        return haystack.includes(searchQuery);
+      });
+    }
+
+    if (!filtered.length) {
+      articlesGrid.innerHTML = `<p class="col-span-full text-center text-slate-500 py-12">No articles match your search.</p>`;
+      return;
+    }
+
+    articlesGrid.innerHTML = filtered.map(a => {
       const en = a.translations?.en || {};
       const ar = a.translations?.ar || {};
       const isPublished = a.published !== false;
       const statusText = isPublished ? "Published" : "Draft";
-      const statusClass = isPublished ? "text-green-600 bg-green-50" : "text-amber-600 bg-amber-50";
+      const statusClass = isPublished ? "bg-green-50 text-green-700" : "bg-amber-50 text-amber-700";
+      const imageUrl = a.image || "./images/article-placeholder.svg";
+      const title = en.title || ar.title || a.slug || "Untitled";
+      const summary = (en.summary || ar.summary || "").slice(0, 100);
       return `
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-white border border-slate-200 rounded-xl p-4 gap-3">
-          <div>
-            <p class="font-semibold text-slate-900">${escapeHtml(en.title || ar.title || a.slug)}</p>
-            <p class="text-sm text-slate-500">Slug: ${escapeHtml(a.slug || "")} · ${window.PettyCashFirebase.formatDate(a.date, "en")} · <span class="inline-block px-2 py-0.5 rounded text-xs font-medium ${statusClass}">${statusText}</span></p>
+        <div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
+          <div class="h-40 overflow-hidden bg-slate-100 relative">
+            <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="160">
+            <span class="absolute top-2 right-2 text-xs font-medium px-2 py-0.5 rounded-full ${statusClass}">${statusText}</span>
           </div>
-          <div class="flex items-center gap-2">
-            <button data-id="${escapeHtml(a.id || '')}" data-slug="${escapeHtml(a.slug || '')}" data-published="${isPublished ? "1" : "0"}" class="toggle-btn px-3 py-1.5 text-sm font-medium border rounded-lg hover:bg-slate-50 transition-colors ${isPublished ? "text-amber-600 border-amber-200" : "text-green-600 border-green-200"}">${isPublished ? "Unpublish" : "Publish"}</button>
-            <button data-id="${escapeHtml(a.id || '')}" data-slug="${escapeHtml(a.slug || '')}" class="edit-btn px-3 py-1.5 text-sm text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">Edit</button>
-            <button data-id="${escapeHtml(a.id || '')}" data-slug="${escapeHtml(a.slug || '')}" class="delete-btn px-3 py-1.5 text-sm text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">Delete</button>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">${escapeHtml(title)}</h3>
+            <p class="text-sm text-slate-500 line-clamp-2 mb-3 flex-1">${escapeHtml(summary)}</p>
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+              <span>${window.PettyCashFirebase.formatDate(a.date, "en")}</span>
+              ${a.readTime ? `<span>${escapeHtml(a.readTime)} min</span>` : ""}
+            </div>
+            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
+              <button data-id="${escapeHtml(a.id || '')}" data-slug="${escapeHtml(a.slug || '')}" class="edit-card-btn flex-1 px-3 py-1.5 text-sm text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors font-medium">Edit</button>
+              <button data-id="${escapeHtml(a.id || '')}" data-slug="${escapeHtml(a.slug || '')}" data-published="${isPublished ? "1" : "0"}" class="toggle-card-btn px-3 py-1.5 text-sm font-medium border rounded-lg hover:bg-slate-50 transition-colors ${isPublished ? "text-amber-600 border-amber-200" : "text-green-600 border-green-200"}">${isPublished ? "Unpublish" : "Publish"}</button>
+              <button data-id="${escapeHtml(a.id || '')}" data-slug="${escapeHtml(a.slug || '')}" class="delete-card-btn px-3 py-1.5 text-sm text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors font-medium">Delete</button>
+            </div>
           </div>
         </div>
       `;
     }).join("");
 
-    articlesList.querySelectorAll(".toggle-btn").forEach(btn => {
+    articlesGrid.querySelectorAll(".edit-card-btn").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.id;
+        const slug = btn.dataset.slug;
+        const article = id
+          ? await window.PettyCashFirebase.fetchArticleById(id)
+          : await window.PettyCashFirebase.fetchArticleBySlug(slug);
+        if (article) {
+          fillForm(article);
+          editViewTitle.textContent = "Edit Article";
+          showView("edit");
+        }
+      });
+    });
+
+    articlesGrid.querySelectorAll(".toggle-card-btn").forEach(btn => {
       btn.addEventListener("click", async () => {
         const id = btn.dataset.id;
         const slug = btn.dataset.slug;
@@ -364,24 +471,12 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    articlesList.querySelectorAll(".edit-btn").forEach(btn => {
-      btn.addEventListener("click", async () => {
-        const id = btn.dataset.id;
-        const slug = btn.dataset.slug;
-        const article = id
-          ? await window.PettyCashFirebase.fetchArticleById(id)
-          : await window.PettyCashFirebase.fetchArticleBySlug(slug);
-        if (article) fillForm(article);
-      });
-    });
-
-    articlesList.querySelectorAll(".delete-btn").forEach(btn => {
+    articlesGrid.querySelectorAll(".delete-card-btn").forEach(btn => {
       btn.addEventListener("click", async () => {
         if (!confirm("Delete this article?")) return;
         const id = btn.dataset.id;
-        const slug = btn.dataset.slug;
         if (!id) {
-          alert("This article is in the static file and cannot be deleted from Firestore. To remove it, edit the source files.");
+          alert("This article is in the static file and cannot be deleted from Firestore.");
           return;
         }
         const result = await window.PettyCashFirebase.deleteArticle(id);
@@ -424,10 +519,6 @@ document.addEventListener("DOMContentLoaded", () => {
     switchTab("en");
   }
 
-  function escapeHtml(str) {
-    return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  }
-
   clearForm();
 });
 
@@ -455,7 +546,6 @@ async function translateWithOpenRouter(source) {
   if (!apiKey) {
     return { error: "OpenRouter API key not set. Click Settings and save your key." };
   }
-  console.log("Using OpenRouter model:", OPENROUTER_MODEL, "key length:", apiKey.length);
   const prompt = JSON.stringify(source);
 
   async function tryTranslate() {
