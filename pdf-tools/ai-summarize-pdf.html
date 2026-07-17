@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Summarize PDF — Free Online | PettyCash.site</title>
+  <meta name="description" content="Get an AI-powered summary of your PDF document. Free, secure, no permanent storage.">
+  <link rel="canonical" href="https://pettycash.site/pdf-tools/ai-summarize-pdf.html">
+  <meta property="og:title" content="AI Summarize PDF — Free Online">
+  <meta property="og:description" content="Get an AI-powered summary of your PDF document.">
+  <meta property="og:url" content="https://pettycash.site/pdf-tools/ai-summarize-pdf.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Summarize PDF — Free Online">
+  <meta name="twitter:description" content="Get an AI-powered summary of your PDF document.">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@graph": [
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
+      { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
+      { "@type": "ListItem", "position": 3, "name": "AI Summarize PDF", "item": "https://pettycash.site/pdf-tools/ai-summarize-pdf.html" }
+    ]},
+    { "@type": "SoftwareApplication", "name": "AI Summarize PDF", "description": "Get an AI-powered summary of your PDF document.", "url": "https://pettycash.site/pdf-tools/ai-summarize-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "FAQPage", "mainEntity": [{"@type":"Question","name":"Is AI summarization free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free."}},{"@type":"Question","name":"Are my files uploaded?","acceptedAnswer":{"@type":"Answer","text":"This tool requires server-side AI processing. Your file is processed and immediately deleted."}},{"@type":"Question","name":"How long can the PDF be?","acceptedAnswer":{"@type":"Answer","text":"PDFs up to 100 pages are supported. Longer documents may be summarized in sections."}},{"@type":"Question","name":"What languages are supported?","acceptedAnswer":{"@type":"Answer","text":"English, Arabic, and major world languages."}}] }
+  ]}
+  </script>
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tailwind.min.css">
+  <link rel="stylesheet" href="./css/pdf-tools.css">
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <nav id="pdftool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
+  <main class="flex-1">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+      <nav class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+        <a href="../" class="hover:text-blue-600">Home</a><span>/</span>
+        <a href="./" class="hover:text-blue-600">PDF Tools</a><span>/</span>
+        <span class="text-slate-700 dark:text-slate-300" id="bc-title">AI Summarize PDF</span>
+      </nav>
+    </div>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
+      <div class="text-5xl mb-4">🤖</div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">AI Summarize PDF</h1>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Get an AI-powered summary of your PDF document.</p>
+    </section>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+      <div class="space-y-6">
+        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-8 text-center">
+          <div class="text-3xl mb-3">🤖</div>
+          <p class="font-semibold text-lg mb-2" id="coming-soon-title">This tool is coming soon</p>
+          <p class="text-sm text-slate-500 mb-4" id="coming-soon-desc">We're working on bringing this tool to you. In the meantime, check out our other free PDF tools that work entirely in your browser.</p>
+          <a href="./" class="btn-pdf btn-pdf-primary inline-block"><span id="browse-tools-label">Browse All PDF Tools</span></a>
+        </div>
+      </div>
+      <div class="mt-16"><h2 class="text-xl font-bold mb-6" data-pt="common.faq">FAQ</h2><div id="faq-list" class="space-y-3"></div></div>
+      <div class="mt-12"><h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2><div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div></div>
+    </section>
+  </main>
+  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>&copy; 2026 PettyCash.site — Free PDF Tools.</p></div></footer>
+  <script defer src="./js/pdf-translations.js"></script>
+  <script defer src="./js/pdf-tools-registry.js"></script>
+  <script defer src="./js/pdf-shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      PDFTools.initTheme(); PDFTools.renderNav();
+      const lang = PDFTools.getLang();
+      const faqs = [{"q":"Is AI summarization free?","a":"Yes, completely free."},{"q":"Are my files uploaded?","a":"This tool requires server-side AI processing. Your file is processed and immediately deleted."},{"q":"How long can the PDF be?","a":"PDFs up to 100 pages are supported. Longer documents may be summarized in sections."},{"q":"What languages are supported?","a":"English, Arabic, and major world languages."}];
+      document.getElementById('faq-list').innerHTML = faqs.map(f => '<details class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4"><summary class="font-semibold cursor-pointer text-sm">'+f.q+'</summary><p class="text-sm text-slate-600 dark:text-slate-400 mt-2">'+f.a+'</p></details>').join('');
+      if (lang === 'ar') {
+        document.getElementById('coming-soon-title').textContent = 'هذه الأداة قريباً';
+        document.getElementById('coming-soon-desc').textContent = 'نحن نعمل على توفير هذه الأداة. في غضون ذلك، جرّب أدوات PDF المجانية الأخرى التي تعمل بالكامل في متصفحك.';
+        document.getElementById('browse-tools-label').textContent = 'تصفح جميع أدوات PDF';
+      }
+      const related = ["merge","split","compress","rotate"];
+      document.getElementById('related-tools').innerHTML = related.map(key => {
+        const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
+        if (!tool) return '';
+        return '<a href="./'+tool.slug+'.html" class="tool-card text-center"><div class="text-2xl">'+tool.icon+'</div><p class="text-xs font-semibold mt-1">'+PDFTools.t('tools.'+tool.key+'.title')+'</p></a>';
+      }).join('');
+    });
+  </script>
+</body>
+</html>

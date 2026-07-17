@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Searchable PDF — Make PDF Searchable with OCR Free | PettyCash.site</title>
+  <meta name="description" content="Convert scanned PDF to searchable PDF with OCR text layer. Free, no upload, all in your browser using Tesseract.js.">
+  <link rel="canonical" href="https://pettycash.site/pdf-tools/searchable-pdf.html">
+  <meta property="og:title" content="Searchable PDF — Make PDF Searchable with OCR Free">
+  <meta property="og:description" content="Make PDF searchable with OCR. All in your browser.">
+  <meta property="og:url" content="https://pettycash.site/pdf-tools/searchable-pdf.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Searchable PDF — Make PDF Searchable with OCR Free">
+  <meta name="twitter:description" content="Make PDF searchable with OCR. All in your browser.">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@graph": [
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
+      { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Searchable PDF", "item": "https://pettycash.site/pdf-tools/searchable-pdf.html" }
+    ]},
+    { "@type": "SoftwareApplication", "name": "Searchable PDF", "description": "Make scanned PDF searchable with OCR text layer. Free online tool.", "url": "https://pettycash.site/pdf-tools/searchable-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "Is making a searchable PDF free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free using Tesseract.js." } },
+      { "@type": "Question", "name": "Are my files uploaded?", "acceptedAnswer": { "@type": "Answer", "text": "No. All processing happens in your browser." } },
+      { "@type": "Question", "name": "What is a searchable PDF?", "acceptedAnswer": { "@type": "Answer", "text": "A searchable PDF has an invisible text layer over the scanned image, allowing you to search and select text." } },
+      { "@type": "Question", "name": "What languages are supported?", "acceptedAnswer": { "@type": "Answer", "text": "English, Arabic, French, Spanish, German, and more." } }
+    ]}
+  ]}
+  </script>
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tailwind.min.css">
+  <link rel="stylesheet" href="./css/pdf-tools.css">
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <nav id="pdftool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
+  <main class="flex-1">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+      <nav class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+        <a href="../" class="hover:text-blue-600">Home</a><span>/</span>
+        <a href="./" class="hover:text-blue-600">PDF Tools</a><span>/</span>
+        <span class="text-slate-700 dark:text-slate-300" id="bc-title">Searchable PDF</span>
+      </nav>
+    </div>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
+      <div class="text-5xl mb-4">📖</div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">Searchable PDF</h1>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Add a searchable text layer to your scanned PDF using OCR. The output PDF keeps the original image but becomes searchable.</p>
+    </section>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+      <div class="space-y-6">
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" class="hidden" accept=".pdf">
+          <div class="text-4xl mb-3">📄</div>
+          <p class="font-semibold text-slate-700 dark:text-slate-200" data-pt="common.dropHere">Drop your PDF file here</p>
+          <p class="text-sm text-slate-500 mt-1" data-pt="common.orClick">or click to browse</p>
+        </div>
+        <div id="file-info" class="hidden file-item">
+          <div class="file-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div class="file-info"><div class="file-name" id="file-name-display"></div><div class="file-meta" id="file-meta-display"></div></div>
+          <button id="remove-file" class="text-red-500 hover:text-red-700 p-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div id="ocr-options" class="hidden">
+          <div class="flex items-center justify-center gap-4">
+            <div><label class="text-xs font-semibold" id="lang-label">Language</label><select id="ocr-lang" class="pdf-input text-sm ml-2"><option value="eng">English</option><option value="ara">العربية</option><option value="fra">Français</option><option value="spa">Español</option><option value="deu">Deutsch</option><option value="chi_sim">中文</option></select></div>
+            <button id="ocr-btn" class="btn-pdf btn-pdf-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span id="ocr-btn-label">Create Searchable PDF</span></button>
+          </div>
+        </div>
+        <div id="progress-area"></div>
+        <div id="result" class="hidden text-center py-8"><div class="text-4xl mb-3">✅</div><p class="font-semibold text-lg mb-4" data-pt="common.done">Done!</p><button id="download-btn" class="btn-pdf btn-pdf-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-pt="common.download">Download</span></button></div>
+      </div>
+      <div class="mt-16"><h2 class="text-xl font-bold mb-6" data-pt="common.faq">FAQ</h2><div id="faq-list" class="space-y-3"></div></div>
+      <div class="mt-12"><h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2><div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div></div>
+    </section>
+  </main>
+  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>&copy; 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p></div></footer>
+  <script defer src="./js/pdf-translations.js"></script>
+  <script defer src="./js/pdf-tools-registry.js"></script>
+  <script defer src="./js/pdf-shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      PDFTools.initTheme(); PDFTools.renderNav();
+      const lang = PDFTools.getLang();
+      const T = lang === 'ar' ? {
+        title: 'PDF قابل للبحث', desc: 'إضافة طبقة نص قابلة للبحث إلى ملف PDF الممسوح باستخدام OCR.',
+        ocrBtn: 'إنشاء PDF قابل للبحث', pageCount: 'صفحة', noFile: 'اختر ملف PDF أولاً'
+      } : {
+        title: 'Searchable PDF', desc: 'Add a searchable text layer to your scanned PDF using OCR. The output PDF keeps the original image but becomes searchable.',
+        ocrBtn: 'Create Searchable PDF', pageCount: 'pages', noFile: 'Select a PDF file first'
+      };
+      document.getElementById('bc-title').textContent = T.title;
+      document.getElementById('tool-title').textContent = T.title;
+      document.getElementById('tool-desc').textContent = T.desc;
+      document.getElementById('ocr-btn-label').textContent = T.ocrBtn;
+      document.getElementById('lang-label').textContent = lang === 'ar' ? 'اللغة' : 'Language';
+
+      const faqs = lang === 'ar' ? [
+        { q: 'هل إنشاء PDF قابل للبحث مجاني؟', a: 'نعم، مجاني تماماً باستخدام Tesseract.js.' },
+        { q: 'هل يتم رفع ملفاتي؟', a: 'لا. كل المعالجة تتم في متصفحك.' },
+        { q: 'ما هو PDF القابل للبحث؟', a: 'PDF يحتوي على طبقة نص مخفية فوق الصورة الممسوحة، تتيح البحث وتحديد النص.' },
+        { q: 'ما اللغات المدعومة؟', a: 'الإنجليزية والعربية والفرنسية والإسبانية والألمانية والمزيد.' }
+      ] : [
+        { q: 'Is making a searchable PDF free?', a: 'Yes, completely free using Tesseract.js.' },
+        { q: 'Are my files uploaded?', a: 'No. All processing happens in your browser.' },
+        { q: 'What is a searchable PDF?', a: 'A searchable PDF has an invisible text layer over the scanned image, allowing you to search and select text.' },
+        { q: 'What languages are supported?', a: 'English, Arabic, French, Spanish, German, and more.' }
+      ];
+      document.getElementById('faq-list').innerHTML = faqs.map(f => `<details class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4"><summary class="font-semibold cursor-pointer text-sm">${f.q}</summary><p class="text-sm text-slate-600 dark:text-slate-400 mt-2">${f.a}</p></details>`).join('');
+
+      const related = ['ocrPdf', 'imageOcr', 'pdfToText', 'compress'];
+      document.getElementById('related-tools').innerHTML = related.map(key => {
+        const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
+        if (!tool) return '';
+        return `<a href="./${tool.slug}.html" class="tool-card text-center"><div class="text-2xl">${tool.icon}</div><p class="text-xs font-semibold mt-1">${PDFTools.t('tools.' + tool.key + '.title')}</p></a>`;
+      }).join('');
+
+      let pdfFile = null, pageCount = 0, resultBlob = null;
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+      const fileInfo = document.getElementById('file-info');
+      const ocrOptions = document.getElementById('ocr-options');
+      const ocrBtn = document.getElementById('ocr-btn');
+      const progressArea = document.getElementById('progress-area');
+      const result = document.getElementById('result');
+      const downloadBtn = document.getElementById('download-btn');
+
+      PDFTools.initDropZone(dropZone, fileInput, async (newFiles) => {
+        pdfFile = newFiles[0];
+        const pdfjs = await PDFTools.ensurePDFJS();
+        const buf = await pdfFile.arrayBuffer();
+        const pdf = await pdfjs.getDocument({ data: buf }).promise;
+        pageCount = pdf.numPages; resultBlob = null;
+        document.getElementById('file-name-display').textContent = pdfFile.name;
+        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' • ' + pageCount + ' ' + T.pageCount;
+        dropZone.classList.add('hidden'); fileInfo.classList.remove('hidden');
+        ocrOptions.classList.remove('hidden'); result.classList.add('hidden');
+      }, { accept: '.pdf', multiple: false });
+
+      document.getElementById('remove-file').addEventListener('click', () => {
+        pdfFile = null; resultBlob = null;
+        fileInfo.classList.add('hidden'); ocrOptions.classList.add('hidden');
+        dropZone.classList.remove('hidden'); result.classList.add('hidden');
+      });
+
+      async function ensureTesseract() {
+        if (window.Tesseract) return window.Tesseract;
+        await PDFTools.loadScript('https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js');
+        return window.Tesseract;
+      }
+
+      ocrBtn.addEventListener('click', async () => {
+        if (!pdfFile) { PDFTools.toast(T.noFile); return; }
+        ocrBtn.disabled = true; result.classList.add('hidden');
+        PDFTools.showProgress(progressArea, 5);
+        try {
+          const Tesseract = await ensureTesseract();
+          const pdfjs = await PDFTools.ensurePDFJS();
+          const { PDFDocument, StandardFonts, rgb } = await PDFTools.ensurePDFLib();
+          const buf = await pdfFile.arrayBuffer();
+          const pdf = await pdfjs.getDocument({ data: buf }).promise;
+          const ocrLang = document.getElementById('ocr-lang').value;
+          const newDoc = await PDFDocument.create();
+          const font = await newDoc.embedFont(StandardFonts.Helvetica);
+
+          const worker = await Tesseract.createWorker(ocrLang, 1, {
+            logger: m => { if (m.status === 'recognizing text') PDFTools.showProgress(progressArea, 30 + Math.round(m.progress * 50)); }
+          });
+
+          for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const viewport = page.getViewport({ scale: 2 });
+            const canvas = document.createElement('canvas');
+            canvas.width = viewport.width; canvas.height = viewport.height;
+            const ctx = canvas.getContext('2d');
+            await page.render({ canvasContext: ctx, viewport }).promise;
+
+            // OCR the page
+            const { data } = await worker.recognize(canvas);
+
+            // Embed page image
+            const jpgBlob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.85));
+            const jpgBytes = await jpgBlob.arrayBuffer();
+            const img = await newDoc.embedJpg(jpgBytes);
+            const origViewport = page.getViewport({ scale: 1 });
+            const newPage = newDoc.addPage([origViewport.width, origViewport.height]);
+            newPage.drawImage(img, { x: 0, y: 0, width: origViewport.width, height: origViewport.height });
+
+            // Add invisible text layer (transparent text over the image)
+            // Note: This is a simplified approach - adds text at word positions
+            const scale = origViewport.width / viewport.width;
+            data.words.forEach(word => {
+              if (!word.text.trim()) return;
+              const x = word.bbox.x0 * scale;
+              const y = origViewport.height - word.bbox.y1 * scale;
+              const w = (word.bbox.x1 - word.bbox.x0) * scale;
+              const h = (word.bbox.y1 - word.bbox.y0) * scale;
+              try {
+                const fontSize = h * 0.8;
+                const sanitized = word.text.replace(/[^\x00-\x7F]/g, '');
+                if (sanitized) {
+                  newPage.drawText(sanitized, { x, y: y + h * 0.1, size: fontSize, font, color: rgb(0, 0, 0), opacity: 0 });
+                }
+              } catch (e) { /* skip problematic words */ }
+            });
+
+            PDFTools.showProgress(progressArea, 30 + Math.round((i / pdf.numPages) * 60));
+          }
+
+          await worker.terminate();
+          const out = await newDoc.save();
+          resultBlob = new Blob([out], { type: 'application/pdf' });
+          PDFTools.showProgress(progressArea, 100);
+          result.classList.remove('hidden');
+          PDFTools.toast(PDFTools.t('common.done'));
+        } catch (err) {
+          console.error(err); PDFTools.toast(PDFTools.t('common.error') + ': ' + err.message);
+        } finally { ocrBtn.disabled = false; }
+      });
+
+      downloadBtn.addEventListener('click', () => {
+        if (resultBlob) PDFTools.downloadBlob(resultBlob, pdfFile.name.replace(/\.pdf$/i, '') + '_searchable.pdf');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -87,6 +87,9 @@
         </div>
         <div id="preview-area" class="hidden"></div>
         <p id="preview-hint" class="hidden text-xs text-center text-slate-400 mt-2"></p>
+        <div id="selected-info" class="hidden bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4 text-center">
+          <p class="text-sm font-semibold text-red-700 dark:text-red-300" id="selected-label"></p>
+        </div>
         <div id="progress-area"></div>
         <div id="result" class="hidden text-center py-8">
           <div class="text-4xl mb-3">✅</div>
@@ -125,13 +128,17 @@
         selectMode: 'وضع التحديد', fromPreview: 'اختيار من المعاينة', byRange: 'حسب نطاقات الصفحات',
         removeBtn: 'حذف الصفحات', pageCount: 'صفحة', noSelection: 'لم يتم اختيار صفحات',
         hintPreview: 'انقر على الصفحات لتحديدها للحذف',
-        invalidRange: 'نطاق غير صالح', noFile: 'اختر ملف PDF أولاً'
+        invalidRange: 'نطاق غير صالح', noFile: 'اختر ملف PDF أولاً',
+        selectedForRemoval: 'صفحات محددة للحذف', noPagesSelected: 'لم يتم تحديد صفحات',
+        removeBadge: '🗑'
       } : {
         title: 'Remove Pages', desc: 'Select pages to remove from your PDF. Click thumbnails or enter page ranges.',
         selectMode: 'Selection mode', fromPreview: 'Select from preview', byRange: 'By page ranges',
         removeBtn: 'Remove Pages', pageCount: 'pages', noSelection: 'No pages selected',
         hintPreview: 'Click pages to mark them for removal',
-        invalidRange: 'Invalid range', noFile: 'Select a PDF file first'
+        invalidRange: 'Invalid range', noFile: 'Select a PDF file first',
+        selectedForRemoval: 'Selected for removal', noPagesSelected: 'No pages selected',
+        removeBadge: '🗑'
       };
       document.getElementById('bc-title').textContent = T.title;
       document.getElementById('tool-title').textContent = T.title;
@@ -172,15 +179,33 @@
       const downloadBtn = document.getElementById('download-btn');
       const previewArea = document.getElementById('preview-area');
       const previewHint = document.getElementById('preview-hint');
+      const selectedInfo = document.getElementById('selected-info');
+      const selectedLabel = document.getElementById('selected-label');
+
+      function updateSelectedInfo(pages) {
+        if (!pages || !pages.length) {
+          selectedInfo.classList.add('hidden');
+          selectedLabel.textContent = '';
+          return;
+        }
+        const labels = pages.map(p => String(p + 1)).join(', ');
+        selectedInfo.classList.remove('hidden');
+        selectedLabel.textContent = T.selectedForRemoval + ': ' + labels;
+      }
 
       async function renderPreview(selectable) {
         previewArea.classList.remove('hidden');
         previewArea.innerHTML = '<p class="text-sm text-slate-500 text-center mb-3">Loading preview...</p>';
         const source = resultBlob || pdfFile;
         if (!source) return;
+        selectedFromPreview.clear();
+        updateSelectedInfo([]);
         await PDFTools.renderPDFPreview(previewArea, source, {
           maxPages: 20, scale: 0.4, selectable,
-          onSelectionChange: (pages) => { selectedFromPreview = new Set(pages); }
+          selectionClass: 'ring-4 ring-red-500 rounded-lg opacity-75',
+          badgeClass: 'select-badge absolute top-1 end-1 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shadow-lg',
+          selectionLabel: T.removeBadge,
+          onSelectionChange: (pages) => { selectedFromPreview = new Set(pages); updateSelectedInfo(pages); }
         });
       }
 
@@ -209,6 +234,7 @@
         result.classList.add('hidden');
         previewArea.classList.add('hidden');
         previewHint.classList.add('hidden');
+        selectedInfo.classList.add('hidden');
       });
 
       document.querySelectorAll('input[name="sel-mode"]').forEach(r => {
@@ -217,11 +243,14 @@
           document.getElementById('ranges-input').classList.toggle('hidden', !isRanges);
           if (r.value === 'preview' && r.checked) {
             selectedFromPreview.clear();
+            selectedInfo.classList.add('hidden');
             renderPreview(true);
+            previewHint.classList.remove('hidden');
             previewHint.textContent = T.hintPreview;
           } else if (r.checked) {
             renderPreview(false);
             previewHint.classList.add('hidden');
+            selectedInfo.classList.add('hidden');
           }
         });
       });

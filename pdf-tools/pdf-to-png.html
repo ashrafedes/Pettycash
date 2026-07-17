@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to PNG — Convert PDF to PNG Online Free | PettyCash.site</title>
+  <meta name="description" content="Convert PDF pages to high-quality PNG images. Download individual PNGs or as ZIP. Free, no upload, all in your browser.">
+  <link rel="canonical" href="https://pettycash.site/pdf-tools/pdf-to-png.html">
+  <meta property="og:title" content="PDF to PNG — Convert PDF to PNG Online Free">
+  <meta property="og:description" content="Convert PDF to PNG images. All in your browser.">
+  <meta property="og:url" content="https://pettycash.site/pdf-tools/pdf-to-png.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PDF to PNG — Convert PDF to PNG Online Free">
+  <meta name="twitter:description" content="Convert PDF to PNG images. All in your browser.">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@graph": [
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
+      { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
+      { "@type": "ListItem", "position": 3, "name": "PDF to PNG", "item": "https://pettycash.site/pdf-tools/pdf-to-png.html" }
+    ]},
+    { "@type": "SoftwareApplication", "name": "PDF to PNG", "description": "Convert PDF pages to PNG images. Free online tool.", "url": "https://pettycash.site/pdf-tools/pdf-to-png.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "Is PDF to PNG free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free." } },
+      { "@type": "Question", "name": "Are my files uploaded?", "acceptedAnswer": { "@type": "Answer", "text": "No. All processing happens in your browser." } },
+      { "@type": "Question", "name": "What quality are the PNG images?", "acceptedAnswer": { "@type": "Answer", "text": "PNG is lossless. You can choose the resolution scale from 1x to 3x." } },
+      { "@type": "Question", "name": "Can I download all pages at once?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, download all PNG images as a ZIP archive." } }
+    ]}
+  ]}
+  </script>
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tailwind.min.css">
+  <link rel="stylesheet" href="./css/pdf-tools.css">
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <nav id="pdftool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
+  <main class="flex-1">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+      <nav class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+        <a href="../" class="hover:text-blue-600">Home</a><span>/</span>
+        <a href="./" class="hover:text-blue-600">PDF Tools</a><span>/</span>
+        <span class="text-slate-700 dark:text-slate-300" id="bc-title">PDF to PNG</span>
+      </nav>
+    </div>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
+      <div class="text-5xl mb-4">🖼️</div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">PDF to PNG</h1>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Convert PDF pages to high-quality PNG images. Lossless quality, choose resolution.</p>
+    </section>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+      <div class="space-y-6">
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" class="hidden" accept=".pdf">
+          <div class="text-4xl mb-3">📄</div>
+          <p class="font-semibold text-slate-700 dark:text-slate-200" data-pt="common.dropHere">Drop your PDF file here</p>
+          <p class="text-sm text-slate-500 mt-1" data-pt="common.orClick">or click to browse</p>
+        </div>
+        <div id="file-info" class="hidden file-item">
+          <div class="file-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div class="file-info"><div class="file-name" id="file-name-display"></div><div class="file-meta" id="file-meta-display"></div></div>
+          <button id="remove-file" class="text-red-500 hover:text-red-700 p-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div id="convert-options" class="hidden">
+          <div class="flex items-center justify-center gap-4">
+            <label class="text-sm font-semibold" id="scale-label">Resolution:</label>
+            <select id="png-scale" class="pdf-input text-sm">
+              <option value="1">1x (72 DPI)</option>
+              <option value="2" selected>2x (144 DPI)</option>
+              <option value="3">3x (216 DPI)</option>
+            </select>
+            <button id="convert-btn" class="btn-pdf btn-pdf-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              <span id="convert-btn-label">Convert to PNG</span>
+            </button>
+          </div>
+        </div>
+        <div id="progress-area"></div>
+        <div id="result" class="hidden space-y-4">
+          <div class="text-center">
+            <div class="text-4xl mb-3">✅</div>
+            <p class="font-semibold text-lg mb-2" id="result-summary"></p>
+            <button id="download-zip-btn" class="btn-pdf btn-pdf-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span id="download-zip-label">Download All (ZIP)</span>
+            </button>
+          </div>
+          <div id="images-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+        </div>
+      </div>
+      <div class="mt-16">
+        <h2 class="text-xl font-bold mb-6" data-pt="common.faq">FAQ</h2>
+        <div id="faq-list" class="space-y-3"></div>
+      </div>
+      <div class="mt-12">
+        <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-slate-900 text-slate-400 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm">
+      <p>&copy; 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p>
+    </div>
+  </footer>
+  <script defer src="./js/pdf-translations.js"></script>
+  <script defer src="./js/pdf-tools-registry.js"></script>
+  <script defer src="./js/pdf-shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      PDFTools.initTheme(); PDFTools.renderNav();
+      const lang = PDFTools.getLang();
+      const T = lang === 'ar' ? {
+        title: 'PDF إلى PNG', desc: 'تحويل صفحات PDF إلى صور PNG عالية الجودة. جودة بدون فقدان، اختر الدقة.',
+        convertBtn: 'تحويل إلى PNG', pageCount: 'صفحة', noFile: 'اختر ملف PDF أولاً',
+        downloadZip: 'تحميل الكل (ZIP)', imagesConverted: 'صورة محولة', scale: 'الدقة:'
+      } : {
+        title: 'PDF to PNG', desc: 'Convert PDF pages to high-quality PNG images. Lossless quality, choose resolution.',
+        convertBtn: 'Convert to PNG', pageCount: 'pages', noFile: 'Select a PDF file first',
+        downloadZip: 'Download All (ZIP)', imagesConverted: 'images converted', scale: 'Resolution:'
+      };
+      document.getElementById('bc-title').textContent = T.title;
+      document.getElementById('tool-title').textContent = T.title;
+      document.getElementById('tool-desc').textContent = T.desc;
+      document.getElementById('convert-btn-label').textContent = T.convertBtn;
+      document.getElementById('download-zip-label').textContent = T.downloadZip;
+      document.getElementById('scale-label').textContent = T.scale;
+
+      const faqs = lang === 'ar' ? [
+        { q: 'هل التحويل مجاني؟', a: 'نعم، مجاني تماماً.' },
+        { q: 'هل يتم رفع ملفاتي؟', a: 'لا. كل المعالجة تتم في متصفحك.' },
+        { q: 'ما جودة صور PNG؟', a: 'PNG بدون فقدان. يمكنك اختيار دقة من 1x إلى 3x.' },
+        { q: 'هل يمكنني تحميل كل الصفحات؟', a: 'نعم، تحميل جميع صور PNG كأرشيف ZIP.' }
+      ] : [
+        { q: 'Is PDF to PNG free?', a: 'Yes, completely free.' },
+        { q: 'Are my files uploaded?', a: 'No. All processing happens in your browser.' },
+        { q: 'What quality are the PNG images?', a: 'PNG is lossless. You can choose the resolution scale from 1x to 3x.' },
+        { q: 'Can I download all pages at once?', a: 'Yes, download all PNG images as a ZIP archive.' }
+      ];
+      document.getElementById('faq-list').innerHTML = faqs.map(f => `<details class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4"><summary class="font-semibold cursor-pointer text-sm">${f.q}</summary><p class="text-sm text-slate-600 dark:text-slate-400 mt-2">${f.a}</p></details>`).join('');
+
+      const related = ['pdfToJpg', 'extractImages', 'imageToPdf', 'split'];
+      document.getElementById('related-tools').innerHTML = related.map(key => {
+        const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
+        if (!tool) return '';
+        return `<a href="./${tool.slug}.html" class="tool-card text-center"><div class="text-2xl">${tool.icon}</div><p class="text-xs font-semibold mt-1">${PDFTools.t('tools.' + tool.key + '.title')}</p></a>`;
+      }).join('');
+
+      let pdfFile = null, pageCount = 0;
+      let pngImages = [];
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+      const fileInfo = document.getElementById('file-info');
+      const convertOptions = document.getElementById('convert-options');
+      const convertBtn = document.getElementById('convert-btn');
+      const progressArea = document.getElementById('progress-area');
+      const result = document.getElementById('result');
+      const imagesGrid = document.getElementById('images-grid');
+      const downloadZipBtn = document.getElementById('download-zip-btn');
+
+      PDFTools.initDropZone(dropZone, fileInput, async (newFiles) => {
+        pdfFile = newFiles[0];
+        const pdfjs = await PDFTools.ensurePDFJS();
+        const buf = await pdfFile.arrayBuffer();
+        const pdf = await pdfjs.getDocument({ data: buf }).promise;
+        pageCount = pdf.numPages; pngImages = [];
+        document.getElementById('file-name-display').textContent = pdfFile.name;
+        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' • ' + pageCount + ' ' + T.pageCount;
+        dropZone.classList.add('hidden'); fileInfo.classList.remove('hidden');
+        convertOptions.classList.remove('hidden'); result.classList.add('hidden');
+      }, { accept: '.pdf', multiple: false });
+
+      document.getElementById('remove-file').addEventListener('click', () => {
+        pdfFile = null; pngImages = [];
+        fileInfo.classList.add('hidden'); convertOptions.classList.add('hidden');
+        dropZone.classList.remove('hidden'); result.classList.add('hidden');
+      });
+
+      convertBtn.addEventListener('click', async () => {
+        if (!pdfFile) { PDFTools.toast(T.noFile); return; }
+        convertBtn.disabled = true; result.classList.add('hidden');
+        PDFTools.showProgress(progressArea, 5);
+        try {
+          const pdfjs = await PDFTools.ensurePDFJS();
+          const buf = await pdfFile.arrayBuffer();
+          const pdf = await pdfjs.getDocument({ data: buf }).promise;
+          const scale = parseFloat(document.getElementById('png-scale').value);
+          pngImages = [];
+
+          for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const viewport = page.getViewport({ scale });
+            const canvas = document.createElement('canvas');
+            canvas.width = viewport.width; canvas.height = viewport.height;
+            const ctx = canvas.getContext('2d');
+            await page.render({ canvasContext: ctx, viewport }).promise;
+            const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
+            const name = 'page_' + String(i).padStart(3, '0') + '.png';
+            pngImages.push({ blob, name, url: URL.createObjectURL(blob) });
+            PDFTools.showProgress(progressArea, 5 + Math.round((i / pdf.numPages) * 90));
+          }
+
+          PDFTools.showProgress(progressArea, 100);
+          document.getElementById('result-summary').textContent = pngImages.length + ' ' + T.imagesConverted;
+          imagesGrid.innerHTML = pngImages.map((img, idx) =>
+            '<div class="relative group bg-white dark:bg-slate-800 rounded-lg p-2 border border-slate-200 dark:border-slate-700">' +
+            '<img src="' + img.url + '" class="w-full h-24 object-contain rounded">' +
+            '<p class="text-xs text-slate-500 mt-1 truncate">' + img.name + '</p>' +
+            '<a href="' + img.url + '" download="' + img.name + '" class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-semibold rounded transition-opacity">' +
+            (lang === 'ar' ? 'تحميل' : 'Download') + '</a></div>'
+          ).join('');
+          result.classList.remove('hidden');
+          PDFTools.toast(PDFTools.t('common.done'));
+        } catch (err) {
+          console.error(err); PDFTools.toast(PDFTools.t('common.error') + ': ' + err.message);
+        } finally { convertBtn.disabled = false; }
+      });
+
+      downloadZipBtn.addEventListener('click', async () => {
+        if (pngImages.length === 0) return;
+        const JSZip = await PDFTools.ensureJSZip();
+        const zip = new JSZip();
+        pngImages.forEach(img => zip.file(img.name, img.blob));
+        const blob = await zip.generateAsync({ type: 'blob' });
+        PDFTools.downloadBlob(blob, pdfFile.name.replace(/\.pdf$/i, '') + '_png.zip');
+      });
+    });
+  </script>
+</body>
+</html>
