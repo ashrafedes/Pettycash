@@ -96,11 +96,11 @@
               <input type="number" id="every-n" class="pdf-input" value="1" min="1" style="max-width:120px">
             </div>
             <div id="preview-select" class="hidden">
-              <p class="text-sm text-slate-500 mb-2" data-pt="split.selectedPages">Selected pages</p>
+              <p id="selected-pages-label" class="text-sm text-slate-500 mb-2">Selected pages</p>
               <div id="groups-display" class="space-y-2"></div>
               <button id="new-group-btn" class="btn-pdf btn-pdf-secondary text-xs mt-2">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                <span data-pt="split.newGroup">New group</span>
+                <span id="new-group-label">New group</span>
               </button>
             </div>
           </div>
@@ -234,6 +234,10 @@
         document.getElementById('preview-area').classList.add('hidden');
       });
 
+      // Set labels for preview-select section
+      document.getElementById('selected-pages-label').textContent = splitT.selectedPages;
+      document.getElementById('new-group-label').textContent = splitT.newGroup;
+
       // Mode toggle
       let splitGroups = [[]]; // array of arrays of page indices
       let currentGroupIdx = 0;
@@ -241,11 +245,18 @@
       const groupsDisplay = document.getElementById('groups-display');
       const newGroupBtn = document.getElementById('new-group-btn');
 
+      function getAssignedPages() {
+        const all = new Set();
+        splitGroups.forEach((g, gi) => { if (gi !== currentGroupIdx) g.forEach(p => all.add(p)); });
+        return all;
+      }
+
       function renderGroups() {
         if (!splitGroups.length) groupsDisplay.innerHTML = '<p class="text-xs text-slate-400">' + splitT.noSelection + '</p>';
         else groupsDisplay.innerHTML = splitGroups.map((g, i) => {
           const pages = g.map(p => p + 1).join(', ');
-          return '<div class="flex items-center gap-2 text-sm"><span class="font-semibold text-blue-600">' + splitT.group + ' ' + (i+1) + ':</span><span class="text-slate-600 dark:text-slate-300">' + (pages || '—') + ' (' + g.length + ' ' + splitT.pages + ')</span>' + (splitGroups.length > 1 ? '<button class="text-red-400 hover:text-red-600 text-xs" data-del-group="' + i + '">✕</button>' : '') + '</div>';
+          const isActive = i === currentGroupIdx;
+          return '<div class="flex items-center gap-2 text-sm ' + (isActive ? 'bg-blue-50 dark:bg-blue-900/20 rounded px-2 py-1' : '') + '"><span class="font-semibold text-blue-600">' + splitT.group + ' ' + (i+1) + (isActive ? ' ←' : '') + ':</span><span class="text-slate-600 dark:text-slate-300">' + (pages || '—') + ' (' + g.length + ' ' + splitT.pages + ')</span>' + (splitGroups.length > 1 ? '<button class="text-red-400 hover:text-red-600 text-xs" data-del-group="' + i + '">✕</button>' : '') + '</div>';
         }).join('');
         groupsDisplay.querySelectorAll('[data-del-group]').forEach(btn => {
           btn.addEventListener('click', () => {
@@ -258,33 +269,18 @@
         });
       }
 
-      function rerenderPreviewSelectable() {
-        const previewArea = document.getElementById('preview-area');
-        const allSelected = new Set(splitGroups.flat());
-        // Update visual state without re-rendering canvases
-        previewArea.querySelectorAll('[data-page-index]').forEach(el => {
-          const idx = parseInt(el.dataset.pageIndex);
-          const badge = el.querySelector('.select-badge');
-          if (allSelected.has(idx)) {
-            el.classList.add('ring-4', 'ring-blue-500', 'rounded-lg');
-            // Find which group
-            let groupNum = 0, orderInGroup = 0;
-            for (let gi = 0; gi < splitGroups.length; gi++) {
-              const pos = splitGroups[gi].indexOf(idx);
-              if (pos >= 0) { groupNum = gi + 1; orderInGroup = pos + 1; break; }
-            }
-            if (!badge) {
-              const b = document.createElement('div');
-              b.className = 'select-badge absolute top-1 end-1 bg-blue-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shadow-lg';
-              b.textContent = groupNum + '.' + orderInGroup;
-              el.appendChild(b);
-            } else {
-              badge.textContent = groupNum + '.' + orderInGroup;
-              badge.className = 'select-badge absolute top-1 end-1 bg-blue-600 text-white text-xs font-bold w-7 h-6 rounded-full flex items-center justify-center shadow-lg text-[10px]';
-            }
-          } else {
-            el.classList.remove('ring-4', 'ring-blue-500', 'rounded-lg');
-            if (badge) badge.remove();
+      async function rerenderPreviewSelectable() {
+        if (!pdfFile) return;
+        const pa = document.getElementById('preview-area');
+        pa.innerHTML = '<p class="text-sm text-slate-500 text-center mb-3">Loading...</p>';
+        const assigned = Array.from(getAssignedPages());
+        const disabledLabel = lang === 'ar' ? 'مخصص' : 'Assigned';
+        await PDFTools.renderPDFPreview(pa, pdfFile, {
+          maxPages: 20, scale: 0.4, selectable: true,
+          disabledPages: assigned, disabledLabel,
+          onSelectionChange: (pages) => {
+            splitGroups[currentGroupIdx] = pages;
+            renderGroups();
           }
         });
       }
@@ -293,6 +289,7 @@
         splitGroups.push([]);
         currentGroupIdx = splitGroups.length - 1;
         renderGroups();
+        rerenderPreviewSelectable();
       });
 
       document.querySelectorAll('input[name="split-mode"]').forEach(r => {
@@ -303,19 +300,10 @@
           document.getElementById('preview-select').classList.toggle('hidden', mode !== 'preview' && r.checked);
           previewHint.classList.toggle('hidden', mode !== 'preview' || !r.checked);
           if (mode === 'preview' && r.checked) {
-            previewHint.textContent = lang === 'ar' ? 'انقر على الصفحات لتحديدها للمجموعة الحالية. أنشئ مجموعة جديدة لتقسيمها إلى ملفات منفصلة.' : 'Click pages to add them to the current group. Create a new group to split into separate files.';
-            // Re-render preview as selectable
-            if (pdfFile) {
-              const pa = document.getElementById('preview-area');
-              pa.innerHTML = '<p class="text-sm text-slate-500 text-center mb-3">Loading...</p>';
-              splitGroups = [[]]; currentGroupIdx = 0;
-              PDFTools.renderPDFPreview(pa, pdfFile, { maxPages: 20, scale: 0.4, selectable: true, onSelectionChange: (pages) => {
-                splitGroups[currentGroupIdx] = pages;
-                renderGroups();
-                rerenderPreviewSelectable();
-              }});
-              renderGroups();
-            }
+            previewHint.textContent = lang === 'ar' ? 'انقر على الصفحات لإضافتها للمجموعة الحالية. الصفحات المخصصة لمجموعة أخرى لا يمكن اختيارها. أنشئ مجموعة جديدة لملف منفصل.' : 'Click pages to add them to the current group. Assigned pages are locked. Create a new group for a separate file.';
+            splitGroups = [[]]; currentGroupIdx = 0;
+            rerenderPreviewSelectable();
+            renderGroups();
           } else {
             previewHint.classList.add('hidden');
           }

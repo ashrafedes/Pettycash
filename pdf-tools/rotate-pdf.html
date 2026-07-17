@@ -224,6 +224,22 @@
         previewHint.classList.add('hidden');
       });
 
+      function updateRotateHint() {
+        const angle = document.querySelector('input[name="angle"]:checked')?.value || '90';
+        const pagesMode = document.querySelector('input[name="pages-mode"]:checked')?.value;
+        if (pagesMode === 'preview') {
+          const selectedCount = selectedFromPreview.size;
+          previewHint.textContent = lang === 'ar'
+            ? 'الزاوية المحددة: ' + angle + '° — انقر على الصفحات لتحديدها للتدوير' + (selectedCount ? ' (' + selectedCount + ' صفحة محددة)' : '')
+            : 'Selected angle: ' + angle + '° — Click pages to select them for rotation' + (selectedCount ? ' (' + selectedCount + ' pages selected)' : '');
+        }
+      }
+
+      // Update hint when angle changes
+      document.querySelectorAll('input[name="angle"]').forEach(r => {
+        r.addEventListener('change', updateRotateHint);
+      });
+
       document.querySelectorAll('input[name="pages-mode"]').forEach(r => {
         r.addEventListener('change', () => {
           const isCustom = r.value === 'custom' && r.checked;
@@ -231,9 +247,9 @@
           document.getElementById('pages-custom').classList.toggle('hidden', !isCustom);
           previewHint.classList.toggle('hidden', !isPreview);
           if (isPreview) {
-            previewHint.textContent = lang === 'ar' ? 'انقر على الصفحات لتحديدها للتدوير' : 'Click pages to select them for rotation';
             selectedFromPreview.clear();
             renderPreview(true);
+            updateRotateHint();
           } else if (r.checked) {
             renderPreview(false);
           }

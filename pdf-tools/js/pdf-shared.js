@@ -230,6 +230,8 @@
     const scale = opts.scale || 0.4;
     const onProgress = opts.onProgress;
     const selectable = opts.selectable || false;
+    const disabledPages = opts.disabledPages ? new Set(opts.disabledPages) : new Set();
+    const disabledLabel = opts.disabledLabel || 'Assigned';
     const rotationMap = opts.rotationMap || null; // { pageIndex: angle }
     const onSelectionChange = opts.onSelectionChange;
     const pdfjs = await ensurePDFJS();
@@ -258,11 +260,13 @@
       await page.render({ canvasContext: ctx, viewport }).promise;
 
       const item = document.createElement('div');
-      item.className = 'relative cursor-pointer';
+      item.className = 'relative';
       item.dataset.pageIndex = i - 1;
       item.dataset.pageNum = i;
+      const isDisabled = disabledPages.has(i - 1);
 
-      if (selectable) {
+      if (selectable && !isDisabled) {
+        item.classList.add('cursor-pointer');
         item.addEventListener('click', () => {
           const idx = parseInt(item.dataset.pageIndex);
           if (selectedSet.has(idx)) {
@@ -286,6 +290,12 @@
           });
           if (onSelectionChange) onSelectionChange(Array.from(selectedSet).sort((a, b) => a - b));
         });
+      } else if (isDisabled) {
+        item.classList.add('opacity-40');
+        const lockBadge = document.createElement('div');
+        lockBadge.className = 'absolute top-1 end-1 bg-slate-500 text-white text-xs font-bold px-1.5 py-0.5 rounded shadow-lg';
+        lockBadge.textContent = disabledLabel;
+        item.appendChild(lockBadge);
       }
 
       item.appendChild(canvas);
