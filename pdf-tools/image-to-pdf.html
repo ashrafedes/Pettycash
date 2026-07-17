@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image to PDF — Convert Images to PDF Online Free | PettyCash.site</title>
+  <meta name="description" content="Convert JPG, PNG, BMP, and WebP images to a single PDF. Drag and drop, reorder, preview. Free, no upload, all in your browser.">
+  <link rel="canonical" href="https://pettycash.site/pdf-tools/image-to-pdf.html">
+  <meta property="og:title" content="Image to PDF — Convert Images to PDF Online Free">
+  <meta property="og:description" content="Convert JPG, PNG, BMP, WebP images to PDF. All in your browser.">
+  <meta property="og:url" content="https://pettycash.site/pdf-tools/image-to-pdf.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image to PDF — Convert Images to PDF Online Free">
+  <meta name="twitter:description" content="Convert images to PDF. All in your browser.">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@graph": [
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
+      { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Image to PDF", "item": "https://pettycash.site/pdf-tools/image-to-pdf.html" }
+    ]},
+    { "@type": "SoftwareApplication", "name": "Image to PDF", "description": "Convert images to a single PDF file. Free online tool.", "url": "https://pettycash.site/pdf-tools/image-to-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "Is converting images to PDF free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free." } },
+      { "@type": "Question", "name": "Are my images uploaded?", "acceptedAnswer": { "@type": "Answer", "text": "No. All processing happens in your browser." } },
+      { "@type": "Question", "name": "What image formats are supported?", "acceptedAnswer": { "@type": "Answer", "text": "JPG, PNG, BMP, WebP, and GIF images are supported." } },
+      { "@type": "Question", "name": "Can I reorder images before converting?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, drag and drop image thumbnails to reorder them." } }
+    ]}
+  ]}
+  </script>
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tailwind.min.css">
+  <link rel="stylesheet" href="./css/pdf-tools.css">
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <nav id="pdftool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
+  <main class="flex-1">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+      <nav class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+        <a href="../" class="hover:text-blue-600">Home</a><span>/</span>
+        <a href="./" class="hover:text-blue-600">PDF Tools</a><span>/</span>
+        <span class="text-slate-700 dark:text-slate-300" id="bc-title">Image to PDF</span>
+      </nav>
+    </div>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
+      <div class="text-5xl mb-4">🖼️</div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">Image to PDF</h1>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Convert JPG, PNG, BMP, and WebP images into a single PDF. Drag to reorder, preview each image.</p>
+    </section>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+      <div class="space-y-6">
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" class="hidden" multiple accept="image/jpeg,image/png,image/bmp,image/webp,image/gif">
+          <div class="text-4xl mb-3">🖼️</div>
+          <p class="font-semibold text-slate-700 dark:text-slate-200" id="drop-label">Drop your images here</p>
+          <p class="text-sm text-slate-500 mt-1" data-pt="common.orClick">or click to browse</p>
+        </div>
+
+        <!-- Image List -->
+        <div id="image-list" class="hidden space-y-2"></div>
+
+        <!-- Options + Convert -->
+        <div id="actions" class="hidden space-y-4">
+          <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 space-y-4">
+            <div>
+              <label class="block text-sm font-semibold mb-2" id="page-size-label">Page size</label>
+              <select id="page-size" class="pdf-input">
+                <option value="fit" id="opt-fit">Fit to image</option>
+                <option value="a4" id="opt-a4">A4</option>
+                <option value="letter" id="opt-letter">US Letter</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2" id="orientation-label">Orientation</label>
+              <select id="orientation" class="pdf-input">
+                <option value="portrait" id="opt-portrait">Portrait</option>
+                <option value="landscape" id="opt-landscape">Landscape</option>
+              </select>
+            </div>
+            <div>
+              <label class="flex items-center gap-2 cursor-pointer text-sm">
+                <input type="checkbox" id="fit-to-page" checked class="accent-blue-600">
+                <span id="fit-page-label">Fit image to page (with margin)</span>
+              </label>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <button id="add-more" class="btn-pdf btn-pdf-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              <span id="add-more-label">Add more images</span>
+            </button>
+            <button id="convert-btn" class="btn-pdf btn-pdf-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              <span id="convert-btn-label">Convert to PDF</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="progress-area"></div>
+
+        <div id="result" class="hidden text-center py-8">
+          <div class="text-4xl mb-3">✅</div>
+          <p class="font-semibold text-lg mb-4" data-pt="common.done">Done!</p>
+          <button id="download-btn" class="btn-pdf btn-pdf-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-pt="common.download">Download</span>
+          </button>
+        </div>
+      </div>
+      <div class="mt-16">
+        <h2 class="text-xl font-bold mb-6" data-pt="common.faq">FAQ</h2>
+        <div id="faq-list" class="space-y-3"></div>
+      </div>
+      <div class="mt-12">
+        <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-slate-900 text-slate-400 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm">
+      <p>&copy; 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p>
+    </div>
+  </footer>
+  <script defer src="./js/pdf-translations.js"></script>
+  <script defer src="./js/pdf-tools-registry.js"></script>
+  <script defer src="./js/pdf-shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      PDFTools.initTheme();
+      PDFTools.renderNav();
+      const lang = PDFTools.getLang();
+      const T = lang === 'ar' ? {
+        title: 'صور إلى PDF', desc: 'تحويل صور JPG و PNG و BMP و WebP إلى ملف PDF واحد. اسحب لإعادة الترتيب، معاينة كل صورة.',
+        dropHere: 'أفلت صورك هنا', addMore: 'إضافة المزيد من الصور', convertBtn: 'تحويل إلى PDF',
+        pageSize: 'حجم الصفحة', fit: 'ملاءمة للصورة', a4: 'A4', letter: 'US Letter',
+        orientation: 'الاتجاه', portrait: 'عمودي', landscape: 'أفقي',
+        fitPage: 'ملاءمة الصورة للصفحة (مع هامش)',
+        atLeast1: 'أضف صورة واحدة على الأقل'
+      } : {
+        title: 'Image to PDF', desc: 'Convert JPG, PNG, BMP, and WebP images into a single PDF. Drag to reorder, preview each image.',
+        dropHere: 'Drop your images here', addMore: 'Add more images', convertBtn: 'Convert to PDF',
+        pageSize: 'Page size', fit: 'Fit to image', a4: 'A4', letter: 'US Letter',
+        orientation: 'Orientation', portrait: 'Portrait', landscape: 'Landscape',
+        fitPage: 'Fit image to page (with margin)',
+        atLeast1: 'Add at least 1 image'
+      };
+      document.getElementById('bc-title').textContent = T.title;
+      document.getElementById('tool-title').textContent = T.title;
+      document.getElementById('tool-desc').textContent = T.desc;
+      document.getElementById('drop-label').textContent = T.dropHere;
+      document.getElementById('add-more-label').textContent = T.addMore;
+      document.getElementById('convert-btn-label').textContent = T.convertBtn;
+      document.getElementById('page-size-label').textContent = T.pageSize;
+      document.getElementById('opt-fit').textContent = T.fit;
+      document.getElementById('opt-a4').textContent = T.a4;
+      document.getElementById('opt-letter').textContent = T.letter;
+      document.getElementById('orientation-label').textContent = T.orientation;
+      document.getElementById('opt-portrait').textContent = T.portrait;
+      document.getElementById('opt-landscape').textContent = T.landscape;
+      document.getElementById('fit-page-label').textContent = T.fitPage;
+
+      const faqs = lang === 'ar' ? [
+        { q: 'هل تحويل الصور إلى PDF مجاني؟', a: 'نعم، مجاني تماماً.' },
+        { q: 'هل يتم رفع صوري؟', a: 'لا. كل المعالجة تتم في متصفحك.' },
+        { q: 'ما الصيغ المدعومة؟', a: 'JPG, PNG, BMP, WebP, و GIF.' },
+        { q: 'هل يمكنني إعادة ترتيب الصور؟', a: 'نعم، اسحب وأفلت الصور لإعادة ترتيبها.' }
+      ] : [
+        { q: 'Is converting images to PDF free?', a: 'Yes, completely free.' },
+        { q: 'Are my images uploaded?', a: 'No. All processing happens in your browser.' },
+        { q: 'What image formats are supported?', a: 'JPG, PNG, BMP, WebP, and GIF images are supported.' },
+        { q: 'Can I reorder images?', a: 'Yes, drag and drop image thumbnails to reorder them.' }
+      ];
+      document.getElementById('faq-list').innerHTML = faqs.map(f => `<details class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4"><summary class="font-semibold cursor-pointer text-sm">${f.q}</summary><p class="text-sm text-slate-600 dark:text-slate-400 mt-2">${f.a}</p></details>`).join('');
+
+      const related = ['pdfToJpg', 'merge', 'compress', 'watermark'];
+      document.getElementById('related-tools').innerHTML = related.map(key => {
+        const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
+        if (!tool) return '';
+        return `<a href="./${tool.slug}.html" class="tool-card text-center"><div class="text-2xl">${tool.icon}</div><p class="text-xs font-semibold mt-1">${PDFTools.t('tools.' + tool.key + '.title')}</p></a>`;
+      }).join('');
+
+      // ===================== Image to PDF Logic =====================
+      let images = [];
+      let resultBlob = null;
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+      const imageList = document.getElementById('image-list');
+      const actions = document.getElementById('actions');
+      const addMore = document.getElementById('add-more');
+      const convertBtn = document.getElementById('convert-btn');
+      const progressArea = document.getElementById('progress-area');
+      const result = document.getElementById('result');
+      const downloadBtn = document.getElementById('download-btn');
+
+      PDFTools.initDropZone(dropZone, fileInput, handleFiles, {
+        accept: 'image/jpeg,image/png,image/bmp,image/webp,image/gif', multiple: true
+      });
+
+      function handleFiles(newFiles) {
+        newFiles.forEach(f => images.push(f));
+        renderImageList();
+      }
+
+      function renderImageList() {
+        if (!images.length) {
+          imageList.classList.add('hidden');
+          actions.classList.add('hidden');
+          return;
+        }
+        imageList.classList.remove('hidden');
+        actions.classList.remove('hidden');
+
+        imageList.innerHTML = images.map((f, i) => `
+          <div class="file-item animate-fade-up" draggable="true" data-index="${i}">
+            <div class="file-icon">
+              <img src="${URL.createObjectURL(f)}" class="w-10 h-10 object-cover rounded" alt="preview">
+            </div>
+            <div class="file-info">
+              <div class="file-name">${f.name}</div>
+              <div class="file-meta">${PDFTools.formatBytes(f.size)} • #${i + 1}</div>
+            </div>
+            <button class="text-red-500 hover:text-red-700 p-1" data-remove="${i}" aria-label="Remove">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        `).join('');
+
+        imageList.querySelectorAll('[data-remove]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            images.splice(parseInt(btn.dataset.remove), 1);
+            renderImageList();
+          });
+        });
+
+        let dragIndex = null;
+        imageList.querySelectorAll('.file-item').forEach(item => {
+          item.addEventListener('dragstart', (e) => { dragIndex = parseInt(item.dataset.index); });
+          item.addEventListener('dragover', (e) => { e.preventDefault(); });
+          item.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const dropIndex = parseInt(item.dataset.index);
+            if (dragIndex !== null && dragIndex !== dropIndex) {
+              const moved = images.splice(dragIndex, 1)[0];
+              images.splice(dropIndex, 0, moved);
+              renderImageList();
+            }
+          });
+        });
+      }
+
+      addMore.addEventListener('click', () => fileInput.click());
+
+      const PAGE_SIZES = {
+        a4: { w: 595.28, h: 841.89 },
+        letter: { w: 612, h: 792 }
+      };
+
+      convertBtn.addEventListener('click', async () => {
+        if (!images.length) { PDFTools.toast(T.atLeast1); return; }
+        convertBtn.disabled = true;
+        result.classList.add('hidden');
+        PDFTools.showProgress(progressArea, 5);
+
+        try {
+          const { PDFDocument } = await PDFTools.ensurePDFLib();
+          const doc = await PDFDocument.create();
+          const pageSize = document.getElementById('page-size').value;
+          const orientation = document.getElementById('orientation').value;
+          const fitToPage = document.getElementById('fit-to-page').checked;
+          const total = images.length;
+
+          for (let i = 0; i < total; i++) {
+            const bytes = await images[i].arrayBuffer();
+            let img;
+            if (images[i].type === 'image/png') {
+              img = await doc.embedPng(bytes);
+            } else {
+              img = await doc.embedJpg(bytes);
+            }
+
+            let pageW, pageH;
+            if (pageSize === 'fit') {
+              pageW = img.width;
+              pageH = img.height;
+            } else {
+              const ps = PAGE_SIZES[pageSize];
+              pageW = orientation === 'landscape' ? ps.h : ps.w;
+              pageH = orientation === 'landscape' ? ps.w : ps.h;
+            }
+
+            const page = doc.addPage([pageW, pageH]);
+
+            if (pageSize !== 'fit' && fitToPage) {
+              const margin = 20;
+              const maxW = pageW - margin * 2;
+              const maxH = pageH - margin * 2;
+              const scale = Math.min(maxW / img.width, maxH / img.height);
+              const drawW = img.width * scale;
+              const drawH = img.height * scale;
+              page.drawImage(img, {
+                x: (pageW - drawW) / 2,
+                y: (pageH - drawH) / 2,
+                width: drawW,
+                height: drawH
+              });
+            } else {
+              page.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height });
+            }
+
+            PDFTools.showProgress(progressArea, Math.round(((i + 1) / total) * 90));
+          }
+
+          const out = await doc.save();
+          resultBlob = new Blob([out], { type: 'application/pdf' });
+          PDFTools.showProgress(progressArea, 100);
+          result.classList.remove('hidden');
+          PDFTools.toast(PDFTools.t('common.done'));
+        } catch (err) {
+          console.error(err);
+          PDFTools.toast(PDFTools.t('common.error') + ': ' + err.message);
+        } finally {
+          convertBtn.disabled = false;
+        }
+      });
+
+      downloadBtn.addEventListener('click', () => {
+        if (resultBlob) PDFTools.downloadBlob(resultBlob, 'images_converted.pdf');
+      });
+    });
+  </script>
+</body>
+</html>
