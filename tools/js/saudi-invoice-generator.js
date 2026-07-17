@@ -76,17 +76,20 @@
     container.innerHTML = '';
     state.items.forEach((item, idx) => {
       const div = document.createElement('div');
-      div.className = 'grid grid-cols-12 gap-2 items-start bg-slate-50 dark:bg-slate-700/30 p-3 rounded-xl border border-slate-200 dark:border-slate-600 animate-fade-in';
+      div.className = 'bg-slate-50 dark:bg-slate-700/30 p-3 rounded-xl border border-slate-200 dark:border-slate-600 animate-fade-in space-y-2';
       div.innerHTML = `
-        <div class="col-span-12 sm:col-span-4"><input type="text" data-field="description" data-id="${item.id}" value="${esc(item.description)}" placeholder="${t('common.description')}" class="form-input"></div>
-        <div class="col-span-4 sm:col-span-2"><input type="number" min="0" step="1" data-field="quantity" data-id="${item.id}" value="${item.quantity}" placeholder="${t('common.quantity')}" class="form-input"></div>
-        <div class="col-span-4 sm:col-span-2"><input type="text" data-field="unit" data-id="${item.id}" value="${esc(item.unit)}" placeholder="${t('common.unit')}" class="form-input"></div>
-        <div class="col-span-4 sm:col-span-2"><input type="number" min="0" step="0.01" data-field="unitPrice" data-id="${item.id}" value="${item.unitPrice}" placeholder="${t('common.unitPrice')}" class="form-input"></div>
-        <div class="col-span-4 sm:col-span-1"><input type="number" min="0" step="0.01" data-field="discount" data-id="${item.id}" value="${item.discount}" placeholder="%" class="form-input"></div>
-        <div class="col-span-4 sm:col-span-2"><input type="number" min="0" step="0.01" data-field="vatPercent" data-id="${item.id}" value="${item.vatPercent}" placeholder="${t('common.tax')}%" class="form-input"></div>
-        <div class="col-span-4 sm:col-span-1 flex flex-col gap-1">
-          <button type="button" data-dup="${item.id}" class="p-2 rounded-lg bg-blue-50 dark:bg-slate-600 text-blue-600 dark:text-blue-300 hover:bg-blue-100" title="${t('common.duplicate')}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
-          <button type="button" data-del="${item.id}" class="p-2 rounded-lg bg-red-50 dark:bg-slate-600 text-red-600 dark:text-red-300 hover:bg-red-100" title="${t('common.delete')}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-slate-400">#${idx + 1}</span>
+          <input type="text" data-field="description" data-id="${item.id}" value="${esc(item.description)}" placeholder="${t('common.description')}" class="form-input flex-1">
+          <button type="button" data-dup="${item.id}" class="p-2 rounded-lg bg-blue-50 dark:bg-slate-600 text-blue-600 dark:text-blue-300 hover:bg-blue-100 shrink-0" title="${t('common.duplicate')}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+          <button type="button" data-del="${item.id}" class="p-2 rounded-lg bg-red-50 dark:bg-slate-600 text-red-600 dark:text-red-300 hover:bg-red-100 shrink-0" title="${t('common.delete')}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+          <div><label class="block text-xs text-slate-500 mb-0.5">${t('common.quantity')}</label><input type="number" min="0" step="1" data-field="quantity" data-id="${item.id}" value="${item.quantity}" class="form-input"></div>
+          <div><label class="block text-xs text-slate-500 mb-0.5">${t('common.unit')}</label><input type="text" data-field="unit" data-id="${item.id}" value="${esc(item.unit)}" class="form-input"></div>
+          <div><label class="block text-xs text-slate-500 mb-0.5">${t('common.unitPrice')}</label><input type="number" min="0" step="0.01" data-field="unitPrice" data-id="${item.id}" value="${item.unitPrice}" class="form-input"></div>
+          <div><label class="block text-xs text-slate-500 mb-0.5">${t('common.discount')} %</label><input type="number" min="0" step="0.01" data-field="discount" data-id="${item.id}" value="${item.discount}" class="form-input"></div>
+          <div><label class="block text-xs text-slate-500 mb-0.5">${t('common.tax')} %</label><input type="number" min="0" step="0.01" data-field="vatPercent" data-id="${item.id}" value="${item.vatPercent}" class="form-input"></div>
         </div>
       `;
       container.appendChild(div);
