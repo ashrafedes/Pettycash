@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Remove Watermark — Free Online | PettyCash.site</title>
-  <meta name="description" content="Remove watermarks from your PDF pages. Free, secure, no permanent storage.">
+  <meta name="description" content="Remove text watermarks from your PDF. Free, no upload, all in your browser.">
   <link rel="canonical" href="https://pettycash.site/pdf-tools/remove-watermark.html">
   <meta property="og:title" content="Remove Watermark — Free Online">
-  <meta property="og:description" content="Remove watermarks from your PDF pages.">
+  <meta property="og:description" content="Remove text watermarks from your PDF. Free, no upload, all in your browser.">
   <meta property="og:url" content="https://pettycash.site/pdf-tools/remove-watermark.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pettycash.site/images/favicon.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Remove Watermark — Free Online">
-  <meta name="twitter:description" content="Remove watermarks from your PDF pages.">
+  <meta name="twitter:description" content="Remove text watermarks from your PDF. Free, no upload, all in your browser.">
   <meta name="robots" content="index, follow">
   <script type="application/ld+json">
   { "@context": "https://schema.org", "@graph": [
@@ -22,8 +22,8 @@
       { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
       { "@type": "ListItem", "position": 3, "name": "Remove Watermark", "item": "https://pettycash.site/pdf-tools/remove-watermark.html" }
     ]},
-    { "@type": "SoftwareApplication", "name": "Remove Watermark", "description": "Remove watermarks from your PDF pages.", "url": "https://pettycash.site/pdf-tools/remove-watermark.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
-    { "@type": "FAQPage", "mainEntity": [{"@type":"Question","name":"Is removing watermarks free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free."}},{"@type":"Question","name":"Are my files uploaded?","acceptedAnswer":{"@type":"Answer","text":"This tool requires server-side processing. Your file is processed and immediately deleted."}},{"@type":"Question","name":"Can it remove any watermark?","acceptedAnswer":{"@type":"Answer","text":"Text and image watermarks can be removed. Some complex watermarks may not be fully removable."}},{"@type":"Question","name":"Is it legal?","acceptedAnswer":{"@type":"Answer","text":"Only remove watermarks from documents you own or have permission to modify."}}] }
+    { "@type": "SoftwareApplication", "name": "Remove Watermark", "description": "Remove text watermarks from your PDF. Free, no upload, all in your browser.", "url": "https://pettycash.site/pdf-tools/remove-watermark.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "FAQPage", "mainEntity": [{"@type":"Question","name":"Is removing watermarks free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free."}},{"@type":"Question","name":"Are my files uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens in your browser."}},{"@type":"Question","name":"How does it work?","acceptedAnswer":{"@type":"Answer","text":"Enter the watermark text and it will be covered with white rectangles on all pages."}},{"@type":"Question","name":"Is it legal?","acceptedAnswer":{"@type":"Answer","text":"Only remove watermarks from documents you own or have permission to modify."}}] }
   ]}
   </script>
   <link rel="icon" type="image/png" href="../images/favicon.png">
@@ -46,43 +46,120 @@
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
       <div class="text-5xl mb-4">🚫</div>
       <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">Remove Watermark</h1>
-      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Remove watermarks from your PDF pages.</p>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Remove text watermarks from your PDF. Free, no upload, all in your browser.</p>
     </section>
     <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
       <div class="space-y-6">
-        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-8 text-center">
-          <div class="text-3xl mb-3">🚫</div>
-          <p class="font-semibold text-lg mb-2" id="coming-soon-title">This tool is coming soon</p>
-          <p class="text-sm text-slate-500 mb-4" id="coming-soon-desc">We're working on bringing this tool to you. In the meantime, check out our other free PDF tools that work entirely in your browser.</p>
-          <a href="./" class="btn-pdf btn-pdf-primary inline-block"><span id="browse-tools-label">Browse All PDF Tools</span></a>
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" class="hidden" accept=".pdf">
+          <div class="text-4xl mb-3">🚫</div>
+          <p class="font-semibold text-slate-700 dark:text-slate-200" data-pt="common.dropHere">Drop your file here</p>
+          <p class="text-sm text-slate-500 mt-1" data-pt="common.orClick">or click to browse</p>
+        </div>
+        <div id="file-info" class="hidden file-item">
+          <div class="file-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div class="file-info"><div class="file-name" id="file-name-display"></div><div class="file-meta" id="file-meta-display"></div></div>
+          <button id="remove-file" class="text-red-500 hover:text-red-700 p-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div id="rm-options" class="hidden space-y-4">
+          <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
+            <label class="block text-xs font-semibold mb-2">Watermark text to remove</label>
+            <input id="wm-text" class="pdf-input text-sm" placeholder="e.g. CONFIDENTIAL, DRAFT, SAMPLE...">
+            <p class="text-xs text-slate-400 mt-2">Enter the exact text of the watermark. It will be searched on all pages and covered with white rectangles.</p>
+          </div>
+          <div class="text-center"><button id="rm-btn" class="btn-pdf btn-pdf-primary"><span>Remove Watermark</span></button></div>
+        </div>        <div id="progress-area"></div>
+        <div id="result" class="hidden text-center py-8">
+          <div class="text-4xl mb-3">✅</div>
+          <p class="font-semibold text-lg mb-4" data-pt="common.done">Done!</p>
+          <button id="download-btn" class="btn-pdf btn-pdf-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-pt="common.download">Download</span></button>
         </div>
       </div>
       <div class="mt-16"><h2 class="text-xl font-bold mb-6" data-pt="common.faq">FAQ</h2><div id="faq-list" class="space-y-3"></div></div>
       <div class="mt-12"><h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2><div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div></div>
     </section>
   </main>
-  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>&copy; 2026 PettyCash.site — Free PDF Tools.</p></div></footer>
+  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>&copy; 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p></div></footer>
   <script defer src="./js/pdf-translations.js"></script>
   <script defer src="./js/pdf-tools-registry.js"></script>
   <script defer src="./js/pdf-shared.js"></script>
+  
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       PDFTools.initTheme(); PDFTools.renderNav();
       const lang = PDFTools.getLang();
-      const faqs = [{"q":"Is removing watermarks free?","a":"Yes, completely free."},{"q":"Are my files uploaded?","a":"This tool requires server-side processing. Your file is processed and immediately deleted."},{"q":"Can it remove any watermark?","a":"Text and image watermarks can be removed. Some complex watermarks may not be fully removable."},{"q":"Is it legal?","a":"Only remove watermarks from documents you own or have permission to modify."}];
+      const faqs = [{"q":"Is removing watermarks free?","a":"Yes, completely free."},{"q":"Are my files uploaded?","a":"No. All processing happens in your browser."},{"q":"How does it work?","a":"Enter the watermark text and it will be covered with white rectangles on all pages."},{"q":"Is it legal?","a":"Only remove watermarks from documents you own or have permission to modify."}];
       document.getElementById('faq-list').innerHTML = faqs.map(f => '<details class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4"><summary class="font-semibold cursor-pointer text-sm">'+f.q+'</summary><p class="text-sm text-slate-600 dark:text-slate-400 mt-2">'+f.a+'</p></details>').join('');
-      if (lang === 'ar') {
-        document.getElementById('coming-soon-title').textContent = 'هذه الأداة قريباً';
-        document.getElementById('coming-soon-desc').textContent = 'نحن نعمل على توفير هذه الأداة. في غضون ذلك، جرّب أدوات PDF المجانية الأخرى التي تعمل بالكامل في متصفحك.';
-        document.getElementById('browse-tools-label').textContent = 'تصفح جميع أدوات PDF';
-      }
-      const related = ["merge","split","compress","rotate"];
+      const related = ["watermark","edit","compress","protect"];
       document.getElementById('related-tools').innerHTML = related.map(key => {
         const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
         if (!tool) return '';
         return '<a href="./'+tool.slug+'.html" class="tool-card text-center"><div class="text-2xl">'+tool.icon+'</div><p class="text-xs font-semibold mt-1">'+PDFTools.t('tools.'+tool.key+'.title')+'</p></a>';
       }).join('');
+      
+      let pdfFile=null, resultBlob=null;
+      PDFTools.initDropZone(document.getElementById('drop-zone'), document.getElementById('file-input'), async (f) => {
+        pdfFile=f[0]; resultBlob=null;
+        const pdfjs=await PDFTools.ensurePDFJS();
+        const buf=await pdfFile.arrayBuffer();
+        const pdf=await pdfjs.getDocument({data:buf}).promise;
+        document.getElementById('file-name-display').textContent=pdfFile.name;
+        document.getElementById('file-meta-display').textContent=PDFTools.formatBytes(pdfFile.size)+' • '+pdf.numPages+' pages';
+        document.getElementById('drop-zone').classList.add('hidden');
+        document.getElementById('file-info').classList.remove('hidden');
+        document.getElementById('rm-options').classList.remove('hidden');
+        document.getElementById('result').classList.add('hidden');
+      }, {accept:'.pdf', multiple:false});
+      document.getElementById('remove-file').addEventListener('click', () => {
+        pdfFile=null; resultBlob=null;
+        document.getElementById('file-info').classList.add('hidden');
+        document.getElementById('rm-options').classList.add('hidden');
+        document.getElementById('drop-zone').classList.remove('hidden');
+        document.getElementById('result').classList.add('hidden');
+      });
+      document.getElementById('rm-btn').addEventListener('click', async () => {
+        if(!pdfFile){PDFTools.toast('Select a PDF file first');return;}
+        const wmText=document.getElementById('wm-text').value.trim();
+        if(!wmText){PDFTools.toast('Enter watermark text');return;}
+        const btn=document.getElementById('rm-btn'); btn.disabled=true;
+        document.getElementById('result').classList.add('hidden');
+        PDFTools.showProgress(document.getElementById('progress-area'),10);
+        try {
+          const pdfjs=await PDFTools.ensurePDFJS();
+          const {PDFDocument,rgb}=await PDFTools.ensurePDFLib();
+          const buf=await pdfFile.arrayBuffer();
+          const pdf=await pdfjs.getDocument({data:buf}).promise;
+          const doc=await PDFDocument.load(buf,{ignoreEncryption:true});
+          const pages=doc.getPages();
+          let removed=0;
+          for(let i=0;i<pages.length;i++){
+            const page=pages[i];
+            const {width,height}=page.getSize();
+            const content=await pdf.getPage(i+1).then(p=>p.getTextContent());
+            // Find watermark text positions
+            content.items.forEach(item=>{
+              if(item.str&&item.str.toLowerCase().includes(wmText.toLowerCase())){
+                const x=item.transform[4];
+                const y=item.transform[5];
+                const w=item.width||100;
+                const h=item.height||20;
+                // Cover with white rectangle
+                page.drawRectangle({x:x-2,y:y-2,width:w+4,height:h+4,color:rgb(1,1,1)});
+                removed++;
+              }
+            });
+            PDFTools.showProgress(document.getElementById('progress-area'),10+Math.round((i/pages.length)*80));
+          }
+          const out=await doc.save();
+          resultBlob=new Blob([out],{type:'application/pdf'});
+          PDFTools.showProgress(document.getElementById('progress-area'),100);
+          document.getElementById('result').classList.remove('hidden');
+          PDFTools.toast(removed>0?'Removed '+removed+' watermark(s)':'No watermark found');
+        } catch(err){console.error(err);PDFTools.toast(PDFTools.t('common.error')+': '+err.message);} finally{btn.disabled=false;}
+      });
+      document.getElementById('download-btn').addEventListener('click',()=>{if(resultBlob)PDFTools.downloadBlob(resultBlob,pdfFile.name.replace(/\.pdf$/i,'')+'_nowm.pdf');});
     });
   </script>
+  
 </body>
 </html>

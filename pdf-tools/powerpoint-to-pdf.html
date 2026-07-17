@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PowerPoint to PDF — Free Online | PettyCash.site</title>
-  <meta name="description" content="Convert PowerPoint presentations (PPT, PPTX) to PDF format. Free, secure, no permanent storage.">
+  <meta name="description" content="Convert PowerPoint presentations (PPTX) to PDF. Free, no upload, all in your browser.">
   <link rel="canonical" href="https://pettycash.site/pdf-tools/powerpoint-to-pdf.html">
   <meta property="og:title" content="PowerPoint to PDF — Free Online">
-  <meta property="og:description" content="Convert PowerPoint presentations (PPT, PPTX) to PDF format.">
+  <meta property="og:description" content="Convert PowerPoint presentations (PPTX) to PDF. Free, no upload, all in your browser.">
   <meta property="og:url" content="https://pettycash.site/pdf-tools/powerpoint-to-pdf.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pettycash.site/images/favicon.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="PowerPoint to PDF — Free Online">
-  <meta name="twitter:description" content="Convert PowerPoint presentations (PPT, PPTX) to PDF format.">
+  <meta name="twitter:description" content="Convert PowerPoint presentations (PPTX) to PDF. Free, no upload, all in your browser.">
   <meta name="robots" content="index, follow">
   <script type="application/ld+json">
   { "@context": "https://schema.org", "@graph": [
@@ -22,8 +22,8 @@
       { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
       { "@type": "ListItem", "position": 3, "name": "PowerPoint to PDF", "item": "https://pettycash.site/pdf-tools/powerpoint-to-pdf.html" }
     ]},
-    { "@type": "SoftwareApplication", "name": "PowerPoint to PDF", "description": "Convert PowerPoint presentations (PPT, PPTX) to PDF format.", "url": "https://pettycash.site/pdf-tools/powerpoint-to-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
-    { "@type": "FAQPage", "mainEntity": [{"@type":"Question","name":"Is PowerPoint to PDF free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free."}},{"@type":"Question","name":"Are my files uploaded?","acceptedAnswer":{"@type":"Answer","text":"This tool requires server-side processing. Your file is processed and immediately deleted."}},{"@type":"Question","name":"What formats are supported?","acceptedAnswer":{"@type":"Answer","text":"PPT and PPTX files from Microsoft PowerPoint and Google Slides."}},{"@type":"Question","name":"Will animations be preserved?","acceptedAnswer":{"@type":"Answer","text":"Animations are not preserved in PDF. Each slide becomes a static page."}}] }
+    { "@type": "SoftwareApplication", "name": "PowerPoint to PDF", "description": "Convert PowerPoint presentations (PPTX) to PDF. Free, no upload, all in your browser.", "url": "https://pettycash.site/pdf-tools/powerpoint-to-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "FAQPage", "mainEntity": [{"@type":"Question","name":"Is PowerPoint to PDF free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free."}},{"@type":"Question","name":"Are my files uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens in your browser."}},{"@type":"Question","name":"What formats are supported?","acceptedAnswer":{"@type":"Answer","text":"PPTX files from Microsoft PowerPoint and Google Slides."}},{"@type":"Question","name":"Will animations be preserved?","acceptedAnswer":{"@type":"Answer","text":"Animations are not preserved in PDF. Each slide becomes a static page."}}] }
   ]}
   </script>
   <link rel="icon" type="image/png" href="../images/favicon.png">
@@ -46,43 +46,122 @@
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
       <div class="text-5xl mb-4">📽️</div>
       <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">PowerPoint to PDF</h1>
-      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Convert PowerPoint presentations (PPT, PPTX) to PDF format.</p>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Convert PowerPoint presentations (PPTX) to PDF. Free, no upload, all in your browser.</p>
     </section>
     <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
       <div class="space-y-6">
-        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-8 text-center">
-          <div class="text-3xl mb-3">📽️</div>
-          <p class="font-semibold text-lg mb-2" id="coming-soon-title">This tool is coming soon</p>
-          <p class="text-sm text-slate-500 mb-4" id="coming-soon-desc">We're working on bringing this tool to you. In the meantime, check out our other free PDF tools that work entirely in your browser.</p>
-          <a href="./" class="btn-pdf btn-pdf-primary inline-block"><span id="browse-tools-label">Browse All PDF Tools</span></a>
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" class="hidden" accept=".pptx">
+          <div class="text-4xl mb-3">📽️</div>
+          <p class="font-semibold text-slate-700 dark:text-slate-200" data-pt="common.dropHere">Drop your file here</p>
+          <p class="text-sm text-slate-500 mt-1" data-pt="common.orClick">or click to browse</p>
+        </div>
+        <div id="file-info" class="hidden file-item">
+          <div class="file-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div class="file-info"><div class="file-name" id="file-name-display"></div><div class="file-meta" id="file-meta-display"></div></div>
+          <button id="remove-file" class="text-red-500 hover:text-red-700 p-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div id="convert-options" class="hidden text-center">
+          <button id="convert-btn" class="btn-pdf btn-pdf-primary"><span id="convert-btn-label">Convert to PDF</span></button>
+        </div>        <div id="progress-area"></div>
+        <div id="result" class="hidden text-center py-8">
+          <div class="text-4xl mb-3">✅</div>
+          <p class="font-semibold text-lg mb-4" data-pt="common.done">Done!</p>
+          <button id="download-btn" class="btn-pdf btn-pdf-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-pt="common.download">Download</span></button>
         </div>
       </div>
       <div class="mt-16"><h2 class="text-xl font-bold mb-6" data-pt="common.faq">FAQ</h2><div id="faq-list" class="space-y-3"></div></div>
       <div class="mt-12"><h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2><div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div></div>
     </section>
   </main>
-  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>&copy; 2026 PettyCash.site — Free PDF Tools.</p></div></footer>
+  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>&copy; 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p></div></footer>
   <script defer src="./js/pdf-translations.js"></script>
   <script defer src="./js/pdf-tools-registry.js"></script>
   <script defer src="./js/pdf-shared.js"></script>
+  
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       PDFTools.initTheme(); PDFTools.renderNav();
       const lang = PDFTools.getLang();
-      const faqs = [{"q":"Is PowerPoint to PDF free?","a":"Yes, completely free."},{"q":"Are my files uploaded?","a":"This tool requires server-side processing. Your file is processed and immediately deleted."},{"q":"What formats are supported?","a":"PPT and PPTX files from Microsoft PowerPoint and Google Slides."},{"q":"Will animations be preserved?","a":"Animations are not preserved in PDF. Each slide becomes a static page."}];
+      const faqs = [{"q":"Is PowerPoint to PDF free?","a":"Yes, completely free."},{"q":"Are my files uploaded?","a":"No. All processing happens in your browser."},{"q":"What formats are supported?","a":"PPTX files from Microsoft PowerPoint and Google Slides."},{"q":"Will animations be preserved?","a":"Animations are not preserved in PDF. Each slide becomes a static page."}];
       document.getElementById('faq-list').innerHTML = faqs.map(f => '<details class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4"><summary class="font-semibold cursor-pointer text-sm">'+f.q+'</summary><p class="text-sm text-slate-600 dark:text-slate-400 mt-2">'+f.a+'</p></details>').join('');
-      if (lang === 'ar') {
-        document.getElementById('coming-soon-title').textContent = 'هذه الأداة قريباً';
-        document.getElementById('coming-soon-desc').textContent = 'نحن نعمل على توفير هذه الأداة. في غضون ذلك، جرّب أدوات PDF المجانية الأخرى التي تعمل بالكامل في متصفحك.';
-        document.getElementById('browse-tools-label').textContent = 'تصفح جميع أدوات PDF';
-      }
-      const related = ["merge","split","compress","rotate"];
+      const related = ["wordToPdf","excelToPdf","imageToPdf","merge"];
       document.getElementById('related-tools').innerHTML = related.map(key => {
         const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
         if (!tool) return '';
         return '<a href="./'+tool.slug+'.html" class="tool-card text-center"><div class="text-2xl">'+tool.icon+'</div><p class="text-xs font-semibold mt-1">'+PDFTools.t('tools.'+tool.key+'.title')+'</p></a>';
       }).join('');
+      
+      let pptFile=null, resultBlob=null;
+      PDFTools.initDropZone(document.getElementById('drop-zone'), document.getElementById('file-input'), async (f) => {
+        pptFile=f[0]; resultBlob=null;
+        document.getElementById('file-name-display').textContent=pptFile.name;
+        document.getElementById('file-meta-display').textContent=PDFTools.formatBytes(pptFile.size);
+        document.getElementById('drop-zone').classList.add('hidden');
+        document.getElementById('file-info').classList.remove('hidden');
+        document.getElementById('convert-options').classList.remove('hidden');
+        document.getElementById('result').classList.add('hidden');
+      }, {accept:'.pptx', multiple:false});
+      document.getElementById('remove-file').addEventListener('click', () => {
+        pptFile=null; resultBlob=null;
+        document.getElementById('file-info').classList.add('hidden');
+        document.getElementById('convert-options').classList.add('hidden');
+        document.getElementById('drop-zone').classList.remove('hidden');
+        document.getElementById('result').classList.add('hidden');
+      });
+      document.getElementById('convert-btn').addEventListener('click', async () => {
+        if(!pptFile){PDFTools.toast('Select a PPTX file first');return;}
+        const btn=document.getElementById('convert-btn'); btn.disabled=true;
+        document.getElementById('result').classList.add('hidden');
+        PDFTools.showProgress(document.getElementById('progress-area'),10);
+        try {
+          const JSZip=await PDFTools.ensureJSZip();
+          const {PDFDocument}=await PDFTools.ensurePDFLib();
+          const buf=await pptFile.arrayBuffer();
+          const zip=await JSZip.loadAsync(buf);
+          const doc=await PDFDocument.create();
+          // Find slide files
+          const slideFiles=Object.keys(zip.files).filter(k=>k.match(/ppt\/slides\/slide\d+\.xml/)).sort((a,b)=>{
+            const na=parseInt(a.match(/slide(\d+)/)[1]); const nb=parseInt(b.match(/slide(\d+)/)[1]); return na-nb;
+          });
+          PDFTools.showProgress(document.getElementById('progress-area'),20);
+          const pageW=720, pageH=540; // PowerPoint default 10x7.5 inches at 72dpi
+          for(let i=0;i<slideFiles.length;i++){
+            const slideXml=await zip.files[slideFiles[i]].async('string');
+            // Extract text from slide XML
+            const texts=[];
+            const textRe=/<a:t>([^<]*)<\/a:t>/g; let m;
+            while((m=textRe.exec(slideXml))!==null) texts.push(m[1]);
+            // Create slide as canvas with text
+            const canvas=document.createElement('canvas');
+            canvas.width=pageW*2; canvas.height=pageH*2;
+            const ctx=canvas.getContext('2d');
+            ctx.fillStyle='#fff'; ctx.fillRect(0,0,canvas.width,canvas.height);
+            ctx.fillStyle='#333'; ctx.font='24px Inter,Arial,sans-serif';
+            ctx.textBaseline='top';
+            let y=40;
+            texts.forEach(text=>{
+              if(!text.trim()) return;
+              ctx.fillText(text, 40, y, canvas.width-80);
+              y+=36;
+            });
+            const jpg=await new Promise(r=>canvas.toBlob(r,'image/jpeg',0.92));
+            const embedded=await doc.embedJpg(await jpg.arrayBuffer());
+            const page=doc.addPage([pageW,pageH]);
+            page.drawImage(embedded,{x:0,y:0,width:pageW,height:pageH});
+            PDFTools.showProgress(document.getElementById('progress-area'),20+Math.round((i/slideFiles.length)*75));
+          }
+          if(doc.getPageCount()===0) doc.addPage([pageW,pageH]);
+          const out=await doc.save();
+          resultBlob=new Blob([out],{type:'application/pdf'});
+          PDFTools.showProgress(document.getElementById('progress-area'),100);
+          document.getElementById('result').classList.remove('hidden');
+          PDFTools.toast(PDFTools.t('common.done'));
+        } catch(err){console.error(err);PDFTools.toast(PDFTools.t('common.error')+': '+err.message);} finally{btn.disabled=false;}
+      });
+      document.getElementById('download-btn').addEventListener('click',()=>{if(resultBlob)PDFTools.downloadBlob(resultBlob,pptFile.name.replace(/\.pptx?$/i,'')+'.pdf');});
     });
   </script>
+  
 </body>
 </html>

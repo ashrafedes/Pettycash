@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Excel to PDF — Free Online | PettyCash.site</title>
-  <meta name="description" content="Convert Excel spreadsheets (XLS, XLSX) to PDF format. Free, secure, no permanent storage.">
+  <meta name="description" content="Convert Excel spreadsheets (XLSX) to PDF. Free, no upload, all in your browser.">
   <link rel="canonical" href="https://pettycash.site/pdf-tools/excel-to-pdf.html">
   <meta property="og:title" content="Excel to PDF — Free Online">
-  <meta property="og:description" content="Convert Excel spreadsheets (XLS, XLSX) to PDF format.">
+  <meta property="og:description" content="Convert Excel spreadsheets (XLSX) to PDF. Free, no upload, all in your browser.">
   <meta property="og:url" content="https://pettycash.site/pdf-tools/excel-to-pdf.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pettycash.site/images/favicon.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Excel to PDF — Free Online">
-  <meta name="twitter:description" content="Convert Excel spreadsheets (XLS, XLSX) to PDF format.">
+  <meta name="twitter:description" content="Convert Excel spreadsheets (XLSX) to PDF. Free, no upload, all in your browser.">
   <meta name="robots" content="index, follow">
   <script type="application/ld+json">
   { "@context": "https://schema.org", "@graph": [
@@ -22,8 +22,8 @@
       { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
       { "@type": "ListItem", "position": 3, "name": "Excel to PDF", "item": "https://pettycash.site/pdf-tools/excel-to-pdf.html" }
     ]},
-    { "@type": "SoftwareApplication", "name": "Excel to PDF", "description": "Convert Excel spreadsheets (XLS, XLSX) to PDF format.", "url": "https://pettycash.site/pdf-tools/excel-to-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
-    { "@type": "FAQPage", "mainEntity": [{"@type":"Question","name":"Is Excel to PDF free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free."}},{"@type":"Question","name":"Are my files uploaded?","acceptedAnswer":{"@type":"Answer","text":"This tool requires server-side processing. Your file is processed and immediately deleted."}},{"@type":"Question","name":"What formats are supported?","acceptedAnswer":{"@type":"Answer","text":"XLS and XLSX files from Microsoft Excel, Google Sheets, and other spreadsheet apps."}},{"@type":"Question","name":"Will formulas be preserved?","acceptedAnswer":{"@type":"Answer","text":"Formula results are preserved as calculated values in the PDF."}}] }
+    { "@type": "SoftwareApplication", "name": "Excel to PDF", "description": "Convert Excel spreadsheets (XLSX) to PDF. Free, no upload, all in your browser.", "url": "https://pettycash.site/pdf-tools/excel-to-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "FAQPage", "mainEntity": [{"@type":"Question","name":"Is Excel to PDF free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free."}},{"@type":"Question","name":"Are my files uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens in your browser."}},{"@type":"Question","name":"What formats are supported?","acceptedAnswer":{"@type":"Answer","text":"XLSX files from Microsoft Excel, Google Sheets, and other spreadsheet apps."}},{"@type":"Question","name":"Will formulas be preserved?","acceptedAnswer":{"@type":"Answer","text":"Formula results are preserved as calculated values in the PDF."}}] }
   ]}
   </script>
   <link rel="icon" type="image/png" href="../images/favicon.png">
@@ -46,43 +46,135 @@
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
       <div class="text-5xl mb-4">📊</div>
       <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">Excel to PDF</h1>
-      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Convert Excel spreadsheets (XLS, XLSX) to PDF format.</p>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Convert Excel spreadsheets (XLSX) to PDF. Free, no upload, all in your browser.</p>
     </section>
     <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
       <div class="space-y-6">
-        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-8 text-center">
-          <div class="text-3xl mb-3">📊</div>
-          <p class="font-semibold text-lg mb-2" id="coming-soon-title">This tool is coming soon</p>
-          <p class="text-sm text-slate-500 mb-4" id="coming-soon-desc">We're working on bringing this tool to you. In the meantime, check out our other free PDF tools that work entirely in your browser.</p>
-          <a href="./" class="btn-pdf btn-pdf-primary inline-block"><span id="browse-tools-label">Browse All PDF Tools</span></a>
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" class="hidden" accept=".xlsx,.xls">
+          <div class="text-4xl mb-3">📊</div>
+          <p class="font-semibold text-slate-700 dark:text-slate-200" data-pt="common.dropHere">Drop your file here</p>
+          <p class="text-sm text-slate-500 mt-1" data-pt="common.orClick">or click to browse</p>
+        </div>
+        <div id="file-info" class="hidden file-item">
+          <div class="file-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div class="file-info"><div class="file-name" id="file-name-display"></div><div class="file-meta" id="file-meta-display"></div></div>
+          <button id="remove-file" class="text-red-500 hover:text-red-700 p-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div id="convert-options" class="hidden text-center">
+          <button id="convert-btn" class="btn-pdf btn-pdf-primary"><span id="convert-btn-label">Convert to PDF</span></button>
+        </div>        <div id="progress-area"></div>
+        <div id="result" class="hidden text-center py-8">
+          <div class="text-4xl mb-3">✅</div>
+          <p class="font-semibold text-lg mb-4" data-pt="common.done">Done!</p>
+          <button id="download-btn" class="btn-pdf btn-pdf-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-pt="common.download">Download</span></button>
         </div>
       </div>
       <div class="mt-16"><h2 class="text-xl font-bold mb-6" data-pt="common.faq">FAQ</h2><div id="faq-list" class="space-y-3"></div></div>
       <div class="mt-12"><h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2><div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div></div>
     </section>
   </main>
-  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>&copy; 2026 PettyCash.site — Free PDF Tools.</p></div></footer>
+  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>&copy; 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p></div></footer>
   <script defer src="./js/pdf-translations.js"></script>
   <script defer src="./js/pdf-tools-registry.js"></script>
   <script defer src="./js/pdf-shared.js"></script>
+  
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       PDFTools.initTheme(); PDFTools.renderNav();
       const lang = PDFTools.getLang();
-      const faqs = [{"q":"Is Excel to PDF free?","a":"Yes, completely free."},{"q":"Are my files uploaded?","a":"This tool requires server-side processing. Your file is processed and immediately deleted."},{"q":"What formats are supported?","a":"XLS and XLSX files from Microsoft Excel, Google Sheets, and other spreadsheet apps."},{"q":"Will formulas be preserved?","a":"Formula results are preserved as calculated values in the PDF."}];
+      const faqs = [{"q":"Is Excel to PDF free?","a":"Yes, completely free."},{"q":"Are my files uploaded?","a":"No. All processing happens in your browser."},{"q":"What formats are supported?","a":"XLSX files from Microsoft Excel, Google Sheets, and other spreadsheet apps."},{"q":"Will formulas be preserved?","a":"Formula results are preserved as calculated values in the PDF."}];
       document.getElementById('faq-list').innerHTML = faqs.map(f => '<details class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4"><summary class="font-semibold cursor-pointer text-sm">'+f.q+'</summary><p class="text-sm text-slate-600 dark:text-slate-400 mt-2">'+f.a+'</p></details>').join('');
-      if (lang === 'ar') {
-        document.getElementById('coming-soon-title').textContent = 'هذه الأداة قريباً';
-        document.getElementById('coming-soon-desc').textContent = 'نحن نعمل على توفير هذه الأداة. في غضون ذلك، جرّب أدوات PDF المجانية الأخرى التي تعمل بالكامل في متصفحك.';
-        document.getElementById('browse-tools-label').textContent = 'تصفح جميع أدوات PDF';
-      }
-      const related = ["merge","split","compress","rotate"];
+      const related = ["pdfToExcel","wordToPdf","compress","merge"];
       document.getElementById('related-tools').innerHTML = related.map(key => {
         const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
         if (!tool) return '';
         return '<a href="./'+tool.slug+'.html" class="tool-card text-center"><div class="text-2xl">'+tool.icon+'</div><p class="text-xs font-semibold mt-1">'+PDFTools.t('tools.'+tool.key+'.title')+'</p></a>';
       }).join('');
+      
+      let excelFile=null, resultBlob=null;
+      PDFTools.initDropZone(document.getElementById('drop-zone'), document.getElementById('file-input'), async (f) => {
+        excelFile=f[0]; resultBlob=null;
+        document.getElementById('file-name-display').textContent=excelFile.name;
+        document.getElementById('file-meta-display').textContent=PDFTools.formatBytes(excelFile.size);
+        document.getElementById('drop-zone').classList.add('hidden');
+        document.getElementById('file-info').classList.remove('hidden');
+        document.getElementById('convert-options').classList.remove('hidden');
+        document.getElementById('result').classList.add('hidden');
+      }, {accept:'.xlsx,.xls', multiple:false});
+      document.getElementById('remove-file').addEventListener('click', () => {
+        excelFile=null; resultBlob=null;
+        document.getElementById('file-info').classList.add('hidden');
+        document.getElementById('convert-options').classList.add('hidden');
+        document.getElementById('drop-zone').classList.remove('hidden');
+        document.getElementById('result').classList.add('hidden');
+      });
+      document.getElementById('convert-btn').addEventListener('click', async () => {
+        if(!excelFile){PDFTools.toast('Select an Excel file first');return;}
+        const btn=document.getElementById('convert-btn'); btn.disabled=true;
+        document.getElementById('result').classList.add('hidden');
+        PDFTools.showProgress(document.getElementById('progress-area'),10);
+        try {
+          if(!window.XLSX) await PDFTools.loadScript('https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js');
+          const buf=await excelFile.arrayBuffer();
+          const wb=XLSX.read(buf,{type:'array'});
+          PDFTools.showProgress(document.getElementById('progress-area'),30);
+          const {PDFDocument}=await PDFTools.ensurePDFLib();
+          const doc=await PDFDocument.create();
+          const pageW=595.28, pageH=841.89, margin=30, rs=2;
+          const cW=pageW*rs, cH=pageH*rs;
+          for(let si=0;si<wb.SheetNames.length;si++){
+            const sheet=wb.Sheets[wb.SheetNames[si]];
+            const rows=XLSX.utils.sheet_to_json(sheet,{header:1,raw:false});
+            if(rows.length===0) continue;
+            // Build HTML table
+            let tableHTML='<table style="border-collapse:collapse;width:100%;font-size:11px">';
+            rows.forEach(row=>{
+              tableHTML+='<tr>';
+              if(Array.isArray(row)) row.forEach(cell=>{
+                tableHTML+='<td style="border:1px solid #999;padding:3px 5px">'+String(cell||'').replace(/</g,'&lt;')+'</td>';
+              });
+              tableHTML+='</tr>';
+            });
+            tableHTML+='</table>';
+            // Add sheet name as heading
+            const fullHTML='<h2 style="font-size:14px;font-weight:600;margin-bottom:8px">'+wb.SheetNames[si]+'</h2>'+tableHTML;
+            const iframe=document.createElement('iframe');
+            iframe.style.cssText='position:fixed;left:-9999px;top:0;width:'+(pageW-margin*2)+'px;border:none;background:#fff';
+            document.body.appendChild(iframe);
+            const idoc=iframe.contentDocument;
+            idoc.open(); idoc.write('<html><head><style>body{font-family:Inter,Arial,sans-serif;margin:0;padding:0}</style></head><body>'+fullHTML+'</body></html>'); idoc.close();
+            await new Promise(r=>setTimeout(r,200));
+            const contentH=idoc.body.scrollHeight;
+            const pCH=pageH-margin*2;
+            const total=Math.ceil(contentH/pCH)||1;
+            for(let i=0;i<total;i++){
+              iframe.contentWindow.scrollTo(0,i*pCH);
+              await new Promise(r=>setTimeout(r,80));
+              const canvas=document.createElement('canvas'); canvas.width=cW; canvas.height=cH;
+              const ctx=canvas.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,cW,cH);
+              const svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+cW+'" height="'+cH+'"><foreignObject width="100%" height="100%" style="transform:scale('+rs+');transform-origin:0 0"><div xmlns="http://www.w3.org/1999/xhtml" style="width:'+(pageW-margin*2)+'px;padding:'+margin+'px;font-family:Inter,Arial,sans-serif;overflow:hidden;height:'+pageH+'px">'+idoc.body.innerHTML+'</div></foreignObject></svg>';
+              const img=new Image();
+              await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);});
+              ctx.drawImage(img,0,0);
+              const jpg=await new Promise(r=>canvas.toBlob(r,'image/jpeg',0.92));
+              const embedded=await doc.embedJpg(await jpg.arrayBuffer());
+              const page=doc.addPage([pageW,pageH]);
+              page.drawImage(embedded,{x:0,y:0,width:pageW,height:pageH});
+            }
+            document.body.removeChild(iframe);
+            PDFTools.showProgress(document.getElementById('progress-area'),30+Math.round((si/wb.SheetNames.length)*65));
+          }
+          const out=await doc.save();
+          resultBlob=new Blob([out],{type:'application/pdf'});
+          PDFTools.showProgress(document.getElementById('progress-area'),100);
+          document.getElementById('result').classList.remove('hidden');
+          PDFTools.toast(PDFTools.t('common.done'));
+        } catch(err){console.error(err);PDFTools.toast(PDFTools.t('common.error')+': '+err.message);} finally{btn.disabled=false;}
+      });
+      document.getElementById('download-btn').addEventListener('click',()=>{if(resultBlob)PDFTools.downloadBlob(resultBlob,excelFile.name.replace(/\.xlsx?$/i,'')+'.pdf');});
     });
   </script>
+  
 </body>
 </html>

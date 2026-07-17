@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit PDF — Free Online | PettyCash.site</title>
-  <meta name="description" content="Edit text, images, and annotations directly in your PDF. Free, secure, no permanent storage.">
+  <meta name="description" content="Add text, shapes, and annotations to your PDF. Free, no upload, all in your browser.">
   <link rel="canonical" href="https://pettycash.site/pdf-tools/edit-pdf.html">
   <meta property="og:title" content="Edit PDF — Free Online">
-  <meta property="og:description" content="Edit text, images, and annotations directly in your PDF.">
+  <meta property="og:description" content="Add text, shapes, and annotations to your PDF. Free, no upload, all in your browser.">
   <meta property="og:url" content="https://pettycash.site/pdf-tools/edit-pdf.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pettycash.site/images/favicon.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Edit PDF — Free Online">
-  <meta name="twitter:description" content="Edit text, images, and annotations directly in your PDF.">
+  <meta name="twitter:description" content="Add text, shapes, and annotations to your PDF. Free, no upload, all in your browser.">
   <meta name="robots" content="index, follow">
   <script type="application/ld+json">
   { "@context": "https://schema.org", "@graph": [
@@ -22,8 +22,8 @@
       { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
       { "@type": "ListItem", "position": 3, "name": "Edit PDF", "item": "https://pettycash.site/pdf-tools/edit-pdf.html" }
     ]},
-    { "@type": "SoftwareApplication", "name": "Edit PDF", "description": "Edit text, images, and annotations directly in your PDF.", "url": "https://pettycash.site/pdf-tools/edit-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
-    { "@type": "FAQPage", "mainEntity": [{"@type":"Question","name":"Is editing PDF free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free."}},{"@type":"Question","name":"Are my files uploaded?","acceptedAnswer":{"@type":"Answer","text":"This tool requires server-side processing. Your file is processed and immediately deleted."}},{"@type":"Question","name":"Can I edit text in a PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can modify existing text, add new text, and change fonts."}},{"@type":"Question","name":"Can I add images?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can insert, resize, and reposition images."}}] }
+    { "@type": "SoftwareApplication", "name": "Edit PDF", "description": "Add text, shapes, and annotations to your PDF. Free, no upload, all in your browser.", "url": "https://pettycash.site/pdf-tools/edit-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "FAQPage", "mainEntity": [{"@type":"Question","name":"Is editing PDF free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free."}},{"@type":"Question","name":"Are my files uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens in your browser."}},{"@type":"Question","name":"Can I add text?","acceptedAnswer":{"@type":"Answer","text":"Yes, click anywhere on the page to add text."}},{"@type":"Question","name":"Can I add shapes?","acceptedAnswer":{"@type":"Answer","text":"Yes, draw rectangles and lines on any page."}}] }
   ]}
   </script>
   <link rel="icon" type="image/png" href="../images/favicon.png">
@@ -46,43 +46,184 @@
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
       <div class="text-5xl mb-4">✏️</div>
       <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">Edit PDF</h1>
-      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Edit text, images, and annotations directly in your PDF.</p>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Add text, shapes, and annotations to your PDF. Free, no upload, all in your browser.</p>
     </section>
     <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
       <div class="space-y-6">
-        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-8 text-center">
-          <div class="text-3xl mb-3">✏️</div>
-          <p class="font-semibold text-lg mb-2" id="coming-soon-title">This tool is coming soon</p>
-          <p class="text-sm text-slate-500 mb-4" id="coming-soon-desc">We're working on bringing this tool to you. In the meantime, check out our other free PDF tools that work entirely in your browser.</p>
-          <a href="./" class="btn-pdf btn-pdf-primary inline-block"><span id="browse-tools-label">Browse All PDF Tools</span></a>
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" class="hidden" accept=".pdf">
+          <div class="text-4xl mb-3">📄</div>
+          <p class="font-semibold text-slate-700 dark:text-slate-200" data-pt="common.dropHere">Drop your file here</p>
+          <p class="text-sm text-slate-500 mt-1" data-pt="common.orClick">or click to browse</p>
+        </div>
+        <div id="file-info" class="hidden file-item">
+          <div class="file-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div class="file-info"><div class="file-name" id="file-name-display"></div><div class="file-meta" id="file-meta-display"></div></div>
+          <button id="remove-file" class="text-red-500 hover:text-red-700 p-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div id="edit-options" class="hidden space-y-4">
+          <div class="flex items-center justify-center gap-4 flex-wrap">
+            <div><label class="text-xs font-semibold">Mode</label><select id="edit-mode" class="pdf-input text-sm ml-2"><option value="text">Add Text</option><option value="rect">Rectangle</option></select></div>
+            <div><label class="text-xs font-semibold">Text</label><input id="edit-text" class="pdf-input text-sm ml-2 w-40" placeholder="Type text..."></div>
+            <div><label class="text-xs font-semibold">Color</label><input type="color" id="edit-color" class="ml-2 w-8 h-8 rounded" value="#ff0000"></div>
+            <div><label class="text-xs font-semibold">Size</label><input type="number" id="edit-size" class="pdf-input text-sm w-16 ml-2" value="14" min="6" max="72"></div>
+          </div>
+          <div id="preview-area" class="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-3 flex justify-center"></div>
+          <div class="text-center"><button id="save-btn" class="btn-pdf btn-pdf-primary"><span>Save PDF</span></button></div>
+        </div>        <div id="progress-area"></div>
+        <div id="result" class="hidden text-center py-8">
+          <div class="text-4xl mb-3">✅</div>
+          <p class="font-semibold text-lg mb-4" data-pt="common.done">Done!</p>
+          <button id="download-btn" class="btn-pdf btn-pdf-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-pt="common.download">Download</span></button>
         </div>
       </div>
       <div class="mt-16"><h2 class="text-xl font-bold mb-6" data-pt="common.faq">FAQ</h2><div id="faq-list" class="space-y-3"></div></div>
       <div class="mt-12"><h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2><div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div></div>
     </section>
   </main>
-  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>&copy; 2026 PettyCash.site — Free PDF Tools.</p></div></footer>
+  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>&copy; 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p></div></footer>
   <script defer src="./js/pdf-translations.js"></script>
   <script defer src="./js/pdf-tools-registry.js"></script>
   <script defer src="./js/pdf-shared.js"></script>
+  
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       PDFTools.initTheme(); PDFTools.renderNav();
       const lang = PDFTools.getLang();
-      const faqs = [{"q":"Is editing PDF free?","a":"Yes, completely free."},{"q":"Are my files uploaded?","a":"This tool requires server-side processing. Your file is processed and immediately deleted."},{"q":"Can I edit text in a PDF?","a":"Yes, you can modify existing text, add new text, and change fonts."},{"q":"Can I add images?","a":"Yes, you can insert, resize, and reposition images."}];
+      const faqs = [{"q":"Is editing PDF free?","a":"Yes, completely free."},{"q":"Are my files uploaded?","a":"No. All processing happens in your browser."},{"q":"Can I add text?","a":"Yes, click anywhere on the page to add text."},{"q":"Can I add shapes?","a":"Yes, draw rectangles and lines on any page."}];
       document.getElementById('faq-list').innerHTML = faqs.map(f => '<details class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4"><summary class="font-semibold cursor-pointer text-sm">'+f.q+'</summary><p class="text-sm text-slate-600 dark:text-slate-400 mt-2">'+f.a+'</p></details>').join('');
-      if (lang === 'ar') {
-        document.getElementById('coming-soon-title').textContent = 'هذه الأداة قريباً';
-        document.getElementById('coming-soon-desc').textContent = 'نحن نعمل على توفير هذه الأداة. في غضون ذلك، جرّب أدوات PDF المجانية الأخرى التي تعمل بالكامل في متصفحك.';
-        document.getElementById('browse-tools-label').textContent = 'تصفح جميع أدوات PDF';
-      }
-      const related = ["merge","split","compress","rotate"];
+      const related = ["watermark","pageNumbers","sign","crop"];
       document.getElementById('related-tools').innerHTML = related.map(key => {
         const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
         if (!tool) return '';
         return '<a href="./'+tool.slug+'.html" class="tool-card text-center"><div class="text-2xl">'+tool.icon+'</div><p class="text-xs font-semibold mt-1">'+PDFTools.t('tools.'+tool.key+'.title')+'</p></a>';
       }).join('');
+      
+      let pdfFile=null, resultBlob=null;
+      let annotations={}; let currentPageIndex=0; let pageSizes=[];
+      PDFTools.initDropZone(document.getElementById('drop-zone'), document.getElementById('file-input'), async (f) => {
+        pdfFile=f[0]; resultBlob=null; annotations={}; currentPageIndex=0;
+        const {PDFDocument}=await PDFTools.ensurePDFLib();
+        const bytes=await pdfFile.arrayBuffer();
+        const doc=await PDFDocument.load(bytes,{ignoreEncryption:true});
+        pageSizes=doc.getPages().map(p=>p.getSize());
+        document.getElementById('file-name-display').textContent=pdfFile.name;
+        document.getElementById('file-meta-display').textContent=PDFTools.formatBytes(pdfFile.size)+' • '+doc.getPageCount()+' pages';
+        document.getElementById('drop-zone').classList.add('hidden');
+        document.getElementById('file-info').classList.remove('hidden');
+        document.getElementById('edit-options').classList.remove('hidden');
+        document.getElementById('result').classList.add('hidden');
+        await renderEditPreview();
+      }, {accept:'.pdf', multiple:false});
+      document.getElementById('remove-file').addEventListener('click', () => {
+        pdfFile=null; resultBlob=null; annotations={};
+        document.getElementById('file-info').classList.add('hidden');
+        document.getElementById('edit-options').classList.add('hidden');
+        document.getElementById('drop-zone').classList.remove('hidden');
+        document.getElementById('result').classList.add('hidden');
+        document.getElementById('preview-area').innerHTML='';
+      });
+      async function renderEditPreview(){
+        const pa=document.getElementById('preview-area');
+        pa.innerHTML='<p class="text-sm text-slate-500">Loading...</p>';
+        const pdfjs=await PDFTools.ensurePDFJS();
+        const buf=await pdfFile.arrayBuffer();
+        const pdf=await pdfjs.getDocument({data:buf}).promise;
+        const page=await pdf.getPage(currentPageIndex+1);
+        const viewport=page.getViewport({scale:1});
+        const scale=Math.min(600/viewport.width,650/viewport.height);
+        const sv=page.getViewport({scale});
+        const wrapper=document.createElement('div'); wrapper.className='inline-block';
+        const nav=document.createElement('div'); nav.className='flex items-center gap-3 mb-3 justify-center';
+        nav.innerHTML='<button id="prev-p" class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-700 text-sm '+(currentPageIndex===0?'opacity-50':'')+'">‹</button><span class="text-sm font-semibold">'+(currentPageIndex+1)+' / '+pdf.numPages+'</span><button id="next-p" class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-700 text-sm '+(currentPageIndex===pdf.numPages-1?'opacity-50':'')+'">›</button>';
+        wrapper.appendChild(nav);
+        const container=document.createElement('div'); container.className='relative inline-block border-2 border-slate-300 dark:border-slate-600 rounded-lg overflow-hidden';
+        const canvas=document.createElement('canvas'); canvas.width=sv.width; canvas.height=sv.height; canvas.className='block';
+        const ctx=canvas.getContext('2d');
+        await page.render({canvasContext:ctx,viewport:sv}).promise;
+        container.appendChild(canvas);
+        // Draw existing annotations
+        if(annotations[currentPageIndex]){annotations[currentPageIndex].forEach(a=>{
+          if(a.type==='text'){const el=document.createElement('div');el.className='absolute pointer-events-none';el.style.left=(a.x/viewport.width*sv.width)+'px';el.style.top=((viewport.height-a.y-a.size)/viewport.height*sv.height)+'px';el.style.color=a.color;el.style.fontSize=(a.size*scale)+'px';el.textContent=a.text;container.appendChild(el);}
+          else if(a.type==='rect'){const el=document.createElement('div');el.className='absolute pointer-events-none border-2';el.style.left=(a.x/viewport.width*sv.width)+'px';el.style.top=((viewport.height-a.y-a.h)/viewport.height*sv.height)+'px';el.style.width=(a.w/viewport.width*sv.width)+'px';el.style.height=(a.h/viewport.height*sv.height)+'px';el.style.borderColor=a.color;container.appendChild(el);}
+        });}
+        const overlay=document.createElement('div'); overlay.className='absolute inset-0 cursor-crosshair';
+        let isDragging=false,startX=0,startY=0;
+        overlay.addEventListener('mousedown',(e)=>{
+          const rect=overlay.getBoundingClientRect();
+          startX=e.clientX-rect.left; startY=e.clientY-rect.top;
+          const mode=document.getElementById('edit-mode').value;
+          if(mode==='text'){
+            const text=document.getElementById('edit-text').value;
+            if(!text)return;
+            const color=document.getElementById('edit-color').value;
+            const size=parseInt(document.getElementById('edit-size').value)||14;
+            if(!annotations[currentPageIndex])annotations[currentPageIndex]=[];
+            annotations[currentPageIndex].push({type:'text',text,color,size,x:(startX/rect.width)*viewport.width,y:viewport.height-((startY+size)/rect.height)*viewport.height});
+            renderEditPreview();
+          } else {
+            isDragging=true;
+            const box=document.createElement('div');box.className='absolute border-2 pointer-events-none';box.style.left=startX+'px';box.style.top=startY+'px';box.style.borderColor=document.getElementById('edit-color').value;container.appendChild(box);
+            overlay._box=box;
+          }
+        });
+        overlay.addEventListener('mousemove',(e)=>{
+          if(!isDragging||!overlay._box)return;
+          const rect=overlay.getBoundingClientRect();
+          const x=Math.max(0,Math.min(e.clientX-rect.left,rect.width));
+          const y=Math.max(0,Math.min(e.clientY-rect.top,rect.height));
+          overlay._box.style.left=Math.min(startX,x)+'px';overlay._box.style.top=Math.min(startY,y)+'px';
+          overlay._box.style.width=Math.abs(x-startX)+'px';overlay._box.style.height=Math.abs(y-startY)+'px';
+        });
+        overlay.addEventListener('mouseup',()=>{
+          if(!isDragging||!overlay._box)return;isDragging=false;
+          const pw=parseFloat(overlay._box.style.width),ph=parseFloat(overlay._box.style.height);
+          if(pw<5||ph<5){overlay._box.remove();overlay._box=null;return;}
+          const rect=overlay.getBoundingClientRect();
+          const px=parseFloat(overlay._box.style.left),py=parseFloat(overlay._box.style.top);
+          if(!annotations[currentPageIndex])annotations[currentPageIndex]=[];
+          annotations[currentPageIndex].push({type:'rect',color:document.getElementById('edit-color').value,x:(px/rect.width)*viewport.width,y:viewport.height-((py+ph)/rect.height)*viewport.height,w:(pw/rect.width)*viewport.width,h:(ph/rect.height)*viewport.height});
+          overlay._box=null;renderEditPreview();
+        });
+        container.appendChild(overlay);wrapper.appendChild(container);
+        pa.innerHTML='';pa.appendChild(wrapper);
+        document.getElementById('prev-p')?.addEventListener('click',()=>{if(currentPageIndex>0){currentPageIndex--;renderEditPreview();}});
+        document.getElementById('next-p')?.addEventListener('click',()=>{if(currentPageIndex<pdf.numPages-1){currentPageIndex++;renderEditPreview();}});
+      }
+      document.getElementById('save-btn').addEventListener('click',async()=>{
+        if(!pdfFile)return;
+        const btn=document.getElementById('save-btn');btn.disabled=true;
+        document.getElementById('result').classList.add('hidden');
+        PDFTools.showProgress(document.getElementById('progress-area'),10);
+        try{
+          const {PDFDocument,rgb}=await PDFTools.ensurePDFLib();
+          const bytes=await pdfFile.arrayBuffer();
+          const doc=await PDFDocument.load(bytes,{ignoreEncryption:true});
+          const pages=doc.getPages();
+          pages.forEach((page,idx)=>{
+            const anns=annotations[idx];if(!anns)return;
+            anns.forEach(a=>{
+              if(a.type==='text'){
+                // Draw text as image for Unicode support
+                // For simplicity, use drawText with sanitized text
+                const sanitized=a.text.replace(/[^\x00-\x7F\xA0-\xFF]/g,'?');
+                if(sanitized)page.drawText(sanitized,{x:a.x,y:a.y,size:a.size,color:rgb(parseInt(a.color.slice(1,3),16)/255,parseInt(a.color.slice(3,5),16)/255,parseInt(a.color.slice(5,7),16)/255)});
+              } else if(a.type==='rect'){
+                page.drawRectangle({x:a.x,y:a.y,width:a.w,height:a.h,borderColor:rgb(parseInt(a.color.slice(1,3),16)/255,parseInt(a.color.slice(3,5),16)/255,parseInt(a.color.slice(5,7),16)/255),borderWidth:2});
+              }
+            });
+            PDFTools.showProgress(document.getElementById('progress-area'),10+Math.round((idx/pages.length)*80));
+          });
+          const out=await doc.save();
+          resultBlob=new Blob([out],{type:'application/pdf'});
+          PDFTools.showProgress(document.getElementById('progress-area'),100);
+          document.getElementById('result').classList.remove('hidden');
+          PDFTools.toast(PDFTools.t('common.done'));
+        }catch(err){console.error(err);PDFTools.toast(PDFTools.t('common.error')+': '+err.message);}finally{btn.disabled=false;}
+      });
+      document.getElementById('download-btn').addEventListener('click',()=>{if(resultBlob)PDFTools.downloadBlob(resultBlob,pdfFile.name.replace(/\.pdf$/i,'')+'_edited.pdf');});
     });
   </script>
+  
 </body>
 </html>
