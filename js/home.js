@@ -264,7 +264,6 @@ function renderHomeArticles(articles, lang, data) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderHero();
   renderProblems();
   renderSolutions();
   renderFeatures();
@@ -273,5 +272,19 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFAQ();
   renderCTA();
   renderVisitorCounter();
-  renderLatestArticles();
+  // Lazy-load the latest articles section only when it approaches the viewport.
+  const latestSection = document.getElementById("latest-articles");
+  if (latestSection && "IntersectionObserver" in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          renderLatestArticles();
+          obs.disconnect();
+        }
+      });
+    }, { rootMargin: "200px" });
+    obs.observe(latestSection);
+  } else {
+    renderLatestArticles();
+  }
 });

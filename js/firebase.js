@@ -99,57 +99,59 @@ function mergeArticles(staticArticles, dbArticles) {
 }
 
 async function fetchLatestArticles(limitCount = 3) {
-  const staticArticles = sortArticlesByDate(await getStaticArticles());
+  let staticArticles = null;
   const db = initFirebase();
-  if (!db) return staticArticles.slice(0, limitCount);
-  try {
-    const snap = await withTimeout(
-      db.collection("blog_articles").orderBy("date", "desc").limit(50).get(),
-      3000
-    );
-    const dbArticles = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    if (dbArticles.length) {
-      const merged = sortArticlesByDate(mergeArticles(staticArticles, dbArticles));
-      return merged.slice(0, limitCount);
+  if (db) {
+    try {
+      const snap = await withTimeout(
+        db.collection("blog_articles").orderBy("date", "desc").limit(Math.max(limitCount, 10)).get(),
+        3000
+      );
+      const dbArticles = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      if (dbArticles.length) {
+        // Firestore is available: avoid downloading the full static article bundle.
+        return sortArticlesByDate(dbArticles).slice(0, limitCount);
+      }
+    } catch (err) {
+      console.error("Blog fetch error:", err);
     }
-  } catch (err) {
-    console.error("Blog fetch error:", err);
   }
+  staticArticles = staticArticles || sortArticlesByDate(await getStaticArticles());
   return staticArticles.slice(0, limitCount);
 }
 
 async function fetchArticleBySlug(slug) {
-  const staticArticles = await getStaticArticles();
-  const fallback = () => staticArticles.find(a => a.slug === slug) || null;
   const db = initFirebase();
-  if (!db || !slug) return fallback();
-  try {
-    const snap = await withTimeout(
-      db.collection("blog_articles").where("slug", "==", slug).limit(1).get(),
-      3000
-    );
-    if (!snap.empty) {
-      const doc = snap.docs[0];
-      return { id: doc.id, ...doc.data() };
+  if (db && slug) {
+    try {
+      const snap = await withTimeout(
+        db.collection("blog_articles").where("slug", "==", slug).limit(1).get(),
+        3000
+      );
+      if (!snap.empty) {
+        const doc = snap.docs[0];
+        return { id: doc.id, ...doc.data() };
+      }
+    } catch (err) {
+      console.error("Article fetch error:", err);
     }
-  } catch (err) {
-    console.error("Article fetch error:", err);
   }
-  return fallback();
+  const staticArticles = await getStaticArticles();
+  return staticArticles.find(a => a.slug === slug) || null;
 }
 
 async function fetchArticleById(id) {
-  const staticArticles = await getStaticArticles();
-  const staticMatch = staticArticles.find(a => a.id === id);
   const db = initFirebase();
-  if (!db || !id) return staticMatch || null;
-  try {
-    const snap = await withTimeout(db.collection("blog_articles").doc(id).get(), 3000);
-    if (snap.exists) return { id: snap.id, ...snap.data() };
-  } catch (err) {
-    console.error("Article fetch error:", err);
+  if (db && id) {
+    try {
+      const snap = await withTimeout(db.collection("blog_articles").doc(id).get(), 3000);
+      if (snap.exists) return { id: snap.id, ...snap.data() };
+    } catch (err) {
+      console.error("Article fetch error:", err);
+    }
   }
-  return staticMatch || null;
+  const staticArticles = await getStaticArticles();
+  return staticArticles.find(a => a.id === id) || null;
 }
 
 function formatDate(dateValue, lang = "en") {
