@@ -80,14 +80,14 @@ function renderNavbar() {
   const linksHtml = navLinks.map(l => {
     if (l.children) {
       const childrenHtml = l.children.map(c => {
-        return `<a href="${c.href}" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md">${c.label}</a>`;
+        return `<a href="${c.href}" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${c.label}</a>`;
       }).join('');
       return `<div class="relative">
         <button id="tools-btn" class="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">
           <span>${l.label}</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
-        <div id="tools-menu" class="hidden absolute top-full start-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg p-1 z-50">
+        <div id="tools-menu" class="hidden absolute top-full start-0 mt-1 w-auto bg-white border border-slate-200 rounded-lg shadow-lg p-1 z-50">
           ${childrenHtml}
         </div>
       </div>`;
