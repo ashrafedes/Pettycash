@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compress PDF — Reduce PDF File Size Online Free | PettyCash.site</title>
+  <meta name="description" content="Compress and reduce PDF file size. Choose compression level. Free, no upload, all in your browser.">
+  <link rel="canonical" href="https://pettycash.site/pdf-tools/compress-pdf.html">
+  <meta property="og:title" content="Compress PDF — Reduce PDF File Size Online Free">
+  <meta property="og:description" content="Compress and reduce PDF file size. All in your browser.">
+  <meta property="og:url" content="https://pettycash.site/pdf-tools/compress-pdf.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Compress PDF — Reduce PDF File Size Online Free">
+  <meta name="twitter:description" content="Compress and reduce PDF file size. All in your browser.">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@graph": [
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
+      { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Compress PDF", "item": "https://pettycash.site/pdf-tools/compress-pdf.html" }
+    ]},
+    { "@type": "SoftwareApplication", "name": "Compress PDF", "description": "Compress and reduce PDF file size. Free online tool.", "url": "https://pettycash.site/pdf-tools/compress-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "Is compressing PDF free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free." } },
+      { "@type": "Question", "name": "Are my files uploaded?", "acceptedAnswer": { "@type": "Answer", "text": "No. All processing happens in your browser." } },
+      { "@type": "Question", "name": "How does compression work?", "acceptedAnswer": { "@type": "Answer", "text": "Images in the PDF are re-encoded at lower quality and resolution, reducing the overall file size." } },
+      { "@type": "Question", "name": "What compression levels are available?", "acceptedAnswer": { "@type": "Answer", "text": "Three levels: Light (high quality), Medium (balanced), and Strong (smallest file)." } }
+    ]}
+  ]}
+  </script>
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tailwind.min.css">
+  <link rel="stylesheet" href="./css/pdf-tools.css">
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <nav id="pdftool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
+  <main class="flex-1">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+      <nav class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+        <a href="../" class="hover:text-blue-600">Home</a><span>/</span>
+        <a href="./" class="hover:text-blue-600">PDF Tools</a><span>/</span>
+        <span class="text-slate-700 dark:text-slate-300" id="bc-title">Compress PDF</span>
+      </nav>
+    </div>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
+      <div class="text-5xl mb-4">📦</div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">Compress PDF</h1>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Reduce PDF file size by re-encoding images. Choose from three compression levels.</p>
+    </section>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+      <div class="space-y-6">
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" class="hidden" accept=".pdf">
+          <div class="text-4xl mb-3">📄</div>
+          <p class="font-semibold text-slate-700 dark:text-slate-200" data-pt="common.dropHere">Drop your PDF file here</p>
+          <p class="text-sm text-slate-500 mt-1" data-pt="common.orClick">or click to browse</p>
+        </div>
+        <div id="file-info" class="hidden file-item">
+          <div class="file-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div class="file-info"><div class="file-name" id="file-name-display"></div><div class="file-meta" id="file-meta-display"></div></div>
+          <button id="remove-file" class="text-red-500 hover:text-red-700 p-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div id="compress-options" class="hidden space-y-4">
+          <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 space-y-4">
+            <div>
+              <label class="block text-sm font-semibold mb-3" id="level-label">Compression level</label>
+              <div class="grid grid-cols-3 gap-3">
+                <label class="cursor-pointer">
+                  <input type="radio" name="compress-level" value="light" class="hidden peer">
+                  <div class="text-center py-3 px-2 border-2 border-slate-200 dark:border-slate-600 rounded-lg peer-checked:border-blue-600 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-900/20 peer-checked:text-blue-600 transition-all">
+                    <div class="text-xl">🟢</div>
+                    <div class="text-xs font-semibold mt-1" id="opt-light-title">Light</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5" id="opt-light-desc">High quality</div>
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="compress-level" value="medium" class="hidden peer" checked>
+                  <div class="text-center py-3 px-2 border-2 border-slate-200 dark:border-slate-600 rounded-lg peer-checked:border-blue-600 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-900/20 peer-checked:text-blue-600 transition-all">
+                    <div class="text-xl">🟡</div>
+                    <div class="text-xs font-semibold mt-1" id="opt-medium-title">Medium</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5" id="opt-medium-desc">Balanced</div>
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="compress-level" value="strong" class="hidden peer">
+                  <div class="text-center py-3 px-2 border-2 border-slate-200 dark:border-slate-600 rounded-lg peer-checked:border-blue-600 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-900/20 peer-checked:text-blue-600 transition-all">
+                    <div class="text-xl">🔴</div>
+                    <div class="text-xs font-semibold mt-1" id="opt-strong-title">Strong</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5" id="opt-strong-desc">Smallest file</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button id="compress-btn" class="btn-pdf btn-pdf-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4"/></svg>
+              <span id="compress-btn-label">Compress PDF</span>
+            </button>
+          </div>
+        </div>
+        <div id="progress-area"></div>
+        <div id="result" class="hidden">
+          <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 text-center space-y-4">
+            <div class="text-4xl">✅</div>
+            <div id="result-stats" class="space-y-2"></div>
+            <button id="download-btn" class="btn-pdf btn-pdf-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span data-pt="common.download">Download</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="mt-16">
+        <h2 class="text-xl font-bold mb-6" data-pt="common.faq">FAQ</h2>
+        <div id="faq-list" class="space-y-3"></div>
+      </div>
+      <div class="mt-12">
+        <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-slate-900 text-slate-400 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm">
+      <p>&copy; 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p>
+    </div>
+  </footer>
+  <script defer src="./js/pdf-translations.js"></script>
+  <script defer src="./js/pdf-tools-registry.js"></script>
+  <script defer src="./js/pdf-shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      PDFTools.initTheme();
+      PDFTools.renderNav();
+      const lang = PDFTools.getLang();
+      const T = lang === 'ar' ? {
+        title: 'ضغط PDF', desc: 'تقليل حجم ملف PDF بإعادة ترميز الصور. اختر من ثلاثة مستويات ضغط.',
+        level: 'مستوى الضغط', light: 'خفيف', lightDesc: 'جودة عالية', medium: 'متوسط', mediumDesc: 'متوازن', strong: 'قوي', strongDesc: 'أصغر حجم',
+        compressBtn: 'ضغط PDF', pageCount: 'صفحة', noFile: 'اختر ملف PDF أولاً',
+        original: 'الحجم الأصلي', compressed: 'الحجم بعد الضغط', saved: 'تم توفيره',
+        noImages: 'لا توجد صور في هذا الملف للضغط'
+      } : {
+        title: 'Compress PDF', desc: 'Reduce PDF file size by re-encoding images. Choose from three compression levels.',
+        level: 'Compression level', light: 'Light', lightDesc: 'High quality', medium: 'Medium', mediumDesc: 'Balanced', strong: 'Strong', strongDesc: 'Smallest file',
+        compressBtn: 'Compress PDF', pageCount: 'pages', noFile: 'Select a PDF file first',
+        original: 'Original size', compressed: 'Compressed size', saved: 'Saved',
+        noImages: 'No images found in this PDF to compress'
+      };
+      document.getElementById('bc-title').textContent = T.title;
+      document.getElementById('tool-title').textContent = T.title;
+      document.getElementById('tool-desc').textContent = T.desc;
+      document.getElementById('level-label').textContent = T.level;
+      document.getElementById('opt-light-title').textContent = T.light;
+      document.getElementById('opt-light-desc').textContent = T.lightDesc;
+      document.getElementById('opt-medium-title').textContent = T.medium;
+      document.getElementById('opt-medium-desc').textContent = T.mediumDesc;
+      document.getElementById('opt-strong-title').textContent = T.strong;
+      document.getElementById('opt-strong-desc').textContent = T.strongDesc;
+      document.getElementById('compress-btn-label').textContent = T.compressBtn;
+
+      const faqs = lang === 'ar' ? [
+        { q: 'هل ضغط PDF مجاني؟', a: 'نعم، مجاني تماماً.' },
+        { q: 'هل يتم رفع ملفاتي؟', a: 'لا. كل المعالجة تتم في متصفحك.' },
+        { q: 'كيف يعمل الضغط؟', a: 'يتم إعادة ترميز الصور في الملف بجودة ودقة أقل لتقليل الحجم.' },
+        { q: 'ما المستويات المتاحة؟', a: 'ثلاثة مستويات: خفيف (جودة عالية)، متوسط (متوازن)، وقوي (أصغر حجم).' }
+      ] : [
+        { q: 'Is compressing PDF free?', a: 'Yes, completely free.' },
+        { q: 'Are my files uploaded?', a: 'No. All processing happens in your browser.' },
+        { q: 'How does compression work?', a: 'Images in the PDF are re-encoded at lower quality and resolution, reducing the overall file size.' },
+        { q: 'What compression levels are available?', a: 'Three levels: Light (high quality), Medium (balanced), and Strong (smallest file).' }
+      ];
+      document.getElementById('faq-list').innerHTML = faqs.map(f => `<details class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4"><summary class="font-semibold cursor-pointer text-sm">${f.q}</summary><p class="text-sm text-slate-600 dark:text-slate-400 mt-2">${f.a}</p></details>`).join('');
+
+      const related = ['pdfToJpg', 'merge', 'split', 'protect'];
+      document.getElementById('related-tools').innerHTML = related.map(key => {
+        const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
+        if (!tool) return '';
+        return `<a href="./${tool.slug}.html" class="tool-card text-center"><div class="text-2xl">${tool.icon}</div><p class="text-xs font-semibold mt-1">${PDFTools.t('tools.' + tool.key + '.title')}</p></a>`;
+      }).join('');
+
+      // ===================== Compress Logic =====================
+      let pdfFile = null, pageCount = 0, resultBlob = null, originalSize = 0;
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+      const fileInfo = document.getElementById('file-info');
+      const compressOptions = document.getElementById('compress-options');
+      const compressBtn = document.getElementById('compress-btn');
+      const progressArea = document.getElementById('progress-area');
+      const result = document.getElementById('result');
+      const downloadBtn = document.getElementById('download-btn');
+
+      PDFTools.initDropZone(dropZone, fileInput, async (newFiles) => {
+        pdfFile = newFiles[0];
+        originalSize = pdfFile.size;
+        const { PDFDocument } = await PDFTools.ensurePDFLib();
+        const bytes = await pdfFile.arrayBuffer();
+        const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+        pageCount = doc.getPageCount();
+        resultBlob = null;
+        document.getElementById('file-name-display').textContent = pdfFile.name;
+        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' • ' + pageCount + ' ' + T.pageCount;
+        dropZone.classList.add('hidden');
+        fileInfo.classList.remove('hidden');
+        compressOptions.classList.remove('hidden');
+        result.classList.add('hidden');
+      }, { accept: '.pdf', multiple: false });
+
+      document.getElementById('remove-file').addEventListener('click', () => {
+        pdfFile = null; resultBlob = null;
+        fileInfo.classList.add('hidden');
+        compressOptions.classList.add('hidden');
+        dropZone.classList.remove('hidden');
+        result.classList.add('hidden');
+      });
+
+      const LEVELS = {
+        light: { scale: 1.5, quality: 0.85 },
+        medium: { scale: 1.0, quality: 0.7 },
+        strong: { scale: 0.7, quality: 0.5 }
+      };
+
+      compressBtn.addEventListener('click', async () => {
+        if (!pdfFile) { PDFTools.toast(T.noFile); return; }
+        compressBtn.disabled = true;
+        result.classList.add('hidden');
+        PDFTools.showProgress(progressArea, 5);
+
+        try {
+          const level = document.querySelector('input[name="compress-level"]:checked').value;
+          const cfg = LEVELS[level];
+
+          // Use PDF.js to render each page to canvas, then rebuild PDF with compressed images
+          const pdfjs = await PDFTools.ensurePDFJS();
+          const { PDFDocument } = await PDFTools.ensurePDFLib();
+          const arrayBuffer = await pdfFile.arrayBuffer();
+          const pdf = await pdfjs.getDocument({ data: arrayBuffer.slice(0) }).promise;
+          const newDoc = await PDFDocument.create();
+          const total = pdf.numPages;
+
+          for (let i = 1; i <= total; i++) {
+            const page = await pdf.getPage(i);
+            const viewport = page.getViewport({ scale: cfg.scale });
+            const canvas = document.createElement('canvas');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            const ctx = canvas.getContext('2d');
+            await page.render({ canvasContext: ctx, viewport }).promise;
+            const jpgBlob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', cfg.quality));
+            const jpgBytes = await jpgBlob.arrayBuffer();
+            const img = await newDoc.embedJpg(jpgBytes);
+            const newPage = newDoc.addPage([viewport.width, viewport.height]);
+            newPage.drawImage(img, { x: 0, y: 0, width: viewport.width, height: viewport.height });
+            PDFTools.showProgress(progressArea, Math.round((i / total) * 90));
+          }
+
+          const out = await newDoc.save({ useObjectStreams: true });
+          resultBlob = new Blob([out], { type: 'application/pdf' });
+          const compressedSize = resultBlob.size;
+          PDFTools.showProgress(progressArea, 100);
+          result.classList.remove('hidden');
+
+          const savedPct = Math.round((1 - compressedSize / originalSize) * 100);
+          const savedBytes = originalSize - compressedSize;
+          const savedText = savedPct > 0
+            ? `<span class="text-green-600 font-bold text-lg">${savedPct}%</span> <span class="text-sm text-slate-500">(${PDFTools.formatBytes(savedBytes)} ${T.saved})</span>`
+            : `<span class="text-amber-600 text-sm">${lang === 'ar' ? 'لم يتم تقليل الحجم' : 'No size reduction'}</span>`;
+
+          document.getElementById('result-stats').innerHTML = `
+            <div class="flex justify-center gap-6 text-sm">
+              <div><span class="text-slate-400">${T.original}:</span> <span class="font-semibold">${PDFTools.formatBytes(originalSize)}</span></div>
+              <div><span class="text-slate-400">${T.compressed}:</span> <span class="font-semibold">${PDFTools.formatBytes(compressedSize)}</span></div>
+            </div>
+            <div>${savedText}</div>
+          `;
+
+          PDFTools.toast(PDFTools.t('common.done'));
+        } catch (err) {
+          console.error(err);
+          PDFTools.toast(PDFTools.t('common.error') + ': ' + err.message);
+        } finally {
+          compressBtn.disabled = false;
+        }
+      });
+
+      downloadBtn.addEventListener('click', () => {
+        if (resultBlob) PDFTools.downloadBlob(resultBlob, pdfFile.name.replace(/\.pdf$/i, '') + '_compressed.pdf');
+      });
+    });
+  </script>
+</body>
+</html>
