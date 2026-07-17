@@ -351,6 +351,10 @@ const TRANSLATIONS = {
       "published": "Published",
       "notFound": "No articles found.",
       "loading": "Loading articles..."
+    },
+    "video": {
+      "title": "Watch How It Works",
+      "subtitle": "See Petty Cash in action in this quick video."
     }
   },
   "ar": {
@@ -705,6 +709,10 @@ const TRANSLATIONS = {
       "published": "تاريخ النشر",
       "notFound": "لا توجد مقالات.",
       "loading": "جاري تحميل المقالات..."
+    },
+    "video": {
+      "title": "شاهد كيف يعمل",
+      "subtitle": "شاهد صندوق العهدة أثناء العمل في هذا الفيديو القصير."
     }
   }
 };
