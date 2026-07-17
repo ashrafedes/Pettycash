@@ -168,7 +168,8 @@
     $('#preview-due-date').textContent = state.dueDate;
 
     $('#preview-customer-name').textContent = state.customerName;
-    $('#preview-customer-vat').textContent = state.customerVat ? `VAT: ${state.customerVat}` : '';
+    const vatLabel = currentLang === 'ar' ? 'الرقم الضريبي:' : 'VAT:';
+    $('#preview-customer-vat').textContent = state.customerVat ? `${vatLabel} ${state.customerVat}` : '';
     $('#preview-customer-address').textContent = [state.customerAddress, state.customerPhone, state.customerEmail].filter(Boolean).join(' · ');
 
     const tbody = $('#preview-items-table tbody');
@@ -208,8 +209,14 @@
     const ar = currentLang === 'ar';
     $$$('[data-i18n-en]').forEach(el => {
       const text = ar ? el.dataset.i18nAr : el.dataset.i18nEn;
-      if (text && el.childNodes.length && el.childNodes[0].nodeType === 3) el.childNodes[0].textContent = text + ' ';
-      else if (text) el.textContent = text;
+      if (!text) return;
+      if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+        el.textContent = text;
+      } else if (el.childNodes.length && el.childNodes[0].nodeType === 3) {
+        el.childNodes[0].textContent = text + ' ';
+      } else {
+        el.textContent = text;
+      }
     });
   }
 

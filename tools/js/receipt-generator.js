@@ -69,11 +69,13 @@
     else { logo.classList.add('hidden'); }
 
     $('#preview-company-name').textContent = state.companyName;
-    $('#preview-company-details').textContent = [state.companyAddress, state.companyPhone, state.companyVat ? 'VAT: ' + state.companyVat : ''].filter(Boolean).join(' · ');
+    const vatLabel = currentLang === 'ar' ? 'الرقم الضريبي: ' : 'VAT: ';
+    $('#preview-company-details').textContent = [state.companyAddress, state.companyPhone, state.companyVat ? vatLabel + state.companyVat : ''].filter(Boolean).join(' · ');
     $('#preview-receipt-number').textContent = (currentLang === 'ar' ? 'رقم الإيصال: ' : 'Receipt No: ') + state.receiptNumber;
     $('#preview-date').textContent = state.receiptDate;
     $('#preview-received-from').textContent = state.receivedFrom;
-    $('#preview-payment-method').textContent = state.paymentMethod;
+    const pmKey = { Cash: 'receipt.cash', 'Bank Transfer': 'receipt.bankTransfer', Card: 'receipt.card', Cheque: 'receipt.cheque' }[state.paymentMethod] || 'receipt.cash';
+    $('#preview-payment-method').textContent = t(pmKey, state.paymentMethod);
     $('#preview-reference').textContent = state.referenceNumber;
     $('#preview-description').textContent = state.description;
     $('#preview-amount').textContent = formatMoney(amount, state.currency);
