@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unlock PDF — Remove Password from PDF Online Free | PettyCash.site</title>
+  <meta name="description" content="Remove password protection from your PDF. Enter the password and unlock. Free, no upload, all in your browser.">
+  <link rel="canonical" href="https://pettycash.site/pdf-tools/unlock-pdf.html">
+  <meta property="og:title" content="Unlock PDF — Remove Password from PDF Online Free">
+  <meta property="og:description" content="Remove password protection from your PDF. All in your browser.">
+  <meta property="og:url" content="https://pettycash.site/pdf-tools/unlock-pdf.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Unlock PDF — Remove Password from PDF Online Free">
+  <meta name="twitter:description" content="Remove password protection from your PDF. All in your browser.">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@graph": [
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
+      { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Unlock PDF", "item": "https://pettycash.site/pdf-tools/unlock-pdf.html" }
+    ]},
+    { "@type": "SoftwareApplication", "name": "Unlock PDF", "description": "Remove password protection from your PDF file. Free online tool.", "url": "https://pettycash.site/pdf-tools/unlock-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "Is unlocking PDF free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free." } },
+      { "@type": "Question", "name": "Are my files uploaded?", "acceptedAnswer": { "@type": "Answer", "text": "No. All processing happens in your browser." } },
+      { "@type": "Question", "name": "Do I need the password?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you must know the password to unlock the PDF." } },
+      { "@type": "Question", "name": "Can I unlock any PDF?", "acceptedAnswer": { "@type": "Answer", "text": "You can unlock any PDF if you know the correct password. This tool does not crack passwords." } }
+    ]}
+  ]}
+  </script>
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tailwind.min.css">
+  <link rel="stylesheet" href="./css/pdf-tools.css">
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <nav id="pdftool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
+  <main class="flex-1">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+      <nav class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+        <a href="../" class="hover:text-blue-600">Home</a><span>/</span>
+        <a href="./" class="hover:text-blue-600">PDF Tools</a><span>/</span>
+        <span class="text-slate-700 dark:text-slate-300" id="bc-title">Unlock PDF</span>
+      </nav>
+    </div>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
+      <div class="text-5xl mb-4">🔓</div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">Unlock PDF</h1>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Remove password protection from your PDF. Enter the password to unlock and download.</p>
+    </section>
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+      <div class="space-y-6">
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" class="hidden" accept=".pdf">
+          <div class="text-4xl mb-3">📄</div>
+          <p class="font-semibold text-slate-700 dark:text-slate-200" data-pt="common.dropHere">Drop your PDF file here</p>
+          <p class="text-sm text-slate-500 mt-1" data-pt="common.orClick">or click to browse</p>
+        </div>
+        <div id="file-info" class="hidden file-item">
+          <div class="file-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div class="file-info"><div class="file-name" id="file-name-display"></div><div class="file-meta" id="file-meta-display"></div></div>
+          <button id="remove-file" class="text-red-500 hover:text-red-700 p-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div id="unlock-options" class="hidden space-y-4">
+          <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 space-y-4">
+            <div>
+              <label class="block text-sm font-semibold mb-1" id="pwd-label">Password</label>
+              <div class="relative">
+                <input type="password" id="password" class="pdf-input pr-10" placeholder="••••••••">
+                <button id="toggle-pwd" class="absolute end-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600" type="button">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+              <p class="text-xs text-slate-400 mt-2" id="pwd-hint">Enter the password used to protect this PDF</p>
+            </div>
+          </div>
+          <div class="text-center">
+            <button id="unlock-btn" class="btn-pdf btn-pdf-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+              <span id="unlock-btn-label">Unlock PDF</span>
+            </button>
+          </div>
+        </div>
+        <div id="progress-area"></div>
+        <div id="result" class="hidden text-center py-8">
+          <div class="text-4xl mb-3">✅</div>
+          <p class="font-semibold text-lg mb-4" data-pt="common.done">Done!</p>
+          <button id="download-btn" class="btn-pdf btn-pdf-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-pt="common.download">Download</span>
+          </button>
+        </div>
+      </div>
+      <div class="mt-16">
+        <h2 class="text-xl font-bold mb-6" data-pt="common.faq">FAQ</h2>
+        <div id="faq-list" class="space-y-3"></div>
+      </div>
+      <div class="mt-12">
+        <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-slate-900 text-slate-400 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm">
+      <p>&copy; 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p>
+    </div>
+  </footer>
+  <script defer src="./js/pdf-translations.js"></script>
+  <script defer src="./js/pdf-tools-registry.js"></script>
+  <script defer src="./js/pdf-shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      PDFTools.initTheme();
+      PDFTools.renderNav();
+      const lang = PDFTools.getLang();
+      const T = lang === 'ar' ? {
+        title: 'إلغاء قفل PDF', desc: 'إزالة الحماية بكلمة المرور من ملف PDF. أدخل كلمة المرور لإلغاء القفل والتحميل.',
+        pwd: 'كلمة المرور', pwdHint: 'أدخل كلمة المرور المستخدمة لحماية هذا الملف',
+        unlockBtn: 'إلغاء القفل', pageCount: 'صفحة', noFile: 'اختر ملف PDF أولاً',
+        noPwd: 'أدخل كلمة المرور', wrongPwd: 'كلمة مرور خاطئة', notEncrypted: 'هذا الملف غير محمي بكلمة مرور'
+      } : {
+        title: 'Unlock PDF', desc: 'Remove password protection from your PDF. Enter the password to unlock and download.',
+        pwd: 'Password', pwdHint: 'Enter the password used to protect this PDF',
+        unlockBtn: 'Unlock PDF', pageCount: 'pages', noFile: 'Select a PDF file first',
+        noPwd: 'Enter the password', wrongPwd: 'Incorrect password', notEncrypted: 'This PDF is not password-protected'
+      };
+      document.getElementById('bc-title').textContent = T.title;
+      document.getElementById('tool-title').textContent = T.title;
+      document.getElementById('tool-desc').textContent = T.desc;
+      document.getElementById('pwd-label').textContent = T.pwd;
+      document.getElementById('pwd-hint').textContent = T.pwdHint;
+      document.getElementById('unlock-btn-label').textContent = T.unlockBtn;
+
+      const faqs = lang === 'ar' ? [
+        { q: 'هل إلغاء قفل PDF مجاني؟', a: 'نعم، مجاني تماماً.' },
+        { q: 'هل يتم رفع ملفاتي؟', a: 'لا. كل المعالجة تتم في متصفحك.' },
+        { q: 'هل أحتاج كلمة المرور؟', a: 'نعم، يجب معرفة كلمة المرور لإلغاء القفل.' },
+        { q: 'هل يمكنني فتح أي ملف؟', a: 'يمكنك إلغاء قفل أي ملف إذا كنت تعرف كلمة المرور الصحيحة.' }
+      ] : [
+        { q: 'Is unlocking PDF free?', a: 'Yes, completely free.' },
+        { q: 'Are my files uploaded?', a: 'No. All processing happens in your browser.' },
+        { q: 'Do I need the password?', a: 'Yes, you must know the password to unlock the PDF.' },
+        { q: 'Can I unlock any PDF?', a: 'You can unlock any PDF if you know the correct password. This tool does not crack passwords.' }
+      ];
+      document.getElementById('faq-list').innerHTML = faqs.map(f => `<details class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4"><summary class="font-semibold cursor-pointer text-sm">${f.q}</summary><p class="text-sm text-slate-600 dark:text-slate-400 mt-2">${f.a}</p></details>`).join('');
+
+      const related = ['protect', 'compress', 'merge', 'split'];
+      document.getElementById('related-tools').innerHTML = related.map(key => {
+        const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
+        if (!tool) return '';
+        return `<a href="./${tool.slug}.html" class="tool-card text-center"><div class="text-2xl">${tool.icon}</div><p class="text-xs font-semibold mt-1">${PDFTools.t('tools.' + tool.key + '.title')}</p></a>`;
+      }).join('');
+
+      // ===================== Unlock Logic =====================
+      let pdfFile = null, pageCount = 0, resultBlob = null;
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+      const fileInfo = document.getElementById('file-info');
+      const unlockOptions = document.getElementById('unlock-options');
+      const unlockBtn = document.getElementById('unlock-btn');
+      const progressArea = document.getElementById('progress-area');
+      const result = document.getElementById('result');
+      const downloadBtn = document.getElementById('download-btn');
+
+      PDFTools.initDropZone(dropZone, fileInput, async (newFiles) => {
+        pdfFile = newFiles[0];
+        resultBlob = null;
+        document.getElementById('file-name-display').textContent = pdfFile.name;
+        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size);
+        dropZone.classList.add('hidden');
+        fileInfo.classList.remove('hidden');
+        unlockOptions.classList.remove('hidden');
+        result.classList.add('hidden');
+      }, { accept: '.pdf', multiple: false });
+
+      document.getElementById('remove-file').addEventListener('click', () => {
+        pdfFile = null; resultBlob = null;
+        fileInfo.classList.add('hidden');
+        unlockOptions.classList.add('hidden');
+        dropZone.classList.remove('hidden');
+        result.classList.add('hidden');
+      });
+
+      document.getElementById('toggle-pwd').addEventListener('click', () => {
+        const pwd = document.getElementById('password');
+        pwd.type = pwd.type === 'password' ? 'text' : 'password';
+      });
+
+      unlockBtn.addEventListener('click', async () => {
+        if (!pdfFile) { PDFTools.toast(T.noFile); return; }
+        const password = document.getElementById('password').value;
+        if (!password) { PDFTools.toast(T.noPwd); return; }
+        unlockBtn.disabled = true;
+        result.classList.add('hidden');
+        PDFTools.showProgress(progressArea, 10);
+
+        try {
+          // Use PDF.js to decrypt with password, then re-save without encryption
+          const pdfjs = await PDFTools.ensurePDFLib();
+          const { PDFDocument } = await PDFTools.ensurePDFLib();
+          const bytes = await pdfFile.arrayBuffer();
+
+          // Try loading with password via PDF.js
+          const pdfjsLib = await PDFTools.ensurePDFJS();
+          let pdf;
+          try {
+            pdf = await pdfjsLib.getDocument({ data: bytes, password }).promise;
+          } catch (e) {
+            if (e.name === 'PasswordException') {
+              PDFTools.toast(T.wrongPwd);
+              unlockBtn.disabled = false;
+              return;
+            }
+            throw e;
+          }
+
+          PDFTools.showProgress(progressArea, 30);
+          const total = pdf.numPages;
+          const newDoc = await PDFDocument.create();
+
+          for (let i = 1; i <= total; i++) {
+            const page = await pdf.getPage(i);
+            const viewport = page.getViewport({ scale: 2 });
+            const canvas = document.createElement('canvas');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            const ctx = canvas.getContext('2d');
+            await page.render({ canvasContext: ctx, viewport }).promise;
+            const jpgBlob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.92));
+            const jpgBytes = await jpgBlob.arrayBuffer();
+            const img = await newDoc.embedJpg(jpgBytes);
+            const newPage = newDoc.addPage([viewport.width, viewport.height]);
+            newPage.drawImage(img, { x: 0, y: 0, width: viewport.width, height: viewport.height });
+            PDFTools.showProgress(progressArea, 30 + Math.round((i / total) * 60));
+          }
+
+          const out = await newDoc.save();
+          resultBlob = new Blob([out], { type: 'application/pdf' });
+          PDFTools.showProgress(progressArea, 100);
+          result.classList.remove('hidden');
+          PDFTools.toast(PDFTools.t('common.done'));
+        } catch (err) {
+          console.error(err);
+          PDFTools.toast(PDFTools.t('common.error') + ': ' + err.message);
+        } finally {
+          unlockBtn.disabled = false;
+        }
+      });
+
+      downloadBtn.addEventListener('click', () => {
+        if (resultBlob) PDFTools.downloadBlob(resultBlob, pdfFile.name.replace(/\.pdf$/i, '') + '_unlocked.pdf');
+      });
+    });
+  </script>
+</body>
+</html>
