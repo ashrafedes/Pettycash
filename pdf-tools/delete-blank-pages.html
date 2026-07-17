@@ -184,6 +184,7 @@
         document.getElementById('file-meta-display').textContent = '';
         fileInfo.classList.add('hidden'); scanOptions.classList.add('hidden');
         dropZone.classList.remove('hidden'); blankResults.classList.add('hidden'); result.classList.add('hidden');
+        progressArea.innerHTML = '';
       });
 
       scanBtn.addEventListener('click', async () => {

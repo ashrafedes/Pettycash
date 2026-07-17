@@ -228,6 +228,8 @@
         result.classList.add('hidden');
         document.getElementById('progress-area').innerHTML = '';
       });
+
+      numBtn.addEventListener('click', async () => {
         if (!pdfFile) { PDFTools.toast(T.noFile); return; }
         numBtn.disabled = true;
         result.classList.add('hidden');

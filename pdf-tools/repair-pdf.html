@@ -111,6 +111,7 @@
         document.getElementById('convert-options').classList.add('hidden');
         document.getElementById('drop-zone').classList.remove('hidden');
         document.getElementById('result').classList.add('hidden');
+        document.getElementById('progress-area').innerHTML = '';
       });
       document.getElementById('convert-btn').addEventListener('click', async () => {
         if(!pdfFile){PDFTools.toast('Select a PDF file first');return;}
