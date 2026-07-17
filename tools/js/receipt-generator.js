@@ -85,9 +85,6 @@
     $('#preview-notes').textContent = state.notes;
 
     translatePreviewLabels();
-
-    const text = [state.companyName, state.receiptNumber, formatMoney(amount, state.currency), state.receiptDate].join(' | ');
-    $('#preview-qr').src = await generateQR(text, 120);
   }
 
   function translatePreviewLabels() {
