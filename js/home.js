@@ -28,7 +28,15 @@ function renderHero() {
       </div>
       <div class="w-full">
         <div class="aspect-video rounded-2xl shadow-2xl overflow-hidden bg-slate-900 border-4 border-white/10">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/-8Vgzj9cHcg?rel=0" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div id="youtube-facade" class="w-full h-full relative cursor-pointer bg-slate-800 flex items-center justify-center group">
+            <img src="https://i.ytimg.com/vi/-8Vgzj9cHcg/hqdefault.jpg" alt="${video.title}" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" loading="lazy" width="480" height="270">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <iframe id="hero-video" class="w-full h-full hidden" data-src="https://www.youtube.com/embed/-8Vgzj9cHcg?rel=0&autoplay=1" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -263,7 +271,19 @@ function renderHomeArticles(articles, lang, data) {
   `}).join("");
 }
 
+function initYouTubeFacade() {
+  const facade = document.getElementById("youtube-facade");
+  const iframe = document.getElementById("hero-video");
+  if (!facade || !iframe) return;
+  facade.addEventListener("click", () => {
+    iframe.src = iframe.dataset.src || iframe.src;
+    iframe.classList.remove("hidden");
+    facade.classList.add("hidden");
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  initYouTubeFacade();
   renderProblems();
   renderSolutions();
   renderFeatures();

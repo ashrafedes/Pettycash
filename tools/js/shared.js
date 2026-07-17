@@ -326,6 +326,10 @@
     document.querySelectorAll('[data-i18n-title]').forEach(el => {
       el.title = t(el.dataset.i18nTitle);
     });
+    document.querySelectorAll('[data-i18n-en], [data-i18n-ar]').forEach(el => {
+      const val = el.getAttribute('data-i18n-' + currentLang);
+      if (val) el.textContent = val;
+    });
   }
 
   // ===================== Theme =====================

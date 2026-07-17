@@ -64,6 +64,10 @@
         <span class="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm" data-i18n="common.tools">Tools</span>
         <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-6" data-i18n="tools.heroTitle">Free Business Tools</h1>
         <p class="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto mb-8" data-i18n="tools.heroSubtitle">Generate professional invoices, receipts, and petty cash vouchers. ZATCA-ready invoice QR codes, PDF/PNG export, and bilingual English & Arabic support.</p>
+        <div class="flex items-center justify-center gap-2" id="hero-lang-switcher">
+          <button data-lang="en" class="hero-lang-btn px-4 py-2 rounded-lg text-sm font-semibold transition-colors bg-white text-blue-700">English</button>
+          <button data-lang="ar" class="hero-lang-btn px-4 py-2 rounded-lg text-sm font-semibold transition-colors bg-white/20 text-white hover:bg-white/30">العربية</button>
+        </div>
       </div>
     </section>
 
@@ -131,12 +135,26 @@
         document.title = PCTools.t('tools.heroTitle') + ' | PettyCash.site';
         document.querySelector('meta[name="description"]')?.setAttribute('content', PCTools.t('tools.heroSubtitle'));
       }
+      function updateHeroLangButtons() {
+        document.querySelectorAll('.hero-lang-btn').forEach(btn => {
+          const isActive = btn.dataset.lang === PCTools.currentLang;
+          btn.className = 'hero-lang-btn px-4 py-2 rounded-lg text-sm font-semibold transition-colors ' + (isActive ? 'bg-white text-blue-700' : 'bg-white/20 text-white hover:bg-white/30');
+        });
+      }
       PCTools.renderNav();
       PCTools.initTheme();
       document.getElementById('pctool-theme')?.addEventListener('click', PCTools.toggleTheme);
       PCTools.setLang(PCTools.currentLang);
       updateMeta();
-      window.addEventListener('pctool-lang-change', () => { PCTools.renderNav(); updateMeta(); });
+      updateHeroLangButtons();
+      document.querySelectorAll('.hero-lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          PCTools.setLang(btn.dataset.lang);
+          updateMeta();
+          updateHeroLangButtons();
+        });
+      });
+      window.addEventListener('pctool-lang-change', () => { PCTools.renderNav(); updateMeta(); updateHeroLangButtons(); });
     })();
   </script>
 </body>

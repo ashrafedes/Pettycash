@@ -10,10 +10,32 @@ const FIREBASE_CONFIG = {
 
 let firebaseApp = null;
 let firebaseDb = null;
+let firebaseLoadingPromise = null;
+
+function loadFirebaseSDK() {
+  if (typeof firebase !== "undefined") return Promise.resolve();
+  if (firebaseLoadingPromise) return firebaseLoadingPromise;
+  firebaseLoadingPromise = new Promise((resolve, reject) => {
+    const appScript = document.createElement("script");
+    appScript.src = "https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js";
+    appScript.async = true;
+    appScript.onload = () => {
+      const fsScript = document.createElement("script");
+      fsScript.src = "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js";
+      fsScript.async = true;
+      fsScript.onload = resolve;
+      fsScript.onerror = reject;
+      document.head.appendChild(fsScript);
+    };
+    appScript.onerror = reject;
+    document.head.appendChild(appScript);
+  });
+  return firebaseLoadingPromise;
+}
 
 function initFirebase() {
   if (typeof firebase === "undefined") {
-    console.warn("Firebase SDK not loaded");
+    console.warn("Firebase SDK not loaded yet — call ensureFirebase() first");
     return null;
   }
   if (!firebaseApp) {
@@ -21,6 +43,11 @@ function initFirebase() {
     firebaseDb = firebase.firestore();
   }
   return firebaseDb;
+}
+
+async function ensureFirebase() {
+  await loadFirebaseSDK();
+  return initFirebase();
 }
 
 function initStorage() {
@@ -32,7 +59,7 @@ function initStorage() {
 }
 
 async function trackVisitor() {
-  const db = initFirebase();
+  const db = await ensureFirebase();
   if (!db) return null;
   try {
     const counterRef = db.collection("analytics").doc("visitor_count");
@@ -100,7 +127,7 @@ function mergeArticles(staticArticles, dbArticles) {
 
 async function fetchLatestArticles(limitCount = 3) {
   let staticArticles = null;
-  const db = initFirebase();
+  const db = await ensureFirebase();
   if (db) {
     try {
       const snap = await withTimeout(
@@ -121,7 +148,7 @@ async function fetchLatestArticles(limitCount = 3) {
 }
 
 async function fetchArticleBySlug(slug) {
-  const db = initFirebase();
+  const db = await ensureFirebase();
   if (db && slug) {
     try {
       const snap = await withTimeout(
@@ -141,7 +168,7 @@ async function fetchArticleBySlug(slug) {
 }
 
 async function fetchArticleById(id) {
-  const db = initFirebase();
+  const db = await ensureFirebase();
   if (db && id) {
     try {
       const snap = await withTimeout(db.collection("blog_articles").doc(id).get(), 3000);
@@ -184,7 +211,7 @@ async function uploadImage(file, path = "blog_images") {
 }
 
 async function saveArticle(article) {
-  const db = initFirebase();
+  const db = await ensureFirebase();
   if (!db) return { error: "Firestore SDK not loaded" };
   try {
     const data = {
@@ -218,7 +245,7 @@ async function saveArticle(article) {
 }
 
 async function deleteArticle(id) {
-  const db = initFirebase();
+  const db = await ensureFirebase();
   if (!db) return { error: "Firestore SDK not loaded" };
   try {
     await db.collection("blog_articles").doc(id).delete();
@@ -228,4 +255,4 @@ async function deleteArticle(id) {
   }
 }
 
-window.PettyCashFirebase = { initFirebase, trackVisitor, fetchLatestArticles, fetchArticleBySlug, fetchArticleById, formatDate, uploadImage, saveArticle, deleteArticle, getStaticArticles, sortArticlesByDate, mergeArticles };
+window.PettyCashFirebase = { initFirebase, ensureFirebase, trackVisitor, fetchLatestArticles, fetchArticleBySlug, fetchArticleById, formatDate, uploadImage, saveArticle, deleteArticle, getStaticArticles, sortArticlesByDate, mergeArticles };
