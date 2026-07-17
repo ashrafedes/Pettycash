@@ -145,9 +145,6 @@
     $('#preview-received-by').textContent = state.receivedBy;
 
     translatePreviewLabels();
-
-    const qrText = [state.companyName, state.voucherNumber, formatMoney(c.grand, 'SAR'), state.date].filter(Boolean).join(' | ');
-    $('#preview-qr').src = await generateQR(qrText, 120);
   }
 
   function translatePreviewLabels() {

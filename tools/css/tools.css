@@ -83,6 +83,16 @@ body {
   font-size: 0.65rem;
 }
 
+/* Voucher compact layout */
+.voucher-paper .preview-table th,
+.voucher-paper .preview-table td {
+  padding: 0.375rem 0.5rem;
+  font-size: 0.8rem;
+}
+.voucher-paper h1 { font-size: 1.5rem; }
+.voucher-paper h2 { font-size: 1.1rem; }
+.voucher-paper p, .voucher-paper span, .voucher-paper div { font-size: 0.82rem; }
+
 /* RTL specific */
 [dir="rtl"] .ltr-field { direction: rtl; }
 [dir="rtl"] input, [dir="rtl"] textarea, [dir="rtl"] select { text-align: right; }

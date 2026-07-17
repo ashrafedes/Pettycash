@@ -64,7 +64,7 @@
 
   <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 grid lg:grid-cols-12 gap-8">
     <!-- Form -->
-    <section class="lg:col-span-5 space-y-6 no-print" aria-label="Voucher form">
+    <section class="lg:col-span-4 space-y-6 no-print" aria-label="Voucher form">
       <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
         <h1 class="text-2xl font-extrabold mb-1" data-i18n="voucher.title">Petty Cash Voucher Generator</h1>
         <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="voucher.metaDescription">Create professional petty cash vouchers.</p>
@@ -116,7 +116,7 @@
     </section>
 
     <!-- Preview -->
-    <section class="lg:col-span-7 flex flex-col gap-4" aria-label="Voucher preview">
+    <section class="lg:col-span-8 flex flex-col gap-4" aria-label="Voucher preview">
       <div class="sticky top-20 space-y-4">
         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 flex flex-wrap items-center gap-3 animate-fade-in">
           <button type="button" id="btn-print" class="btn-secondary text-sm"><span data-i18n="common.print">Print</span></button>
@@ -124,7 +124,7 @@
           <button type="button" id="btn-png" class="btn-secondary text-sm"><span data-i18n="common.downloadPNG">Download PNG</span></button>
         </div>
         <div id="preview-container" class="overflow-auto rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-200 dark:bg-slate-900 p-4">
-          <div id="voucher-preview" class="paper" style="width:210mm; min-height:148mm; padding:20mm;">
+          <div id="voucher-preview" class="paper voucher-paper" style="width:100%; max-width:210mm; min-height:auto; padding:12mm;">
             <div class="flex justify-between items-start border-b border-slate-200 pb-4 mb-4">
               <div>
                 <img id="preview-logo" src="" alt="Logo" class="h-14 object-contain mb-2 hidden">
@@ -169,19 +169,18 @@
               </div>
             </div>
 
-            <div class="mt-8 grid grid-cols-2 gap-6 text-sm border-t border-slate-200 pt-4">
-              <div><p class="font-semibold mb-1" data-i18n-en="Prepared By" data-i18n-ar="أعده">Prepared By</p><p id="preview-prepared-by"></p><div class="h-10 border-b border-slate-300 mt-6"></div></div>
-              <div><p class="font-semibold mb-1" data-i18n-en="Checked By" data-i18n-ar="راجعه">Checked By</p><p id="preview-checked-by"></p><div class="h-10 border-b border-slate-300 mt-6"></div></div>
-              <div><p class="font-semibold mb-1" data-i18n-en="Approved By" data-i18n-ar="وافق عليه">Approved By</p><p id="preview-approved-by"></p><div class="h-10 border-b border-slate-300 mt-6"></div></div>
-              <div><p class="font-semibold mb-1" data-i18n-en="Received By" data-i18n-ar="استلمه">Received By</p><p id="preview-received-by"></p><div class="h-10 border-b border-slate-300 mt-6"></div></div>
+            <div class="mt-6 grid grid-cols-2 gap-4 text-sm border-t border-slate-200 pt-4">
+              <div><p class="font-semibold mb-1" data-i18n-en="Prepared By" data-i18n-ar="أعده">Prepared By</p><p id="preview-prepared-by"></p><div class="h-8 border-b border-slate-300 mt-4"></div></div>
+              <div><p class="font-semibold mb-1" data-i18n-en="Checked By" data-i18n-ar="راجعه">Checked By</p><p id="preview-checked-by"></p><div class="h-8 border-b border-slate-300 mt-4"></div></div>
+              <div><p class="font-semibold mb-1" data-i18n-en="Approved By" data-i18n-ar="وافق عليه">Approved By</p><p id="preview-approved-by"></p><div class="h-8 border-b border-slate-300 mt-4"></div></div>
+              <div><p class="font-semibold mb-1" data-i18n-en="Received By" data-i18n-ar="استلمه">Received By</p><p id="preview-received-by"></p><div class="h-8 border-b border-slate-300 mt-4"></div></div>
             </div>
 
-            <div class="mt-6 flex justify-between items-end border-t border-slate-200 pt-4">
+            <div class="mt-4 flex justify-start items-end border-t border-slate-200 pt-4">
               <div>
                 <p class="font-semibold text-sm" data-i18n-en="Company Stamp" data-i18n-ar="ختم الشركة">Company Stamp</p>
-                <div class="w-24 h-24 rounded-full border-2 border-dashed border-slate-300 mt-2 flex items-center justify-center text-slate-400 text-xs text-center" data-i18n-en="Stamp" data-i18n-ar="ختم">Stamp</div>
+                <div class="w-20 h-20 rounded-full border-2 border-dashed border-slate-300 mt-2 flex items-center justify-center text-slate-400 text-xs text-center" data-i18n-en="Stamp" data-i18n-ar="ختم">Stamp</div>
               </div>
-              <div class="text-end"><img id="preview-qr" src="" alt="QR" class="h-24 w-24 ms-auto"></div>
             </div>
           </div>
         </div>
@@ -197,7 +196,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <script src="./js/shared.js"></script>
   <script src="./js/petty-cash-voucher-generator.js"></script>
 </body>
