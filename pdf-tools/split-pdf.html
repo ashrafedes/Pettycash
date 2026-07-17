@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Split PDF — Divide PDF into Multiple Files Free | PettyCash.site</title>
+  <meta name="description" content="Split a PDF into multiple files by page ranges. Free online tool, no upload, no signup. All processing in your browser.">
+  <link rel="canonical" href="https://pettycash.site/pdf-tools/split-pdf.html">
+  <meta property="og:title" content="Split PDF — Divide PDF into Multiple Files Free">
+  <meta property="og:description" content="Split a PDF by page ranges. All in your browser, no upload.">
+  <meta property="og:url" content="https://pettycash.site/pdf-tools/split-pdf.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Split PDF — Divide PDF into Multiple Files Free">
+  <meta name="twitter:description" content="Split a PDF by page ranges. All in your browser.">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "BreadcrumbList", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
+        { "@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://pettycash.site/pdf-tools/" },
+        { "@type": "ListItem", "position": 3, "name": "Split PDF", "item": "https://pettycash.site/pdf-tools/split-pdf.html" }
+      ]},
+      { "@type": "SoftwareApplication", "name": "Split PDF", "description": "Split a PDF into multiple files by page ranges. Free online tool.", "url": "https://pettycash.site/pdf-tools/split-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "Is splitting PDF free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free with no limits." } },
+        { "@type": "Question", "name": "Are my files uploaded?", "acceptedAnswer": { "@type": "Answer", "text": "No. All processing happens in your browser." } },
+        { "@type": "Question", "name": "How do I split by page ranges?", "acceptedAnswer": { "@type": "Answer", "text": "Enter ranges like 1-3, 5-7, 10. Each range becomes a separate PDF file." } }
+      ]}
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tailwind.min.css">
+  <link rel="stylesheet" href="./css/pdf-tools.css">
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <nav id="pdftool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
+
+  <main class="flex-1">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+      <nav class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+        <a href="../" class="hover:text-blue-600">Home</a><span>/</span>
+        <a href="./" class="hover:text-blue-600">PDF Tools</a><span>/</span>
+        <span class="text-slate-700 dark:text-slate-300" data-pt="split.title">Split PDF</span>
+      </nav>
+    </div>
+
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
+      <div class="text-5xl mb-4">✂️</div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" data-pt="split.title">Split PDF</h1>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" data-pt="split.desc">Split a PDF into multiple files by page ranges. Each range becomes a separate file.</p>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+      <div class="space-y-6">
+        <!-- Drop Zone -->
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" class="hidden" accept=".pdf">
+          <div class="text-4xl mb-3">📄</div>
+          <p class="font-semibold text-slate-700 dark:text-slate-200" data-pt="common.dropHere">Drop your PDF file here</p>
+          <p class="text-sm text-slate-500 mt-1" data-pt="common.orClick">or click to browse</p>
+        </div>
+
+        <!-- File Info -->
+        <div id="file-info" class="hidden file-item">
+          <div class="file-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div class="file-info"><div class="file-name" id="file-name-display"></div><div class="file-meta" id="file-meta-display"></div></div>
+          <button id="remove-file" class="text-red-500 hover:text-red-700 p-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+
+        <!-- Split Options -->
+        <div id="split-options" class="hidden space-y-4">
+          <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 space-y-4">
+            <div>
+              <label class="block text-sm font-semibold mb-2" data-pt="split.mode">Split Mode</label>
+              <div class="flex flex-wrap gap-3">
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="split-mode" value="ranges" checked class="accent-blue-600"> <span data-pt="split.byRange">By page ranges</span></label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="split-mode" value="each" class="accent-blue-600"> <span data-pt="split.eachPage">Each page as file</span></label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="split-mode" value="every" class="accent-blue-600"> <span data-pt="split.everyN">Every N pages</span></label>
+              </div>
+            </div>
+            <div id="ranges-input">
+              <label class="block text-sm font-semibold mb-2" data-pt="split.rangesLabel">Page ranges (e.g. 1-3, 5, 8-10)</label>
+              <input type="text" id="ranges" class="pdf-input" placeholder="1-3, 5, 8-10">
+            </div>
+            <div id="every-input" class="hidden">
+              <label class="block text-sm font-semibold mb-2" data-pt="split.everyLabel">Pages per file</label>
+              <input type="number" id="every-n" class="pdf-input" value="1" min="1" style="max-width:120px">
+            </div>
+          </div>
+          <div class="text-center">
+            <button id="split-btn" class="btn-pdf btn-pdf-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8V5a2 2 0 0 1 2-2h2M3 16v3a2 2 0 0 0 2 2h2M21 8V5a2 2 0 0 0-2-2h-2M21 16v3a2 2 0 0 1-2 2h-2"/></svg>
+              <span data-pt="split.splitBtn">Split PDF</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="progress-area"></div>
+
+        <!-- Results -->
+        <div id="results" class="hidden space-y-3"></div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mt-16">
+        <h2 class="text-xl font-bold mb-6" data-pt="common.faq">FAQ</h2>
+        <div id="faq-list" class="space-y-3"></div>
+      </div>
+
+      <!-- Related -->
+      <div class="mt-12">
+        <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm">
+      <p>&copy; 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p>
+    </div>
+  </footer>
+
+  <script defer src="./js/pdf-translations.js"></script>
+  <script defer src="./js/pdf-tools-registry.js"></script>
+  <script defer src="./js/pdf-shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      PDFTools.initTheme();
+      PDFTools.renderNav();
+      const lang = PDFTools.getLang();
+
+      // Add split translations dynamically
+      const splitT = lang === 'ar' ? {
+        title: 'تقسيم PDF', desc: 'تقسيم ملف PDF إلى عدة ملفات حسب نطاقات الصفحات. كل نطاق يصبح ملفاً منفصلاً.',
+        mode: 'وضع التقسيم', byRange: 'حسب نطاقات الصفحات', eachPage: 'كل صفحة كملف', everyN: 'كل N صفحات',
+        rangesLabel: 'نطاقات الصفحات (مثال: 1-3, 5, 8-10)', everyLabel: 'صفحات لكل ملف',
+        splitBtn: 'تقسيم PDF', pageCount: 'صفحة', downloadAll: 'تحميل الكل (ZIP)',
+        invalidRange: 'نطاق غير صالح', noFile: 'اختر ملف PDF أولاً'
+      } : {
+        title: 'Split PDF', desc: 'Split a PDF into multiple files by page ranges. Each range becomes a separate file.',
+        mode: 'Split Mode', byRange: 'By page ranges', eachPage: 'Each page as file', everyN: 'Every N pages',
+        rangesLabel: 'Page ranges (e.g. 1-3, 5, 8-10)', everyLabel: 'Pages per file',
+        splitBtn: 'Split PDF', pageCount: 'pages', downloadAll: 'Download All (ZIP)',
+        invalidRange: 'Invalid range', noFile: 'Select a PDF file first'
+      };
+
+      // FAQ
+      const faqs = lang === 'ar' ? [
+        { q: 'هل تقسيم PDF مجاني؟', a: 'نعم، مجاني تماماً.' },
+        { q: 'هل يتم رفع ملفاتي؟', a: 'لا. كل المعالجة تتم في متصفحك.' },
+        { q: 'كيف أقسم بنطاقات الصفحات؟', a: 'أدخل نطاقات مثل 1-3, 5, 8-10. كل نطاق يصبح ملف PDF منفصل.' }
+      ] : [
+        { q: 'Is splitting PDF free?', a: 'Yes, completely free with no limits.' },
+        { q: 'Are my files uploaded?', a: 'No. All processing happens in your browser.' },
+        { q: 'How do I split by page ranges?', a: 'Enter ranges like 1-3, 5, 8-10. Each range becomes a separate PDF file.' }
+      ];
+      document.getElementById('faq-list').innerHTML = faqs.map(f => `
+        <details class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
+          <summary class="font-semibold cursor-pointer text-sm">${f.q}</summary>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">${f.a}</p>
+        </details>`).join('');
+
+      // Related
+      const related = ['merge', 'rotate', 'removePages', 'extractPages'];
+      document.getElementById('related-tools').innerHTML = related.map(key => {
+        const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
+        if (!tool) return '';
+        return `<a href="./${tool.slug}.html" class="tool-card text-center"><div class="text-2xl">${tool.icon}</div><p class="text-xs font-semibold mt-1">${PDFTools.t('tools.' + tool.key + '.title')}</p></a>`;
+      }).join('');
+
+      // ===================== Split Logic =====================
+      let pdfFile = null;
+      let pageCount = 0;
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+      const fileInfo = document.getElementById('file-info');
+      const splitOptions = document.getElementById('split-options');
+      const splitBtn = document.getElementById('split-btn');
+      const progressArea = document.getElementById('progress-area');
+      const results = document.getElementById('results');
+
+      PDFTools.initDropZone(dropZone, fileInput, async (newFiles) => {
+        pdfFile = newFiles[0];
+        const { PDFDocument } = await PDFTools.ensurePDFLib();
+        const bytes = await pdfFile.arrayBuffer();
+        const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+        pageCount = doc.getPageCount();
+        document.getElementById('file-name-display').textContent = pdfFile.name;
+        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' • ' + pageCount + ' ' + splitT.pageCount;
+        dropZone.classList.add('hidden');
+        fileInfo.classList.remove('hidden');
+        splitOptions.classList.remove('hidden');
+      }, { accept: '.pdf', multiple: false });
+
+      document.getElementById('remove-file').addEventListener('click', () => {
+        pdfFile = null;
+        fileInfo.classList.add('hidden');
+        splitOptions.classList.add('hidden');
+        dropZone.classList.remove('hidden');
+        results.classList.add('hidden');
+      });
+
+      // Mode toggle
+      document.querySelectorAll('input[name="split-mode"]').forEach(r => {
+        r.addEventListener('change', () => {
+          document.getElementById('ranges-input').classList.toggle('hidden', r.value !== 'ranges' && r.checked);
+          document.getElementById('every-input').classList.toggle('hidden', r.value !== 'every' && r.checked);
+        });
+      });
+
+      function parseRanges(str, max) {
+        const parts = str.split(',').map(s => s.trim()).filter(Boolean);
+        const ranges = [];
+        for (const p of parts) {
+          if (p.includes('-')) {
+            const [a, b] = p.split('-').map(n => parseInt(n.trim()));
+            if (isNaN(a) || isNaN(b) || a < 1 || b > max || a > b) throw new Error(splitT.invalidRange + ': ' + p);
+            ranges.push([a, b]);
+          } else {
+            const n = parseInt(p);
+            if (isNaN(n) || n < 1 || n > max) throw new Error(splitT.invalidRange + ': ' + p);
+            ranges.push([n, n]);
+          }
+        }
+        return ranges;
+      }
+
+      splitBtn.addEventListener('click', async () => {
+        if (!pdfFile) { PDFTools.toast(splitT.noFile); return; }
+        splitBtn.disabled = true;
+        results.classList.add('hidden');
+        PDFTools.showProgress(progressArea, 5);
+
+        try {
+          const { PDFDocument } = await PDFTools.ensurePDFLib();
+          const srcBytes = await pdfFile.arrayBuffer();
+          const src = await PDFDocument.load(srcBytes, { ignoreEncryption: true });
+
+          const mode = document.querySelector('input[name="split-mode"]:checked').value;
+          let ranges = [];
+          if (mode === 'ranges') {
+            ranges = parseRanges(document.getElementById('ranges').value, pageCount);
+          } else if (mode === 'each') {
+            for (let i = 1; i <= pageCount; i++) ranges.push([i, i]);
+          } else if (mode === 'every') {
+            const n = Math.max(1, parseInt(document.getElementById('every-n').value) || 1);
+            for (let i = 1; i <= pageCount; i += n) ranges.push([i, Math.min(i + n - 1, pageCount)]);
+          }
+
+          if (!ranges.length) { PDFTools.toast(splitT.invalidRange); return; }
+
+          const blobs = [];
+          for (let i = 0; i < ranges.length; i++) {
+            const [start, end] = ranges[i];
+            const out = await PDFDocument.create();
+            const indices = [];
+            for (let p = start - 1; p < end; p++) indices.push(p);
+            const pages = await out.copyPages(src, indices);
+            pages.forEach(pg => out.addPage(pg));
+            const outBytes = await out.save();
+            blobs.push({ name: `split_${start}-${end}.pdf`, blob: new Blob([outBytes], { type: 'application/pdf' }) });
+            PDFTools.showProgress(progressArea, Math.round(((i + 1) / ranges.length) * 90));
+          }
+
+          PDFTools.showProgress(progressArea, 100);
+          results.classList.remove('hidden');
+          results.innerHTML = blobs.map((b, i) => `
+            <div class="file-item animate-fade-up">
+              <div class="file-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+              <div class="file-info"><div class="file-name">${b.name}</div><div class="file-meta">${PDFTools.formatBytes(b.blob.size)}</div></div>
+              <button class="btn-pdf btn-pdf-secondary text-xs" data-download="${i}">${splitT.downloadAll.split(' (')[0]}</button>
+            </div>
+          `).join('') + (blobs.length > 1 ? `<div class="text-center pt-4"><button id="download-zip" class="btn-pdf btn-pdf-primary">📦 ${splitT.downloadAll}</button></div>` : '');
+
+          results.querySelectorAll('[data-download]').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.dataset.download);
+              PDFTools.downloadBlob(blobs[idx].blob, blobs[idx].name);
+            });
+          });
+
+          const zipBtn = document.getElementById('download-zip');
+          if (zipBtn) {
+            zipBtn.addEventListener('click', async () => {
+              const JSZip = await PDFTools.ensureJSZip();
+              const zip = new JSZip();
+              blobs.forEach(b => zip.file(b.name, b.blob));
+              const content = await zip.generateAsync({ type: 'blob' });
+              PDFTools.downloadBlob(content, 'split_pdf.zip');
+            });
+          }
+
+          PDFTools.toast(PDFTools.t('common.done'));
+        } catch (err) {
+          console.error(err);
+          PDFTools.toast(PDFTools.t('common.error') + ': ' + err.message);
+        } finally {
+          splitBtn.disabled = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
