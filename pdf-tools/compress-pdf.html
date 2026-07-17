@@ -70,26 +70,26 @@
           <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 space-y-4">
             <div>
               <label class="block text-sm font-semibold mb-3" id="level-label">Compression level</label>
-              <div class="grid grid-cols-3 gap-3">
+              <div class="grid grid-cols-3 gap-3" id="level-cards">
                 <label class="cursor-pointer">
-                  <input type="radio" name="compress-level" value="light" class="hidden peer">
-                  <div class="text-center py-3 px-2 border-2 border-slate-200 dark:border-slate-600 rounded-lg peer-checked:border-green-600 peer-checked:bg-green-50 dark:peer-checked:bg-green-900/20 peer-checked:text-green-600 transition-all">
+                  <input type="radio" name="compress-level" value="light" class="sr-only">
+                  <div class="level-card text-center py-3 px-2 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all">
                     <div class="text-xl">🟢</div>
                     <div class="text-xs font-semibold mt-1" id="opt-light-title">Light</div>
                     <div class="text-[10px] text-slate-400 mt-0.5" id="opt-light-desc">High quality</div>
                   </div>
                 </label>
                 <label class="cursor-pointer">
-                  <input type="radio" name="compress-level" value="medium" class="hidden peer" checked>
-                  <div class="text-center py-3 px-2 border-2 border-slate-200 dark:border-slate-600 rounded-lg peer-checked:border-green-600 peer-checked:bg-green-50 dark:peer-checked:bg-green-900/20 peer-checked:text-green-600 transition-all">
+                  <input type="radio" name="compress-level" value="medium" class="sr-only" checked>
+                  <div class="level-card text-center py-3 px-2 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all">
                     <div class="text-xl">🟡</div>
                     <div class="text-xs font-semibold mt-1" id="opt-medium-title">Medium</div>
                     <div class="text-[10px] text-slate-400 mt-0.5" id="opt-medium-desc">Balanced</div>
                   </div>
                 </label>
                 <label class="cursor-pointer">
-                  <input type="radio" name="compress-level" value="strong" class="hidden peer">
-                  <div class="text-center py-3 px-2 border-2 border-slate-200 dark:border-slate-600 rounded-lg peer-checked:border-green-600 peer-checked:bg-green-50 dark:peer-checked:bg-green-900/20 peer-checked:text-green-600 transition-all">
+                  <input type="radio" name="compress-level" value="strong" class="sr-only">
+                  <div class="level-card text-center py-3 px-2 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all">
                     <div class="text-xl">🔴</div>
                     <div class="text-xs font-semibold mt-1" id="opt-strong-title">Strong</div>
                     <div class="text-[10px] text-slate-400 mt-0.5" id="opt-strong-desc">Smallest file</div>
@@ -164,6 +164,26 @@
       document.getElementById('opt-strong-title').textContent = T.strong;
       document.getElementById('opt-strong-desc').textContent = T.strongDesc;
       document.getElementById('compress-btn-label').textContent = T.compressBtn;
+
+      // Toggle green highlight on level cards
+      function updateLevelCards() {
+        document.querySelectorAll('#level-cards .level-card').forEach(card => {
+          const radio = card.parentElement.querySelector('input[type="radio"]');
+          if (radio.checked) {
+            card.style.borderColor = '#16a34a';
+            card.style.backgroundColor = 'rgba(22,163,74,0.08)';
+            card.style.color = '#16a34a';
+          } else {
+            card.style.borderColor = '';
+            card.style.backgroundColor = '';
+            card.style.color = '';
+          }
+        });
+      }
+      document.querySelectorAll('input[name="compress-level"]').forEach(r => {
+        r.addEventListener('change', updateLevelCards);
+      });
+      updateLevelCards();
 
       const faqs = lang === 'ar' ? [
         { q: 'هل ضغط PDF مجاني؟', a: 'نعم، مجاني تماماً.' },

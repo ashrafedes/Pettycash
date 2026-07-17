@@ -78,10 +78,10 @@
           <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 space-y-4">
             <div>
               <label class="block text-sm font-semibold mb-2" data-pt="rotate.angleLabel">Rotation Angle</label>
-              <div class="flex gap-3">
-                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="90" class="hidden peer" checked><div class="text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg peer-checked:border-green-600 peer-checked:bg-green-50 dark:peer-checked:bg-green-900/20 peer-checked:text-green-600 transition-all"><div class="text-2xl">↻</div><div class="text-xs font-semibold mt-1">90°</div></div></label>
-                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="180" class="hidden peer"><div class="text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg peer-checked:border-green-600 peer-checked:bg-green-50 dark:peer-checked:bg-green-900/20 peer-checked:text-green-600 transition-all"><div class="text-2xl">↻↻</div><div class="text-xs font-semibold mt-1">180°</div></div></label>
-                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="270" class="hidden peer"><div class="text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg peer-checked:border-green-600 peer-checked:bg-green-50 dark:peer-checked:bg-green-900/20 peer-checked:text-green-600 transition-all"><div class="text-2xl">↺</div><div class="text-xs font-semibold mt-1">270°</div></div></label>
+              <div class="flex gap-3" id="angle-cards">
+                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="90" class="sr-only" checked><div class="angle-card text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all"><div class="text-2xl">↻</div><div class="text-xs font-semibold mt-1">90°</div></div></label>
+                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="180" class="sr-only"><div class="angle-card text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all"><div class="text-2xl">↻↻</div><div class="text-xs font-semibold mt-1">180°</div></div></label>
+                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="270" class="sr-only"><div class="angle-card text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all"><div class="text-2xl">↺</div><div class="text-xs font-semibold mt-1">270°</div></div></label>
               </div>
             </div>
             <div>
@@ -235,10 +235,25 @@
         }
       }
 
-      // Update hint when angle changes
+      // Toggle green highlight on angle cards
+      function updateAngleCards() {
+        document.querySelectorAll('#angle-cards .angle-card').forEach(card => {
+          const radio = card.parentElement.querySelector('input[type="radio"]');
+          if (radio.checked) {
+            card.style.borderColor = '#16a34a';
+            card.style.backgroundColor = 'rgba(22,163,74,0.08)';
+            card.style.color = '#16a34a';
+          } else {
+            card.style.borderColor = '';
+            card.style.backgroundColor = '';
+            card.style.color = '';
+          }
+        });
+      }
       document.querySelectorAll('input[name="angle"]').forEach(r => {
-        r.addEventListener('change', updateRotateHint);
+        r.addEventListener('change', () => { updateAngleCards(); updateRotateHint(); });
       });
+      updateAngleCards();
 
       document.querySelectorAll('input[name="pages-mode"]').forEach(r => {
         r.addEventListener('change', () => {
