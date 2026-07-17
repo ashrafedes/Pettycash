@@ -140,18 +140,25 @@
           document.body.appendChild(iframe);
           const idoc=iframe.contentDocument;
           idoc.open(); idoc.write('<html><head><style>body{font-family:Inter,Arial,sans-serif;font-size:14px;line-height:1.6;color:#333;margin:0}h1{font-size:22px;font-weight:700;margin:12px 0 6px}h2{font-size:18px;font-weight:600;margin:10px 0 4px}h3{font-size:15px;font-weight:600;margin:8px 0 3px}p{margin:6px 0}ul,ol{margin:6px 0;padding-left:20px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccc;padding:3px 6px}img{max-width:100%}</style></head><body>'+html+'</body></html>'); idoc.close();
+          function toXhtml(html){
+            return html
+              .replace(/&nbsp;/gi,'&#160;')
+              .replace(/<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)([^>]*)>/gi,'<$1$2 />')
+              .replace(/<\/\s*(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)\s*>/gi,'');
+          }
           await new Promise(r=>setTimeout(r,300));
           const contentH=idoc.body.scrollHeight;
           const pCH=pageH-margin*2;
           const total=Math.ceil(contentH/pCH)||1;
+          const xhtmlBody=toXhtml(idoc.body.innerHTML);
           for(let i=0;i<total;i++){
             iframe.contentWindow.scrollTo(0,i*pCH);
             await new Promise(r=>setTimeout(r,100));
             const canvas=document.createElement('canvas'); canvas.width=cW; canvas.height=cH;
             const ctx=canvas.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,cW,cH);
-            const svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+cW+'" height="'+cH+'"><foreignObject width="100%" height="100%" style="transform:scale('+rs+');transform-origin:0 0"><div xmlns="http://www.w3.org/1999/xhtml" style="width:'+(pageW-margin*2)+'px;padding:'+margin+'px;font-family:Inter,Arial,sans-serif;font-size:14px;line-height:1.6;color:#333;overflow:hidden;height:'+pageH+'px">'+idoc.body.innerHTML+'</div></foreignObject></svg>';
+            const svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+cW+'" height="'+cH+'"><foreignObject width="100%" height="100%" style="transform:scale('+rs+');transform-origin:0 0"><div xmlns="http://www.w3.org/1999/xhtml" style="width:'+(pageW-margin*2)+'px;padding:'+margin+'px;font-family:Inter,Arial,sans-serif;font-size:14px;line-height:1.6;color:#333;overflow:hidden;height:'+pageH+'px">'+xhtmlBody+'</div></foreignObject></svg>';
             const img=new Image();
-            await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);});
+            await new Promise((res,rej)=>{img.onload=res;img.onerror=()=>rej(new Error('Failed to render document page '+(i+1)));img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);});
             ctx.drawImage(img,0,0);
             const jpg=await new Promise(r=>canvas.toBlob(r,'image/jpeg',0.92));
             const embedded=await doc.embedJpg(await jpg.arrayBuffer());
