@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
+Disallow: /admin-new.html
+Disallow: /cleanup-articles.html
+Disallow: /fix-missing-images.html
+Disallow: /import-articles.html
 
-Sitemap: https://www.pettycash.site/sitemap.xml
+Sitemap: https://pettycash.site/sitemap.xml

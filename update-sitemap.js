@@ -2,11 +2,15 @@ const fs = require('fs');
 const path = require('path');
 
 const root = __dirname;
-const baseUrl = 'https://www.pettycash.site';
+const baseUrl = 'https://pettycash.site';
 const today = new Date().toISOString().split('T')[0];
 
 // Static pages to always include
 const staticPages = [
+  { loc: `${baseUrl}/tools/`, lastmod: today, changefreq: 'weekly', priority: '0.8' },
+  { loc: `${baseUrl}/tools/saudi-invoice-generator.html`, lastmod: today, changefreq: 'monthly', priority: '0.7' },
+  { loc: `${baseUrl}/tools/receipt-generator.html`, lastmod: today, changefreq: 'monthly', priority: '0.7' },
+  { loc: `${baseUrl}/tools/petty-cash-voucher-generator.html`, lastmod: today, changefreq: 'monthly', priority: '0.7' },
   { loc: `${baseUrl}/`, lastmod: today, changefreq: 'weekly', priority: '1.0' },
   { loc: `${baseUrl}/features.html`, lastmod: today, changefreq: 'monthly', priority: '0.8' },
   { loc: `${baseUrl}/pricing.html`, lastmod: today, changefreq: 'monthly', priority: '0.8' },

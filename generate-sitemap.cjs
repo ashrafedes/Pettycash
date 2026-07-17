@@ -1,10 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const BASE_URL = 'https://www.pettycash.site';
+const BASE_URL = 'https://pettycash.site';
 const OUTPUT_PATH = path.join(__dirname, 'sitemap.xml');
 
 const STATIC_PAGES = [
+  { loc: `${BASE_URL}/tools/`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'weekly', priority: '0.8' },
+  { loc: `${BASE_URL}/tools/saudi-invoice-generator.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.7' },
+  { loc: `${BASE_URL}/tools/receipt-generator.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.7' },
+  { loc: `${BASE_URL}/tools/petty-cash-voucher-generator.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE_URL}/`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'weekly', priority: '1.0' },
   { loc: `${BASE_URL}/features.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.8' },
   { loc: `${BASE_URL}/pricing.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.8' },

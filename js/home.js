@@ -12,7 +12,7 @@ function renderHero() {
     <div class="grid lg:grid-cols-2 gap-10 items-center text-center lg:text-start">
       <div>
         <span class="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6">${hero.badge}</span>
-        <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-6">${hero.title}</h1>
+        <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-6">${hero.title}</h2>
         <p class="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed">${hero.subtitle}</p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
           <a href="${APP_URL}/register" class="inline-flex items-center justify-center gap-2 bg-white text-blue-700 font-bold px-8 py-3.5 rounded-xl hover:bg-blue-50 transition-colors text-base shadow-lg">

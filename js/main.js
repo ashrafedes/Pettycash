@@ -159,7 +159,9 @@ function renderFooter() {
               <li><a href="./" class="hover:text-white transition-colors">${t('nav.home')}</a></li>
               <li><a href="./features.html" class="hover:text-white transition-colors">${t('nav.features')}</a></li>
               <li><a href="./pricing.html" class="hover:text-white transition-colors">${t('nav.pricing')}</a></li>
+              <li><a href="./tools/" class="hover:text-white transition-colors">${t('nav.tools')}</a></li>
               <li><a href="./blog.html" class="hover:text-white transition-colors">${t('nav.blog')}</a></li>
+              <li><a href="./help.html" class="hover:text-white transition-colors">${t('nav.help')}</a></li>
               <li><a href="./about.html" class="hover:text-white transition-colors">${t('nav.about')}</a></li>
               <li><a href="./contact.html" class="hover:text-white transition-colors">${t('nav.contact')}</a></li>
             </ul>

@@ -12,10 +12,78 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pettycash.site/images/favicon.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Saudi Invoice Generator | ZATCA QR">
+  <meta name="twitter:title" content="Saudi Invoice Generator | ZATCA QR | Free Online">
   <meta name="twitter:description" content="Create ZATCA-ready Saudi invoices with QR code and PDF export.">
   <meta name="twitter:image" content="https://pettycash.site/images/favicon.png">
   <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://pettycash.site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://pettycash.site/tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Saudi Invoice Generator",
+          "item": "https://pettycash.site/tools/saudi-invoice-generator.html"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Saudi Invoice Generator",
+      "description": "Free online ZATCA-ready Saudi invoice generator with QR code, VAT, and PDF/PNG export.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "SAR"
+      },
+      "url": "https://pettycash.site/tools/saudi-invoice-generator.html",
+      "inLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this invoice generator ZATCA compliant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The tool generates a ZATCA Phase 1 QR code using TLV Base64 encoding with seller name, VAT number, invoice timestamp, total, and VAT amount."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I download invoices as PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can download the invoice as a PDF, PNG image, or print it directly."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
   <link rel="icon" type="image/png" href="../images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,39 +94,7 @@
   </script>
   <link rel="stylesheet" href="./css/tools.css">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "SoftwareApplication",
-        "name": "Saudi Invoice Generator",
-        "description": "Free online ZATCA-ready Saudi invoice generator with QR code, VAT, and PDF/PNG export.",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Any",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "SAR" },
-        "url": "https://pettycash.site/tools/saudi-invoice-generator.html",
-        "inLanguage": ["en", "ar"]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
-          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pettycash.site/tools/" },
-          { "@type": "ListItem", "position": 3, "name": "Saudi Invoice Generator", "item": "https://pettycash.site/tools/saudi-invoice-generator.html" }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "Is this invoice generator ZATCA compliant?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool generates a ZATCA Phase 1 QR code using TLV Base64 encoding with seller name, VAT number, invoice timestamp, total, and VAT amount." } },
-          { "@type": "Question", "name": "Can I download invoices as PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can download the invoice as a PDF, PNG image, or print it directly." } }
-        ]
-      }
-    ]
-  }
-  </script>
-</head>
+  </head>
 <body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
   <nav id="pctool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
 
@@ -185,7 +221,7 @@
                 <p class="text-sm text-slate-600" id="preview-company-contact"></p>
               </div>
               <div class="text-end">
-                <h1 id="preview-title" class="text-2xl font-extrabold text-blue-700 leading-tight">Simplified Tax Invoice</h1>
+                <h2 id="preview-title" class="text-2xl font-extrabold text-blue-700 leading-tight">Simplified Tax Invoice</h2>
                 <p class="text-sm text-slate-600 mt-1"><span data-i18n-en="Invoice No:" data-i18n-ar="رقم الفاتورة:">Invoice No:</span> <strong id="preview-invoice-number"></strong></p>
                 <p class="text-sm text-slate-600"><span data-i18n-en="Issue Date:" data-i18n-ar="تاريخ الإصدار:">Issue Date:</span> <span id="preview-issue-date"></span></p>
                 <p class="text-sm text-slate-600"><span data-i18n-en="Due Date:" data-i18n-ar="تاريخ الاستحقاق:">Due Date:</span> <span id="preview-due-date"></span></p>
@@ -263,9 +299,30 @@
     </section>
   </main>
 
-  <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-8 no-print">
-    <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500 dark:text-slate-400">
-      <p>&copy; 2026 PettyCash.site — Free business tools for Saudi and Arabic companies.</p>
+      <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-8 no-print">
+    <div class="max-w-7xl mx-auto px-4 grid sm:grid-cols-2 gap-6 text-sm text-slate-500 dark:text-slate-400">
+      <div>
+        <h4 class="font-semibold text-slate-700 dark:text-slate-200 mb-3" data-i18n-en="Free Tools" data-i18n-ar="أدوات مجانية">Free Tools</h4>
+        <ul class="space-y-1">
+          <li><a href="./saudi-invoice-generator.html" class="hover:text-blue-600 dark:hover:text-blue-400" data-i18n-en="Saudi Invoice Generator" data-i18n-ar="منشئ الفواتير السعودية">Saudi Invoice Generator</a></li>
+          <li><a href="./receipt-generator.html" class="hover:text-blue-600 dark:hover:text-blue-400" data-i18n-en="Receipt Generator" data-i18n-ar="منشئ الإيصالات">Receipt Generator</a></li>
+          <li><a href="./petty-cash-voucher-generator.html" class="hover:text-blue-600 dark:hover:text-blue-400" data-i18n-en="Petty Cash Voucher" data-i18n-ar="قسيمة الصندوق الصغير">Petty Cash Voucher</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-slate-700 dark:text-slate-200 mb-3" data-i18n-en="Company" data-i18n-ar="الشركة">Company</h4>
+        <ul class="space-y-1">
+          <li><a href="../" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a></li>
+          <li><a href="../features.html" class="hover:text-blue-600 dark:hover:text-blue-400">Features</a></li>
+          <li><a href="../pricing.html" class="hover:text-blue-600 dark:hover:text-blue-400">Pricing</a></li>
+          <li><a href="../blog.html" class="hover:text-blue-600 dark:hover:text-blue-400">Blog</a></li>
+          <li><a href="../help.html" class="hover:text-blue-600 dark:hover:text-blue-400">Help</a></li>
+          <li><a href="../contact.html" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 mt-6 text-center text-xs text-slate-500 dark:text-slate-400">
+      <p data-i18n="tools.footer">&copy; 2026 PettyCash.site — Free business tools.</p>
     </div>
   </footer>
 

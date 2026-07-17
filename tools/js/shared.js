@@ -101,7 +101,7 @@
       receipt: {
         title: 'Receipt Generator',
         metaTitle: 'Free Receipt Generator | PDF & PNG Download',
-        metaDescription: 'Generate professional receipts with QR code, amount in words, and PDF or PNG export.',
+        metaDescription: 'Generate professional receipts with automatic amount in words and PDF or PNG export. Free online receipt generator.',
         receiptNumber: 'Receipt Number',
         receiptDate: 'Receipt Date',
         receivedFrom: 'Received From',
@@ -117,7 +117,7 @@
       voucher: {
         title: 'Petty Cash Voucher Generator',
         metaTitle: 'Petty Cash Voucher Generator | Free PDF & PNG',
-        metaDescription: 'Create professional petty cash vouchers with automatic totals, VAT, QR code, approvals, and PDF/PNG export.',
+        metaDescription: 'Create professional petty cash vouchers with automatic totals, VAT, approvals, and PDF/PNG export. Free online voucher generator.',
         voucherInfo: 'Voucher Information',
         voucherNumber: 'Voucher Number',
         date: 'Date',
@@ -137,9 +137,9 @@
       },
       tools: {
         heroTitle: 'Free Business Tools',
-        heroSubtitle: 'Generate professional invoices, receipts, and petty cash vouchers. ZATCA-ready QR codes, PDF/PNG export, and bilingual English & Arabic support.',
+        heroSubtitle: 'Generate professional invoices, receipts, and petty cash vouchers. ZATCA-ready invoice QR codes, PDF/PNG export, and bilingual English & Arabic support.',
         invoiceCardDesc: 'ZATCA Phase 1 QR, VAT calculations, PDF/PNG export.',
-        receiptCardDesc: 'Automatic amount in words, QR code, printable receipts.',
+        receiptCardDesc: 'Automatic amount in words, printable receipts, PDF/PNG export.',
         voucherCardDesc: 'Expense tracking, approvals, automatic totals.',
         footer: '© 2026 PettyCash.site — Free business tools.'
       }

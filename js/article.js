@@ -57,12 +57,28 @@ function renderArticle(article, lang) {
   const summary = tr.summary || "";
   const content = tr.content || summary || "";
   const imageUrl = article.image || article.imageUrl || "./images/article-placeholder.svg";
+  const canonicalUrl = `${window.location.origin}${window.location.pathname}?slug=${encodeURIComponent(article.slug || article.id)}`;
+  const metaTitle = tr.metaTitle || title;
+  const metaDescription = tr.metaDescription || summary;
 
-  document.title = `${title} - Petty Cash`;
+  // Update SEO meta dynamically
+  document.title = metaTitle ? `${metaTitle}` : `${title} - PettyCash`;
+  setOrCreateMeta("description", metaDescription || summary);
+  setOrCreateLink("canonical", canonicalUrl);
+  setOrCreateMeta("og:title", metaTitle || title, true);
+  setOrCreateMeta("og:description", metaDescription || summary, true);
+  setOrCreateMeta("og:url", canonicalUrl, true);
+  setOrCreateMeta("og:type", "article", true);
+  setOrCreateMeta("og:image", imageUrl, true);
+  setOrCreateMeta("twitter:title", metaTitle || title, true);
+  setOrCreateMeta("twitter:description", metaDescription || summary, true);
+  setOrCreateMeta("twitter:image", imageUrl, true);
+  setOrCreateMeta("twitter:card", "summary_large_image", true);
+  setArticleSchema(article, tr, lang, canonicalUrl, imageUrl);
 
   if (titleEl) titleEl.textContent = title;
   if (metaEl) {
-    const date = window.PettyCashFirebase.formatDate(article.date, lang);
+    const date = window.PettyCashFirebase ? window.PettyCashFirebase.formatDate(article.date, lang) : article.date;
     const readTime = article.readTime ? `${article.readTime} min read` : "";
     metaEl.textContent = [date, readTime].filter(Boolean).join(" · ");
   }
@@ -77,6 +93,56 @@ function renderArticle(article, lang) {
   }
 
   hero.classList.remove("hidden");
+}
+
+function setOrCreateMeta(name, value, property) {
+  const key = property ? `property="${name}"` : `name="${name}"`;
+  let tag = document.querySelector(`meta[${key}]`);
+  if (!tag) {
+    tag = document.createElement("meta");
+    if (property) tag.setAttribute("property", name);
+    else tag.setAttribute("name", name);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute("content", value);
+}
+
+function setOrCreateLink(rel, href) {
+  let link = document.querySelector(`link[rel="${rel}"]`);
+  if (!link) {
+    link = document.createElement("link");
+    link.setAttribute("rel", rel);
+    document.head.appendChild(link);
+  }
+  link.setAttribute("href", href);
+}
+
+function setArticleSchema(article, tr, lang, url, imageUrl) {
+  const title = tr.title || article.slug || "Article";
+  const summary = tr.summary || "";
+  const date = article.date || "";
+  const publisher = { "@type": "Organization", "name": "PettyCash", "logo": `${window.location.origin}/images/favicon.png` };
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": summary,
+    "image": imageUrl,
+    "datePublished": date,
+    "dateModified": date,
+    "author": publisher,
+    "publisher": publisher,
+    "mainEntityOfPage": { "@type": "WebPage", "@id": url },
+    "inLanguage": lang
+  };
+  let script = document.getElementById("article-schema");
+  if (!script) {
+    script = document.createElement("script");
+    script.id = "article-schema";
+    script.type = "application/ld+json";
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(schema, null, 2);
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
