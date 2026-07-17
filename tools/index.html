@@ -130,7 +130,7 @@
 
   <script defer src="./js/shared.js"></script>
   <script>
-    (function () {
+    document.addEventListener('DOMContentLoaded', function () {
       function updateMeta() {
         document.title = PCTools.t('tools.heroTitle') + ' | PettyCash.site';
         document.querySelector('meta[name="description"]')?.setAttribute('content', PCTools.t('tools.heroSubtitle'));
@@ -155,7 +155,7 @@
         });
       });
       window.addEventListener('pctool-lang-change', () => { PCTools.renderNav(); updateMeta(); updateHeroLangButtons(); });
-    })();
+    });
   </script>
 </body>
 </html>
