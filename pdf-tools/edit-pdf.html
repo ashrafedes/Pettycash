@@ -362,27 +362,49 @@
         ta.style.fontWeight=capturedBold?'bold':'normal';
         ta.style.textDecoration=capturedUnderline?'underline':'none';
         wrapper.appendChild(ta);
+
+        const resizeHandle=document.createElement('div');
+        resizeHandle.className='absolute';
+        resizeHandle.style.right='0';resizeHandle.style.bottom='0';resizeHandle.style.width='14px';resizeHandle.style.height='14px';resizeHandle.style.cursor='se-resize';
+        resizeHandle.style.background='linear-gradient(135deg, transparent 50%, rgba(59,130,246,0.85) 50%)';
+        resizeHandle.title='Drag to resize';
+        wrapper.appendChild(resizeHandle);
+
         container.appendChild(wrapper);
         ta.focus();
         activeTextBox={wrapper,ta,scale};
 
-        let dragging=false,dragStartX,dragStartY,wrapStartX,wrapStartY;
+        let dragging=false,resizing=false,dragStartX,dragStartY,wrapStartX,wrapStartY,wrapStartW,wrapStartH;
         handle.addEventListener('mousedown',e=>{
           dragging=true;
           dragStartX=e.clientX; dragStartY=e.clientY;
           wrapStartX=wrapper.offsetLeft; wrapStartY=wrapper.offsetTop;
           e.preventDefault(); e.stopPropagation();
         });
+        resizeHandle.addEventListener('mousedown',e=>{
+          resizing=true;
+          dragStartX=e.clientX; dragStartY=e.clientY;
+          wrapStartW=wrapper.offsetWidth; wrapStartH=wrapper.offsetHeight;
+          e.preventDefault(); e.stopPropagation();
+        });
         const moveHandler=e=>{
-          if(!dragging) return;
-          const cr=container.getBoundingClientRect();
-          let nx=wrapStartX+(e.clientX-dragStartX);
-          let ny=wrapStartY+(e.clientY-dragStartY);
-          nx=Math.max(0,Math.min(nx,cr.width-wrapper.offsetWidth));
-          ny=Math.max(0,Math.min(ny,cr.height-wrapper.offsetHeight));
-          wrapper.style.left=nx+'px'; wrapper.style.top=ny+'px';
+          if(dragging){
+            const cr=container.getBoundingClientRect();
+            let nx=wrapStartX+(e.clientX-dragStartX);
+            let ny=wrapStartY+(e.clientY-dragStartY);
+            nx=Math.max(0,Math.min(nx,cr.width-wrapper.offsetWidth));
+            ny=Math.max(0,Math.min(ny,cr.height-wrapper.offsetHeight));
+            wrapper.style.left=nx+'px'; wrapper.style.top=ny+'px';
+          } else if(resizing){
+            const cr=container.getBoundingClientRect();
+            let nw=Math.max(40,wrapStartW+(e.clientX-dragStartX));
+            let nh=Math.max(40,wrapStartH+(e.clientY-dragStartY));
+            if(wrapper.offsetLeft+nw>cr.width) nw=cr.width-wrapper.offsetLeft;
+            if(wrapper.offsetTop+nh>cr.height) nh=cr.height-wrapper.offsetTop;
+            wrapper.style.width=nw+'px'; wrapper.style.height=nh+'px';
+          }
         };
-        const upHandler=()=>{ dragging=false; };
+        const upHandler=()=>{ dragging=false; resizing=false; };
         window.addEventListener('mousemove',moveHandler);
         window.addEventListener('mouseup',upHandler);
 
