@@ -1,21 +1,37 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 const BASE_URL = 'https://pettycash.site';
 const OUTPUT_PATH = path.join(__dirname, 'sitemap.xml');
+const today = new Date().toISOString().split('T')[0];
+
+function page(loc, priority, changefreq = 'monthly') {
+  return { loc, lastmod: today, changefreq, priority };
+}
+
+function htmlFiles(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter(f => f.toLowerCase().endsWith('.html'));
+}
+
+const rootHtmlFiles = htmlFiles(__dirname).filter(f => f !== 'index.html');
+const rootPages = rootHtmlFiles.map(f => page(`${BASE_URL}/${f}`, f === 'blog.html' ? '0.7' : '0.6'));
+
+const businessToolFiles = htmlFiles(path.join(__dirname, 'tools'));
+const businessToolPages = businessToolFiles.map(f =>
+  page(`${BASE_URL}/tools/${f}`, f === 'index.html' ? '0.8' : '0.7')
+);
+
+const pdfToolFiles = htmlFiles(path.join(__dirname, 'pdf-tools'));
+const pdfToolPages = pdfToolFiles.map(f =>
+  page(`${BASE_URL}/pdf-tools/${f}`, f === 'index.html' ? '0.8' : '0.7')
+);
 
 const STATIC_PAGES = [
-  { loc: `${BASE_URL}/tools/`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'weekly', priority: '0.8' },
-  { loc: `${BASE_URL}/tools/saudi-invoice-generator.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.7' },
-  { loc: `${BASE_URL}/tools/receipt-generator.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.7' },
-  { loc: `${BASE_URL}/tools/petty-cash-voucher-generator.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.7' },
-  { loc: `${BASE_URL}/`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'weekly', priority: '1.0' },
-  { loc: `${BASE_URL}/features.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.8' },
-  { loc: `${BASE_URL}/pricing.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.8' },
-  { loc: `${BASE_URL}/blog.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'weekly', priority: '0.7' },
-  { loc: `${BASE_URL}/help.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.7' },
-  { loc: `${BASE_URL}/about.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.7' },
-  { loc: `${BASE_URL}/contact.html`, lastmod: new Date().toISOString().split('T')[0], changefreq: 'monthly', priority: '0.7' }
+  page(`${BASE_URL}/`, '1.0', 'weekly'),
+  ...rootPages,
+  ...businessToolPages,
+  ...pdfToolPages
 ];
 
 function urlEntry({ loc, lastmod, changefreq, priority }) {
