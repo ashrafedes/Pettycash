@@ -304,8 +304,9 @@
     localStorage.setItem('pctool_lang', lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    window.dispatchEvent(new CustomEvent('pctool-lang-change', { detail: { lang } }));
+    renderNav();
     translatePage();
+    window.dispatchEvent(new CustomEvent('pctool-lang-change', { detail: { lang } }));
   }
 
   function translatePage() {
@@ -629,18 +630,18 @@
           </div>
           <div class="flex items-center gap-3">
             <button id="pctool-theme" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" aria-label="Toggle theme">🌙</button>
-            <select id="pctool-lang" class="bg-slate-100 dark:bg-slate-800 border-0 rounded-lg text-sm px-2 py-1.5 text-slate-700 dark:text-slate-200 focus:ring-2 focus:ring-blue-500">
-              <option value="en">English</option>
-              <option value="ar">العربية</option>
-            </select>
+            <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-1" role="group" aria-label="Language switch">
+              <button data-pctool-lang="en" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'en' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100'}">EN</button>
+              <button data-pctool-lang="ar" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'ar' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100'}">AR</button>
+            </div>
           </div>
         </div>
       </div>
     `;
     document.getElementById('pctool-theme').addEventListener('click', toggleTheme);
-    const langSelect = document.getElementById('pctool-lang');
-    langSelect.value = currentLang;
-    langSelect.addEventListener('change', (e) => setLang(e.target.value));
+    document.querySelectorAll('[data-pctool-lang]').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.pctoolLang));
+    });
     translatePage();
   }
 
@@ -721,7 +722,7 @@
 
   // ===================== Export public API =====================
   const PCTools = {
-    t, setLang, currentLang, translatePage,
+    t, setLang, get currentLang() { return currentLang; }, translatePage,
     initTheme, toggleTheme,
     saveToolState, loadToolState, clearToolState,
     formatMoney, todayStr, amountInWords,
