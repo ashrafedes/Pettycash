@@ -226,14 +226,15 @@
       });
 
       document.querySelectorAll('input[name="pages-mode"]').forEach(r => {
-        r.addEventListener('change', () => {
+        r.addEventListener('change', async () => {
           if (r.value === 'preview' && r.checked) {
             selectedFromPreview.clear();
-            renderPreview(true);
             previewHint.classList.remove('hidden');
             previewHint.textContent = T.hintPreview;
+            await renderPreview(true);
+            previewArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           } else if (r.checked) {
-            renderPreview(false);
+            await renderPreview(false);
             previewHint.classList.add('hidden');
           }
         });

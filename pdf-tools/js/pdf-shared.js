@@ -253,7 +253,7 @@
       const pageRotation = rotationMap ? (rotationMap[i - 1] || 0) : 0;
       const viewport = page.getViewport({ scale, rotation: pageRotation });
       const canvas = document.createElement('canvas');
-      canvas.className = 'rounded-lg shadow-md bg-white';
+      canvas.className = 'rounded-lg shadow-md bg-white pointer-events-none';
       canvas.width = viewport.width;
       canvas.height = viewport.height;
       const ctx = canvas.getContext('2d');
