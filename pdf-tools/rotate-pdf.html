@@ -175,6 +175,7 @@
       let resultBlob = null;
       let rotationMap = {}; // { pageIndex: cumulativeAngle }
       let selectedFromPreview = new Set();
+      let previewRendered = false;
       const dropZone = document.getElementById('drop-zone');
       const fileInput = document.getElementById('file-input');
       const fileInfo = document.getElementById('file-info');
@@ -188,13 +189,85 @@
 
       async function renderPreview(selectable = false) {
         previewArea.classList.remove('hidden');
+        if (previewRendered) {
+          // Just toggle selectability on existing thumbnails
+          updateSelectability(selectable);
+          return;
+        }
         previewArea.innerHTML = '<p class="text-sm text-slate-500 text-center mb-3">Loading preview...</p>';
-        const source = resultBlob || pdfFile;
+        const source = pdfFile;
         if (!source) return;
+        // Always render as selectable so click handlers are attached, then control via pointer-events
         await PDFTools.renderPDFPreview(previewArea, source, {
-          maxPages: 20, scale: 0.4, selectable,
+          maxPages: 20, scale: 0.4, selectable: true,
           rotationMap,
           onSelectionChange: (pages) => { selectedFromPreview = new Set(pages); }
+        });
+        previewRendered = true;
+        // Store original canvas sizes for rotation transform
+        previewArea.querySelectorAll('[data-page-index]').forEach(item => {
+          const canvas = item.querySelector('canvas');
+          if (canvas) {
+            item.dataset.origW = canvas.width;
+            item.dataset.origH = canvas.height;
+          }
+        });
+        // Now disable selectability if not in preview mode
+        if (!selectable) updateSelectability(false);
+      }
+
+      function updateSelectability(selectable) {
+        previewArea.querySelectorAll('[data-page-index]').forEach(item => {
+          if (selectable) {
+            item.classList.add('cursor-pointer');
+            item.style.pointerEvents = '';
+          } else {
+            item.classList.remove('cursor-pointer', 'ring-4', 'ring-green-500', 'rounded-lg');
+            item.style.pointerEvents = 'none';
+            const badge = item.querySelector('.select-badge');
+            if (badge) badge.remove();
+          }
+        });
+        if (!selectable) selectedFromPreview.clear();
+      }
+
+      function applyRotationToThumbnails() {
+        previewArea.querySelectorAll('[data-page-index]').forEach(item => {
+          const idx = parseInt(item.dataset.pageIndex);
+          const angle = rotationMap[idx] || 0;
+          const canvas = item.querySelector('canvas');
+          if (!canvas) return;
+          const origW = parseFloat(item.dataset.origW || canvas.width);
+          const origH = parseFloat(item.dataset.origH || canvas.height);
+
+          // Apply CSS rotation
+          canvas.style.transform = angle ? 'rotate(' + angle + 'deg)' : '';
+          if (angle === 90 || angle === 270) {
+            // Swap dimensions: canvas appears rotated, adjust container
+            canvas.style.transformOrigin = 'center center';
+            const swap = Math.abs(origW - origH) / 2;
+            canvas.style.position = 'relative';
+            // Use margin to compensate for dimension swap
+            const diff = (origH - origW) / 2;
+            canvas.style.marginLeft = diff + 'px';
+            canvas.style.marginRight = -diff + 'px';
+          } else {
+            canvas.style.marginLeft = '';
+            canvas.style.marginRight = '';
+          }
+
+          // Update or add rotation badge
+          let rotBadge = item.querySelector('.rot-badge');
+          if (angle) {
+            if (!rotBadge) {
+              rotBadge = document.createElement('div');
+              rotBadge.className = 'rot-badge absolute bottom-1 start-1 bg-amber-500 text-white text-xs font-bold px-1.5 py-0.5 rounded shadow-lg';
+              item.appendChild(rotBadge);
+            }
+            rotBadge.textContent = angle + '°';
+          } else if (rotBadge) {
+            rotBadge.remove();
+          }
         });
       }
 
@@ -217,6 +290,7 @@
       document.getElementById('remove-file').addEventListener('click', () => {
         if (fileInput) fileInput.value = '';
         pdfFile = null; resultBlob = null; rotationMap = {};
+        previewRendered = false;
         document.getElementById('file-name-display').textContent = '';
         document.getElementById('file-meta-display').textContent = '';
         fileInfo.classList.add('hidden');
@@ -226,6 +300,7 @@
         previewArea.innerHTML = '';
         previewArea.classList.add('hidden');
         previewHint.classList.add('hidden');
+        progressArea.innerHTML = '';
       });
 
       function updateRotateHint() {
@@ -267,10 +342,10 @@
           previewHint.classList.toggle('hidden', !isPreview);
           if (isPreview) {
             selectedFromPreview.clear();
-            renderPreview(true);
+            updateSelectability(true);
             updateRotateHint();
           } else if (r.checked) {
-            renderPreview(false);
+            updateSelectability(false);
           }
         });
       });
@@ -332,9 +407,13 @@
           resultBlob = new Blob([out], { type: 'application/pdf' });
           PDFTools.showProgress(progressArea, 100);
           result.classList.remove('hidden');
-          // Re-render preview from the new result, with rotationMap for badges
-          const wasSelectable = pagesMode === 'preview';
-          await renderPreview(wasSelectable);
+          // Update thumbnails in-place with CSS rotation (no re-render)
+          applyRotationToThumbnails();
+          // Clear selection if in preview mode
+          if (pagesMode === 'preview') {
+            selectedFromPreview.clear();
+            updateSelectability(true);
+          }
           PDFTools.toast(PDFTools.t('common.done'));
         } catch (err) {
           console.error(err);
