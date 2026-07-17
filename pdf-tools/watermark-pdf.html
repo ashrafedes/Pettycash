@@ -269,7 +269,7 @@
       }, { accept: '.pdf', multiple: false });
 
       document.getElementById('remove-file').addEventListener('click', () => {
-        pdfFile = null; resultBlob = null;
+        pdfFile = null; resultBlob = null; baseCanvas = null; previewCanvas = null; cachedWmImage = null;
         fileInfo.classList.add('hidden');
         wmOptions.classList.add('hidden');
         dropZone.classList.remove('hidden');
@@ -283,85 +283,111 @@
         wmImageType = f.type;
         const buf = await f.arrayBuffer();
         wmImageBytes = buf;
-        updatePreview();
+        // Cache decoded image for fast overlay redraw
+        cachedWmImage = new Image();
+        cachedWmImage.src = URL.createObjectURL(new Blob([buf], { type: wmImageType }));
+        await new Promise(r => cachedWmImage.onload = r);
+        updateOverlayOnly();
       });
 
-      // Live preview update on option change
-      ['wm-text', 'wm-position', 'wm-opacity', 'wm-rotation', 'wm-size', 'wm-color'].forEach(id => {
-        document.getElementById(id).addEventListener('input', updatePreview);
-      });
+      // Live preview: cache base page render, only redraw watermark overlay on slider change
+      let baseCanvas = null; // cached off-screen render of page 1
+      let previewCanvas = null; // visible canvas
+      let cachedWmImage = null; // decoded image element for image watermark
 
-      let previewTimer = null;
+      async function renderBasePage() {
+        const pdfjs = await PDFTools.ensurePDFJS();
+        const buf = await pdfFile.arrayBuffer();
+        const pdf = await pdfjs.getDocument({ data: buf }).promise;
+        const page = await pdf.getPage(1);
+        const viewport = page.getViewport({ scale: 0.6 });
+        baseCanvas = document.createElement('canvas');
+        baseCanvas.width = viewport.width;
+        baseCanvas.height = viewport.height;
+        const ctx = baseCanvas.getContext('2d');
+        await page.render({ canvasContext: ctx, viewport }).promise;
+        // Create visible canvas if not exists
+        if (!previewCanvas || previewCanvas.width !== baseCanvas.width) {
+          previewCanvas = document.createElement('canvas');
+          previewCanvas.width = baseCanvas.width;
+          previewCanvas.height = baseCanvas.height;
+          previewCanvas.className = 'rounded-lg shadow-md bg-white';
+          previewArea.innerHTML = '';
+          previewArea.appendChild(previewCanvas);
+        }
+      }
+
+      function drawWatermarkOverlay() {
+        if (!baseCanvas || !previewCanvas) return;
+        const ctx = previewCanvas.getContext('2d');
+        // Copy base page image (fast, no PDF re-render)
+        ctx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
+        ctx.drawImage(baseCanvas, 0, 0);
+
+        const wmType = document.querySelector('input[name="wm-type"]:checked').value;
+        const opacity = parseInt(document.getElementById('wm-opacity').value) / 100;
+        const rotation = parseInt(document.getElementById('wm-rotation').value);
+        const position = document.getElementById('wm-position').value;
+        const color = document.getElementById('wm-color').value;
+
+        ctx.save();
+        ctx.globalAlpha = opacity;
+
+        if (wmType === 'text') {
+          const text = document.getElementById('wm-text').value || 'WATERMARK';
+          const fontSize = parseInt(document.getElementById('wm-size').value);
+          ctx.font = 'bold ' + fontSize + 'px Inter, sans-serif';
+          ctx.fillStyle = color;
+          const metrics = ctx.measureText(text);
+          const tw = metrics.width;
+          const th = fontSize;
+          let x, y;
+          const pad = 40;
+          if (position === 'center') { x = previewCanvas.width / 2; y = previewCanvas.height / 2; }
+          else if (position === 'top-left') { x = pad + tw / 2; y = pad + th; }
+          else if (position === 'top-right') { x = previewCanvas.width - pad - tw / 2; y = pad + th; }
+          else if (position === 'bottom-left') { x = pad + tw / 2; y = previewCanvas.height - pad; }
+          else if (position === 'bottom-right') { x = previewCanvas.width - pad - tw / 2; y = previewCanvas.height - pad; }
+          ctx.translate(x, y);
+          ctx.rotate(rotation * Math.PI / 180);
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(text, 0, 0);
+        } else if (wmType === 'image' && cachedWmImage) {
+          const iw = 200;
+          const ih = iw * (cachedWmImage.height / cachedWmImage.width);
+          let x, y;
+          const pad = 40;
+          if (position === 'center') { x = previewCanvas.width / 2 - iw / 2; y = previewCanvas.height / 2 - ih / 2; }
+          else if (position === 'top-left') { x = pad; y = pad; }
+          else if (position === 'top-right') { x = previewCanvas.width - pad - iw; y = pad; }
+          else if (position === 'bottom-left') { x = pad; y = previewCanvas.height - pad - ih; }
+          else if (position === 'bottom-right') { x = previewCanvas.width - pad - iw; y = previewCanvas.height - pad - ih; }
+          ctx.translate(x + iw / 2, y + ih / 2);
+          ctx.rotate(rotation * Math.PI / 180);
+          ctx.drawImage(cachedWmImage, -iw / 2, -ih / 2, iw, ih);
+        }
+        ctx.restore();
+      }
+
+      // Full preview (re-renders base page) — only on file load or type/image change
       async function updatePreview() {
         if (!pdfFile) return;
-        clearTimeout(previewTimer);
-        previewTimer = setTimeout(async () => {
-          previewArea.innerHTML = '<p class="text-sm text-slate-500">Loading preview...</p>';
-          const pdfjs = await PDFTools.ensurePDFJS();
-          const buf = await pdfFile.arrayBuffer();
-          const pdf = await pdfjs.getDocument({ data: buf }).promise;
-          const page = await pdf.getPage(1);
-          const viewport = page.getViewport({ scale: 0.6 });
-          const canvas = document.createElement('canvas');
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-          canvas.className = 'rounded-lg shadow-md bg-white';
-          const ctx = canvas.getContext('2d');
-          await page.render({ canvasContext: ctx, viewport }).promise;
-
-          // Draw watermark on canvas
-          const wmType = document.querySelector('input[name="wm-type"]:checked').value;
-          const opacity = parseInt(document.getElementById('wm-opacity').value) / 100;
-          const rotation = parseInt(document.getElementById('wm-rotation').value);
-          const position = document.getElementById('wm-position').value;
-          const color = document.getElementById('wm-color').value;
-
-          ctx.save();
-          ctx.globalAlpha = opacity;
-
-          if (wmType === 'text') {
-            const text = document.getElementById('wm-text').value || 'WATERMARK';
-            const fontSize = parseInt(document.getElementById('wm-size').value);
-            ctx.font = 'bold ' + fontSize + 'px Inter, sans-serif';
-            ctx.fillStyle = color;
-            const metrics = ctx.measureText(text);
-            const tw = metrics.width;
-            const th = fontSize;
-            let x, y;
-            const pad = 40;
-            if (position === 'center') { x = canvas.width / 2; y = canvas.height / 2; }
-            else if (position === 'top-left') { x = pad + tw / 2; y = pad + th; }
-            else if (position === 'top-right') { x = canvas.width - pad - tw / 2; y = pad + th; }
-            else if (position === 'bottom-left') { x = pad + tw / 2; y = canvas.height - pad; }
-            else if (position === 'bottom-right') { x = canvas.width - pad - tw / 2; y = canvas.height - pad; }
-            ctx.translate(x, y);
-            ctx.rotate(rotation * Math.PI / 180);
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(text, 0, 0);
-          } else if (wmType === 'image' && wmImageBytes) {
-            const img = new Image();
-            img.src = URL.createObjectURL(new Blob([wmImageBytes], { type: wmImageType }));
-            await new Promise(r => img.onload = r);
-            const iw = 200;
-            const ih = iw * (img.height / img.width);
-            let x, y;
-            const pad = 40;
-            if (position === 'center') { x = canvas.width / 2 - iw / 2; y = canvas.height / 2 - ih / 2; }
-            else if (position === 'top-left') { x = pad; y = pad; }
-            else if (position === 'top-right') { x = canvas.width - pad - iw; y = pad; }
-            else if (position === 'bottom-left') { x = pad; y = canvas.height - pad - ih; }
-            else if (position === 'bottom-right') { x = canvas.width - pad - iw; y = canvas.height - pad - ih; }
-            ctx.translate(x + iw / 2, y + ih / 2);
-            ctx.rotate(rotation * Math.PI / 180);
-            ctx.drawImage(img, -iw / 2, -ih / 2, iw, ih);
-          }
-          ctx.restore();
-
-          previewArea.innerHTML = '';
-          previewArea.appendChild(canvas);
-        }, 300);
+        previewArea.innerHTML = '<p class="text-sm text-slate-500">Loading preview...</p>';
+        previewCanvas = null;
+        await renderBasePage();
+        drawWatermarkOverlay();
       }
+
+      // Fast overlay-only update (sliders, text, color, position)
+      function updateOverlayOnly() {
+        if (baseCanvas) drawWatermarkOverlay();
+      }
+
+      // Slider/text/position/color changes → fast overlay redraw only
+      ['wm-text', 'wm-position', 'wm-opacity', 'wm-rotation', 'wm-size', 'wm-color'].forEach(id => {
+        document.getElementById(id).addEventListener('input', updateOverlayOnly);
+      });
 
       wmBtn.addEventListener('click', async () => {
         if (!pdfFile) { PDFTools.toast(T.noFile); return; }
