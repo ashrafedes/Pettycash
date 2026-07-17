@@ -48,7 +48,7 @@
       <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">Edit PDF</h1>
       <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Add text, shapes, and annotations to your PDF. Free, no upload, all in your browser.</p>
     </section>
-    <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
       <div class="space-y-6">
         <div id="drop-zone" class="drop-zone">
           <input type="file" id="file-input" class="hidden" accept=".pdf">
@@ -63,22 +63,44 @@
         </div>
         <div id="edit-options" class="hidden space-y-4">
           <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
-            <div class="flex items-center justify-center gap-3 flex-wrap">
-              <div><label class="text-xs font-semibold">Mode</label><select id="edit-mode" class="pdf-input text-sm ml-2"><option value="text">Text Area</option><option value="rect">Rectangle</option></select></div>
-              <div><label class="text-xs font-semibold">Font</label><input type="color" id="font-color" class="ml-2 w-8 h-8 rounded" value="#000000"></div>
-              <div><label class="text-xs font-semibold">Size</label><input type="number" id="font-size" class="pdf-input text-sm w-16 ml-2" value="14" min="6" max="72"></div>
-              <div class="flex gap-1">
-                <button id="btn-bold" class="px-3 py-1.5 rounded-lg border-2 border-slate-200 dark:border-slate-600 text-sm font-bold transition-all" title="Bold">B</button>
-                <button id="btn-underline" class="px-3 py-1.5 rounded-lg border-2 border-slate-200 dark:border-slate-600 text-sm underline transition-all" title="Underline">U</button>
+            <div class="flex flex-wrap items-end justify-center gap-4">
+              <div class="flex flex-col gap-1 items-start">
+                <label class="text-[10px] uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Mode</label>
+                <select id="edit-mode" class="pdf-input text-sm"><option value="text">Text Area</option><option value="rect">Rectangle</option></select>
+              </div>
+              <div class="flex flex-col gap-1 items-start">
+                <label class="text-[10px] uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Font</label>
+                <input type="color" id="font-color" class="w-9 h-9 rounded cursor-pointer border border-slate-300 dark:border-slate-600" value="#000000" title="Font color">
+              </div>
+              <div class="flex flex-col gap-1 items-start">
+                <label class="text-[10px] uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Size</label>
+                <input type="number" id="font-size" class="pdf-input text-sm w-16" value="14" min="6" max="72">
+              </div>
+              <div class="flex flex-col gap-1 items-start">
+                <label class="text-[10px] uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Style</label>
+                <div class="flex gap-1">
+                  <button id="btn-bold" class="px-3 py-2 rounded-lg border-2 border-slate-200 dark:border-slate-600 text-sm font-bold transition-all" title="Bold">B</button>
+                  <button id="btn-underline" class="px-3 py-2 rounded-lg border-2 border-slate-200 dark:border-slate-600 text-sm underline transition-all" title="Underline">U</button>
+                </div>
+              </div>
+              <div class="flex flex-col gap-1 items-start">
+                <label class="text-[10px] uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Border</label>
+                <select id="border-mode" class="pdf-input text-sm"><option value="none">No border</option><option value="color">Border color</option></select>
+              </div>
+              <div id="border-color-wrap" class="hidden flex flex-col gap-1 items-start">
+                <label class="text-[10px] uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Border Color</label>
+                <input type="color" id="border-color" class="w-9 h-9 rounded cursor-pointer border border-slate-300 dark:border-slate-600" value="#000000">
+              </div>
+              <div class="flex flex-col gap-1 items-start">
+                <label class="text-[10px] uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Fill</label>
+                <select id="fill-mode" class="pdf-input text-sm"><option value="none">No fill</option><option value="color">Fill color</option></select>
+              </div>
+              <div id="fill-color-wrap" class="hidden flex flex-col gap-1 items-start">
+                <label class="text-[10px] uppercase tracking-wide font-bold text-slate-500 dark:text-slate-400">Fill Color</label>
+                <input type="color" id="fill-color" class="w-9 h-9 rounded cursor-pointer border border-slate-300 dark:border-slate-600" value="#ffff00">
               </div>
             </div>
-            <div class="flex items-center justify-center gap-3 flex-wrap mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
-              <div><label class="text-xs font-semibold">Border</label><select id="border-mode" class="pdf-input text-sm ml-2"><option value="none">No border</option><option value="color">Border color</option></select></div>
-              <div id="border-color-wrap" class="hidden"><label class="text-xs font-semibold">Border Color</label><input type="color" id="border-color" class="ml-2 w-8 h-8 rounded" value="#000000"></div>
-              <div><label class="text-xs font-semibold">Fill</label><select id="fill-mode" class="pdf-input text-sm ml-2"><option value="none">No fill</option><option value="color">Fill color</option></select></div>
-              <div id="fill-color-wrap" class="hidden"><label class="text-xs font-semibold">Fill Color</label><input type="color" id="fill-color" class="ml-2 w-8 h-8 rounded" value="#ffff00"></div>
-            </div>
-            <p class="text-xs text-slate-400 text-center mt-2" id="text-hint">Draw a text area on the page, then type and press Enter to set.</p>
+            <p class="text-xs text-slate-400 text-center mt-3" id="text-hint">Draw a text area, type, then press Enter or Escape.</p>
           </div>
           <div id="preview-area" class="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-3 flex justify-center"></div>
           <div class="text-center"><button id="save-btn" class="btn-pdf btn-pdf-primary"><span>Save PDF</span></button></div>
@@ -189,7 +211,7 @@
         for(let i=0;i<numPages;i++){
           const page=await pdfDoc.getPage(i+1);
           const vp=page.getViewport({scale:1});
-          const scale=Math.min(600/vp.width,650/vp.height);
+          const scale=Math.min(950/vp.width,900/vp.height);
           const sv=page.getViewport({scale});
           const canvas=document.createElement('canvas');
           canvas.width=sv.width; canvas.height=sv.height;
@@ -319,14 +341,15 @@
         if(borderColor){ wrapper.style.border='2px solid '+borderColor; } else { wrapper.style.border='2px dashed #3b82f6'; }
 
         const handle=document.createElement('div');
-        handle.className='absolute top-0 left-0 right-0';
-        handle.style.height='10px';handle.style.cursor='move';handle.style.background='rgba(59,130,246,0.5)';
+        handle.className='absolute top-0 left-0 right-0 flex items-center justify-center';
+        handle.style.height='14px';handle.style.cursor='move';handle.style.background='linear-gradient(180deg, rgba(59,130,246,0.85), rgba(37,99,235,0.85))';handle.title='Drag to move';
+        handle.innerHTML='<div style="width:24px;height:4px;background:rgba(255,255,255,0.8);border-radius:2px;"></div>';
         wrapper.appendChild(handle);
 
         const ta=document.createElement('div');
         ta.contentEditable='true';
         ta.className='outline-none cursor-text';
-        ta.style.width='100%';ta.style.height='calc(100% - 10px)';ta.style.marginTop='10px';
+        ta.style.width='100%';ta.style.height='calc(100% - 14px)';ta.style.marginTop='14px';
         ta.style.color=fontColor;
         ta.style.fontSize=(fontSize*scale)+'px';
         ta.style.fontFamily='Inter,Arial,sans-serif';
