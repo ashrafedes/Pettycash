@@ -272,7 +272,8 @@
           PDFTools.showProgress(progressArea, 100);
           result.classList.remove('hidden');
           selectedFromPreview.clear();
-          await renderPreview(false);
+          const stillPreview = document.querySelector('input[name="sel-mode"]:checked').value === 'preview';
+          await renderPreview(stillPreview);
           PDFTools.toast(PDFTools.t('common.done'));
         } catch (err) {
           console.error(err);
