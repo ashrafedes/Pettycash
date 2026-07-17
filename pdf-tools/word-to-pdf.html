@@ -117,74 +117,107 @@
         if(!wordFile){PDFTools.toast('Select a DOCX file first');return;}
         const btn=document.getElementById('convert-btn'); btn.disabled=true;
         document.getElementById('result').classList.add('hidden');
-        PDFTools.showProgress(document.getElementById('progress-area'),10);
+        PDFTools.showProgress(document.getElementById('progress-area'),5);
         try {
-          if(!window.mammoth) {
+          // Load docx-preview for high-fidelity DOCX rendering
+          if(!window.docx){
             try {
-              await PDFTools.loadScript('https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js');
-            } catch(loadErr) {
-              await PDFTools.loadScript('https://unpkg.com/mammoth@1.6.0/mammoth.browser.min.js');
+              await PDFTools.loadScript('https://cdn.jsdelivr.net/npm/docx-preview@0.3.1/dist/docx-preview.min.js');
+            } catch(e1) {
+              try { await PDFTools.loadScript('https://unpkg.com/docx-preview@0.3.1/dist/docx-preview.min.js'); }
+              catch(e2) { throw new Error('Failed to load docx-preview library'); }
             }
           }
-          const buf=await wordFile.arrayBuffer();
-          PDFTools.showProgress(document.getElementById('progress-area'),30);
-          const mOptions={
-            includeDefaultStyleMap: true,
-            styleMap: [
-              "p.Heading1 => h1",
-              "p.Heading2 => h2",
-              "p.Heading3 => h3",
-              "p.Heading4 => h4",
-              "p.Heading5 => h5",
-              "p.Heading6 => h6"
-            ]
-          };
-          if(mammoth.images && mammoth.images.imgElement){
-            mOptions.convertImage=mammoth.images.imgElement(function(image){
-              return image.read("base64").then(function(imageBuffer){
-                return { src: "data:" + image.contentType + ";base64," + imageBuffer };
-              });
-            });
-          }
-          const res=await mammoth.convertToHtml({arrayBuffer:buf}, mOptions);
-          const html=res.value;
-          PDFTools.showProgress(document.getElementById('progress-area'),50);
+          // Ensure JSZip is available (docx-preview depends on it)
+          await PDFTools.ensureJSZip();
+          PDFTools.showProgress(document.getElementById('progress-area'),15);
+
           const {PDFDocument}=await PDFTools.ensurePDFLib();
           const doc=await PDFDocument.create();
-          const pageW=595.28, pageH=841.89, margin=40, rs=2;
-          const cW=pageW*rs, cH=pageH*rs;
-          const iframe=document.createElement('iframe');
-          iframe.style.cssText='position:fixed;left:-9999px;top:0;width:'+(pageW-margin*2)+'px;border:none;background:#fff';
-          document.body.appendChild(iframe);
-          const idoc=iframe.contentDocument;
-          idoc.open(); idoc.write('<html><head><style>body{font-family:Inter,Arial,sans-serif;font-size:14px;line-height:1.6;color:#333;margin:0}h1{font-size:22px;font-weight:700;margin:12px 0 6px}h2{font-size:18px;font-weight:600;margin:10px 0 4px}h3{font-size:15px;font-weight:600;margin:8px 0 3px}p{margin:6px 0}ul,ol{margin:6px 0;padding-left:20px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccc;padding:3px 6px}img{max-width:100%}</style></head><body>'+html+'</body></html>'); idoc.close();
-          function toXhtml(html){
-            return html
-              .replace(/&nbsp;/gi,'&#160;')
-              .replace(/<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)([^>]*)>/gi,'<$1$2 />')
-              .replace(/<\/\s*(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)\s*>/gi,'');
-          }
-          await new Promise(r=>setTimeout(r,300));
-          const contentH=idoc.body.scrollHeight;
-          const pCH=pageH-margin*2;
-          const total=Math.ceil(contentH/pCH)||1;
-          const xhtmlBody=toXhtml(idoc.body.innerHTML);
-          for(let i=0;i<total;i++){
-            iframe.contentWindow.scrollTo(0,i*pCH);
-            await new Promise(r=>setTimeout(r,100));
-            const canvas=document.createElement('canvas'); canvas.width=cW; canvas.height=cH;
-            const ctx=canvas.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,cW,cH);
-            const svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+cW+'" height="'+cH+'"><foreignObject width="100%" height="100%" style="transform:scale('+rs+');transform-origin:0 0"><div xmlns="http://www.w3.org/1999/xhtml" style="width:'+(pageW-margin*2)+'px;padding:'+margin+'px;font-family:Inter,Arial,sans-serif;font-size:14px;line-height:1.6;color:#333;overflow:hidden;height:'+pageH+'px">'+xhtmlBody+'</div></foreignObject></svg>';
+
+          // Create a hidden container for docx-preview to render into
+          const renderContainer=document.createElement('div');
+          renderContainer.style.cssText='position:fixed;left:-9999px;top:0;width:794px;background:#fff;';
+          document.body.appendChild(renderContainer);
+
+          // Render DOCX with docx-preview — preserves fonts, colors, alignment, tables, images, page breaks
+          await docx.renderAsync(wordFile, renderContainer, null, {
+            className: 'docx',
+            inWrapper: true,
+            ignoreWidth: false,
+            ignoreHeight: false,
+            ignoreFonts: false,
+            breakPages: true,
+            experimental: true,
+            useBase64URL: true,
+            renderHeaders: true,
+            renderFooters: true,
+            renderFootnotes: true,
+            renderEndnotes: true
+          });
+          PDFTools.showProgress(document.getElementById('progress-area'),40);
+
+          // Wait for fonts and images to settle
+          await new Promise(r=>setTimeout(r,500));
+
+          // Find rendered pages — docx-preview creates .docx-page wrappers
+          const pageEls=renderContainer.querySelectorAll('.docx-page, .docx-wrapper > div');
+          const pages=pageEls.length>0?Array.from(pageEls):[renderContainer];
+
+          const rs=2; // render scale for higher quality
+
+          for(let i=0;i<pages.length;i++){
+            const pageEl=pages[i];
+            const pw=pageEl.offsetWidth||794;
+            const ph=pageEl.offsetHeight||1123;
+            const cW=pw*rs, cH=ph*rs;
+
+            // Get computed styles from the rendered page
+            const computedStyle=window.getComputedStyle(pageEl);
+            const bgColor=computedStyle.backgroundColor;
+
+            // Clone the page content for SVG foreignObject
+            const cloned=pageEl.cloneNode(true);
+            // Collect all styles that apply
+            const styleSheets=document.styleSheets;
+            let cssText='';
+            try{
+              for(let s=0;s<styleSheets.length;s++){
+                try{cssText+=Array.from(styleSheets[s].cssRules).map(r=>r.cssText).join('\n');}catch(e){}
+              }
+            }catch(e){}
+
+            // Build SVG with foreignObject
+            const xhtml=new XMLSerializer().serializeToString(cloned);
+            const svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+cW+'" height="'+cH+'"><foreignObject width="100%" height="100%" style="transform:scale('+rs+');transform-origin:0 0"><div xmlns="http://www.w3.org/1999/xhtml" style="width:'+pw+'px;min-height:'+ph+'px;background:'+bgColor+'">'+xhtml+'</div></foreignObject></svg>';
+
+            const canvas=document.createElement('canvas');
+            canvas.width=cW; canvas.height=cH;
+            const ctx=canvas.getContext('2d');
+            ctx.fillStyle='#fff'; ctx.fillRect(0,0,cW,cH);
+
             const img=new Image();
-            await new Promise((res,rej)=>{img.onload=res;img.onerror=()=>rej(new Error('Failed to render document page '+(i+1)));img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);});
+            await new Promise((res,rej)=>{
+              img.onload=res;
+              img.onerror=()=>rej(new Error('Failed to render page '+(i+1)));
+              img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+            });
             ctx.drawImage(img,0,0);
-            const jpg=await new Promise(r=>canvas.toBlob(r,'image/jpeg',0.92));
-            const embedded=await doc.embedJpg(await jpg.arrayBuffer());
-            const page=doc.addPage([pageW,pageH]);
-            page.drawImage(embedded,{x:0,y:0,width:pageW,height:pageH});
-            PDFTools.showProgress(document.getElementById('progress-area'),50+Math.round((i/total)*45));
+
+            // Convert to PDF page — use PNG for better text quality
+            const png=await new Promise(r=>canvas.toBlob(r,'image/png'));
+            const embedded=await doc.embedPng(await png.arrayBuffer());
+            // A4 dimensions in points
+            const pdfW=595.28, pdfH=ph/pw*595.28;
+            const page=doc.addPage([pdfW,pdfH]);
+            page.drawImage(embedded,{x:0,y:0,width:pdfW,height:pdfH});
+
+            PDFTools.showProgress(document.getElementById('progress-area'),40+Math.round((i/pages.length)*55));
           }
-          document.body.removeChild(iframe);
+
+          document.body.removeChild(renderContainer);
+
+          if(doc.getPageCount()===0) doc.addPage([595.28,841.89]);
           const out=await doc.save();
           resultBlob=new Blob([out],{type:'application/pdf'});
           PDFTools.showProgress(document.getElementById('progress-area'),100);
