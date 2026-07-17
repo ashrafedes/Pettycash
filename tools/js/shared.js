@@ -129,6 +129,14 @@
         checkedBy: 'Checked By',
         approvedBy: 'Approved By',
         receivedBy: 'Received By'
+      },
+      tools: {
+        heroTitle: 'Free Business Tools',
+        heroSubtitle: 'Generate professional invoices, receipts, and petty cash vouchers. ZATCA-ready QR codes, PDF/PNG export, and bilingual English & Arabic support.',
+        invoiceCardDesc: 'ZATCA Phase 1 QR, VAT calculations, PDF/PNG export.',
+        receiptCardDesc: 'Automatic amount in words, QR code, printable receipts.',
+        voucherCardDesc: 'Expense tracking, approvals, automatic totals.',
+        footer: '© 2026 PettyCash.site — Free business tools.'
       }
     },
     ar: {
@@ -254,6 +262,14 @@
         checkedBy: 'راجعه',
         approvedBy: 'وافق عليه',
         receivedBy: 'استلمه'
+      },
+      tools: {
+        heroTitle: 'أدوات الأعمال المجانية',
+        heroSubtitle: 'أنشئ فواتير وإيصالات وقسائم صندوق صغير احترافية. رموز QR جاهزة لـ ZATCA، تصدير PDF/PNG، ودعم اللغتين الإنجليزية والعربية.',
+        invoiceCardDesc: 'QR للمرحلة الأولى من ZATCA، حسابات VAT، تصدير PDF/PNG.',
+        receiptCardDesc: 'المبلغ تلقائياً بالحروف، QR، إيصالات قابلة للطباعة.',
+        voucherCardDesc: 'تتبع المصروفات، موافقات، إجماليات تلقائية.',
+        footer: '© 2026 PettyCash.site — أدوات الأعمال المجانية.'
       }
     }
   };
