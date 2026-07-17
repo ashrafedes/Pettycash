@@ -61,6 +61,7 @@ function renderNavbar() {
     { href: './', label: t('nav.home'), exact: true },
     { href: './features.html', label: t('nav.features') },
     { href: './pricing.html', label: t('nav.pricing') },
+    { href: './tools/', label: t('nav.tools') },
     { href: './blog.html', label: t('nav.blog') },
     { href: './help.html', label: t('nav.help') },
     { href: './about.html', label: t('nav.about') },

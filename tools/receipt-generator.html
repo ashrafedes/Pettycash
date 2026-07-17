@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Receipt Generator | PDF & PNG Download | PettyCash.site</title>
+  <meta name="description" content="Generate professional receipts with QR code, automatic amount in English and Arabic words, and PDF/PNG export. Free online receipt generator.">
+  <link rel="canonical" href="https://pettycash.site/tools/receipt-generator.html">
+  <meta property="og:title" content="Free Receipt Generator | PDF & PNG Download">
+  <meta property="og:description" content="Generate professional receipts with QR code and automatic amount in words. PDF/PNG export.">
+  <meta property="og:url" content="https://pettycash.site/tools/receipt-generator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Receipt Generator | PDF & PNG Download">
+  <meta name="twitter:description" content="Generate professional receipts with QR code and automatic amount in words.">
+  <meta name="twitter:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+  <link rel="stylesheet" href="./css/tools.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Receipt Generator",
+        "description": "Free online receipt generator with QR code, amount in words, and PDF/PNG export.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "SAR" },
+        "url": "https://pettycash.site/tools/receipt-generator.html",
+        "inLanguage": ["en", "ar"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pettycash.site/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Receipt Generator", "item": "https://pettycash.site/tools/receipt-generator.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is this receipt generator free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, it is completely free to use in your browser." } },
+          { "@type": "Question", "name": "Can I download receipts as PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can download as PDF, PNG, or print directly." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <nav id="pctool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
+
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 grid lg:grid-cols-12 gap-8">
+    <!-- Form -->
+    <section class="lg:col-span-5 space-y-6 no-print" aria-label="Receipt form">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+        <h1 class="text-2xl font-extrabold mb-1" data-i18n="receipt.title">Receipt Generator</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="receipt.metaDescription">Generate professional receipts.</p>
+      </div>
+
+      <form id="receipt-form" class="space-y-6">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+          <h2 class="text-lg font-bold mb-4" data-i18n="common.companyInfo">Company Information</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="common.companyLogo">Company Logo</label><input type="file" id="logo-input" accept="image/*" class="form-input text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-50 dark:file:bg-slate-700 file:text-blue-700 dark:file:text-blue-300"></div>
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="invoice.companyName">Company Name</label><input required name="companyName" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.vatReg">VAT Registration Number</label><input name="companyVat" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="common.phone">Phone</label><input name="companyPhone" type="tel" class="form-input"></div>
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="common.address">Address</label><input name="companyAddress" class="form-input"></div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+          <h2 class="text-lg font-bold mb-4" data-i18n="receipt.title">Receipt Details</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="block text-sm font-medium mb-1" data-i18n="receipt.receiptNumber">Receipt Number</label><input required name="receiptNumber" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="receipt.receiptDate">Receipt Date</label><input required name="receiptDate" type="date" class="form-input"></div>
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="receipt.receivedFrom">Received From</label><input required name="receivedFrom" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="common.amount">Amount</label><input required name="amount" type="number" min="0" step="0.01" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.currency">Currency</label><select name="currency" class="form-input"><option value="SAR">SAR</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option></select></div>
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="receipt.paymentMethod">Payment Method</label>
+              <div class="flex flex-wrap gap-3 mt-2">
+                <label class="inline-flex items-center gap-2"><input type="radio" name="paymentMethod" value="Cash" checked><span data-i18n="receipt.cash">Cash</span></label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="paymentMethod" value="Bank Transfer"><span data-i18n="receipt.bankTransfer">Bank Transfer</span></label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="paymentMethod" value="Card"><span data-i18n="receipt.card">Card</span></label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="paymentMethod" value="Cheque"><span data-i18n="receipt.cheque">Cheque</span></label>
+              </div>
+            </div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="receipt.referenceNumber">Reference Number</label><input name="referenceNumber" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="common.description">Description</label><input name="description" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="receipt.receivedBy">Received By</label><input name="receivedBy" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="receipt.approvedBy">Approved By</label><input name="approvedBy" class="form-input"></div>
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="common.notes">Notes</label><textarea name="notes" rows="3" class="form-input"></textarea></div>
+          </div>
+        </div>
+      </form>
+
+      <div class="flex flex-wrap gap-3">
+        <button type="button" id="btn-save" class="btn-secondary text-sm"><span data-i18n="common.save">Save</span></button>
+        <button type="button" id="btn-reset" class="btn-secondary text-sm"><span data-i18n="common.reset">Reset</span></button>
+        <button type="button" id="btn-copy" class="btn-secondary text-sm"><span data-i18n="common.copy">Copy</span></button>
+        <button type="button" id="btn-share" class="btn-secondary text-sm"><span data-i18n="common.share">Share</span></button>
+      </div>
+    </section>
+
+    <!-- Preview -->
+    <section class="lg:col-span-7 flex flex-col gap-4" aria-label="Receipt preview">
+      <div class="sticky top-20 space-y-4">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 flex flex-wrap items-center gap-3 animate-fade-in">
+          <button type="button" id="btn-print" class="btn-secondary text-sm"><span data-i18n="common.print">Print</span></button>
+          <button type="button" id="btn-pdf" class="btn-primary text-sm"><span data-i18n="common.downloadPDF">Download PDF</span></button>
+          <button type="button" id="btn-png" class="btn-secondary text-sm"><span data-i18n="common.downloadPNG">Download PNG</span></button>
+        </div>
+        <div id="preview-container" class="overflow-auto rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-200 dark:bg-slate-900 p-4">
+          <div id="receipt-preview" class="paper" style="width:148mm; min-height:210mm; padding:15mm;">
+            <div class="text-center border-b-2 border-slate-200 pb-4 mb-4">
+              <img id="preview-logo" src="" alt="Logo" class="h-16 object-contain mx-auto mb-2 hidden">
+              <h2 id="preview-company-name" class="text-2xl font-bold"></h2>
+              <p class="text-sm text-slate-600" id="preview-company-details"></p>
+            </div>
+            <div class="text-center mb-6">
+              <h1 class="text-3xl font-extrabold tracking-wider text-blue-700" data-i18n-en="RECEIPT" data-i18n-ar="إيصال">RECEIPT</h1>
+              <p class="text-sm text-slate-500 mt-1" id="preview-receipt-number"></p>
+            </div>
+
+            <div class="space-y-3 text-sm mb-6">
+              <div class="flex justify-between border-b border-dashed border-slate-200 py-2"><span data-i18n-en="Receipt Date:" data-i18n-ar="تاريخ الإيصال:">Receipt Date:</span><span id="preview-date"></span></div>
+              <div class="flex justify-between border-b border-dashed border-slate-200 py-2"><span data-i18n-en="Received From:" data-i18n-ar="المستلم من:">Received From:</span><span id="preview-received-from"></span></div>
+              <div class="flex justify-between border-b border-dashed border-slate-200 py-2"><span data-i18n-en="Payment Method:" data-i18n-ar="طريقة الدفع:">Payment Method:</span><span id="preview-payment-method"></span></div>
+              <div class="flex justify-between border-b border-dashed border-slate-200 py-2"><span data-i18n-en="Reference:" data-i18n-ar="المرجع:">Reference:</span><span id="preview-reference"></span></div>
+              <div class="flex justify-between border-b border-dashed border-slate-200 py-2"><span data-i18n-en="Description:" data-i18n-ar="الوصف:">Description:</span><span id="preview-description"></span></div>
+            </div>
+
+            <div class="bg-slate-50 rounded-xl p-4 text-center mb-6">
+              <p class="text-sm text-slate-500" data-i18n-en="Amount Received" data-i18n-ar="المبلغ المستلم">Amount Received</p>
+              <p id="preview-amount" class="text-3xl font-extrabold text-slate-900 my-1"></p>
+              <p id="preview-words" class="text-sm italic text-slate-600"></p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-6 text-sm mb-6">
+              <div>
+                <p class="font-semibold mb-1" data-i18n-en="Received By" data-i18n-ar="المستلم">Received By</p>
+                <p id="preview-received-by"></p>
+                <div class="h-16 border-b border-slate-300 mt-2"></div>
+              </div>
+              <div>
+                <p class="font-semibold mb-1" data-i18n-en="Approved By" data-i18n-ar="معتمد من">Approved By</p>
+                <p id="preview-approved-by"></p>
+                <div class="h-16 border-b border-slate-300 mt-2"></div>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-end border-t border-slate-200 pt-4">
+              <div>
+                <p class="font-semibold text-sm" data-i18n-en="Company Stamp" data-i18n-ar="ختم الشركة">Company Stamp</p>
+                <div class="w-24 h-24 rounded-full border-2 border-dashed border-slate-300 mt-2 flex items-center justify-center text-slate-400 text-xs text-center">Stamp</div>
+              </div>
+              <div class="text-end">
+                <img id="preview-qr" src="" alt="QR" class="h-24 w-24 ms-auto">
+              </div>
+            </div>
+
+            <div class="mt-6 text-sm text-slate-600"><p id="preview-notes"></p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-8 no-print">
+    <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500 dark:text-slate-400">
+      <p>&copy; 2026 PettyCash.site — Free business tools.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="./js/shared.js"></script>
+  <script src="./js/receipt-generator.js"></script>
+</body>
+</html>

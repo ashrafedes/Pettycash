@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petty Cash Voucher Generator | Free PDF & PNG | PettyCash.site</title>
+  <meta name="description" content="Create professional petty cash vouchers with automatic totals, VAT, QR code, approvals, and PDF/PNG export. Free online voucher generator.">
+  <link rel="canonical" href="https://pettycash.site/tools/petty-cash-voucher-generator.html">
+  <meta property="og:title" content="Petty Cash Voucher Generator | Free PDF & PNG">
+  <meta property="og:description" content="Generate petty cash vouchers with automatic totals, VAT, QR code, approvals, and PDF/PNG export.">
+  <meta property="og:url" content="https://pettycash.site/tools/petty-cash-voucher-generator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Petty Cash Voucher Generator | Free PDF & PNG">
+  <meta name="twitter:description" content="Generate professional petty cash vouchers with automatic totals and approvals.">
+  <meta name="twitter:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+  <link rel="stylesheet" href="./css/tools.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Petty Cash Voucher Generator",
+        "description": "Free online petty cash voucher generator with automatic totals, VAT, QR code, approvals, and PDF/PNG export.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "SAR" },
+        "url": "https://pettycash.site/tools/petty-cash-voucher-generator.html",
+        "inLanguage": ["en", "ar"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pettycash.site/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Petty Cash Voucher Generator", "item": "https://pettycash.site/tools/petty-cash-voucher-generator.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Can I generate a petty cash voucher PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can download the voucher as PDF or PNG, or print it directly." } },
+          { "@type": "Question", "name": "Does the voucher support approvals?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, it includes prepared by, checked by, approved by, and received by fields." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <nav id="pctool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
+
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 grid lg:grid-cols-12 gap-8">
+    <!-- Form -->
+    <section class="lg:col-span-5 space-y-6 no-print" aria-label="Voucher form">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+        <h1 class="text-2xl font-extrabold mb-1" data-i18n="voucher.title">Petty Cash Voucher Generator</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="voucher.metaDescription">Create professional petty cash vouchers.</p>
+      </div>
+
+      <form id="voucher-form" class="space-y-6">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+          <h2 class="text-lg font-bold mb-4" data-i18n="voucher.voucherInfo">Voucher Information</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="common.companyLogo">Company Logo</label><input type="file" id="logo-input" accept="image/*" class="form-input text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-50 dark:file:bg-slate-700 file:text-blue-700 dark:file:text-blue-300"></div>
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="invoice.companyName">Company Name</label><input required name="companyName" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.voucherNumber">Voucher Number</label><input required name="voucherNumber" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.date">Date</label><input required name="date" type="date" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.employee">Employee</label><input name="employee" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.department">Department</label><input name="department" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.costCenter">Cost Center</label><input name="costCenter" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.project">Project</label><input name="project" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.vendor">Vendor</label><input name="vendor" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.expenseCategory">Expense Category</label><input name="expenseCategory" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.invoiceNumber">Invoice Number</label><input name="invoiceNumber" class="form-input"></div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold" data-i18n="voucher.expenseTable">Expense Items</h2>
+            <button type="button" id="add-item" class="btn-primary text-sm"><span data-i18n="common.add">Add</span></button>
+          </div>
+          <div id="items-container" class="space-y-3"></div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+          <h2 class="text-lg font-bold mb-4" data-i18n="voucher.approval">Approval Section</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.preparedBy">Prepared By</label><input name="preparedBy" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.checkedBy">Checked By</label><input name="checkedBy" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.approvedBy">Approved By</label><input name="approvedBy" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="voucher.receivedBy">Received By</label><input name="receivedBy" class="form-input"></div>
+          </div>
+        </div>
+      </form>
+
+      <div class="flex flex-wrap gap-3">
+        <button type="button" id="btn-save" class="btn-secondary text-sm"><span data-i18n="common.save">Save</span></button>
+        <button type="button" id="btn-reset" class="btn-secondary text-sm"><span data-i18n="common.reset">Reset</span></button>
+        <button type="button" id="btn-copy" class="btn-secondary text-sm"><span data-i18n="common.copy">Copy</span></button>
+        <button type="button" id="btn-share" class="btn-secondary text-sm"><span data-i18n="common.share">Share</span></button>
+      </div>
+    </section>
+
+    <!-- Preview -->
+    <section class="lg:col-span-7 flex flex-col gap-4" aria-label="Voucher preview">
+      <div class="sticky top-20 space-y-4">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 flex flex-wrap items-center gap-3 animate-fade-in">
+          <button type="button" id="btn-print" class="btn-secondary text-sm"><span data-i18n="common.print">Print</span></button>
+          <button type="button" id="btn-pdf" class="btn-primary text-sm"><span data-i18n="common.downloadPDF">Download PDF</span></button>
+          <button type="button" id="btn-png" class="btn-secondary text-sm"><span data-i18n="common.downloadPNG">Download PNG</span></button>
+        </div>
+        <div id="preview-container" class="overflow-auto rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-200 dark:bg-slate-900 p-4">
+          <div id="voucher-preview" class="paper" style="width:210mm; min-height:148mm; padding:20mm;">
+            <div class="flex justify-between items-start border-b border-slate-200 pb-4 mb-4">
+              <div>
+                <img id="preview-logo" src="" alt="Logo" class="h-14 object-contain mb-2 hidden">
+                <h2 id="preview-company-name" class="text-xl font-bold"></h2>
+              </div>
+              <div class="text-end">
+                <h1 class="text-2xl font-extrabold text-blue-700" data-i18n-en="PETTY CASH VOUCHER" data-i18n-ar="قسيمة الصندوق الصغير">PETTY CASH VOUCHER</h1>
+                <p class="text-sm text-slate-600"><span data-i18n-en="Voucher No:" data-i18n-ar="رقم القسيمة:">Voucher No:</span> <strong id="preview-voucher-number"></strong></p>
+                <p class="text-sm text-slate-600"><span data-i18n-en="Date:" data-i18n-ar="التاريخ:">Date:</span> <span id="preview-date"></span></p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+              <div><span class="text-slate-500" data-i18n-en="Employee:" data-i18n-ar="الموظف:">Employee:</span> <span id="preview-employee"></span></div>
+              <div><span class="text-slate-500" data-i18n-en="Department:" data-i18n-ar="القسم:">Department:</span> <span id="preview-department"></span></div>
+              <div><span class="text-slate-500" data-i18n-en="Cost Center:" data-i18n-ar="مركز التكلفة:">Cost Center:</span> <span id="preview-cost-center"></span></div>
+              <div><span class="text-slate-500" data-i18n-en="Project:" data-i18n-ar="المشروع:">Project:</span> <span id="preview-project"></span></div>
+              <div><span class="text-slate-500" data-i18n-en="Vendor:" data-i18n-ar="المورد:">Vendor:</span> <span id="preview-vendor"></span></div>
+              <div><span class="text-slate-500" data-i18n-en="Category:" data-i18n-ar="الفئة:">Category:</span> <span id="preview-category"></span></div>
+              <div class="col-span-2"><span class="text-slate-500" data-i18n-en="Invoice Ref:" data-i18n-ar="مرجع الفاتورة:">Invoice Ref:</span> <span id="preview-invoice-number"></span></div>
+            </div>
+
+            <table class="preview-table" id="preview-items-table">
+              <thead>
+                <tr>
+                  <th data-i18n-en="Description" data-i18n-ar="الوصف">Description</th>
+                  <th data-i18n-en="Qty" data-i18n-ar="الكمية">Qty</th>
+                  <th data-i18n-en="Unit Cost" data-i18n-ar="تكلفة الوحدة">Unit Cost</th>
+                  <th data-i18n-en="VAT%" data-i18n-ar="ض%">VAT%</th>
+                  <th data-i18n-en="Total" data-i18n-ar="الإجمالي">Total</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+
+            <div class="mt-4 flex justify-end">
+              <div class="w-64 space-y-2 text-sm">
+                <div class="flex justify-between"><span data-i18n-en="Subtotal" data-i18n-ar="المجموع الفرعي">Subtotal</span><span id="preview-subtotal"></span></div>
+                <div class="flex justify-between"><span data-i18n-en="VAT" data-i18n-ar="ضريبة القيمة المضافة">VAT</span><span id="preview-vat"></span></div>
+                <div class="flex justify-between font-bold text-base border-t border-slate-200 pt-2"><span data-i18n-en="Grand Total" data-i18n-ar="الإجمالي الكلي">Grand Total</span><span id="preview-grand"></span></div>
+                <div class="text-xs text-slate-500 mt-2"><span data-i18n-en="Amount in Words:" data-i18n-ar="المبلغ بالحروف:">Amount in Words:</span> <span id="preview-words"></span></div>
+              </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-2 gap-6 text-sm border-t border-slate-200 pt-4">
+              <div><p class="font-semibold mb-1" data-i18n-en="Prepared By" data-i18n-ar="أعده">Prepared By</p><p id="preview-prepared-by"></p><div class="h-10 border-b border-slate-300 mt-6"></div></div>
+              <div><p class="font-semibold mb-1" data-i18n-en="Checked By" data-i18n-ar="راجعه">Checked By</p><p id="preview-checked-by"></p><div class="h-10 border-b border-slate-300 mt-6"></div></div>
+              <div><p class="font-semibold mb-1" data-i18n-en="Approved By" data-i18n-ar="وافق عليه">Approved By</p><p id="preview-approved-by"></p><div class="h-10 border-b border-slate-300 mt-6"></div></div>
+              <div><p class="font-semibold mb-1" data-i18n-en="Received By" data-i18n-ar="استلمه">Received By</p><p id="preview-received-by"></p><div class="h-10 border-b border-slate-300 mt-6"></div></div>
+            </div>
+
+            <div class="mt-6 flex justify-between items-end border-t border-slate-200 pt-4">
+              <div>
+                <p class="font-semibold text-sm" data-i18n-en="Company Stamp" data-i18n-ar="ختم الشركة">Company Stamp</p>
+                <div class="w-24 h-24 rounded-full border-2 border-dashed border-slate-300 mt-2 flex items-center justify-center text-slate-400 text-xs text-center">Stamp</div>
+              </div>
+              <div class="text-end"><img id="preview-qr" src="" alt="QR" class="h-24 w-24 ms-auto"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-8 no-print">
+    <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500 dark:text-slate-400">
+      <p>&copy; 2026 PettyCash.site — Free business tools.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="./js/shared.js"></script>
+  <script src="./js/petty-cash-voucher-generator.js"></script>
+</body>
+</html>

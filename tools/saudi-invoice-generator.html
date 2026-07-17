@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saudi Invoice Generator | ZATCA QR | Free Online</title>
+  <meta name="description" content="Create professional ZATCA-ready Saudi invoices with QR code, VAT, and PDF/PNG export. Free online invoice generator in English and Arabic.">
+  <link rel="canonical" href="https://pettycash.site/tools/saudi-invoice-generator.html">
+  <meta property="og:title" content="Saudi Invoice Generator | ZATCA QR | Free Online">
+  <meta property="og:description" content="Create ZATCA-ready Saudi invoices with QR code, VAT, and PDF/PNG export.">
+  <meta property="og:url" content="https://pettycash.site/tools/saudi-invoice-generator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Saudi Invoice Generator | ZATCA QR">
+  <meta name="twitter:description" content="Create ZATCA-ready Saudi invoices with QR code and PDF export.">
+  <meta name="twitter:image" content="https://pettycash.site/images/favicon.png">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+  <link rel="stylesheet" href="./css/tools.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Saudi Invoice Generator",
+        "description": "Free online ZATCA-ready Saudi invoice generator with QR code, VAT, and PDF/PNG export.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "SAR" },
+        "url": "https://pettycash.site/tools/saudi-invoice-generator.html",
+        "inLanguage": ["en", "ar"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pettycash.site/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pettycash.site/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Saudi Invoice Generator", "item": "https://pettycash.site/tools/saudi-invoice-generator.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is this invoice generator ZATCA compliant?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool generates a ZATCA Phase 1 QR code using TLV Base64 encoding with seller name, VAT number, invoice timestamp, total, and VAT amount." } },
+          { "@type": "Question", "name": "Can I download invoices as PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can download the invoice as a PDF, PNG image, or print it directly." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <nav id="pctool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
+
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 grid lg:grid-cols-12 gap-8">
+    <!-- Form -->
+    <section class="lg:col-span-5 space-y-6 no-print" aria-label="Invoice form">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+        <h1 class="text-2xl font-extrabold mb-1" data-i18n="invoice.title">Saudi Invoice Generator (ZATCA Ready)</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="invoice.metaDescription">Create ZATCA-ready Saudi invoices.</p>
+      </div>
+
+      <form id="invoice-form" class="space-y-6">
+        <!-- Company -->
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+          <h2 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-300 flex items-center justify-center text-sm">1</span><span data-i18n="invoice.companyInfo">Company Information</span></h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-medium mb-1" data-i18n="common.companyLogo">Company Logo</label>
+              <input type="file" id="logo-input" accept="image/*" class="form-input text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-50 dark:file:bg-slate-700 file:text-blue-700 dark:file:text-blue-300">
+            </div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.companyName">Company Name</label><input required name="companyName" data-i18n-placeholder="invoice.companyName" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.vatReg">VAT Registration Number</label><input required name="companyVat" data-i18n-placeholder="invoice.vatReg" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.cr">Commercial Registration</label><input name="companyCr" data-i18n-placeholder="invoice.cr" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="common.phone">Phone</label><input name="companyPhone" type="tel" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="common.email">Email</label><input name="companyEmail" type="email" class="form-input"></div>
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="common.address">Address</label><input name="companyAddress" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="common.website">Website</label><input name="companyWebsite" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.bankName">Bank Name</label><input name="bankName" class="form-input"></div>
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="invoice.iban">IBAN</label><input name="iban" class="form-input"></div>
+          </div>
+        </div>
+
+        <!-- Customer -->
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+          <h2 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-300 flex items-center justify-center text-sm">2</span><span data-i18n="invoice.customerInfo">Customer Information</span></h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.customerName">Customer Name</label><input required name="customerName" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.customerVat">Customer VAT Number</label><input name="customerVat" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="common.phone">Phone</label><input name="customerPhone" type="tel" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="common.email">Email</label><input name="customerEmail" type="email" class="form-input"></div>
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="common.address">Address</label><input name="customerAddress" class="form-input"></div>
+          </div>
+        </div>
+
+        <!-- Invoice info -->
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+          <h2 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-300 flex items-center justify-center text-sm">3</span><span data-i18n="invoice.invoiceInfo">Invoice Information</span></h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.invoiceNumber">Invoice Number</label><input required name="invoiceNumber" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.currency">Currency</label><select name="currency" class="form-input"><option value="SAR">SAR</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option></select></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.issueDate">Issue Date</label><input required name="issueDate" type="date" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.dueDate">Due Date</label><input name="dueDate" type="date" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.paymentTerms">Payment Terms</label><input name="paymentTerms" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.poNumber">Purchase Order Number</label><input name="poNumber" class="form-input"></div>
+            <div class="sm:col-span-2"><label class="block text-sm font-medium mb-1" data-i18n="invoice.reference">Reference Number</label><input name="reference" class="form-input"></div>
+          </div>
+        </div>
+
+        <!-- Items -->
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-300 flex items-center justify-center text-sm">4</span><span data-i18n="invoice.items">Invoice Items</span></h2>
+            <button type="button" id="add-item" class="btn-primary text-sm"><span data-i18n="invoice.addItem">Add Item</span></button>
+          </div>
+          <div id="items-container" class="space-y-3"></div>
+        </div>
+
+        <!-- Calculations -->
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+          <h2 class="text-lg font-bold mb-4" data-i18n="invoice.calculations">Calculations</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.discount">Discount</label><input name="discount" type="number" min="0" step="0.01" value="0" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.vatPercent">VAT %</label><input name="vatPercent" type="number" min="0" step="0.01" value="15" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.paidAmount">Paid Amount</label><input name="paidAmount" type="number" min="0" step="0.01" value="0" class="form-input"></div>
+          </div>
+          <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
+            <div class="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3"><span class="text-slate-500 dark:text-slate-400 block" data-i18n="common.subtotal">Subtotal</span><strong id="calc-subtotal" class="text-lg">0.00</strong></div>
+            <div class="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3"><span class="text-slate-500 dark:text-slate-400 block" data-i18n="common.discount">Discount</span><strong id="calc-discount" class="text-lg">0.00</strong></div>
+            <div class="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3"><span class="text-slate-500 dark:text-slate-400 block" data-i18n="common.vat">VAT</span><strong id="calc-vat" class="text-lg">0.00</strong></div>
+            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3"><span class="text-blue-600 dark:text-blue-300 block" data-i18n="common.grandTotal">Grand Total</span><strong id="calc-grand" class="text-lg text-blue-700 dark:text-blue-300">0.00</strong></div>
+            <div class="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3"><span class="text-slate-500 dark:text-slate-400 block" data-i18n="common.paid">Paid</span><strong id="calc-paid" class="text-lg">0.00</strong></div>
+            <div class="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3"><span class="text-slate-500 dark:text-slate-400 block" data-i18n="common.remaining">Remaining</span><strong id="calc-remaining" class="text-lg">0.00</strong></div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+          <h2 class="text-lg font-bold mb-4" data-i18n="invoice.footer">Footer</h2>
+          <div class="space-y-4">
+            <div><label class="block text-sm font-medium mb-1" data-i18n="common.notes">Notes</label><textarea name="notes" rows="3" class="form-input"></textarea></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="common.terms">Terms & Conditions</label><textarea name="terms" rows="3" class="form-input"></textarea></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="common.authorizedSignature">Authorized Signature</label><input name="signatureName" class="form-input"></div>
+          </div>
+        </div>
+      </form>
+
+      <div class="flex flex-wrap gap-3">
+        <button type="button" id="btn-save" class="btn-secondary text-sm"><span data-i18n="common.save">Save</span></button>
+        <button type="button" id="btn-reset" class="btn-secondary text-sm"><span data-i18n="common.reset">Reset</span></button>
+        <button type="button" id="btn-copy" class="btn-secondary text-sm"><span data-i18n="common.copy">Copy</span></button>
+        <button type="button" id="btn-share" class="btn-secondary text-sm"><span data-i18n="common.share">Share</span></button>
+      </div>
+    </section>
+
+    <!-- Preview -->
+    <section class="lg:col-span-7 flex flex-col gap-4 no-print-preview" aria-label="Invoice preview">
+      <div class="sticky top-20 space-y-4">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 flex flex-wrap items-center gap-3 animate-fade-in">
+          <button type="button" id="btn-print" class="btn-secondary text-sm"><span data-i18n="common.print">Print</span></button>
+          <button type="button" id="btn-pdf" class="btn-primary text-sm"><span data-i18n="common.downloadPDF">Download PDF</span></button>
+          <button type="button" id="btn-png" class="btn-secondary text-sm"><span data-i18n="common.downloadPNG">Download PNG</span></button>
+        </div>
+        <div id="preview-container" class="overflow-auto rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-200 dark:bg-slate-900 p-4">
+          <div id="invoice-preview" class="paper">
+            <!-- Header -->
+            <div class="flex justify-between items-start border-b border-slate-200 pb-6 mb-6">
+              <div>
+                <img id="preview-logo" src="" alt="Logo" class="h-16 object-contain mb-2 hidden">
+                <h2 id="preview-company-name" class="text-2xl font-bold"></h2>
+                <p class="text-sm text-slate-600 my-1"><span id="preview-company-vat-label">VAT:</span> <span id="preview-company-vat"></span></p>
+                <p class="text-sm text-slate-600" id="preview-company-address"></p>
+                <p class="text-sm text-slate-600" id="preview-company-contact"></p>
+              </div>
+              <div class="text-end">
+                <h1 class="text-3xl font-extrabold text-blue-700" data-i18n-ar="فاتورة ضريبية مبسطة" data-i18n-en="Simplified Tax Invoice">Simplified Tax Invoice</h1>
+                <p class="text-sm text-slate-600 mt-1"><span data-i18n-en="Invoice No:" data-i18n-ar="رقم الفاتورة:">Invoice No:</span> <strong id="preview-invoice-number"></strong></p>
+                <p class="text-sm text-slate-600"><span data-i18n-en="Issue Date:" data-i18n-ar="تاريخ الإصدار:">Issue Date:</span> <span id="preview-issue-date"></span></p>
+                <p class="text-sm text-slate-600"><span data-i18n-en="Due Date:" data-i18n-ar="تاريخ الاستحقاق:">Due Date:</span> <span id="preview-due-date"></span></p>
+              </div>
+            </div>
+
+            <!-- Customer -->
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-800 mb-1" data-i18n-en="Bill To:" data-i18n-ar="فاتورة إلى:">Bill To:</h3>
+              <p class="font-semibold" id="preview-customer-name"></p>
+              <p class="text-sm text-slate-600" id="preview-customer-vat"></p>
+              <p class="text-sm text-slate-600" id="preview-customer-address"></p>
+              <p class="text-sm text-slate-600" id="preview-customer-contact"></p>
+            </div>
+
+            <!-- Items -->
+            <table class="preview-table" id="preview-items-table">
+              <thead>
+                <tr>
+                  <th data-i18n-en="Description" data-i18n-ar="الوصف">Description</th>
+                  <th data-i18n-en="Qty" data-i18n-ar="الكمية">Qty</th>
+                  <th data-i18n-en="Unit" data-i18n-ar="الوحدة">Unit</th>
+                  <th data-i18n-en="Price" data-i18n-ar="السعر">Price</th>
+                  <th data-i18n-en="Disc." data-i18n-ar="الخصم">Disc.</th>
+                  <th data-i18n-en="VAT%" data-i18n-ar="ض%">VAT%</th>
+                  <th data-i18n-en="Total" data-i18n-ar="الإجمالي">Total</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+
+            <!-- Totals -->
+            <div class="mt-6 flex justify-end">
+              <div class="w-64 space-y-2 text-sm">
+                <div class="flex justify-between"><span data-i18n-en="Subtotal" data-i18n-ar="المجموع الفرعي">Subtotal</span><span id="preview-subtotal"></span></div>
+                <div class="flex justify-between"><span data-i18n-en="Discount" data-i18n-ar="الخصم">Discount</span><span id="preview-discount"></span></div>
+                <div class="flex justify-between"><span data-i18n-en="VAT" data-i18n-ar="ضريبة القيمة المضافة">VAT</span><span id="preview-vat"></span></div>
+                <div class="flex justify-between font-bold text-base border-t border-slate-200 pt-2"><span data-i18n-en="Grand Total" data-i18n-ar="الإجمالي الكلي">Grand Total</span><span id="preview-grand"></span></div>
+                <div class="flex justify-between"><span data-i18n-en="Paid" data-i18n-ar="المدفوع">Paid</span><span id="preview-paid"></span></div>
+                <div class="flex justify-between font-semibold"><span data-i18n-en="Remaining" data-i18n-ar="المتبقي">Remaining</span><span id="preview-remaining"></span></div>
+              </div>
+            </div>
+
+            <!-- Amount in words & QR -->
+            <div class="mt-8 grid sm:grid-cols-2 gap-6 items-end border-t border-slate-200 pt-6">
+              <div>
+                <p class="text-sm font-semibold text-slate-700 mb-1" data-i18n-en="Amount in Words" data-i18n-ar="المبلغ بالحروف">Amount in Words</p>
+                <p id="preview-words" class="text-sm italic text-slate-600"></p>
+              </div>
+              <div class="text-end">
+                <img id="preview-qr" src="" alt="QR" class="h-24 w-24 ms-auto">
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="mt-8 pt-6 border-t border-slate-200 text-sm text-slate-600">
+              <p class="font-semibold mb-1" data-i18n-en="Notes" data-i18n-ar="ملاحظات">Notes</p>
+              <p id="preview-notes" class="mb-4"></p>
+              <p class="font-semibold mb-1" data-i18n-en="Terms" data-i18n-ar="الشروط والأحكام">Terms</p>
+              <p id="preview-terms" class="mb-6"></p>
+              <div class="flex justify-between items-end">
+                <div>
+                  <p class="font-semibold" data-i18n-en="Authorized Signature" data-i18n-ar="توقيع المفوض">Authorized Signature</p>
+                  <p id="preview-signature" class="mt-4"></p>
+                </div>
+                <div>
+                  <p class="font-semibold" data-i18n-en="Company Stamp" data-i18n-ar="ختم الشركة">Company Stamp</p>
+                  <div class="w-24 h-24 rounded-full border-2 border-dashed border-slate-300 mt-2 flex items-center justify-center text-slate-400 text-xs text-center">Stamp</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-8 no-print">
+    <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500 dark:text-slate-400">
+      <p>&copy; 2026 PettyCash.site — Free business tools for Saudi and Arabic companies.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="./js/shared.js"></script>
+  <script src="./js/saudi-invoice-generator.js"></script>
+</body>
+</html>
