@@ -103,7 +103,10 @@
         document.getElementById('result').classList.add('hidden');
       }, {accept:'.pdf', multiple:false});
       document.getElementById('remove-file').addEventListener('click', () => {
+        document.getElementById('file-input').value = '';
         pdfFile=null; resultBlob=null;
+        document.getElementById('file-name-display').textContent = '';
+        document.getElementById('file-meta-display').textContent = '';
         document.getElementById('file-info').classList.add('hidden');
         document.getElementById('convert-options').classList.add('hidden');
         document.getElementById('drop-zone').classList.remove('hidden');

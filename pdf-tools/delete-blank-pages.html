@@ -178,7 +178,10 @@
       }, { accept: '.pdf', multiple: false });
 
       document.getElementById('remove-file').addEventListener('click', () => {
+        if (fileInput) fileInput.value = '';
         pdfFile = null; resultBlob = null; blankPages = [];
+        document.getElementById('file-name-display').textContent = '';
+        document.getElementById('file-meta-display').textContent = '';
         fileInfo.classList.add('hidden'); scanOptions.classList.add('hidden');
         dropZone.classList.remove('hidden'); blankResults.classList.add('hidden'); result.classList.add('hidden');
       });
