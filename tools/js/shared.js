@@ -506,14 +506,20 @@
 
   async function generateQR(text, size = 128) {
     return new Promise((resolve, reject) => {
+      function doGenerate() {
+        QRCode.toDataURL(text, { width: size, margin: 2, color: { dark: '#0f172a', light: '#ffffff' } }, (err, url) => {
+          if (err) reject(err);
+          else resolve(url);
+        });
+      }
       if (typeof QRCode === 'undefined') {
         const script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js';
-        script.onload = () => QRCode.toDataURL(text, { width: size, margin: 2, color: { dark: '#0f172a', light: '#ffffff' } }, (err, url) => err ? reject(err) : resolve(url));
-        script.onerror = reject;
+        script.onload = doGenerate;
+        script.onerror = () => reject(new Error('QRCode library failed to load'));
         document.body.appendChild(script);
       } else {
-        QRCode.toDataURL(text, { width: size, margin: 2, color: { dark: '#0f172a', light: '#ffffff' } }, (err, url) => err ? reject(err) : resolve(url));
+        doGenerate();
       }
     });
   }

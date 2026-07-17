@@ -197,15 +197,23 @@
 
     translatePreviewLabels();
 
-    const qrPayload = zatcaTlvBase64({
-      sellerName: state.companyName,
-      vatNumber: state.companyVat,
-      invoiceTimestamp: state.issueDate ? new Date(state.issueDate).toISOString() : new Date().toISOString(),
-      totalAmount: c.grand,
-      vatAmount: c.vatOnInvoice
-    });
-    const qrImg = await generateQR(qrPayload, 120);
-    $('#preview-qr').src = qrImg;
+    try {
+      const qrPayload = zatcaTlvBase64({
+        sellerName: state.companyName,
+        vatNumber: state.companyVat,
+        invoiceTimestamp: state.issueDate ? new Date(state.issueDate).toISOString() : new Date().toISOString(),
+        totalAmount: c.grand,
+        vatAmount: c.vatOnInvoice
+      });
+      const qrImg = await generateQR(qrPayload, 120);
+      $('#preview-qr').src = qrImg;
+      $('#preview-qr').style.display = 'inline';
+    } catch (err) {
+      console.error('QR generation failed:', err);
+      const qrText = [state.companyName, state.companyVat, state.invoiceNumber, c.grand].join('|');
+      $('#preview-qr').src = 'https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=' + encodeURIComponent(qrText);
+      $('#preview-qr').style.display = 'inline';
+    }
   }
 
   function translatePreviewLabels() {
