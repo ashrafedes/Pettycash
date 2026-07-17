@@ -320,6 +320,7 @@
 
           for(let si=0;si<slideFiles.length;si++){
             const slideXml=await zip.files[slideFiles[si]].async('string');
+            const slideNum=(slideFiles[si].match(/slide(\d+)/)||[])[1]||String(si+1);
             const canvas=document.createElement('canvas');
             canvas.width=canvasW; canvas.height=canvasH;
             const ctx=canvas.getContext('2d');
@@ -338,7 +339,6 @@
               ctx.fillRect(0,0,canvasW,canvasH);
             } else {
               // Try slide layout background
-              const slideNum=slideFiles[si].match(/slide(\d+)/)[1];
               const relsPath='ppt/slides/_rels/slide'+slideNum+'.xml.rels';
               try{
                 const relsXml=await zip.file(relsPath).async('string');
@@ -364,7 +364,6 @@
               if(!posM||!extM||!blipM) continue;
               const relId=blipM[1];
               // Find the relationship file
-              const slideNum=slideFiles[si].match(/slide(\d+)/)[1];
               const relsPath='ppt/slides/_rels/slide'+slideNum+'.xml.rels';
               let relsXml=null;
               try{relsXml=await zip.file(relsPath).async('string');}catch(e){continue;}
