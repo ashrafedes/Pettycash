@@ -193,7 +193,8 @@
       const s = document.createElement('script');
       s.src = src;
       s.onload = resolve;
-      s.onerror = reject;
+      s.onerror = () => reject(new Error('Failed to load script: ' + src));
+      s.onabort = () => reject(new Error('Script load aborted: ' + src));
       document.head.appendChild(s);
     });
     return libCache[src];

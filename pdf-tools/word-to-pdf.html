@@ -119,7 +119,13 @@
         document.getElementById('result').classList.add('hidden');
         PDFTools.showProgress(document.getElementById('progress-area'),10);
         try {
-          if(!window.mammoth) await PDFTools.loadScript('https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js');
+          if(!window.mammoth) {
+            try {
+              await PDFTools.loadScript('https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js');
+            } catch(loadErr) {
+              await PDFTools.loadScript('https://unpkg.com/mammoth@1.6.0/mammoth.browser.min.js');
+            }
+          }
           const buf=await wordFile.arrayBuffer();
           PDFTools.showProgress(document.getElementById('progress-area'),30);
           const res=await mammoth.convertToHtml({arrayBuffer:buf});
@@ -159,7 +165,7 @@
           PDFTools.showProgress(document.getElementById('progress-area'),100);
           document.getElementById('result').classList.remove('hidden');
           PDFTools.toast(PDFTools.t('common.done'));
-        } catch(err){console.error(err);PDFTools.toast(PDFTools.t('common.error')+': '+err.message);} finally{btn.disabled=false;}
+        } catch(err){console.error(err);PDFTools.toast(PDFTools.t('common.error')+': '+(err && err.message ? err.message : (typeof err==='string'?err:'Unknown error')));} finally{btn.disabled=false;}
       });
       document.getElementById('download-btn').addEventListener('click',()=>{if(resultBlob)PDFTools.downloadBlob(resultBlob,wordFile.name.replace(/\.docx?$/i,'')+'.pdf');});
     });
