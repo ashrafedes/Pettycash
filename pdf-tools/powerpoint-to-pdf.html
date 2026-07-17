@@ -103,61 +103,218 @@
         document.getElementById('result').classList.add('hidden');
       }, {accept:'.pptx', multiple:false});
       document.getElementById('remove-file').addEventListener('click', () => {
+        document.getElementById('file-input').value = '';
         pptFile=null; resultBlob=null;
+        document.getElementById('file-name-display').textContent = '';
+        document.getElementById('file-meta-display').textContent = '';
         document.getElementById('file-info').classList.add('hidden');
         document.getElementById('convert-options').classList.add('hidden');
         document.getElementById('drop-zone').classList.remove('hidden');
         document.getElementById('result').classList.add('hidden');
+        document.getElementById('progress-area').innerHTML = '';
       });
       document.getElementById('convert-btn').addEventListener('click', async () => {
         if(!pptFile){PDFTools.toast('Select a PPTX file first');return;}
         const btn=document.getElementById('convert-btn'); btn.disabled=true;
         document.getElementById('result').classList.add('hidden');
-        PDFTools.showProgress(document.getElementById('progress-area'),10);
+        PDFTools.showProgress(document.getElementById('progress-area'),5);
         try {
           const JSZip=await PDFTools.ensureJSZip();
           const {PDFDocument}=await PDFTools.ensurePDFLib();
           const buf=await pptFile.arrayBuffer();
           const zip=await JSZip.loadAsync(buf);
           const doc=await PDFDocument.create();
+
+          // Read presentation.xml for slide size
+          const presXml=await zip.file('ppt/presentation.xml').async('string');
+          let pageW=9144000, pageH=6858000; // default 10x7.5 inch in EMU
+          const sizeMatch=presXml.match(/<p:sldSz[^>]*cx="(\d+)"[^>]*cy="(\d+)"/);
+          if(sizeMatch){pageW=parseInt(sizeMatch[1]);pageH=parseInt(sizeMatch[2]);}
+          const EMU=914400; // 1 inch = 914400 EMU
+          const pageWpt=pageW/EMU*72;
+          const pageHpt=pageH/EMU*72;
+
           // Find slide files
           const slideFiles=Object.keys(zip.files).filter(k=>k.match(/ppt\/slides\/slide\d+\.xml/)).sort((a,b)=>{
             const na=parseInt(a.match(/slide(\d+)/)[1]); const nb=parseInt(b.match(/slide(\d+)/)[1]); return na-nb;
           });
-          PDFTools.showProgress(document.getElementById('progress-area'),20);
-          const pageW=720, pageH=540; // PowerPoint default 10x7.5 inches at 72dpi
-          for(let i=0;i<slideFiles.length;i++){
-            const slideXml=await zip.files[slideFiles[i]].async('string');
-            // Extract text from slide XML
-            const texts=[];
-            const textRe=/<a:t>([^<]*)<\/a:t>/g; let m;
-            while((m=textRe.exec(slideXml))!==null) texts.push(m[1]);
-            // Create slide as canvas with text
-            const canvas=document.createElement('canvas');
-            canvas.width=pageW*2; canvas.height=pageH*2;
-            const ctx=canvas.getContext('2d');
-            ctx.fillStyle='#fff'; ctx.fillRect(0,0,canvas.width,canvas.height);
-            ctx.fillStyle='#333'; ctx.font='24px Inter,Arial,sans-serif';
-            ctx.textBaseline='top';
-            let y=40;
-            texts.forEach(text=>{
-              if(!text.trim()) return;
-              ctx.fillText(text, 40, y, canvas.width-80);
-              y+=36;
-            });
-            const jpg=await new Promise(r=>canvas.toBlob(r,'image/jpeg',0.92));
-            const embedded=await doc.embedJpg(await jpg.arrayBuffer());
-            const page=doc.addPage([pageW,pageH]);
-            page.drawImage(embedded,{x:0,y:0,width:pageW,height:pageH});
-            PDFTools.showProgress(document.getElementById('progress-area'),20+Math.round((i/slideFiles.length)*75));
+          PDFTools.showProgress(document.getElementById('progress-area'),10);
+
+          // Helper: parse color from srgbClr
+          function parseColor(xml,tag){
+            const m=xml.match(new RegExp('<a:'+tag+'[^>]*>\\s*<a:srgbClr\\s+val="([0-9A-Fa-f]{6})"'));
+            if(m) return '#'+m[1];
+            return null;
           }
-          if(doc.getPageCount()===0) doc.addPage([pageW,pageH]);
+
+          // Helper: parse EMU position
+          function parsePos(xml){
+            const offM=xml.match(/<a:off\\s+x="(-?\\d+)"\\s+y="(-?\\d+)"/);
+            const extM=xml.match(/<a:ext\\s+cx="(\\d+)"\\s+cy="(\\d+)"/);
+            return {
+              x: offM?parseInt(offM[1]):0,
+              y: offM?parseInt(offM[2]):0,
+              w: extM?parseInt(extM[1]):0,
+              h: extM?parseInt(extM[2]):0
+            };
+          }
+
+          // Render scale: canvas at 2x
+          const renderScale=2;
+          const canvasW=pageWpt*renderScale;
+          const canvasH=pageHpt*renderScale;
+
+          for(let si=0;si<slideFiles.length;si++){
+            const slideXml=await zip.files[slideFiles[si]].async('string');
+            const canvas=document.createElement('canvas');
+            canvas.width=canvasW; canvas.height=canvasH;
+            const ctx=canvas.getContext('2d');
+            const scale=canvasW/(pageW/EMU*72/72); // scale factor EMU->canvas px
+
+            // EMU to canvas pixels: canvasW / (pageW/EMU) = pixels per EMU
+            const emuToPx=canvasW/pageW;
+
+            // 1. Draw background (default white)
+            ctx.fillStyle='#ffffff';
+            ctx.fillRect(0,0,canvasW,canvasH);
+
+            // Check for slide background color
+            const bgMatch=slideXml.match(/<p:bg[^>]*>[\s\S]*?<a:srgbClr\s+val="([0-9A-Fa-f]{6})"/);
+            if(bgMatch){
+              ctx.fillStyle='#'+bgMatch[1];
+              ctx.fillRect(0,0,canvasW,canvasH);
+            }
+
+            // 2. Parse shapes (p:sp) — text boxes and shapes
+            const shapeRe=/<p:sp>([\s\S]*?)<\/p:sp>/g;
+            let shapeMatch;
+            while((shapeMatch=shapeRe.exec(slideXml))!==null){
+              const spXml=shapeMatch[1];
+              // Get position
+              const posM=spXml.match(/<a:off\s+x="(-?\d+)"\s+y="(-?\d+)"/);
+              const extM=spXml.match(/<a:ext\s+cx="(\d+)"\s+cy="(\d+)"/);
+              if(!posM||!extM) continue;
+              const x=parseInt(posM[1])*emuToPx;
+              const y=parseInt(posM[2])*emuToPx;
+              const w=parseInt(extM[1])*emuToPx;
+              const h=parseInt(extM[2])*emuToPx;
+
+              // Check for shape fill
+              const fillM=spXml.match(/<a:solidFill>\s*<a:srgbClr\s+val="([0-9A-Fa-f]{6})"/);
+              if(fillM){
+                ctx.fillStyle='#'+fillM[1];
+                ctx.fillRect(x,y,w,h);
+              }
+
+              // Parse text runs with formatting
+              const paraRe=/<a:p>([\s\S]*?)<\/a:p>/g;
+              let paraMatch;
+              let textY=y+10*renderScale;
+              while((paraMatch=paraRe.exec(spXml))!==null){
+                const paraXml=paraMatch[1];
+                // Paragraph alignment
+                const algnM=paraXml.match(/<a:pPr[^>]*algn="(\w+)"/);
+                const align=algnM?algnM[1]:'l';
+                ctx.textAlign=align==='ctr'?'center':align==='r'?'right':'left';
+
+                // Parse runs
+                const runRe=/<a:r>([\s\S]*?)<\/a:r>/g;
+                let runMatch;
+                let textX=align==='ctr'?x+w/2:align==='r'?x+w:x+8*renderScale;
+                while((runMatch=runRe.exec(paraXml))!==null){
+                  const runXml=runMatch[1];
+                  // Font properties
+                  const rPrM=runXml.match(/<a:rPr[^>]*?(?:sz="(\d+)")?[^>]*?(?:b="(\d+)")?[^>]*?(?:i="(\d+)")?[^>]*?>/);
+                  const fontSize=rPrM&&rPrM[1]?parseInt(rPrM[1])/100:18; // default 18pt
+                  const bold=rPrM&&rPrM[2]?rPrM[2]==='1':false;
+                  const italic=rPrM&&rPrM[3]?rPrM[3]==='1':false;
+                  // Font color
+                  const colorM=runXml.match(/<a:solidFill>\s*<a:srgbClr\s+val="([0-9A-Fa-f]{6})"/);
+                  const color=colorM?'#'+colorM[1]:'#333333';
+                  // Text
+                  const textM=runXml.match(/<a:t>([^<]*)<\/a:t>/);
+                  if(!textM) continue;
+                  const text=textM[1];
+                  if(!text.trim()) { textY+=fontSize*renderScale*1.2; continue; }
+
+                  const fontPx=fontSize*renderScale;
+                  ctx.font=(bold?'bold ':'')+(italic?'italic ':'')+fontPx+'px Inter,Arial,sans-serif';
+                  ctx.fillStyle=color;
+                  ctx.textBaseline='top';
+                  ctx.fillText(text, textX, textY);
+                  const metrics=ctx.measureText(text);
+                  textX+=metrics.width;
+                }
+                // Estimate paragraph height
+                const szM=paraXml.match(/<a:rPr[^>]*?sz="(\d+)"/);
+                const paraSize=szM?parseInt(szM[1])/100:18;
+                textY+=paraSize*renderScale*1.4;
+                textX=align==='ctr'?x+w/2:align==='r'?x+w:x+8*renderScale;
+              }
+            }
+
+            // 3. Parse images (p:pic)
+            const picRe=/<p:pic>([\s\S]*?)<\/p:pic>/g;
+            let picMatch;
+            while((picMatch=picRe.exec(slideXml))!==null){
+              const picXml=picMatch[1];
+              const posM=picXml.match(/<a:off\s+x="(-?\d+)"\s+y="(-?\d+)"/);
+              const extM=picXml.match(/<a:ext\s+cx="(\d+)"\s+cy="(\d+)"/);
+              const blipM=picXml.match(/r:embed="([^"]+)"/);
+              if(!posM||!extM||!blipM) continue;
+              const relId=blipM[1];
+              // Find the relationship file
+              const slideNum=slideFiles[si].match(/slide(\d+)/)[1];
+              const relsPath='ppt/slides/_rels/slide'+slideNum+'.xml.rels';
+              let relsXml=null;
+              try{relsXml=await zip.file(relsPath).async('string');}catch(e){continue;}
+              const relM=relsXml.match(new RegExp('Id="'+relId.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'"[^>]*Target="([^"]+)"'));
+              if(!relM) continue;
+              let imgPath=relM[1];
+              if(imgPath.startsWith('..')) imgPath='ppt/slides/'+imgPath;
+              imgPath=imgPath.replace(/\.\.\//g,'').replace(/^\/+/,'');
+              // Try to get the image
+              let imgFile=null;
+              // Try common path resolutions
+              const possiblePaths=[
+                imgPath,
+                'ppt/'+imgPath.replace(/^\/+/,''),
+                'ppt/slides/'+imgPath,
+                'ppt/media/'+imgPath.split('/').pop()
+              ];
+              for(const p of possiblePaths){
+                if(zip.files[p]){imgFile=zip.files[p];break;}
+              }
+              if(!imgFile) continue;
+              const imgData=await imgFile.async('arraybuffer');
+              const x=parseInt(posM[1])*emuToPx;
+              const y=parseInt(posM[2])*emuToPx;
+              const w=parseInt(extM[1])*emuToPx;
+              const h=parseInt(extM[2])*emuToPx;
+              try{
+                const imgBlob=new Blob([imgData]);
+                const imgUrl=URL.createObjectURL(imgBlob);
+                const imgEl=new Image();
+                await new Promise((res,rej)=>{imgEl.onload=res;imgEl.onerror=rej;imgEl.src=imgUrl;});
+                ctx.drawImage(imgEl,x,y,w,h);
+                URL.revokeObjectURL(imgUrl);
+              }catch(e){console.warn('Image draw failed:',e);}
+            }
+
+            // Convert canvas to PDF page
+            const jpg=await new Promise(r=>canvas.toBlob(r,'image/jpeg',0.95));
+            const embedded=await doc.embedJpg(await jpg.arrayBuffer());
+            const page=doc.addPage([pageWpt,pageHpt]);
+            page.drawImage(embedded,{x:0,y:0,width:pageWpt,height:pageHpt});
+            PDFTools.showProgress(document.getElementById('progress-area'),10+Math.round((si/slideFiles.length)*85));
+          }
+          if(doc.getPageCount()===0) doc.addPage([pageWpt,pageHpt]);
           const out=await doc.save();
           resultBlob=new Blob([out],{type:'application/pdf'});
           PDFTools.showProgress(document.getElementById('progress-area'),100);
           document.getElementById('result').classList.remove('hidden');
           PDFTools.toast(PDFTools.t('common.done'));
-        } catch(err){console.error(err);PDFTools.toast(PDFTools.t('common.error')+': '+err.message);} finally{btn.disabled=false;}
+        } catch(err){console.error(err);PDFTools.toast(PDFTools.t('common.error')+': '+(err&&err.message?err.message:'Unknown error'));} finally{btn.disabled=false;}
       });
       document.getElementById('download-btn').addEventListener('click',()=>{if(resultBlob)PDFTools.downloadBlob(resultBlob,pptFile.name.replace(/\.pptx?$/i,'')+'.pdf');});
     });
