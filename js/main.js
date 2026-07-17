@@ -61,7 +61,10 @@ function renderNavbar() {
     { href: './', label: t('nav.home'), exact: true },
     { href: './features.html', label: t('nav.features') },
     { href: './pricing.html', label: t('nav.pricing') },
-    { href: './tools/', label: t('nav.tools') },
+    { label: t('nav.tools'), children: [
+      { href: './tools/', label: t('nav.businessTools') },
+      { href: './pdf-tools/', label: t('nav.pdfTools') }
+    ]},
     { href: './blog.html', label: t('nav.blog') },
     { href: './help.html', label: t('nav.help') },
     { href: './about.html', label: t('nav.about') },
@@ -75,12 +78,34 @@ function renderNavbar() {
   ).join('');
 
   const linksHtml = navLinks.map(l => {
+    if (l.children) {
+      const childrenHtml = l.children.map(c => {
+        return `<a href="${c.href}" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md">${c.label}</a>`;
+      }).join('');
+      return `<div class="relative group">
+        <button class="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">
+          <span>${l.label}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="hidden group-hover:block absolute top-full start-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg p-1 z-50">
+          ${childrenHtml}
+        </div>
+      </div>`;
+    }
     const active = (l.exact && isHome) || (!l.exact && currentPath.includes(l.href.replace('./', '').replace('.html', '')));
     const activeClass = active ? 'text-blue-600 bg-blue-50' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50';
     return `<a href="${l.href}" class="${activeClass} px-3 py-2 rounded-lg text-sm font-medium transition-colors">${l.label}</a>`;
   }).join('');
 
   const mobileLinksHtml = navLinks.map(l => {
+    if (l.children) {
+      const childrenHtml = l.children.map(c => {
+        const active = (c.exact && isHome) || (!c.exact && currentPath.includes(c.href.replace('./', '').replace('.html', '')));
+        const activeClass = active ? 'text-blue-600 bg-blue-50' : 'text-slate-700 hover:bg-slate-50';
+        return `<a href="${c.href}" class="${activeClass} block px-6 py-2 rounded-lg text-sm font-medium">${c.label}</a>`;
+      }).join('');
+      return `<div class="px-3 py-2 text-sm font-semibold text-slate-900">${l.label}</div>${childrenHtml}`;
+    }
     const active = (l.exact && isHome) || (!l.exact && currentPath.includes(l.href.replace('./', '').replace('.html', '')));
     const activeClass = active ? 'text-blue-600 bg-blue-50' : 'text-slate-700 hover:bg-slate-50';
     return `<a href="${l.href}" class="${activeClass} block px-3 py-2.5 rounded-lg text-sm font-medium">${l.label}</a>`;

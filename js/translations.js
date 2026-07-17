@@ -9,6 +9,8 @@ const TRANSLATIONS = {
       "blog": "Blog",
       "help": "Help",
       "tools": "Tools",
+      "businessTools": "Business Tools",
+      "pdfTools": "PDF Tools",
       "login": "Login",
       "signup": "Get Started"
     },
@@ -375,6 +377,8 @@ const TRANSLATIONS = {
       "blog": "المدونة",
       "help": "المساعدة",
       "tools": "الأدوات",
+      "businessTools": "أدوات الأعمال",
+      "pdfTools": "أدوات PDF",
       "login": "تسجيل الدخول",
       "signup": "ابدأ الآن"
     },
