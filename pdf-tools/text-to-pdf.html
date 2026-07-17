@@ -207,6 +207,35 @@
           const doc = await PDFDocument.create();
           const font = await doc.embedFont(StandardFonts.Helvetica);
 
+          // Sanitize text: replace non-WinAnsi characters with closest equivalent
+          function sanitizeForWinAnsi(str) {
+            return str.split('').map(ch => {
+              const code = ch.charCodeAt(0);
+              if (code <= 0x7E) return ch; // ASCII
+              if (code >= 0xA0 && code <= 0xFF) return ch; // Latin-1 supplement
+              // Common replacements
+              const map = {
+                '\u2018': "'", '\u2019': "'", '\u201C': '"', '\u201D': '"',
+                '\u2013': '-', '\u2014': '-', '\u2026': '...', '\u00A0': ' ',
+                '\u2022': '*', '\u25CF': '*', '\u25CB': 'o', '\u25A0': '#',
+                '\u2192': '->', '\u2190': '<-', '\u2191': '^', '\u2193': 'v',
+                '\u2265': '>=', '\u2264': '<=', '\u2260': '!=', '\u221E': 'inf',
+                '\u00B1': '+/-', '\u00D7': 'x', '\u00F7': '/',
+                '\u2550': '=', '\u2551': '|', '\u2552': '+', '\u2553': '+',
+                '\u2554': '+', '\u2555': '+', '\u2556': '+', '\u2557': '+',
+                '\u2558': '+', '\u2559': '+', '\u255A': '+', '\u255B': '+',
+                '\u255C': '+', '\u255D': '+', '\u255E': '+', '\u255F': '+',
+                '\u2560': '+', '\u2561': '+', '\u2562': '+', '\u2563': '+',
+                '\u2564': '+', '\u2565': '+', '\u2566': '+', '\u2567': '+',
+                '\u2568': '+', '\u2569': '+', '\u256A': '+', '\u256B': '+',
+                '\u256C': '+'
+              };
+              if (map[ch]) return map[ch];
+              // Try to find a similar ASCII character
+              return '?';
+            }).join('');
+          }
+
           const pageSize = document.getElementById('page-size').value;
           const orientation = document.getElementById('orientation').value;
           const fontSize = parseInt(document.getElementById('font-size').value) || 12;
@@ -221,8 +250,9 @@
           const lineHeight = fontSize * 1.4;
 
           // Word wrap
+          const cleanText = sanitizeForWinAnsi(text);
           const lines = [];
-          const paragraphs = text.split('\n');
+          const paragraphs = cleanText.split('\n');
           for (const para of paragraphs) {
             if (!para.trim()) { lines.push(''); continue; }
             const words = para.split(/\s+/);
