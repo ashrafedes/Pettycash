@@ -67,7 +67,7 @@
                 </button>
               </div>
             </div>
-            <textarea id="text-input" class="w-full h-64 text-sm font-mono resize-y bg-transparent outline-none border border-slate-200 dark:border-slate-600 rounded-lg p-3" placeholder="Type or paste your text here..."></textarea>
+            <textarea id="text-input" dir="auto" class="w-full h-64 text-sm font-mono resize-y bg-transparent outline-none border border-slate-200 dark:border-slate-600 rounded-lg p-3" placeholder="Type or paste your text here..."></textarea>
           </div>
           <!-- Options -->
           <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 space-y-3">
@@ -203,38 +203,8 @@
         PDFTools.showProgress(progressArea, 10);
 
         try {
-          const { PDFDocument, StandardFonts, rgb } = await PDFTools.ensurePDFLib();
+          const { PDFDocument } = await PDFTools.ensurePDFLib();
           const doc = await PDFDocument.create();
-          const font = await doc.embedFont(StandardFonts.Helvetica);
-
-          // Sanitize text: replace non-WinAnsi characters with closest equivalent
-          function sanitizeForWinAnsi(str) {
-            return str.split('').map(ch => {
-              const code = ch.charCodeAt(0);
-              if (code <= 0x7E) return ch; // ASCII
-              if (code >= 0xA0 && code <= 0xFF) return ch; // Latin-1 supplement
-              // Common replacements
-              const map = {
-                '\u2018': "'", '\u2019': "'", '\u201C': '"', '\u201D': '"',
-                '\u2013': '-', '\u2014': '-', '\u2026': '...', '\u00A0': ' ',
-                '\u2022': '*', '\u25CF': '*', '\u25CB': 'o', '\u25A0': '#',
-                '\u2192': '->', '\u2190': '<-', '\u2191': '^', '\u2193': 'v',
-                '\u2265': '>=', '\u2264': '<=', '\u2260': '!=', '\u221E': 'inf',
-                '\u00B1': '+/-', '\u00D7': 'x', '\u00F7': '/',
-                '\u2550': '=', '\u2551': '|', '\u2552': '+', '\u2553': '+',
-                '\u2554': '+', '\u2555': '+', '\u2556': '+', '\u2557': '+',
-                '\u2558': '+', '\u2559': '+', '\u255A': '+', '\u255B': '+',
-                '\u255C': '+', '\u255D': '+', '\u255E': '+', '\u255F': '+',
-                '\u2560': '+', '\u2561': '+', '\u2562': '+', '\u2563': '+',
-                '\u2564': '+', '\u2565': '+', '\u2566': '+', '\u2567': '+',
-                '\u2568': '+', '\u2569': '+', '\u256A': '+', '\u256B': '+',
-                '\u256C': '+'
-              };
-              if (map[ch]) return map[ch];
-              // Try to find a similar ASCII character
-              return '?';
-            }).join('');
-          }
 
           const pageSize = document.getElementById('page-size').value;
           const orientation = document.getElementById('orientation').value;
@@ -246,55 +216,105 @@
           else { pageW = 612; pageH = 792; }
           if (orientation === 'landscape') { [pageW, pageH] = [pageH, pageW]; }
 
-          const contentW = pageW - margin * 2;
-          const lineHeight = fontSize * 1.4;
+          // Render scale: 2x for crisp text
+          const renderScale = 2;
+          const canvasW = Math.round(pageW * renderScale);
+          const canvasH = Math.round(pageH * renderScale);
+          const marginPx = Math.round(margin * renderScale);
+          const fontSizePx = fontSize * renderScale;
+          const lineHeightPx = fontSizePx * 1.5;
+          const contentWPx = canvasW - marginPx * 2;
 
-          // Word wrap
-          const cleanText = sanitizeForWinAnsi(text);
-          const lines = [];
-          const paragraphs = cleanText.split('\n');
-          for (const para of paragraphs) {
-            if (!para.trim()) { lines.push(''); continue; }
-            const words = para.split(/\s+/);
-            let currentLine = '';
-            for (const word of words) {
-              const testLine = currentLine ? currentLine + ' ' + word : word;
-              const testW = font.widthOfTextAtSize(testLine, fontSize);
-              if (testW > contentW && currentLine) {
-                lines.push(currentLine);
-                currentLine = word;
+          // Word wrap using canvas measureText (supports all languages)
+          function wrapText(text, ctx) {
+            const lines = [];
+            const paragraphs = text.split('\n');
+            for (const para of paragraphs) {
+              if (!para.trim()) { lines.push(''); continue; }
+              // For RTL text, keep words together but wrap by character width
+              const words = para.split(/(\s+)/);
+              let currentLine = '';
+              for (const word of words) {
+                const testLine = currentLine + word;
+                const testW = ctx.measureText(testLine).width;
+                if (testW > contentWPx && currentLine.trim()) {
+                  lines.push(currentLine.trim());
+                  currentLine = word.trim() ? word : '';
+                } else {
+                  currentLine = testLine;
+                }
+              }
+              if (currentLine.trim()) lines.push(currentLine.trim());
+            }
+            return lines;
+          }
+
+          // Detect RTL
+          function isRTL(text) {
+            return /[\u0590-\u05FF\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(text);
+          }
+
+          const rtl = isRTL(text);
+          const linesPerPage = Math.floor((canvasH - marginPx * 2) / lineHeightPx);
+
+          // Create a temp canvas for measuring
+          const measureCanvas = document.createElement('canvas');
+          const measureCtx = measureCanvas.getContext('2d');
+          measureCtx.font = fontSizePx + 'px Inter, "Segoe UI", Arial, sans-serif';
+
+          const allLines = wrapText(text, measureCtx);
+          const totalPages = Math.ceil(allLines.length / linesPerPage) || 1;
+
+          PDFTools.showProgress(progressArea, 20);
+
+          for (let pageNum = 0; pageNum < totalPages; pageNum++) {
+            const canvas = document.createElement('canvas');
+            canvas.width = canvasW;
+            canvas.height = canvasH;
+            const ctx = canvas.getContext('2d');
+
+            // White background
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvasW, canvasH);
+
+            // Text settings
+            ctx.fillStyle = '#000000';
+            ctx.font = fontSizePx + 'px Inter, "Segoe UI", Arial, sans-serif';
+            ctx.textBaseline = 'top';
+
+            if (rtl) {
+              ctx.direction = 'rtl';
+              ctx.textAlign = 'right';
+            } else {
+              ctx.direction = 'ltr';
+              ctx.textAlign = 'left';
+            }
+
+            const startLine = pageNum * linesPerPage;
+            const endLine = Math.min(startLine + linesPerPage, allLines.length);
+
+            for (let i = startLine; i < endLine; i++) {
+              const line = allLines[i];
+              if (!line) continue;
+              const y = marginPx + (i - startLine) * lineHeightPx;
+              if (rtl) {
+                ctx.fillText(line, canvasW - marginPx, y);
               } else {
-                currentLine = testLine;
+                ctx.fillText(line, marginPx, y);
               }
             }
-            if (currentLine) lines.push(currentLine);
+
+            // Embed canvas as JPEG in PDF
+            const jpgBlob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.95));
+            const jpgBytes = await jpgBlob.arrayBuffer();
+            const img = await doc.embedJpg(jpgBytes);
+            const page = doc.addPage([pageW, pageH]);
+            page.drawImage(img, { x: 0, y: 0, width: pageW, height: pageH });
+
+            PDFTools.showProgress(progressArea, 20 + Math.round((pageNum / totalPages) * 70));
           }
 
-          PDFTools.showProgress(progressArea, 30);
-
-          // Paginate
-          const linesPerPage = Math.floor((pageH - margin * 2) / lineHeight);
-          let page = doc.addPage([pageW, pageH]);
-          let y = pageH - margin;
-          let lineIdx = 0;
-
-          for (let i = 0; i < lines.length; i++) {
-            if (y < margin + lineHeight) {
-              page = doc.addPage([pageW, pageH]);
-              y = pageH - margin;
-            }
-            page.drawText(lines[i], {
-              x: margin,
-              y: y - fontSize,
-              size: fontSize,
-              font,
-              color: rgb(0, 0, 0)
-            });
-            y -= lineHeight;
-            if (i % 50 === 0) PDFTools.showProgress(progressArea, 30 + Math.round((i / lines.length) * 60));
-          }
-
-          PDFTools.showProgress(progressArea, 90);
+          PDFTools.showProgress(progressArea, 95);
           const out = await doc.save();
           resultBlob = new Blob([out], { type: 'application/pdf' });
           PDFTools.showProgress(progressArea, 100);
