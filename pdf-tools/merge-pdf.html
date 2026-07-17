@@ -103,6 +103,9 @@
           </button>
         </div>
 
+        <!-- Preview -->
+        <div id="preview-area" class="hidden"></div>
+
         <!-- Progress -->
         <div id="progress-area"></div>
 
@@ -187,11 +190,35 @@
       const result = document.getElementById('result');
       const downloadBtn = document.getElementById('download-btn');
 
+      const previewArea = document.getElementById('preview-area');
+
       PDFTools.initDropZone(dropZone, fileInput, handleFiles, { accept: '.pdf', multiple: true });
 
-      function handleFiles(newFiles) {
+      async function handleFiles(newFiles) {
         newFiles.forEach(f => files.push(f));
         renderFileList();
+        await updatePreview();
+      }
+
+      async function updatePreview() {
+        if (!files.length) { previewArea.classList.add('hidden'); return; }
+        previewArea.classList.remove('hidden');
+        previewArea.innerHTML = '<p class="text-sm text-slate-500 text-center mb-3">Loading preview...</p>';
+        try {
+          const { PDFDocument } = await PDFTools.ensurePDFLib();
+          const merged = await PDFDocument.create();
+          for (const f of files) {
+            const bytes = await f.arrayBuffer();
+            const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+            const pages = await merged.copyPages(doc, doc.getPageIndices());
+            pages.forEach(p => merged.addPage(p));
+          }
+          const out = await merged.save();
+          const blob = new Blob([out], { type: 'application/pdf' });
+          await PDFTools.renderPDFPreview(previewArea, blob, { maxPages: 12, scale: 0.35 });
+        } catch (e) {
+          previewArea.innerHTML = '<p class="text-sm text-slate-400 text-center">Preview unavailable</p>';
+        }
       }
 
       function renderFileList() {
@@ -224,6 +251,7 @@
           btn.addEventListener('click', () => {
             files.splice(parseInt(btn.dataset.remove), 1);
             renderFileList();
+            updatePreview();
           });
         });
 
@@ -239,6 +267,7 @@
               const moved = files.splice(dragIndex, 1)[0];
               files.splice(dropIndex, 0, moved);
               renderFileList();
+              updatePreview();
             }
           });
         });
@@ -272,6 +301,7 @@
           mergedBlob = new Blob([out], { type: 'application/pdf' });
           PDFTools.showProgress(progressArea, 100);
           result.classList.remove('hidden');
+          await PDFTools.renderPDFPreview(previewArea, mergedBlob, { maxPages: 12, scale: 0.35 });
           PDFTools.toast(PDFTools.t('common.done'));
         } catch (err) {
           console.error(err);

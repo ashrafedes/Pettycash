@@ -103,6 +103,9 @@
           </div>
         </div>
 
+        <!-- Preview -->
+        <div id="preview-area" class="hidden"></div>
+
         <div id="progress-area"></div>
 
         <div id="result" class="hidden text-center py-8">
@@ -177,6 +180,8 @@
       const result = document.getElementById('result');
       const downloadBtn = document.getElementById('download-btn');
 
+      const previewArea = document.getElementById('preview-area');
+
       PDFTools.initDropZone(dropZone, fileInput, async (newFiles) => {
         pdfFile = newFiles[0];
         const { PDFDocument, degrees } = await PDFTools.ensurePDFLib();
@@ -188,6 +193,10 @@
         dropZone.classList.add('hidden');
         fileInfo.classList.remove('hidden');
         rotateOptions.classList.remove('hidden');
+        // Render preview
+        previewArea.classList.remove('hidden');
+        previewArea.innerHTML = '<p class="text-sm text-slate-500 text-center mb-3">Loading preview...</p>';
+        await PDFTools.renderPDFPreview(previewArea, pdfFile, { maxPages: 20, scale: 0.4 });
       }, { accept: '.pdf', multiple: false });
 
       document.getElementById('remove-file').addEventListener('click', () => {
@@ -196,6 +205,7 @@
         rotateOptions.classList.add('hidden');
         dropZone.classList.remove('hidden');
         result.classList.add('hidden');
+        previewArea.classList.add('hidden');
       });
 
       document.querySelectorAll('input[name="pages-mode"]').forEach(r => {
@@ -254,6 +264,8 @@
           resultBlob = new Blob([out], { type: 'application/pdf' });
           PDFTools.showProgress(progressArea, 100);
           result.classList.remove('hidden');
+          // Update preview with rotated PDF
+          await PDFTools.renderPDFPreview(previewArea, resultBlob, { maxPages: 20, scale: 0.4 });
           PDFTools.toast(PDFTools.t('common.done'));
         } catch (err) {
           console.error(err);

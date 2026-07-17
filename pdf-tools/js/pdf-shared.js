@@ -224,6 +224,57 @@
     return global.JSZip;
   }
 
+  // ===================== PDF Preview =====================
+  async function renderPDFPreview(container, fileOrBlob, opts = {}) {
+    const maxPages = opts.maxPages || 20;
+    const scale = opts.scale || 0.4;
+    const onProgress = opts.onProgress;
+    const pdfjs = await ensurePDFJS();
+    const arrayBuffer = await (fileOrBlob.arrayBuffer ? fileOrBlob.arrayBuffer() : fileOrBlob);
+    const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
+    const totalPages = pdf.numPages;
+    const pagesToShow = Math.min(totalPages, maxPages);
+
+    container.innerHTML = '';
+    container.classList.remove('hidden');
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'flex flex-wrap gap-3 justify-center p-4 bg-slate-100 dark:bg-slate-800/50 rounded-xl';
+    container.appendChild(wrapper);
+
+    for (let i = 1; i <= pagesToShow; i++) {
+      const page = await pdf.getPage(i);
+      const viewport = page.getViewport({ scale });
+      const canvas = document.createElement('canvas');
+      canvas.className = 'rounded-lg shadow-md bg-white';
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      const ctx = canvas.getContext('2d');
+      await page.render({ canvasContext: ctx, viewport }).promise;
+
+      const item = document.createElement('div');
+      item.className = 'relative';
+      item.appendChild(canvas);
+
+      const label = document.createElement('div');
+      label.className = 'text-xs text-center text-slate-500 dark:text-slate-400 mt-1';
+      label.textContent = 'Page ' + i;
+      item.appendChild(label);
+
+      wrapper.appendChild(item);
+      if (onProgress) onProgress(i, pagesToShow);
+    }
+
+    if (totalPages > maxPages) {
+      const note = document.createElement('p');
+      note.className = 'text-xs text-center text-slate-400 mt-3';
+      note.textContent = 'Showing ' + maxPages + ' of ' + totalPages + ' pages';
+      wrapper.appendChild(note);
+    }
+
+    return totalPages;
+  }
+
   // ===================== Public API =====================
   const PDFTools = {
     get currentLang() { return currentLang; },
@@ -232,6 +283,7 @@
     initDropZone, showProgress,
     formatBytes, downloadBlob, toast,
     ensurePDFLib, ensureFileSaver, ensurePDFJS, ensureJSZip,
+    renderPDFPreview,
     loadLib
   };
 

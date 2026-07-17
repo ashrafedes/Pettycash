@@ -103,6 +103,9 @@
           </div>
         </div>
 
+        <!-- Preview -->
+        <div id="preview-area" class="hidden"></div>
+
         <div id="progress-area"></div>
 
         <!-- Results -->
@@ -199,6 +202,11 @@
         dropZone.classList.add('hidden');
         fileInfo.classList.remove('hidden');
         splitOptions.classList.remove('hidden');
+        // Render preview
+        const previewArea = document.getElementById('preview-area');
+        previewArea.classList.remove('hidden');
+        previewArea.innerHTML = '<p class="text-sm text-slate-500 text-center mb-3">Loading preview...</p>';
+        await PDFTools.renderPDFPreview(previewArea, pdfFile, { maxPages: 20, scale: 0.4 });
       }, { accept: '.pdf', multiple: false });
 
       document.getElementById('remove-file').addEventListener('click', () => {
@@ -207,6 +215,7 @@
         splitOptions.classList.add('hidden');
         dropZone.classList.remove('hidden');
         results.classList.add('hidden');
+        document.getElementById('preview-area').classList.add('hidden');
       });
 
       // Mode toggle
