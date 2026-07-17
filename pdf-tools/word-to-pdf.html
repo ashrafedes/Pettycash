@@ -128,7 +128,25 @@
           }
           const buf=await wordFile.arrayBuffer();
           PDFTools.showProgress(document.getElementById('progress-area'),30);
-          const res=await mammoth.convertToHtml({arrayBuffer:buf});
+          const mOptions={
+            includeDefaultStyleMap: true,
+            styleMap: [
+              "p.Heading1 => h1",
+              "p.Heading2 => h2",
+              "p.Heading3 => h3",
+              "p.Heading4 => h4",
+              "p.Heading5 => h5",
+              "p.Heading6 => h6"
+            ]
+          };
+          if(mammoth.images && mammoth.images.imgElement){
+            mOptions.convertImage=mammoth.images.imgElement(function(image){
+              return image.read("base64").then(function(imageBuffer){
+                return { src: "data:" + image.contentType + ";base64," + imageBuffer };
+              });
+            });
+          }
+          const res=await mammoth.convertToHtml({arrayBuffer:buf}, mOptions);
           const html=res.value;
           PDFTools.showProgress(document.getElementById('progress-area'),50);
           const {PDFDocument}=await PDFTools.ensurePDFLib();
