@@ -1,8 +1,9 @@
 // AI Config for OpenRouter API — free models with fallback
-// API key is stored in localStorage; user enters it on first use
+// API key can be overridden in localStorage; built-in key is used by default
+const DEFAULT_API_KEY = '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';
 window.AI_CONFIG = {
   get apiKey() {
-    return localStorage.getItem('openrouter_api_key') || '';
+    return localStorage.getItem('openrouter_api_key') || DEFAULT_API_KEY;
   },
   set apiKey(v) {
     localStorage.setItem('openrouter_api_key', v);
