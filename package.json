@@ -5,5 +5,12 @@
   "scripts": {
     "update-sitemap": "node update-sitemap.js"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "firebase": "^12.16.0",
+    "firebase-admin": "^14.1.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
 }

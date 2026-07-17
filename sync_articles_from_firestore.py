@@ -1,20 +1,34 @@
-import urllib.request, json, urllib.parse, re
+import urllib.request, json, urllib.parse, re, time
 
 API_KEY = 'AIzaSyDxnv8IXCDgAwP3acnnfNNFthOdCziOwfg'
 PROJECT = 'pattycashsystem'
 base_url = f'https://firestore.googleapis.com/v1/projects/{PROJECT}/databases/(default)/documents/blog_articles'
 
+def fetch_with_retry(url, max_retries=5):
+    for attempt in range(max_retries):
+        try:
+            with urllib.request.urlopen(url, timeout=60) as resp:
+                return json.loads(resp.read().decode())
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                wait = min(30, 5 * (2 ** attempt))
+                print(f'  Rate limited, waiting {wait}s (attempt {attempt+1}/{max_retries})...')
+                time.sleep(wait)
+            else:
+                raise
+    raise Exception('Max retries exceeded')
+
 params = {'key': API_KEY, 'pageSize': 100}
 all_docs = []
 while True:
     url = base_url + '?' + urllib.parse.urlencode(params)
-    with urllib.request.urlopen(url, timeout=60) as resp:
-        data = json.loads(resp.read().decode())
+    data = fetch_with_retry(url)
     all_docs.extend(data.get('documents', []))
     token = data.get('nextPageToken')
     if not token:
         break
     params['pageToken'] = token
+    time.sleep(1)
 
 print(f'Fetched {len(all_docs)} articles')
 
