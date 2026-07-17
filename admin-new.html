@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang='en' dir='ltr'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='description' content='Petty Cash admin panel.'>
+  <title>Admin - Petty Cash</title>
+  <link rel='icon' type='image/png' href='./images/favicon.png'>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+  <link rel="stylesheet" href="./css/tailwind.min.css">
+  <script src='https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js'></script>
+  <script src='https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js'></script>
+  <script src='https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js'></script>
+  <link rel='stylesheet' href='./css/styles.css'>
+</head>
+<body class='min-h-screen bg-slate-900 text-slate-100'>
+  <div id='navbar'></div>
+
+  <main class='flex-1'>
+    <!-- Login -->
+    <div id='login-section' class='min-h-screen flex items-center justify-center p-4'>
+      <div class='w-full max-w-md bg-slate-800 border border-slate-700 rounded-2xl p-8 shadow-xl'>
+        <h1 class='text-2xl font-bold mb-6 text-center'>Admin Login</h1>
+        <form id='login-form' class='space-y-4'>
+          <input type='password' id='login-password' placeholder='Password' required class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+          <button type='submit' class='w-full px-4 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors'>Login</button>
+        </form>
+        <p id='login-error' class='mt-3 text-sm text-red-400 hidden'></p>
+      </div>
+    </div>
+
+    <!-- Admin -->
+    <div id='admin-section' class='hidden'>
+      <!-- Dashboard -->
+      <div id='dashboard-view' class='p-6 sm:p-8'>
+        <div class='max-w-7xl mx-auto space-y-6'>
+          <div class='flex items-center justify-between flex-wrap gap-4'>
+            <h1 class='text-2xl font-bold'>Articles</h1>
+            <div class='flex items-center gap-2'>
+              <button id='settings-btn' class='px-4 py-2 text-sm font-medium text-slate-300 border border-slate-700 rounded-lg hover:bg-slate-800 transition-colors'>Settings</button>
+              <button id='new-article-btn' class='px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors'>New Article</button>
+              <button id='logout-btn' class='px-4 py-2 text-sm font-medium text-slate-300 border border-slate-700 rounded-lg hover:bg-slate-800 transition-colors'>Logout</button>
+            </div>
+          </div>
+
+          <div class='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4' id='stats-grid'>
+            <div class='bg-slate-800 border border-slate-700 rounded-xl p-5'>
+              <p class='text-3xl font-bold' id='stat-total'>0</p>
+              <p class='text-xs text-slate-400 uppercase tracking-wider mt-1'>Total Articles</p>
+            </div>
+            <div class='bg-slate-800 border border-slate-700 rounded-xl p-5'>
+              <p class='text-3xl font-bold' id='stat-published'>0</p>
+              <p class='text-xs text-slate-400 uppercase tracking-wider mt-1'>Published</p>
+            </div>
+            <div class='bg-slate-800 border border-slate-700 rounded-xl p-5'>
+              <p class='text-3xl font-bold' id='stat-drafts'>0</p>
+              <p class='text-xs text-slate-400 uppercase tracking-wider mt-1'>Drafts</p>
+            </div>
+            <div class='bg-slate-800 border border-slate-700 rounded-xl p-5'>
+              <p class='text-3xl font-bold' id='stat-categories'>0</p>
+              <p class='text-xs text-slate-400 uppercase tracking-wider mt-1'>Categories</p>
+            </div>
+            <div class='bg-slate-800 border border-slate-700 rounded-xl p-5'>
+              <p class='text-sm font-medium' id='stat-last'>-</p>
+              <p class='text-xs text-slate-400 uppercase tracking-wider mt-1'>Last Published</p>
+            </div>
+          </div>
+
+          <div class='bg-slate-800 border border-slate-700 rounded-xl overflow-hidden'>
+            <div class='overflow-x-auto'>
+              <table class='w-full text-sm text-left'>
+                <thead class='bg-slate-900 text-slate-400 text-xs uppercase tracking-wider'>
+                  <tr>
+                    <th class='px-6 py-3'>Article</th>
+                    <th class='px-6 py-3'>Category</th>
+                    <th class='px-6 py-3'>Date</th>
+                    <th class='px-6 py-3'>Read Time</th>
+                    <th class='px-6 py-3'>Status</th>
+                    <th class='px-6 py-3 text-right'>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id='articles-list' class='divide-y divide-slate-700'>
+                  <tr><td colspan='6' class='px-6 py-8 text-center text-slate-500'>Loading articles...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editor -->
+      <div id='editor-view' class='hidden min-h-screen flex flex-col'>
+        <div class='bg-slate-800 border-b border-slate-700 px-6 py-4 flex items-center justify-between gap-4'>
+          <div class='flex items-center gap-4'>
+            <button type='button' id='cancel-edit-btn' class='text-slate-400 hover:text-slate-200 text-sm font-medium'>Cancel</button>
+            <h2 class='text-lg font-semibold'>Article Editor</h2>
+          </div>
+          <div class='flex items-center gap-2'>
+            <button type='button' id='translate-ar-btn' class='px-4 py-2 text-sm font-medium text-slate-300 border border-slate-700 rounded-lg hover:bg-slate-800 transition-colors'>Translate EN → AR</button>
+            <button type='button' id='save-draft-btn' class='px-4 py-2 text-sm font-medium text-slate-300 border border-slate-700 rounded-lg hover:bg-slate-800 transition-colors'>Save Draft</button>
+            <button type='submit' id='publish-btn' form='article-form' class='px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors'>Publish</button>
+          </div>
+        </div>
+
+        <div class='flex-1 flex flex-col lg:flex-row overflow-hidden'>
+          <div class='flex-1 overflow-y-auto p-6'>
+            <form id='article-form' class='max-w-2xl mx-auto space-y-6'>
+              <input type='hidden' id='article-id'>
+              <input type='hidden' id='article-is-draft' value='false'>
+
+              <div class='flex border-b border-slate-700'>
+                <button type='button' data-tab='en' class='tab-btn px-4 py-2 text-sm font-medium text-blue-400 border-b-2 border-blue-500'>English</button>
+                <button type='button' data-tab='ar' class='tab-btn px-4 py-2 text-sm font-medium text-slate-400 border-b-2 border-transparent hover:text-slate-200'>Arabic</button>
+              </div>
+
+              <div id='tab-en' class='tab-panel space-y-4'>
+                <input type='text' id='title-en' placeholder='English title' required class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+                <textarea id='summary-en' placeholder='English excerpt' rows='3' required class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'></textarea>
+                <textarea id='content-en' placeholder='English content (Markdown)' rows='10' required class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100 font-mono text-sm'></textarea>
+                <input type='text' id='meta-title-en' placeholder='English meta title' class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+                <textarea id='meta-description-en' placeholder='English meta description' rows='2' class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'></textarea>
+                <input type='text' id='keywords-en' placeholder='English keywords (comma-separated)' class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+              </div>
+
+              <div id='tab-ar' class='tab-panel space-y-4 hidden'>
+                <input type='text' id='title-ar' placeholder='Arabic title' required class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+                <textarea id='summary-ar' placeholder='Arabic excerpt' rows='3' required class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'></textarea>
+                <textarea id='content-ar' placeholder='Arabic content (Markdown)' rows='10' required class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100 font-mono text-sm'></textarea>
+                <input type='text' id='meta-title-ar' placeholder='Arabic meta title' class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+                <textarea id='meta-description-ar' placeholder='Arabic meta description' rows='2' class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'></textarea>
+                <input type='text' id='keywords-ar' placeholder='Arabic keywords (comma-separated)' class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+              </div>
+
+              <div class='grid sm:grid-cols-2 gap-4'>
+                <div>
+                  <label class='block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1'>Slug URL</label>
+                  <input type='text' id='article-slug' required class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+                </div>
+                <div>
+                  <label class='block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1'>Category</label>
+                  <input type='text' id='article-category' class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+                </div>
+                <div>
+                  <label class='block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1'>Author</label>
+                  <input type='text' id='article-author' class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+                </div>
+                <div>
+                  <label class='block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1'>Reading Time (min)</label>
+                  <input type='number' id='article-readtime' min='1' class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+                </div>
+              </div>
+
+              <div>
+                <label class='block text-xs font-medium text-slate-400 uppercase tracking-wider mb-2'>Hero Image</label>
+                <div class='flex items-start gap-3'>
+                  <div class='relative flex-shrink-0'>
+                    <img id='image-preview' src='' alt='Preview' class='hidden h-24 w-24 rounded-lg border border-slate-700 object-cover'>
+                    <div id='image-placeholder' class='h-24 w-24 rounded-lg border border-slate-700 bg-slate-950 flex items-center justify-center text-xs text-slate-500'>No image</div>
+                  </div>
+                  <div class='flex-1 space-y-2'>
+                    <input type='file' id='article-image-file' accept='image/*' class='block w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-slate-800 file:text-blue-400 hover:file:bg-slate-700'>
+                    <input type='text' id='article-image-url' placeholder='Or paste image URL' class='w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100 text-sm'>
+                    <p id='upload-status' class='text-xs text-slate-500'></p>
+                  </div>
+                </div>
+                <button type='button' id='remove-image-btn' class='mt-2 text-xs text-red-400 hover:text-red-300 hidden'>Remove image</button>
+              </div>
+
+              <div>
+                <label class='block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1'>Publish Date</label>
+                <input type='date' id='article-date' required class='w-full sm:w-64 px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+              </div>
+
+              <div>
+                <label class='block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1'>Tags (comma-separated)</label>
+                <input type='text' id='article-tags' placeholder='Agile, Scrum, Kanban' class='w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+              </div>
+
+              <div class='flex items-center gap-6'>
+                <label class='flex items-center gap-2'>
+                  <input type='checkbox' id='article-featured' class='w-4 h-4 rounded border-slate-700 bg-slate-950 text-blue-600 focus:ring-blue-500'>
+                  <span class='text-sm text-slate-300'>Featured</span>
+                </label>
+                <label class='flex items-center gap-2'>
+                  <input type='checkbox' id='article-draft' class='w-4 h-4 rounded border-slate-700 bg-slate-950 text-blue-600 focus:ring-blue-500'>
+                  <span class='text-sm text-slate-300'>Draft</span>
+                </label>
+              </div>
+
+              <p id='form-status' class='text-sm'></p>
+            </form>
+          </div>
+
+          <div class='w-full lg:w-[45%] xl:w-[40%] bg-slate-950 border-l border-slate-700 overflow-y-auto p-6'>
+            <h3 class='text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4'>Live Preview</h3>
+            <div id='live-preview' class='space-y-4'>
+              <p class='text-slate-500'>Start typing to see the preview.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id='settings-panel' class='hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4'>
+    <div class='bg-slate-800 border border-slate-700 rounded-2xl p-6 max-w-md w-full shadow-xl'>
+      <h3 class='text-lg font-semibold mb-4'>Settings</h3>
+      <div>
+        <label class='block text-sm font-medium text-slate-300 mb-1'>OpenRouter API Key</label>
+        <input type='password' id='openrouter-key' placeholder='sk-or-v1-...' class='w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-100'>
+        <p class='mt-1 text-xs text-slate-500'>Stored in this browser only. Required for translation.</p>
+      </div>
+      <div id='settings-status' class='text-sm hidden mt-3'></div>
+      <div class='flex items-center gap-3 mt-6'>
+        <button type='button' id='save-settings-btn' class='px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors'>Save Key</button>
+        <button type='button' id='close-settings-btn' class='px-4 py-2 text-slate-300 font-medium border border-slate-700 rounded-lg hover:bg-slate-800 transition-colors'>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id='footer'></div>
+  <script src='./js/translations.js'></script>
+  <script src='./js/firebase.js?v=3'></script>
+  <script src='./js/main.js'></script>
+  <script src='./js/admin.js?v=13'></script>
+</body>
+</html>
