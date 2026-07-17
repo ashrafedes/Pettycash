@@ -23,7 +23,14 @@ function loadFirebaseSDK() {
       const fsScript = document.createElement("script");
       fsScript.src = "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js";
       fsScript.async = true;
-      fsScript.onload = resolve;
+      fsScript.onload = () => {
+        const stScript = document.createElement("script");
+        stScript.src = "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js";
+        stScript.async = true;
+        stScript.onload = resolve;
+        stScript.onerror = reject;
+        document.head.appendChild(stScript);
+      };
       fsScript.onerror = reject;
       document.head.appendChild(fsScript);
     };
