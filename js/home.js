@@ -5,23 +5,33 @@ function escapeHtml(str) {
 
 function renderHero() {
   const hero = t("hero");
+  const video = t("video");
   const container = document.getElementById("hero-content");
   if (!container) return;
   container.innerHTML = `
-    <span class="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6">${hero.badge}</span>
-    <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-6">${hero.title}</h1>
-    <p class="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">${hero.subtitle}</p>
-    <div class="flex flex-col sm:flex-row gap-3 justify-center">
-      <a href="${APP_URL}/register" class="inline-flex items-center justify-center gap-2 bg-white text-blue-700 font-bold px-8 py-3.5 rounded-xl hover:bg-blue-50 transition-colors text-base shadow-lg">
-        ${hero.cta}
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </a>
-      <a href="${APP_URL}/login" class="inline-flex items-center justify-center gap-2 border-2 border-white/50 text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-white/10 transition-colors text-base">
-        ${hero.login}
-      </a>
+    <div class="grid lg:grid-cols-2 gap-10 items-center text-center lg:text-start">
+      <div>
+        <span class="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6">${hero.badge}</span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-6">${hero.title}</h1>
+        <p class="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed">${hero.subtitle}</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+          <a href="${APP_URL}/register" class="inline-flex items-center justify-center gap-2 bg-white text-blue-700 font-bold px-8 py-3.5 rounded-xl hover:bg-blue-50 transition-colors text-base shadow-lg">
+            ${hero.cta}
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="${APP_URL}/login" class="inline-flex items-center justify-center gap-2 border-2 border-white/50 text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-white/10 transition-colors text-base">
+            ${hero.login}
+          </a>
+        </div>
+        <p class="mt-8 text-sm text-blue-200">${hero.trustedBy}</p>
+        <div id="visitor-counter" class="mt-6 flex justify-center lg:justify-start min-h-[40px]"></div>
+      </div>
+      <div class="w-full">
+        <div class="aspect-video rounded-2xl shadow-2xl overflow-hidden bg-slate-900 border-4 border-white/10">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/-8Vgzj9cHcg?rel=0" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
-    <p class="mt-8 text-sm text-blue-200">${hero.trustedBy}</p>
-    <div id="visitor-counter" class="mt-6 flex justify-center min-h-[40px]"></div>
   `;
 }
 
