@@ -42,6 +42,11 @@
         terms: 'Terms & Conditions',
         authorizedSignature: 'Authorized Signature',
         companyStamp: 'Company Stamp',
+        companyLogo: 'Company Logo',
+        phone: 'Phone',
+        email: 'Email',
+        address: 'Address',
+        website: 'Website',
         required: 'This field is required',
         invalid: 'Invalid value',
         saved: 'Saved locally',
@@ -175,6 +180,11 @@
         terms: 'الشروط والأحكام',
         authorizedSignature: 'توقيع المفوض',
         companyStamp: 'ختم الشركة',
+        companyLogo: 'شعار الشركة',
+        phone: 'الهاتف',
+        email: 'البريد الإلكتروني',
+        address: 'العنوان',
+        website: 'الموقع الإلكتروني',
         required: 'هذا الحقل مطلوب',
         invalid: 'قيمة غير صالحة',
         saved: 'تم الحفظ محلياً',
@@ -274,7 +284,7 @@
     }
   };
 
-  let currentLang = localStorage.getItem('pctool_lang') || (document.documentElement.lang || 'en');
+  let currentLang = localStorage.getItem('pctool_lang') || localStorage.getItem('lang') || (document.documentElement.lang || 'en');
   if (!TRANSLATIONS[currentLang]) currentLang = 'en';
 
   function t(key, fallback = '') {

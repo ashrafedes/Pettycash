@@ -94,14 +94,16 @@
     </div>
   </footer>
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <script src="./js/shared.js"></script>
   <script>
     (function () {
       PCTools.renderNav();
       PCTools.initTheme();
       document.getElementById('pctool-theme')?.addEventListener('click', PCTools.toggleTheme);
-      PCTools.translatePage();
+      PCTools.setLang(PCTools.currentLang);
+      const title = PCTools.t('tools.heroTitle') + ' | PettyCash.site';
+      document.title = title;
+      document.querySelector('meta[name="description"]')?.setAttribute('content', PCTools.t('tools.heroSubtitle'));
     })();
   </script>
 </body>
