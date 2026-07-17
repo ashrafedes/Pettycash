@@ -284,7 +284,7 @@
     }
   };
 
-  let currentLang = localStorage.getItem('pctool_lang') || localStorage.getItem('lang') || (document.documentElement.lang || 'en');
+  let currentLang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('pctool_lang') || localStorage.getItem('lang') || (document.documentElement.lang || 'en');
   if (!TRANSLATIONS[currentLang]) currentLang = 'en';
 
   function t(key, fallback = '') {
