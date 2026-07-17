@@ -62,43 +62,47 @@
           <p class="text-sm text-slate-500 mt-1" data-pt="common.orClick">or click to browse</p>
         </div>
 
-        <!-- Image List -->
-        <div id="image-list" class="hidden space-y-2"></div>
-
-        <!-- Options + Convert -->
-        <div id="actions" class="hidden space-y-4">
-          <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 space-y-4">
-            <div>
-              <label class="block text-sm font-semibold mb-2" id="page-size-label">Page size</label>
-              <select id="page-size" class="pdf-input">
-                <option value="fit" id="opt-fit">Fit to image</option>
-                <option value="a4" id="opt-a4">A4</option>
-                <option value="letter" id="opt-letter">US Letter</option>
-              </select>
+        <!-- Image Preview Grid + Options (side by side on desktop) -->
+        <div id="actions" class="hidden">
+          <div class="grid lg:grid-cols-[1fr_280px] gap-4">
+            <!-- Preview Grid -->
+            <div class="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-3">
+              <div id="image-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2"></div>
             </div>
-            <div>
-              <label class="block text-sm font-semibold mb-2" id="orientation-label">Orientation</label>
-              <select id="orientation" class="pdf-input">
-                <option value="portrait" id="opt-portrait">Portrait</option>
-                <option value="landscape" id="opt-landscape">Landscape</option>
-              </select>
+            <!-- Compact Options -->
+            <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 space-y-3">
+              <div>
+                <label class="block text-xs font-semibold mb-1" id="page-size-label">Page size</label>
+                <select id="page-size" class="pdf-input text-sm">
+                  <option value="fit" id="opt-fit">Fit to image</option>
+                  <option value="a4" id="opt-a4">A4</option>
+                  <option value="letter" id="opt-letter">US Letter</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold mb-1" id="orientation-label">Orientation</label>
+                <select id="orientation" class="pdf-input text-sm">
+                  <option value="portrait" id="opt-portrait">Portrait</option>
+                  <option value="landscape" id="opt-landscape">Landscape</option>
+                </select>
+              </div>
+              <div>
+                <label class="flex items-center gap-2 cursor-pointer text-xs">
+                  <input type="checkbox" id="fit-to-page" checked class="accent-blue-600">
+                  <span id="fit-page-label">Fit image to page (with margin)</span>
+                </label>
+              </div>
+              <div class="flex flex-col gap-2 pt-2">
+                <button id="add-more" class="btn-pdf btn-pdf-secondary text-sm">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                  <span id="add-more-label">Add more</span>
+                </button>
+                <button id="convert-btn" class="btn-pdf btn-pdf-primary text-sm">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                  <span id="convert-btn-label">Convert to PDF</span>
+                </button>
+              </div>
             </div>
-            <div>
-              <label class="flex items-center gap-2 cursor-pointer text-sm">
-                <input type="checkbox" id="fit-to-page" checked class="accent-blue-600">
-                <span id="fit-page-label">Fit image to page (with margin)</span>
-              </label>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-3 justify-center">
-            <button id="add-more" class="btn-pdf btn-pdf-secondary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-              <span id="add-more-label">Add more images</span>
-            </button>
-            <button id="convert-btn" class="btn-pdf btn-pdf-primary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-              <span id="convert-btn-label">Convert to PDF</span>
-            </button>
           </div>
         </div>
 
@@ -191,7 +195,6 @@
       let resultBlob = null;
       const dropZone = document.getElementById('drop-zone');
       const fileInput = document.getElementById('file-input');
-      const imageList = document.getElementById('image-list');
       const actions = document.getElementById('actions');
       const addMore = document.getElementById('add-more');
       const convertBtn = document.getElementById('convert-btn');
@@ -209,39 +212,40 @@
       }
 
       function renderImageList() {
+        const imageGrid = document.getElementById('image-grid');
         if (!images.length) {
-          imageList.classList.add('hidden');
           actions.classList.add('hidden');
           return;
         }
-        imageList.classList.remove('hidden');
         actions.classList.remove('hidden');
 
-        imageList.innerHTML = images.map((f, i) => `
-          <div class="file-item animate-fade-up" draggable="true" data-index="${i}">
-            <div class="file-icon">
-              <img src="${URL.createObjectURL(f)}" class="w-10 h-10 object-cover rounded" alt="preview">
+        imageGrid.innerHTML = images.map((f, i) => `
+          <div class="relative group animate-fade-up cursor-move" draggable="true" data-index="${i}">
+            <div class="aspect-square bg-white dark:bg-slate-700 rounded-lg overflow-hidden border-2 border-slate-200 dark:border-slate-600 group-hover:border-blue-500 transition-all">
+              <img src="${URL.createObjectURL(f)}" class="w-full h-full object-cover" alt="${f.name}">
             </div>
-            <div class="file-info">
-              <div class="file-name">${f.name}</div>
-              <div class="file-meta">${PDFTools.formatBytes(f.size)} • #${i + 1}</div>
+            <div class="absolute top-0.5 start-0.5 bg-blue-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">${i + 1}</div>
+            <div class="absolute top-0.5 end-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+              <button class="bg-red-500 hover:bg-red-600 text-white w-5 h-5 rounded-full flex items-center justify-center shadow" data-remove="${i}" aria-label="Remove">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </button>
             </div>
-            <button class="text-red-500 hover:text-red-700 p-1" data-remove="${i}" aria-label="Remove">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-            </button>
+            <div class="text-[10px] text-center text-slate-500 dark:text-slate-400 mt-0.5 truncate" title="${f.name}">${f.name}</div>
           </div>
         `).join('');
 
-        imageList.querySelectorAll('[data-remove]').forEach(btn => {
-          btn.addEventListener('click', () => {
+        imageGrid.querySelectorAll('[data-remove]').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
             images.splice(parseInt(btn.dataset.remove), 1);
             renderImageList();
           });
         });
 
         let dragIndex = null;
-        imageList.querySelectorAll('.file-item').forEach(item => {
-          item.addEventListener('dragstart', (e) => { dragIndex = parseInt(item.dataset.index); });
+        imageGrid.querySelectorAll('[data-index]').forEach(item => {
+          item.addEventListener('dragstart', (e) => { dragIndex = parseInt(item.dataset.index); item.classList.add('opacity-50'); });
+          item.addEventListener('dragend', () => { item.classList.remove('opacity-50'); });
           item.addEventListener('dragover', (e) => { e.preventDefault(); });
           item.addEventListener('drop', (e) => {
             e.preventDefault();
