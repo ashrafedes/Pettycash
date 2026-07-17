@@ -175,7 +175,11 @@
       }, { accept: '.pdf', multiple: false });
 
       document.getElementById('remove-file').addEventListener('click', () => {
-        pdfFile = null; resultBlob = null; pageOrder = [];
+        if (fileInput) fileInput.value = '';
+        pdfFile = null; pageCount = 0; resultBlob = null; pageOrder = [];
+        thumbElements = [];
+        document.getElementById('file-name-display').textContent = '';
+        document.getElementById('file-meta-display').textContent = '';
         fileInfo.classList.add('hidden');
         reorderOptions.classList.add('hidden');
         dropZone.classList.remove('hidden');
