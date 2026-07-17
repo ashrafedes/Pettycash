@@ -176,9 +176,19 @@
       }, { accept: '.pdf', multiple: false });
 
       document.getElementById('remove-file').addEventListener('click', () => {
-        pdfFile = null; pngImages = [];
-        fileInfo.classList.add('hidden'); convertOptions.classList.add('hidden');
-        dropZone.classList.remove('hidden'); result.classList.add('hidden');
+        if (fileInput) fileInput.value = '';
+        pdfFile = null; pageCount = 0;
+        pngImages.forEach(img => { if (img.url) URL.revokeObjectURL(img.url); });
+        pngImages = [];
+        document.getElementById('file-name-display').textContent = '';
+        document.getElementById('file-meta-display').textContent = '';
+        document.getElementById('result-summary').textContent = '';
+        imagesGrid.innerHTML = '';
+        fileInfo.classList.add('hidden');
+        convertOptions.classList.add('hidden');
+        dropZone.classList.remove('hidden');
+        result.classList.add('hidden');
+        progressArea.innerHTML = '';
       });
 
       convertBtn.addEventListener('click', async () => {
