@@ -8,6 +8,7 @@ const TRANSLATIONS = {
       "contact": "Contact",
       "blog": "Blog",
       "help": "Help",
+      "calculator": "Calculator",
       "login": "Login",
       "signup": "Get Started"
     },
@@ -366,6 +367,7 @@ const TRANSLATIONS = {
       "contact": "اتصل بنا",
       "blog": "المدونة",
       "help": "المساعدة",
+      "calculator": "الحاسبة",
       "login": "تسجيل الدخول",
       "signup": "ابدأ الآن"
     },
