@@ -271,14 +271,14 @@
           const idx = parseInt(item.dataset.pageIndex);
           if (selectedSet.has(idx)) {
             selectedSet.delete(idx);
-            item.classList.remove('ring-4', 'ring-blue-500', 'rounded-lg');
+            item.classList.remove('ring-4', 'ring-green-500', 'rounded-lg');
             const badge = item.querySelector('.select-badge');
             if (badge) badge.remove();
           } else {
             selectedSet.add(idx);
-            item.classList.add('ring-4', 'ring-blue-500', 'rounded-lg');
+            item.classList.add('ring-4', 'ring-green-500', 'rounded-lg');
             const badge = document.createElement('div');
-            badge.className = 'select-badge absolute top-1 end-1 bg-blue-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shadow-lg';
+            badge.className = 'select-badge absolute top-1 end-1 bg-green-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shadow-lg';
             badge.textContent = Array.from(selectedSet).indexOf(idx) + 1;
             item.appendChild(badge);
           }
