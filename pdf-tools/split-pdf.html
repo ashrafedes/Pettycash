@@ -226,12 +226,17 @@
       }, { accept: '.pdf', multiple: false });
 
       document.getElementById('remove-file').addEventListener('click', () => {
+        if (fileInput) fileInput.value = '';
         pdfFile = null;
+        document.getElementById('file-name-display').textContent = '';
+        document.getElementById('file-meta-display').textContent = '';
         fileInfo.classList.add('hidden');
         splitOptions.classList.add('hidden');
         dropZone.classList.remove('hidden');
         results.classList.add('hidden');
         document.getElementById('preview-area').classList.add('hidden');
+        document.getElementById('preview-area').innerHTML = '';
+        document.getElementById('progress-area').innerHTML = '';
       });
 
       // Set labels for preview-select section
