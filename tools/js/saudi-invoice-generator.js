@@ -7,7 +7,7 @@
   const defaultState = {
     companyName: '', companyVat: '', companyCr: '', companyPhone: '', companyEmail: '', companyAddress: '', companyWebsite: '', bankName: '', iban: '',
     customerName: '', customerVat: '', customerPhone: '', customerEmail: '', customerAddress: '',
-    invoiceNumber: '', invoiceTitleEn: '', invoiceTitleAr: '', issueDate: todayStr(), dueDate: '', currency: 'SAR', paymentTerms: '', poNumber: '', reference: '',
+    invoiceNumber: '', invoiceTitleEn: '', invoiceTitleAr: '', issueDate: todayStr(), issueTime: new Date().toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit', hour12:false}), dueDate: '', currency: 'SAR', paymentTerms: '', poNumber: '', reference: '',
     items: [{ id: 1, description: '', quantity: 1, unit: 'PCS', unitPrice: 0, discount: 0, vatPercent: 15, total: 0 }],
     discount: 0, vatPercent: 15, paidAmount: 0,
     notes: '', terms: '', signatureName: '', logo: ''
@@ -198,10 +198,13 @@
     translatePreviewLabels();
 
     try {
+      const dateStr = state.issueDate || new Date().toISOString().split('T')[0];
+      const timeStr = state.issueTime || new Date().toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit', hour12:false});
+      const invoiceDate = new Date(`${dateStr}T${timeStr}`);
       const qrPayload = zatcaTlvBase64({
         sellerName: state.companyName,
         vatNumber: state.companyVat,
-        invoiceTimestamp: state.issueDate ? new Date(state.issueDate).toISOString() : new Date().toISOString(),
+        invoiceTimestamp: isNaN(invoiceDate.getTime()) ? new Date().toISOString() : invoiceDate.toISOString(),
         totalAmount: c.grand,
         vatAmount: c.vatOnInvoice
       });
