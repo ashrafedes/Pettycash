@@ -18,8 +18,8 @@
 
     var style = document.createElement('style');
     style.textContent = [
-      '@keyframes marquee-scroll { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }',
-      '@keyframes marquee-scroll-rtl { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }',
+      '@keyframes marquee-scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }',
+      '@keyframes marquee-scroll-rtl { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }',
       '#marquee-banner { position: fixed; bottom: 0; left: 0; z-index: 50; background: #16a34a; color: #fff; overflow: hidden; padding: 6px 8px; font-size: 14px; font-weight: 600; box-shadow: 0 -2px 10px rgba(0,0,0,.15); border-top-right-radius: 12px; max-width: 90vw; }',
       '#marquee-banner .marquee-text { display: inline-block; white-space: nowrap; animation: marquee-scroll 18s linear infinite; }',
       '#marquee-banner .marquee-text a { color: #fff; text-decoration: none; }',
