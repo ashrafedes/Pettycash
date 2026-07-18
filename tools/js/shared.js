@@ -61,9 +61,9 @@
         voucher: 'Petty Cash Voucher'
       },
       invoice: {
-        title: 'Saudi Invoice Generator (ZATCA Ready)',
-        metaTitle: 'Saudi Invoice Generator | ZATCA QR | Free Online',
-        metaDescription: 'Create professional ZATCA-ready Saudi invoices with QR code, VAT, and PDF export. Free online invoice generator.',
+        title: 'Saudi Invoice Generator',
+        metaTitle: 'Saudi Invoice Generator | Free VAT Invoice & PDF Generator',
+        metaDescription: 'Create professional Saudi invoice templates with VAT, QR Code, and PDF export. Free, fast, bilingual, and easy to use.',
         companyInfo: 'Company Information',
         customerInfo: 'Customer Information',
         invoiceInfo: 'Invoice Information',
@@ -138,8 +138,8 @@
       },
       tools: {
         heroTitle: 'Free Business Tools',
-        heroSubtitle: 'Generate professional invoices, receipts, and petty cash vouchers. ZATCA-ready invoice QR codes, PDF/PNG export, and bilingual English & Arabic support.',
-        invoiceCardDesc: 'ZATCA Phase 1 QR, VAT calculations, PDF/PNG export.',
+        heroSubtitle: 'Generate professional invoices, receipts, and petty cash vouchers. Invoice QR codes, PDF/PNG export, and bilingual English & Arabic support.',
+        invoiceCardDesc: 'QR codes, VAT calculations, PDF/PNG export.',
         receiptCardDesc: 'Automatic amount in words, printable receipts, PDF/PNG export.',
         voucherCardDesc: 'Expense tracking, approvals, automatic totals.',
         footer: '© 2026 PettyCash.site — Free business tools.'
@@ -200,9 +200,9 @@
         voucher: 'قسيمة الصندوق الصغير'
       },
       invoice: {
-        title: 'منشئ الفواتير السعودية (متوافق مع ZATCA)',
-        metaTitle: 'منشئ فواتير سعودية | QR ZATCA | مجاني',
-        metaDescription: 'أنشئ فواتير سعودية احترافية متوافقة مع ZATCA مع رمز QR والضريبة وتصدير PDF.',
+        title: 'منشئ الفواتير السعودية',
+        metaTitle: 'منشئ فواتير سعودية | QR و PDF | مجاني',
+        metaDescription: 'أنشئ فواتير سعودية احترافية مع رمز QR والضريبة وتصدير PDF. مجاني وسريع ويدعم العربية والإنجليزية.',
         companyInfo: 'معلومات الشركة',
         customerInfo: 'معلومات العميل',
         invoiceInfo: 'معلومات الفاتورة',
@@ -277,8 +277,8 @@
       },
       tools: {
         heroTitle: 'أدوات الأعمال المجانية',
-        heroSubtitle: 'أنشئ فواتير وإيصالات وقسائم صندوق صغير احترافية. رموز QR جاهزة لـ ZATCA، تصدير PDF/PNG، ودعم اللغتين الإنجليزية والعربية.',
-        invoiceCardDesc: 'QR للمرحلة الأولى من ZATCA، حسابات VAT، تصدير PDF/PNG.',
+        heroSubtitle: 'أنشئ فواتير وإيصالات وقسائم صندوق صغير احترافية. رموز QR للفواتير، تصدير PDF/PNG، ودعم اللغتين الإنجليزية والعربية.',
+        invoiceCardDesc: 'رموز QR، حسابات VAT، تصدير PDF/PNG.',
         receiptCardDesc: 'المبلغ تلقائياً بالحروف، QR، إيصالات قابلة للطباعة.',
         voucherCardDesc: 'تتبع المصروفات، موافقات، إجماليات تلقائية.',
         footer: '© 2026 PettyCash.site — أدوات الأعمال المجانية.'
@@ -482,7 +482,7 @@
     return btoa(binary);
   }
 
-  // ZATCA Phase 1 TLV
+  // TLV Base64 encoding for invoice QR codes
   function zatcaTlvBase64(data) {
     const tags = [];
     function push(tag, value) {
