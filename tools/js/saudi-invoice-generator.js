@@ -197,26 +197,32 @@
 
     translatePreviewLabels();
 
+    let qrPayload = '';
     try {
       const dateStr = state.issueDate || new Date().toISOString().split('T')[0];
       const timeStr = state.issueTime || new Date().toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit', hour12:false});
       const invoiceDate = new Date(`${dateStr}T${timeStr}`);
-      const qrPayload = zatcaTlvBase64({
+      qrPayload = zatcaTlvBase64({
         sellerName: state.companyName,
         vatNumber: state.companyVat,
         invoiceTimestamp: isNaN(invoiceDate.getTime()) ? new Date().toISOString() : invoiceDate.toISOString(),
         totalAmount: c.grand,
         vatAmount: c.vatOnInvoice
       });
+    } catch (err) {
+      console.error('TLV payload failed:', err);
+      const dateTime = new Date().toISOString();
+      qrPayload = `اسم المورد: ${state.companyName}\nالرقم الضريبي للمورد: ${state.companyVat}\nتاريخ ووقت الإصدار: ${dateTime}\nإجمالي الفاتورة شاملاً الضريبة: ${c.grand.toFixed(2)}\nإجمالي قيمة الضريبة: ${c.vatOnInvoice.toFixed(2)}`;
+    }
+
+    try {
       const qrImg = await generateQR(qrPayload, 120);
       $('#preview-qr').src = qrImg;
-      $('#preview-qr').style.display = 'inline';
     } catch (err) {
-      console.error('QR generation failed:', err);
-      const qrText = [state.companyName, state.companyVat, state.invoiceNumber, c.grand].join('|');
-      $('#preview-qr').src = 'https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=' + encodeURIComponent(qrText);
-      $('#preview-qr').style.display = 'inline';
+      console.error('QR image generation failed:', err);
+      $('#preview-qr').src = 'https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=' + encodeURIComponent(qrPayload);
     }
+    $('#preview-qr').style.display = 'inline';
   }
 
   function translatePreviewLabels() {
