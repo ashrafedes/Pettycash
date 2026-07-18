@@ -381,11 +381,8 @@
   // ===================== Number formatting =====================
   function formatMoney(amount, currency) {
     const n = parseFloat(amount) || 0;
-    if (currency === 'SAR') return n.toFixed(2) + ' ر.س';
-    if (currency === 'USD') return '$' + n.toFixed(2);
-    if (currency === 'EUR') return '€' + n.toFixed(2);
-    if (currency === 'GBP') return '£' + n.toFixed(2);
-    return n.toFixed(2);
+    const code = (currency || 'SAR').toLowerCase();
+    return n.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 2 }) + ' ' + code;
   }
 
   function todayStr() { return new Date().toISOString().split('T')[0]; }
