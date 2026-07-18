@@ -139,6 +139,13 @@ function renderNavbar() {
       <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-1">
         ${mobileLinksHtml}
         <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+          <div class="relative" id="mobile-lang-dropdown">
+            <button id="mobile-lang-btn" class="w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium text-slate-700 border border-slate-200 rounded-lg">
+              <span>${currentLang.label}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div id="mobile-lang-menu" class="hidden mt-1 w-full bg-white border border-slate-200 rounded-lg shadow-lg p-1">${langOptions}</div>
+          </div>
           <a href="${APP_URL}/login" class="block text-center px-4 py-2.5 text-sm font-medium text-slate-700 border border-slate-200 rounded-lg">${t('nav.login')}</a>
           <a href="${APP_URL}/register" class="block text-center px-4 py-2.5 text-sm font-semibold text-white bg-blue-600 rounded-lg">${t('nav.signup')}</a>
         </div>
@@ -159,6 +166,12 @@ function renderNavbar() {
     langBtn.addEventListener('click', (e) => { e.stopPropagation(); langMenu.classList.toggle('hidden'); });
   }
 
+  const mobileLangBtn = document.getElementById('mobile-lang-btn');
+  const mobileLangMenu = document.getElementById('mobile-lang-menu');
+  if (mobileLangBtn && mobileLangMenu) {
+    mobileLangBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileLangMenu.classList.toggle('hidden'); });
+  }
+
   const toolsBtn = document.getElementById('tools-btn');
   const toolsMenu = document.getElementById('tools-menu');
   if (toolsBtn && toolsMenu) {
@@ -168,6 +181,7 @@ function renderNavbar() {
   document.addEventListener('click', () => {
     if (langMenu) langMenu.classList.add('hidden');
     if (toolsMenu) toolsMenu.classList.add('hidden');
+    if (mobileLangMenu) mobileLangMenu.classList.add('hidden');
   });
 
   document.querySelectorAll('[data-lang]').forEach(b => {
