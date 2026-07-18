@@ -76,7 +76,7 @@ const TRANSLATIONS = {
       "faq": {
         "title": "Frequently Asked Questions",
         "getStarted": "How do I start using the system?",
-        "getStartedAnswer": "1. Register at: https://pattycashsystem.web.app\n2. Create a new company account\n3. Add your employees\n4. Start adding balances and managing expenses",
+        "getStartedAnswer": "1. Register at: https://pettycash-pes4.onrender.com\n2. Create a new company account\n3. Add your employees\n4. Start adding balances and managing expenses",
         "free": "Is the system free?",
         "freeAnswer": "Yes! There's a Free plan that supports up to 3 employees at no cost. For larger companies, there are paid plans at competitive prices.",
         "submitExpense": "How can an employee submit an expense?",
@@ -90,10 +90,10 @@ const TRANSLATIONS = {
       }
     },
     "hero": {
-      "badge": "Simple & Powerful",
-      "title": "Manage Petty Cash the Smart Way",
-      "subtitle": "Stop chasing paper receipts. Let your team submit expenses from their phone and approve them in seconds.",
-      "cta": "Get Started Free",
+      "badge": "Free Forever • No Credit Card",
+      "title": "Stop Managing Expenses with Excel",
+      "subtitle": "The all-in-one petty cash system for modern teams. Submit expenses from your phone, approve in one tap, and export reports instantly. Say goodbye to paper receipts forever.",
+      "cta": "Start Free Now",
       "login": "Login to App",
       "trustedBy": "Trusted by businesses across the region"
     },
@@ -225,6 +225,120 @@ const TRANSLATIONS = {
       "title": "Ready to get started?",
       "subtitle": "Join hundreds of businesses already using Petty Cash.",
       "button": "Get Started Free"
+    },
+    "stats": {
+      "items": [
+        { "value": "100%", "label": "Free to Start" },
+        { "value": "4", "label": "Languages" },
+        { "value": "< 2 min", "label": "Setup Time" },
+        { "value": "0", "label": "Paper Receipts" }
+      ]
+    },
+    "whyUs": {
+      "title": "Why Choose Petty Cash?",
+      "subtitle": "The modern way to manage company expenses - no more spreadsheets, no more lost receipts.",
+      "items": [
+        {
+          "icon": "ShieldCheck",
+          "title": "Bank-Grade Security",
+          "desc": "Your data is encrypted and stored on Google Firebase. Only your team can access it."
+        },
+        {
+          "icon": "Smartphone",
+          "title": "Works on Any Phone",
+          "desc": "Install as an app on Android or iOS. Submit expenses anywhere, anytime - even offline."
+        },
+        {
+          "icon": "Zap",
+          "title": "Instant Approvals",
+          "desc": "No more waiting days for sign-off. Managers approve expenses in one tap."
+        },
+        {
+          "icon": "FileSpreadsheet",
+          "title": "One-Click Reports",
+          "desc": "Export professional Excel reports instantly. Perfect for audits and accounting."
+        },
+        {
+          "icon": "Users",
+          "title": "Team Management",
+          "desc": "Add employees, set balances, and control who can approve what - all from one dashboard."
+        },
+        {
+          "icon": "Globe",
+          "title": "Multilingual & RTL",
+          "desc": "Full support for English, Arabic, Urdu, and Hindi with proper right-to-left layout."
+        }
+      ]
+    },
+    "comparison": {
+      "title": "Excel vs. Petty Cash System",
+      "subtitle": "Still managing expenses in spreadsheets? See what you're missing.",
+      "excel": {
+        "title": "Excel / Spreadsheets",
+        "icon": "X",
+        "items": [
+          "Manual data entry - prone to typos",
+          "No real-time balance tracking",
+          "Receipts get lost or damaged",
+          "Hard to share with the team",
+          "No approval workflow",
+          "Difficult to audit"
+        ]
+      },
+      "pettycash": {
+        "title": "Petty Cash System",
+        "icon": "Check",
+        "items": [
+          "Auto-calculated balances - no errors",
+          "Real-time dashboard for everyone",
+          "Receipt photos stored securely",
+          "Team access from any device",
+          "One-tap approval workflow",
+          "Full audit trail with timestamps"
+        ]
+      }
+    },
+    "toolsShowcase": {
+      "title": "Free Business Tools",
+      "subtitle": "Beyond the Petty Cash System, we offer free tools to help your business grow.",
+      "items": [
+        {
+          "icon": "FileText",
+          "title": "Saudi Invoice Generator",
+          "desc": "Create VAT-compliant invoices with QR codes. Free PDF and PNG export.",
+          "url": "./tools/saudi-invoice-generator.html"
+        },
+        {
+          "icon": "Receipt",
+          "title": "Receipt Generator",
+          "desc": "Generate professional receipts in seconds. Bilingual with PDF export.",
+          "url": "./tools/receipt-generator.html"
+        },
+        {
+          "icon": "Wallet",
+          "title": "Petty Cash Voucher",
+          "desc": "Create petty cash vouchers with QR codes. Print or export as PDF.",
+          "url": "./tools/petty-cash-voucher-generator.html"
+        },
+        {
+          "icon": "FileStack",
+          "title": "PDF Tools",
+          "desc": "Merge, split, compress, convert, and edit PDF files - all free, all online.",
+          "url": "./pdf-tools/index.html"
+        },
+        {
+          "icon": "Brain",
+          "title": "AI Assistant",
+          "desc": "Get instant answers about petty cash, invoices, and expense management.",
+          "url": "#"
+        },
+        {
+          "icon": "BookOpen",
+          "title": "Business Blog",
+          "desc": "Tips, guides, and best practices for managing company expenses.",
+          "url": "./blog.html"
+        }
+      ]
     },
     "pricing": {
       "title": "Simple Pricing",
@@ -444,7 +558,7 @@ const TRANSLATIONS = {
       "faq": {
         "title": "الأسئلة الشائعة",
         "getStarted": "كيف أبدأ باستخدام النظام؟",
-        "getStartedAnswer": "1. قم بالتسجيل على الرابط: https://pattycashsystem.web.app\n2. أنشئ حساب شركة جديدة\n3. أضف موظفيك للنظام\n4. ابدأ بإضافة الأرصدة وإدارة المصروفات",
+        "getStartedAnswer": "1. قم بالتسجيل على الرابط: https://pettycash-pes4.onrender.com\n2. أنشئ حساب شركة جديدة\n3. أضف موظفيك للنظام\n4. ابدأ بإضافة الأرصدة وإدارة المصروفات",
         "free": "هل النظام مجاني؟",
         "freeAnswer": "نعم! هناك خطة مجانية (Free) تدعم حتى 3 موظفين بدون أي تكلفة. للشركات الأكبر، هناك خطط مدفوعة بأسعار منافسة.",
         "submitExpense": "كيف يمكن للموظف تقديم مصروف؟",
@@ -458,10 +572,10 @@ const TRANSLATIONS = {
       }
     },
     "hero": {
-      "badge": "بسيط وقوي",
-      "title": "إدارة صندوق العهدة بطريقة ذكية",
-      "subtitle": "توقف عن ملاحقة الفواتير الورقية. دع فريقك يقدم المصروفات من هاتفه ويوافق عليها في ثوان.",
-      "cta": "ابدأ مجانا",
+      "badge": "مجاني للأبد • بدون بطاقة ائتمان",
+      "title": "توقف عن إدارة المصروفات بـ Excel",
+      "subtitle": "نظام العهدة المتكامل للفرق الحديثة. اقدم المصروفات من هاتفك، وافق بنقرة واحدة، وصدّر التقارير فوراً. وداعاً للفواتير الورقية للأبد.",
+      "cta": "ابدأ مجاناً الآن",
       "login": "تسجيل الدخول",
       "trustedBy": "موثوق به من شركات في المنطقة"
     },
@@ -593,6 +707,120 @@ const TRANSLATIONS = {
       "title": "هل أنت مستعد للبدء",
       "subtitle": "انضم إلى مئات الشركات التي تستخدم صندوق العهدة.",
       "button": "ابدأ مجانا"
+    },
+    "stats": {
+      "items": [
+        { "value": "100%", "label": "مجاني للبدء" },
+        { "value": "4", "label": "لغات" },
+        { "value": "< 2 دقيقة", "label": "وقت الإعداد" },
+        { "value": "0", "label": "فواتير ورقية" }
+      ]
+    },
+    "whyUs": {
+      "title": "لماذا تختار نظام العهدة؟",
+      "subtitle": "الطريقة الحديثة لإدارة مصروفات الشركة - لا جداول ولا فواتير ضائعة.",
+      "items": [
+        {
+          "icon": "ShieldCheck",
+          "title": "أمان مصرفي",
+          "desc": "بياناتك مشفرة ومحفوظة على Google Firebase. فقط فريقك يمكنه الوصول إليها."
+        },
+        {
+          "icon": "Smartphone",
+          "title": "يعمل على أي هاتف",
+          "desc": "ثبّته كتطبيق على أندرويد أو آيفون. اقدم المصروفات من أي مكان - حتى بدون إنترنت."
+        },
+        {
+          "icon": "Zap",
+          "title": "موافقات فورية",
+          "desc": "لا مزيد من الانتظار أياماً. المدير يوافق على المصروفات بنقرة واحدة."
+        },
+        {
+          "icon": "FileSpreadsheet",
+          "title": "تقارير بنقرة واحدة",
+          "desc": "صدّر تقارير Excel احترافية فوراً. مثالية للتدقيق والمحاسبة."
+        },
+        {
+          "icon": "Users",
+          "title": "إدارة الفريق",
+          "desc": "أضف موظفين، حدد الأرصدة، وتحكم في الصلاحيات - كل ذلك من لوحة واحدة."
+        },
+        {
+          "icon": "Globe",
+          "title": "متعدد اللغات",
+          "desc": "دعم كامل للعربية والإنجليزية والأردية والهندية مع واجهة من اليمين لليسار."
+        }
+      ]
+    },
+    "comparison": {
+      "title": "Excel مقابل نظام العهدة",
+      "subtitle": "ما زلت تدير المصروفات في جداول؟ شاهد ما الذي يفوتك.",
+      "excel": {
+        "title": "Excel / الجداول",
+        "icon": "X",
+        "items": [
+          "إدخال يدوي - عرضة للأخطاء",
+          "لا تتبع للرصيد في الوقت الفعلي",
+          "الفواتير تضيع أو تتلف",
+          "صعب المشاركة مع الفريق",
+          "لا يوجد نظام موافقات",
+          "صعب التدقيق"
+        ]
+      },
+      "pettycash": {
+        "title": "نظام العهدة",
+        "icon": "Check",
+        "items": [
+          "أرصدة محسوبة تلقائياً - لا أخطاء",
+          "لوحة تحكم فورية للجميع",
+          "صور الفواتير محفوظة بأمان",
+          "وصول الفريق من أي جهاز",
+          "نظام موافقات بنقرة واحدة",
+          "سجل تدقيق كامل بالطوابع الزمنية"
+        ]
+      }
+    },
+    "toolsShowcase": {
+      "title": "أدوات أعمال مجانية",
+      "subtitle": "بالإضافة إلى نظام العهدة، نقدم أدوات مجانية لمساعدة أعمالك على النمو.",
+      "items": [
+        {
+          "icon": "FileText",
+          "title": "منشئ الفواتير السعودية",
+          "desc": "أنشئ فواتير متوافقة مع الضريبة بأكواد QR. تصدير PDF و PNG مجاني.",
+          "url": "./tools/saudi-invoice-generator.html"
+        },
+        {
+          "icon": "Receipt",
+          "title": "منشئ الإيصالات",
+          "desc": "أنشئ إيصالات احترافية في ثوانٍ. ثنائي اللغة مع تصدير PDF.",
+          "url": "./tools/receipt-generator.html"
+        },
+        {
+          "icon": "Wallet",
+          "title": "قسيمة العهدة",
+          "desc": "أنشئ قسائم عهدة بأكواد QR. اطبع أو صدّر كـ PDF.",
+          "url": "./tools/petty-cash-voucher-generator.html"
+        },
+        {
+          "icon": "FileStack",
+          "title": "أدوات PDF",
+          "desc": "دمج، تقسيم، ضغط، تحويل، وتحرير ملفات PDF - كل ذلك مجاني.",
+          "url": "./pdf-tools/index.html"
+        },
+        {
+          "icon": "Brain",
+          "title": "المساعد الذكي",
+          "desc": "احصل على إجابات فورية عن العهدة والفواتير وإدارة المصروفات.",
+          "url": "#"
+        },
+        {
+          "icon": "BookOpen",
+          "title": "مدونة الأعمال",
+          "desc": "نصائح وأدلة وأفضل الممارسات لإدارة مصروفات الشركة.",
+          "url": "./blog.html"
+        }
+      ]
     },
     "pricing": {
       "title": "أسعار بسيطة",

@@ -36,9 +36,9 @@
     $('#btn-reset').addEventListener('click', resetForm);
     $('#btn-copy').addEventListener('click', copySummary);
     $('#btn-share').addEventListener('click', () => window.PCTools.sharePage());
-    $('#btn-print').addEventListener('click', () => window.print());
-    $('#btn-pdf').addEventListener('click', () => exportPDF($('#invoice-preview'), `Invoice-${state.invoiceNumber || 'draft'}.pdf`));
-    $('#btn-png').addEventListener('click', () => exportPNG($('#invoice-preview'), `Invoice-${state.invoiceNumber || 'draft'}.png`));
+    $('#btn-print').addEventListener('click', () => { window.print(); showPettyCashNotice(); });
+    $('#btn-pdf').addEventListener('click', async () => { await exportPDF($('#invoice-preview'), `Invoice-${state.invoiceNumber || 'draft'}.pdf`); showPettyCashNotice(); });
+    $('#btn-png').addEventListener('click', async () => { await exportPNG($('#invoice-preview'), `Invoice-${state.invoiceNumber || 'draft'}.png`); showPettyCashNotice(); });
 
     handleLogoUpload($('#logo-input'), (base64) => { state.logo = base64; saveToolState(STORAGE_KEY, state); renderPreview(); }, 'saudi_invoice_logo');
     loadLogo('saudi_invoice_logo', (base64) => { state.logo = base64; renderPreview(); });
@@ -269,6 +269,13 @@
       `${t('common.remaining')}: ${formatMoney(c.remaining, state.currency)}`
     ];
     window.PCTools.copyText(lines.join('\n'));
+  }
+
+  function showPettyCashNotice() {
+    const isAr = window.PCTools.currentLang === 'ar';
+    toast(isAr
+      ? 'تخلص من الورق! جرّب نظام Petty Cash لإدارة المصروفات والإيصالات: https://pettycash-pes4.onrender.com'
+      : 'Go paperless! Try the Petty Cash System to manage expenses and receipts: https://pettycash-pes4.onrender.com');
   }
 
   function esc(s) {

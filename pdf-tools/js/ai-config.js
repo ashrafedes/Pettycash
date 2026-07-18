@@ -41,7 +41,7 @@ window.AI_CONFIG = {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + this.apiKey,
-            'HTTP-Referer': 'https://pettycash.site',
+            'HTTP-Referer': 'https://www.pettycash.site',
             'X-Title': 'PettyCash PDF Tools'
           },
           body: JSON.stringify({ model, messages, temperature: 0.3, max_tokens: 2000 })

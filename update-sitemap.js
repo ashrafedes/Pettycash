@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = __dirname;
-const baseUrl = 'https://pettycash.site';
+const baseUrl = 'https://www.pettycash.site';
 const today = new Date().toISOString().split('T')[0];
 
 // Static pages to always include

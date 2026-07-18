@@ -13,7 +13,7 @@
     'google/gemma-4-31b-it:free',
     'nousresearch/hermes-3-llama-3.1-405b:free'
   ];
-  var REGISTER_URL = 'https://pattycashsystem.web.app/register';
+  var REGISTER_URL = 'https://pettycash-pes4.onrender.com/register';
 
   var I18N = {
     en: {
@@ -47,7 +47,11 @@
   };
 
   function getLang() {
-    var lang = (document.documentElement.lang || 'en').substring(0, 2).toLowerCase();
+    var stored = null;
+    try {
+      stored = localStorage.getItem('pettycash-lang') || localStorage.getItem('marketing_lang');
+    } catch (e) {}
+    var lang = (stored || document.documentElement.lang || 'en').substring(0, 2).toLowerCase();
     return I18N[lang] ? lang : 'en';
   }
 
@@ -296,7 +300,7 @@
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + OPENROUTER_API_KEY,
-            'HTTP-Referer': 'https://pettycash.site',
+            'HTTP-Referer': 'https://www.pettycash.site',
             'X-Title': 'PettyCash.site AI Assistant'
           },
           body: JSON.stringify(body)

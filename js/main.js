@@ -1,5 +1,5 @@
 // Petty Cash Static Site - Shared functionality
-const APP_URL = 'https://pattycashsystem.web.app';
+const APP_URL = 'https://pettycash-pes4.onrender.com';
 const LANGS = [
   { code: 'en', label: 'English', dir: 'ltr' },
   { code: 'ar', label: 'العربية', dir: 'rtl' }
@@ -220,6 +220,23 @@ function renderFooter() {
   if (placeholder) placeholder.innerHTML = html;
 }
 
+function renderPromoBanner() {
+  const lang = getLang();
+  const isAr = lang === 'ar';
+  const banner = document.createElement('div');
+  banner.id = 'pettycash-promo';
+  banner.className = 'text-center text-xs sm:text-sm text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-slate-800/60 border-b border-blue-100 dark:border-slate-700 p-2';
+  banner.innerHTML = isAr
+    ? 'تخلص من الورق! <a href="https://pettycash-pes4.onrender.com" target="_blank" rel="noopener noreferrer" class="font-semibold underline hover:text-blue-900 dark:hover:text-blue-100">جرّب نظام Petty Cash</a> لإدارة المصروفات والإيصالات.'
+    : 'Go paperless! <a href="https://pettycash-pes4.onrender.com" target="_blank" rel="noopener noreferrer" class="font-semibold underline hover:text-blue-900 dark:hover:text-blue-100">Try the Petty Cash System</a> to manage expenses and receipts.';
+  const header = document.querySelector('header');
+  if (header && header.parentNode) {
+    header.parentNode.insertBefore(banner, header.nextSibling);
+  } else {
+    document.body.prepend(banner);
+  }
+}
+
 function initFAQs() {
   document.querySelectorAll('[data-faq-toggle]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -234,6 +251,7 @@ function initFAQs() {
 function initCore() {
   setLang(getLang());
   renderNavbar();
+  renderPromoBanner();
   renderFooter();
   translatePage();
   initFAQs();
