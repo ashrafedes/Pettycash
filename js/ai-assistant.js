@@ -9,8 +9,9 @@
   var OPENROUTER_API_KEY = OPENROUTER_API_KEY_PARTS.join('');
   var OPENROUTER_MODELS = [
     'meta-llama/llama-3.3-70b-instruct:free',
-    'google/gemini-2.0-flash-exp:free',
-    'meta-llama/llama-3.1-8b-instruct:free'
+    'openai/gpt-oss-20b:free',
+    'google/gemma-4-31b-it:free',
+    'nousresearch/hermes-3-llama-3.1-405b:free'
   ];
   var REGISTER_URL = 'https://pattycashsystem.web.app/register';
 
@@ -163,6 +164,26 @@
     var sendBtn = panel.querySelector('#ai-send');
     var closeBtn = panel.querySelector('.ai-close');
     var suggContainer = panel.querySelector('#ai-suggestions');
+    var header = panel.querySelector('.ai-header');
+    var langSelect = document.createElement('select');
+    langSelect.className = 'ai-lang-select';
+    langSelect.title = 'Language / اللغة';
+    langSelect.setAttribute('aria-label', 'Language');
+    langSelect.innerHTML = '<option value="en">EN</option><option value="ar">AR</option>';
+    langSelect.value = lang;
+    langSelect.style.cssText = 'background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:6px;padding:2px 6px;font-size:12px;cursor:pointer;outline:none;flex-shrink:0;';
+    langSelect.addEventListener('change', function(e){
+      var code = e.target.value;
+      if(code === getLang()) return;
+      try {
+        localStorage.setItem('pettycash-lang', code);
+        localStorage.setItem('marketing_lang', code);
+      } catch(err){}
+      if(window.PettyCash && window.PettyCash.setLang){ window.PettyCash.setLang(code); }
+      else { document.documentElement.lang = code; document.documentElement.dir = code === 'ar' ? 'rtl' : 'ltr'; }
+      window.location.reload();
+    });
+    if(header) header.appendChild(langSelect);
 
     // Welcome message
     addMessage(msgContainer, 'bot', t.welcome);
@@ -294,7 +315,7 @@
               });
               addMessage(msgContainer, 'bot', reply, true);
               messages.push({ role: 'assistant', content: reply.replace(/<[^>]*>/g, '') });
-            } else if (data.error && data.error.code === 429) {
+            } else if (data.error) {
               tryModel(modelIdx + 1);
             } else {
               var typingEl2 = document.getElementById('ai-typing');
