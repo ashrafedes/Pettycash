@@ -57,8 +57,9 @@
   }
 
   function addItem(data = null) {
+    syncState();
     const item = data || { id: itemCounter++, description: '', quantity: 1, unit: 'PCS', unitPrice: 0, discount: 0, vatPercent: state.vatPercent || 15, total: 0 };
-    if (!data) state.items.push(item);
+    state.items.push(item);
     renderItems();
     renderPreview();
   }
@@ -79,7 +80,7 @@
     container.innerHTML = '';
     state.items.forEach((item, idx) => {
       const div = document.createElement('div');
-      div.className = 'bg-slate-50 dark:bg-slate-700/30 p-3 rounded-xl border border-slate-200 dark:border-slate-600 animate-fade-in space-y-2';
+      div.className = 'item-row bg-slate-50 dark:bg-slate-700/30 p-3 rounded-xl border border-slate-200 dark:border-slate-600 animate-fade-in space-y-2';
       div.innerHTML = `
         <div class="flex items-center gap-2">
           <span class="text-xs font-bold text-slate-400">#${idx + 1}</span>
@@ -111,7 +112,7 @@
     state.paidAmount = parseFloat(state.paidAmount) || 0;
 
     state.items = state.items.map(item => {
-      const row = $(`[data-id="${item.id}"]`).closest('.grid');
+      const row = $(`[data-id="${item.id}"]`).closest('.item-row');
       if (!row) return item;
       const get = (field) => {
         const el = row.querySelector(`[data-field="${field}"]`);
