@@ -17,7 +17,8 @@
   let state = structuredClone
     ? structuredClone({ ...defaultState, ...saved, items: saved?.items || defaultState.items })
     : JSON.parse(JSON.stringify({ ...defaultState, ...saved, items: saved?.items || defaultState.items }));
-  let itemCounter = state.items.length ? Math.max(...state.items.map(i => i.id)) + 1 : 2;
+  state.items.forEach((item, i) => { item.id = i + 1; });
+  let itemCounter = state.items.length + 1;
 
   function $(sel) { return document.querySelector(sel); }
   function $$$(sel) { return document.querySelectorAll(sel); }
@@ -81,6 +82,7 @@
     state.items.forEach((item, idx) => {
       const div = document.createElement('div');
       div.className = 'item-row bg-slate-50 dark:bg-slate-700/30 p-3 rounded-xl border border-slate-200 dark:border-slate-600 animate-fade-in space-y-2';
+      div.setAttribute('data-item-id', item.id);
       div.innerHTML = `
         <div class="flex items-center gap-2">
           <span class="text-xs font-bold text-slate-400">#${idx + 1}</span>
@@ -112,7 +114,7 @@
     state.paidAmount = parseFloat(state.paidAmount) || 0;
 
     state.items = state.items.map(item => {
-      const row = $(`[data-id="${item.id}"]`).closest('.item-row');
+      const row = $(`.item-row[data-item-id="${item.id}"]`);
       if (!row) return item;
       const get = (field) => {
         const el = row.querySelector(`[data-field="${field}"]`);
