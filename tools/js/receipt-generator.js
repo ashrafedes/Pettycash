@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  const { t, currentLang, initTheme, toggleTheme, renderNav, saveToolState, loadToolState, clearToolState, formatMoney, todayStr, amountInWords, generateQR, exportPDF, exportPNG, handleLogoUpload, loadLogo, toast, debounce } = window.PCTools;
+  const { t, initTheme, toggleTheme, renderNav, saveToolState, loadToolState, clearToolState, formatMoney, todayStr, amountInWords, generateQR, exportPDF, exportPNG, handleLogoUpload, loadLogo, toast, debounce } = window.PCTools;
 
   const STORAGE_KEY = 'receipt_generator';
 
@@ -69,9 +69,9 @@
     else { logo.classList.add('hidden'); }
 
     $('#preview-company-name').textContent = state.companyName;
-    const vatLabel = currentLang === 'ar' ? 'الرقم الضريبي: ' : 'VAT: ';
+    const vatLabel = window.PCTools.currentLang === 'ar' ? 'الرقم الضريبي: ' : 'VAT: ';
     $('#preview-company-details').textContent = [state.companyAddress, state.companyPhone, state.companyVat ? vatLabel + state.companyVat : ''].filter(Boolean).join(' · ');
-    $('#preview-receipt-number').textContent = (currentLang === 'ar' ? 'رقم الإيصال: ' : 'Receipt No: ') + state.receiptNumber;
+    $('#preview-receipt-number').textContent = (window.PCTools.currentLang === 'ar' ? 'رقم الإيصال: ' : 'Receipt No: ') + state.receiptNumber;
     $('#preview-date').textContent = state.receiptDate;
     $('#preview-received-from').textContent = state.receivedFrom;
     const pmKey = { Cash: 'receipt.cash', 'Bank Transfer': 'receipt.bankTransfer', Card: 'receipt.card', Cheque: 'receipt.cheque' }[state.paymentMethod] || 'receipt.cash';
@@ -79,7 +79,7 @@
     $('#preview-reference').textContent = state.referenceNumber;
     $('#preview-description').textContent = state.description;
     $('#preview-amount').textContent = formatMoney(amount, state.currency);
-    $('#preview-words').textContent = amountInWords(amount, currentLang);
+    $('#preview-words').textContent = amountInWords(amount, window.PCTools.currentLang);
     $('#preview-received-by').textContent = state.receivedBy;
     $('#preview-approved-by').textContent = state.approvedBy;
     $('#preview-notes').textContent = state.notes;
@@ -88,7 +88,7 @@
   }
 
   function translatePreviewLabels() {
-    const ar = currentLang === 'ar';
+    const ar = window.PCTools.currentLang === 'ar';
     $$$(`[data-i18n-en]`).forEach(el => {
       const text = ar ? el.dataset.i18nAr : el.dataset.i18nEn;
       if (text) el.textContent = text;
@@ -108,9 +108,9 @@
 
   function copySummary() {
     const lines = [
-      (currentLang === 'ar' ? 'إيصال: ' : 'Receipt: ') + state.receiptNumber,
-      (currentLang === 'ar' ? 'المستلم من: ' : 'Received From: ') + state.receivedFrom,
-      (currentLang === 'ar' ? 'المبلغ: ' : 'Amount: ') + formatMoney(state.amount, state.currency)
+      (window.PCTools.currentLang === 'ar' ? 'إيصال: ' : 'Receipt: ') + state.receiptNumber,
+      (window.PCTools.currentLang === 'ar' ? 'المستلم من: ' : 'Received From: ') + state.receivedFrom,
+      (window.PCTools.currentLang === 'ar' ? 'المبلغ: ' : 'Amount: ') + formatMoney(state.amount, state.currency)
     ];
     window.PCTools.copyText(lines.join('\n'));
   }

@@ -187,6 +187,16 @@
 
   window.addEventListener('tool:complete', onToolComplete);
 
+  window.addEventListener('pctool-lang-change', function () {
+    var existing = document.querySelector('.pc-widget-overlay');
+    if (!existing) return;
+    hideWidget();
+    setTimeout(function () {
+      var lang = getLang();
+      createWidget(lang);
+    }, 650);
+  });
+
   if (document.readyState === 'complete') {
     setTimeout(init, 20000);
   } else {

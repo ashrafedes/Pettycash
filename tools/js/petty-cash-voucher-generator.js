@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  const { t, currentLang, initTheme, toggleTheme, renderNav, saveToolState, loadToolState, clearToolState, formatMoney, todayStr, amountInWords, generateQR, exportPDF, exportPNG, handleLogoUpload, loadLogo, toast, debounce } = window.PCTools;
+  const { t, initTheme, toggleTheme, renderNav, saveToolState, loadToolState, clearToolState, formatMoney, todayStr, amountInWords, generateQR, exportPDF, exportPNG, handleLogoUpload, loadLogo, toast, debounce } = window.PCTools;
 
   const STORAGE_KEY = 'voucher_generator';
 
@@ -137,7 +137,7 @@
     $('#preview-subtotal').textContent = formatMoney(c.subtotal, 'SAR');
     $('#preview-vat').textContent = formatMoney(c.vat, 'SAR');
     $('#preview-grand').textContent = formatMoney(c.grand, 'SAR');
-    $('#preview-words').textContent = amountInWords(c.grand, currentLang);
+    $('#preview-words').textContent = amountInWords(c.grand, window.PCTools.currentLang);
 
     $('#preview-prepared-by').textContent = state.preparedBy;
     $('#preview-checked-by').textContent = state.checkedBy;
@@ -148,7 +148,7 @@
   }
 
   function translatePreviewLabels() {
-    const ar = currentLang === 'ar';
+    const ar = window.PCTools.currentLang === 'ar';
     $$$(`[data-i18n-en]`).forEach(el => {
       const text = ar ? el.dataset.i18nAr : el.dataset.i18nEn;
       if (text) el.textContent = text;
@@ -171,8 +171,8 @@
   function copySummary() {
     const c = calculations();
     const lines = [
-      (currentLang === 'ar' ? 'قسيمة: ' : 'Voucher: ') + state.voucherNumber,
-      (currentLang === 'ar' ? 'الإجمالي: ' : 'Grand Total: ') + formatMoney(c.grand, 'SAR')
+      (window.PCTools.currentLang === 'ar' ? 'قسيمة: ' : 'Voucher: ') + state.voucherNumber,
+      (window.PCTools.currentLang === 'ar' ? 'الإجمالي: ' : 'Grand Total: ') + formatMoney(c.grand, 'SAR')
     ];
     window.PCTools.copyText(lines.join('\n'));
   }

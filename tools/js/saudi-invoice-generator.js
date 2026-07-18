@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  const { t, setLang, currentLang, initTheme, toggleTheme, renderNav, saveToolState, loadToolState, clearToolState, formatMoney, todayStr, amountInWords, zatcaTlvBase64, generateQR, exportPDF, exportPNG, validateForm, handleLogoUpload, loadLogo, toast, debounce } = window.PCTools;
+  const { t, setLang, initTheme, toggleTheme, renderNav, saveToolState, loadToolState, clearToolState, formatMoney, todayStr, amountInWords, zatcaTlvBase64, generateQR, exportPDF, exportPNG, validateForm, handleLogoUpload, loadLogo, toast, debounce } = window.PCTools;
 
   const STORAGE_KEY = 'saudi_invoice';
 
@@ -169,15 +169,15 @@
     $('#preview-company-vat').textContent = state.companyVat;
     $('#preview-company-address').textContent = [state.companyAddress, state.companyPhone, state.companyEmail, state.companyWebsite].filter(Boolean).join(' · ');
 
-    const defaultTitle = currentLang === 'ar' ? 'فاتورة ضريبية مبسطة' : 'Simplified Tax Invoice';
-    $('#preview-title').textContent = (currentLang === 'ar' ? state.invoiceTitleAr : state.invoiceTitleEn) || defaultTitle;
+    const defaultTitle = window.PCTools.currentLang === 'ar' ? 'فاتورة ضريبية مبسطة' : 'Simplified Tax Invoice';
+    $('#preview-title').textContent = (window.PCTools.currentLang === 'ar' ? state.invoiceTitleAr : state.invoiceTitleEn) || defaultTitle;
 
     $('#preview-invoice-number').textContent = state.invoiceNumber;
     $('#preview-issue-date').textContent = state.issueDate;
     $('#preview-due-date').textContent = state.dueDate;
 
     $('#preview-customer-name').textContent = state.customerName;
-    const vatLabel = currentLang === 'ar' ? 'الرقم الضريبي:' : 'VAT:';
+    const vatLabel = window.PCTools.currentLang === 'ar' ? 'الرقم الضريبي:' : 'VAT:';
     $('#preview-customer-vat').textContent = state.customerVat ? `${vatLabel} ${state.customerVat}` : '';
     $('#preview-customer-address').textContent = [state.customerAddress, state.customerPhone, state.customerEmail].filter(Boolean).join(' · ');
 
@@ -195,7 +195,7 @@
     $('#preview-grand').textContent = formatMoney(c.grand, state.currency);
     $('#preview-paid').textContent = formatMoney(state.paidAmount, state.currency);
     $('#preview-remaining').textContent = formatMoney(c.remaining, state.currency);
-    $('#preview-words').textContent = amountInWords(c.grand, currentLang);
+    $('#preview-words').textContent = amountInWords(c.grand, window.PCTools.currentLang);
 
     $('#preview-notes').textContent = state.notes;
     $('#preview-terms').textContent = state.terms;
@@ -232,7 +232,7 @@
   }
 
   function translatePreviewLabels() {
-    const ar = currentLang === 'ar';
+    const ar = window.PCTools.currentLang === 'ar';
     $$$('[data-i18n-en]').forEach(el => {
       const text = ar ? el.dataset.i18nAr : el.dataset.i18nEn;
       if (!text) return;
