@@ -7,7 +7,11 @@
     '37dd90d0ca5356f14fc5fad'
   ];
   var OPENROUTER_API_KEY = OPENROUTER_API_KEY_PARTS.join('');
-  var OPENROUTER_MODEL = 'meta-llama/llama-3.3-70b-instruct:free';
+  var OPENROUTER_MODELS = [
+    'meta-llama/llama-3.3-70b-instruct:free',
+    'google/gemini-2.0-flash-exp:free',
+    'meta-llama/llama-3.1-8b-instruct:free'
+  ];
   var REGISTER_URL = 'https://pattycashsystem.web.app/register';
 
   var I18N = {
@@ -245,54 +249,69 @@
           'that helps companies manage expenses, receipts, approvals, and reports. ' +
           'Answer concisely and clearly in English. When mentioning the Petty Cash System, include the link ' + REGISTER_URL;
 
-      var body = {
-        model: OPENROUTER_MODEL,
-        messages: [{ role: 'system', content: systemPrompt }].concat(messages.slice(-10)),
-        temperature: 0.7,
-        max_tokens: 600
-      };
+      var apiMessages = [{ role: 'system', content: systemPrompt }].concat(messages.slice(-10));
 
-      fetch('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + OPENROUTER_API_KEY,
-          'HTTP-Referer': 'https://pettycash.site',
-          'X-Title': 'PettyCash.site AI Assistant'
-        },
-        body: JSON.stringify(body)
-      })
-        .then(function (r) { return r.json(); })
-        .then(function (data) {
+      function tryModel(modelIdx) {
+        if (modelIdx >= OPENROUTER_MODELS.length) {
           var typingEl = document.getElementById('ai-typing');
           if (typingEl) typingEl.remove();
           isSending = false;
           sendBtn.disabled = !input.value.trim();
+          addMessage(msgContainer, 'bot', getLang() === 'ar'
+            ? 'عذراً، الخدمة مشغولة حالياً. يرجى المحاولة مرة أخرى بعد قليل.'
+            : 'Sorry, the service is busy right now. Please try again in a moment.');
+          return;
+        }
 
-          var reply = '';
-          if (data.choices && data.choices[0] && data.choices[0].message) {
-            reply = data.choices[0].message.content;
-          } else if (data.error) {
-            reply = 'Sorry, I encountered an error. Please try again.';
-          } else {
-            reply = 'Sorry, I could not process your request.';
-          }
+        var body = {
+          model: OPENROUTER_MODELS[modelIdx],
+          messages: apiMessages,
+          temperature: 0.7,
+          max_tokens: 600
+        };
 
-          // Convert URLs to links
-          reply = reply.replace(/(https?:\/\/[^\s]+)/g, function (url) {
-            return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' + url + '</a>';
-          });
-
-          addMessage(msgContainer, 'bot', reply, true);
-          messages.push({ role: 'assistant', content: reply.replace(/<[^>]*>/g, '') });
+        fetch('https://openrouter.ai/api/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + OPENROUTER_API_KEY,
+            'HTTP-Referer': 'https://pettycash.site',
+            'X-Title': 'PettyCash.site AI Assistant'
+          },
+          body: JSON.stringify(body)
         })
-        .catch(function (err) {
-          var typingEl = document.getElementById('ai-typing');
-          if (typingEl) typingEl.remove();
-          isSending = false;
-          sendBtn.disabled = !input.value.trim();
-          addMessage(msgContainer, 'bot', 'Sorry, I could not connect. Please check your internet connection and try again.');
-        });
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data.choices && data.choices[0] && data.choices[0].message) {
+              var typingEl = document.getElementById('ai-typing');
+              if (typingEl) typingEl.remove();
+              isSending = false;
+              sendBtn.disabled = !input.value.trim();
+
+              var reply = data.choices[0].message.content;
+              reply = reply.replace(/(https?:\/\/[^\s]+)/g, function (url) {
+                return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' + url + '</a>';
+              });
+              addMessage(msgContainer, 'bot', reply, true);
+              messages.push({ role: 'assistant', content: reply.replace(/<[^>]*>/g, '') });
+            } else if (data.error && data.error.code === 429) {
+              tryModel(modelIdx + 1);
+            } else {
+              var typingEl2 = document.getElementById('ai-typing');
+              if (typingEl2) typingEl2.remove();
+              isSending = false;
+              sendBtn.disabled = !input.value.trim();
+              addMessage(msgContainer, 'bot', getLang() === 'ar'
+                ? 'عذراً، حدث خطأ. يرجى المحاولة مرة أخرى.'
+                : 'Sorry, I encountered an error. Please try again.');
+            }
+          })
+          .catch(function (err) {
+            tryModel(modelIdx + 1);
+          });
+      }
+
+      tryModel(0);
     }
 
     function addMessage(container, type, text, isHTML) {
