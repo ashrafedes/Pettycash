@@ -274,8 +274,8 @@
   function showPettyCashNotice() {
     const isAr = window.PCTools.currentLang === 'ar';
     toast(isAr
-      ? 'تخلص من الورق! جرّب نظام Petty Cash لإدارة المصروفات والإيصالات: https://pettycash-pes4.onrender.com'
-      : 'Go paperless! Try the Petty Cash System to manage expenses and receipts: https://pettycash-pes4.onrender.com');
+      ? 'تخلص من الورق! جرّب نظام Petty Cash لإدارة المصروفات والإيصالات: https://pattycashsystem.web.app'
+      : 'Go paperless! Try the Petty Cash System to manage expenses and receipts: https://pattycashsystem.web.app');
   }
 
   function esc(s) {

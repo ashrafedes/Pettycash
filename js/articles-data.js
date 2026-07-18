@@ -15626,7 +15626,7 @@ export const articles = [
       "en": {
         "title": "How to Install Petty Cash as a Mobile App on Android",
         "summary": "Install Petty Cash directly from Chrome. No App Store needed.",
-        "content": "## What is a PWA?\n\nA website installable like a native app.\n\n## How to Install on Android\n\n1. Open Chrome\n2. Visit pettycash-pes4.onrender.com\n3. Tap 3-dot menu\n4. Tap Add to Home Screen\n5. Tap Add\n\n## Benefits\n\n- Works offline\n- Push notifications\n- No Play Store needed",
+        "content": "## What is a PWA?\n\nA website installable like a native app.\n\n## How to Install on Android\n\n1. Open Chrome\n2. Visit pattycashsystem.web.app\n3. Tap 3-dot menu\n4. Tap Add to Home Screen\n5. Tap Add\n\n## Benefits\n\n- Works offline\n- Push notifications\n- No Play Store needed",
         "metaTitle": "How to Install Petty Cash as a Mobile App on Android",
         "metaDescription": "Install Petty Cash directly from Chrome. No App Store needed.",
         "keywords": [
@@ -15645,7 +15645,7 @@ export const articles = [
       "ar": {
         "title": "كيفية تثبيت صندوق العهدة كتطبيق أندرويد",
         "summary": "ثبّت صندوق العهدة من Chrome مباشرةً. لا حاجة لمتجر التطبيقات.",
-        "content": "## كيفية التثبيت على أندرويد\n\n1. افتح Chrome\n2. زر pettycash-pes4.onrender.com\n3. اضغط القائمة\n4. أضف إلى الشاشة الرئيسية",
+        "content": "## كيفية التثبيت على أندرويد\n\n1. افتح Chrome\n2. زر pattycashsystem.web.app\n3. اضغط القائمة\n4. أضف إلى الشاشة الرئيسية",
         "metaTitle": "كيفية تثبيت صندوق العهدة كتطبيق أندرويد | صندوق العهدة",
         "metaDescription": "ثبّت صندوق العهدة من Chrome مباشرةً. لا حاجة لمتجر التطبيقات.",
         "keywords": [
@@ -15811,7 +15811,7 @@ export const articles = [
       "en": {
         "title": "How Employees Submit Expenses from Their Phone",
         "summary": "Step-by-step guide for submitting petty cash expenses using the Petty Cash app.",
-        "content": "## Step 1: Open the App\n\nVisit pettycash-pes4.onrender.com in Chrome.\n\n## Step 2: Tap Submit Expense\n\nGo to the Submit tab.\n\n## Step 3: Fill the Form\n\n- Enter amount\n- Write description\n- Take receipt photo\n\n## Step 4: Submit\n\nManager gets notified to approve.",
+        "content": "## Step 1: Open the App\n\nVisit pattycashsystem.web.app in Chrome.\n\n## Step 2: Tap Submit Expense\n\nGo to the Submit tab.\n\n## Step 3: Fill the Form\n\n- Enter amount\n- Write description\n- Take receipt photo\n\n## Step 4: Submit\n\nManager gets notified to approve.",
         "metaTitle": "How Employees Submit Expenses from Their Phone | Petty Cash",
         "metaDescription": "Step-by-step guide for submitting petty cash expenses using the Petty Cash app.",
         "keywords": [

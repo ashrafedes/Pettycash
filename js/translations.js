@@ -76,7 +76,7 @@ const TRANSLATIONS = {
       "faq": {
         "title": "Frequently Asked Questions",
         "getStarted": "How do I start using the system?",
-        "getStartedAnswer": "1. Register at: https://pettycash-pes4.onrender.com\n2. Create a new company account\n3. Add your employees\n4. Start adding balances and managing expenses",
+        "getStartedAnswer": "1. Register at: https://pattycashsystem.web.app\n2. Create a new company account\n3. Add your employees\n4. Start adding balances and managing expenses",
         "free": "Is the system free?",
         "freeAnswer": "Yes! There's a Free plan that supports up to 3 employees at no cost. For larger companies, there are paid plans at competitive prices.",
         "submitExpense": "How can an employee submit an expense?",
@@ -558,7 +558,7 @@ const TRANSLATIONS = {
       "faq": {
         "title": "الأسئلة الشائعة",
         "getStarted": "كيف أبدأ باستخدام النظام؟",
-        "getStartedAnswer": "1. قم بالتسجيل على الرابط: https://pettycash-pes4.onrender.com\n2. أنشئ حساب شركة جديدة\n3. أضف موظفيك للنظام\n4. ابدأ بإضافة الأرصدة وإدارة المصروفات",
+        "getStartedAnswer": "1. قم بالتسجيل على الرابط: https://pattycashsystem.web.app\n2. أنشئ حساب شركة جديدة\n3. أضف موظفيك للنظام\n4. ابدأ بإضافة الأرصدة وإدارة المصروفات",
         "free": "هل النظام مجاني؟",
         "freeAnswer": "نعم! هناك خطة مجانية (Free) تدعم حتى 3 موظفين بدون أي تكلفة. للشركات الأكبر، هناك خطط مدفوعة بأسعار منافسة.",
         "submitExpense": "كيف يمكن للموظف تقديم مصروف؟",

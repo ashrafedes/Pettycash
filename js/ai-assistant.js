@@ -13,7 +13,7 @@
     'google/gemma-4-31b-it:free',
     'nousresearch/hermes-3-llama-3.1-405b:free'
   ];
-  var REGISTER_URL = 'https://pettycash-pes4.onrender.com/register';
+  var REGISTER_URL = 'https://pattycashsystem.web.app/register';
 
   var I18N = {
     en: {

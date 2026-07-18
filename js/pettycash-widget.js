@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var REGISTER_URL = 'https://pettycash-pes4.onrender.com/register';
+  var REGISTER_URL = 'https://pattycashsystem.web.app/register';
   var WIDGET_KEY = 'pc_widget_state';
   var TRACK_KEY = 'pc_widget_tracking';
 
