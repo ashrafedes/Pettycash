@@ -170,6 +170,7 @@
             PDFTools.showProgress(document.getElementById('progress-area'),10+Math.round((i/pdf.numPages)*80));
           }
           htmlParts.push('<script defer src="../js/pettycash-widget.js"></script>
+<script defer src="../js/ai-assistant.js"></script>
 </body></html>');
           const docHtml=htmlParts.join('\n');
           resultBlob=new Blob(['\ufeff'+docHtml],{type:'application/msword'});
@@ -183,5 +184,6 @@
   </script>
   
 <script defer src="../js/pettycash-widget.js"></script>
+<script defer src="../js/ai-assistant.js"></script>
 </body>
 </html>
