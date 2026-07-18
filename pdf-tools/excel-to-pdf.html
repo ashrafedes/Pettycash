@@ -32,6 +32,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/tailwind.min.css">
   <link rel="stylesheet" href="./css/pdf-tools.css">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xof0loht8l");
+</script>
 </head>
 <body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
   <nav id="pdftool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
@@ -143,7 +150,14 @@
             iframe.style.cssText='position:fixed;left:-9999px;top:0;width:'+(pageW-margin*2)+'px;border:none;background:#fff';
             document.body.appendChild(iframe);
             const idoc=iframe.contentDocument;
-            idoc.open(); idoc.write('<html><head><style>body{font-family:Inter,Arial,sans-serif;margin:0;padding:0}</style></head><body>'+fullHTML+'</body></html>'); idoc.close();
+            idoc.open(); idoc.write('<html><head><style>body{font-family:Inter,Arial,sans-serif;margin:0;padding:0}</style><script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xof0loht8l");
+</script>
+</head><body>'+fullHTML+'</body></html>'); idoc.close();
             await new Promise(r=>setTimeout(r,200));
             const contentH=idoc.body.scrollHeight;
             const pCH=pageH-margin*2;
