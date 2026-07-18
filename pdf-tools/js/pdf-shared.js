@@ -168,6 +168,7 @@
     a.download = filename;
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
+    window.dispatchEvent(new CustomEvent('tool:complete'));
   }
 
   // ===================== Toast =====================

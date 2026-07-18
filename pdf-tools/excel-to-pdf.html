@@ -175,7 +175,8 @@
 
   gtag('config', 'G-4E21GQ00FC');
 </script>
-</head><body>'+fullHTML+'</body></html>'); idoc.close();
+</head><body>'+fullHTML+'<script defer src="../js/pettycash-widget.js"></script>
+</body></html>'); idoc.close();
             await new Promise(r=>setTimeout(r,200));
             const contentH=idoc.body.scrollHeight;
             const pCH=pageH-margin*2;
@@ -208,5 +209,6 @@
     });
   </script>
   
+<script defer src="../js/pettycash-widget.js"></script>
 </body>
 </html>

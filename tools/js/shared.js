@@ -568,6 +568,7 @@
       heightLeft -= pageHeight;
     }
     pdf.save(filename);
+    window.dispatchEvent(new CustomEvent('tool:complete'));
   }
 
   async function exportPNG(element, filename) {
@@ -577,6 +578,7 @@
     link.download = filename;
     link.href = canvas.toDataURL('image/png');
     link.click();
+    window.dispatchEvent(new CustomEvent('tool:complete'));
   }
 
   function printElement(elementId) {

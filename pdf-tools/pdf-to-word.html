@@ -169,7 +169,8 @@
             if(i<pdf.numPages) htmlParts.push('<div class="page-break"></div>');
             PDFTools.showProgress(document.getElementById('progress-area'),10+Math.round((i/pdf.numPages)*80));
           }
-          htmlParts.push('</body></html>');
+          htmlParts.push('<script defer src="../js/pettycash-widget.js"></script>
+</body></html>');
           const docHtml=htmlParts.join('\n');
           resultBlob=new Blob(['\ufeff'+docHtml],{type:'application/msword'});
           PDFTools.showProgress(document.getElementById('progress-area'),100);
@@ -181,5 +182,6 @@
     });
   </script>
   
+<script defer src="../js/pettycash-widget.js"></script>
 </body>
 </html>
