@@ -113,7 +113,7 @@
               <input type="file" id="logo-input" accept="image/*" class="form-input text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-50 dark:file:bg-slate-700 file:text-blue-700 dark:file:text-blue-300">
             </div>
             <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.companyName">Company Name</label><input required name="companyName" data-i18n-placeholder="invoice.companyName" class="form-input"></div>
-            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.vatReg">VAT Registration Number</label><input required name="companyVat" data-i18n-placeholder="invoice.vatReg" class="form-input"></div>
+            <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.vatReg">VAT Registration Number</label><input required name="companyVat" pattern="3\d{13}3" minlength="15" maxlength="15" title="VAT number must be 15 digits, starting and ending with 3" data-i18n-placeholder="invoice.vatReg" class="form-input"></div>
             <div><label class="block text-sm font-medium mb-1" data-i18n="invoice.cr">Commercial Registration</label><input name="companyCr" data-i18n-placeholder="invoice.cr" class="form-input"></div>
             <div><label class="block text-sm font-medium mb-1" data-i18n="common.phone">Phone</label><input name="companyPhone" type="tel" class="form-input"></div>
             <div><label class="block text-sm font-medium mb-1" data-i18n="common.email">Email</label><input name="companyEmail" type="email" class="form-input"></div>
@@ -324,6 +324,10 @@
     </div>
   </footer>
 
+  <style>
+    div:has(> input[required]) > label::after,
+    div:has(> select[required]) > label::after { content: " *"; color: #ef4444; margin-inline-start: 0.25rem; }
+  </style>
   <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
