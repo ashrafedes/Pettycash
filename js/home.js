@@ -372,18 +372,202 @@ function initYouTubeFacade() {
   });
 }
 
+function initROICalculator() {
+  const section = document.getElementById('roi-calculator-section');
+  if (!section) return;
+  const data = t('roi');
+  section.querySelector('[data-i18n="roi.title"]').textContent = data.title;
+  section.querySelector('[data-i18n="roi.subtitle"]').textContent = data.subtitle;
+  section.querySelector('[data-i18n="roi.inputsTitle"]').textContent = data.inputsTitle;
+  section.querySelector('[data-i18n="roi.employees"]').textContent = data.employees;
+  section.querySelector('[data-i18n="roi.transactions"]').textContent = data.transactions;
+  section.querySelector('[data-i18n="roi.hoursWeek"]').textContent = data.hoursWeek;
+  section.querySelector('[data-i18n="roi.hourlyRate"]').textContent = data.hourlyRate;
+  section.querySelector('[data-i18n="roi.resultsTitle"]').textContent = data.resultsTitle;
+  section.querySelector('[data-i18n="roi.hoursSaved"]').textContent = data.hoursSaved;
+  section.querySelector('[data-i18n="roi.monthlySavings"]').textContent = data.monthlySavings;
+  section.querySelector('[data-i18n="roi.annualSavings"]').textContent = data.annualSavings;
+  section.querySelector('[data-i18n="roi.errorReduction"]').textContent = data.errorReduction;
+  section.querySelector('[data-i18n="roi.cta"]').textContent = data.cta;
+
+  const empInput = document.getElementById('roi-employees');
+  const txnInput = document.getElementById('roi-transactions');
+  const hoursInput = document.getElementById('roi-hours');
+  const rateInput = document.getElementById('roi-rate');
+  const empVal = document.getElementById('roi-employees-val');
+  const txnVal = document.getElementById('roi-transactions-val');
+  const hoursVal = document.getElementById('roi-hours-val');
+  const rateVal = document.getElementById('roi-rate-val');
+  const hoursSavedEl = document.getElementById('roi-hours-saved');
+  const monthlyEl = document.getElementById('roi-monthly-savings');
+  const annualEl = document.getElementById('roi-annual-savings');
+  const errorEl = document.getElementById('roi-error-reduction');
+  const lang = getLang();
+  const currency = lang === 'ar' ? 'ريال' : 'SAR';
+
+  function calculate() {
+    const emp = parseInt(empInput.value, 10);
+    const txn = parseInt(txnInput.value, 10);
+    const hoursWeek = parseInt(hoursInput.value, 10);
+    const rate = parseInt(rateInput.value, 10);
+
+    empVal.textContent = emp;
+    txnVal.textContent = txn;
+    hoursVal.textContent = hoursWeek + 'h';
+    rateVal.textContent = currency + ' ' + rate;
+
+    // PettyCash saves ~75% of manual expense admin time
+    const hoursSavedWeek = Math.round(hoursWeek * 0.75);
+    const hoursSavedMonth = hoursSavedWeek * 4.33;
+    const monthlySavings = Math.round(hoursSavedMonth * rate);
+    const annualSavings = monthlySavings * 12;
+    // Error reduction: more transactions = more error exposure, PettyCash eliminates ~95%
+    const errorReduction = 95;
+
+    hoursSavedEl.textContent = Math.round(hoursSavedMonth) + 'h';
+    monthlyEl.textContent = currency + ' ' + monthlySavings.toLocaleString(lang);
+    annualEl.textContent = currency + ' ' + annualSavings.toLocaleString(lang);
+    errorEl.textContent = errorReduction + '%';
+  }
+
+  [empInput, txnInput, hoursInput, rateInput].forEach(input => {
+    input.addEventListener('input', calculate);
+  });
+  calculate();
+}
+
+function renderSocialProof() {
+  const section = document.getElementById('social-proof-section');
+  if (!section) return;
+  const data = t('socialProof');
+  section.querySelector('[data-i18n="socialProof.title"]').textContent = data.title;
+  section.querySelector('[data-i18n="socialProof.subtitle"]').textContent = data.subtitle;
+
+  const statsGrid = section.querySelector('#social-proof-stats');
+  statsGrid.innerHTML = data.stats.map(stat => `
+    <div class="text-center">
+      <div class="text-3xl sm:text-4xl font-extrabold text-blue-600">${stat.value}</div>
+      <div class="text-sm text-slate-500 mt-1">${stat.label}</div>
+    </div>
+  `).join('');
+
+  const starSvg = `<svg class="text-yellow-400" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
+  const testimonialsGrid = section.querySelector('#social-proof-testimonials');
+  testimonialsGrid.innerHTML = data.testimonials.map(tm => `
+    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+      <div class="flex gap-1 mb-3">${starSvg.repeat(tm.rating)}</div>
+      <p class="text-slate-700 text-sm leading-relaxed mb-4">"${tm.text}"</p>
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-sm">${tm.name.charAt(0)}</div>
+        <div>
+          <p class="font-semibold text-slate-900 text-sm">${tm.name}</p>
+          <p class="text-xs text-slate-500">${tm.role}</p>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderTemplatesTeaser() {
+  const section = document.getElementById('templates-teaser-section');
+  if (!section) return;
+  const data = t('templatesTeaser');
+  section.querySelector('[data-i18n="templatesTeaser.title"]').textContent = data.title;
+  section.querySelector('[data-i18n="templatesTeaser.subtitle"]').textContent = data.subtitle;
+  section.querySelector('[data-i18n="templatesTeaser.viewAll"]').textContent = data.viewAll;
+
+  const icons = {
+    FileSpreadsheet: `<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>`,
+    Receipt: `<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>`,
+    FileText: `<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>`,
+    CheckCircle: `<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>`
+  };
+  const grid = section.querySelector('#templates-teaser-grid');
+  grid.innerHTML = data.items.map(item => `
+    <div class="bg-gradient-to-br from-slate-50 to-blue-50 border border-slate-200 rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all">
+      <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-3 shadow-sm"><svg class="text-blue-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icons[item.icon] || ""}</svg></div>
+      <h3 class="font-bold text-slate-900 text-sm mb-1">${item.title}</h3>
+      <p class="text-xs text-slate-500 leading-relaxed">${item.desc}</p>
+    </div>
+  `).join('');
+}
+
+function renderAITeaser() {
+  const section = document.getElementById('ai-teaser-section');
+  if (!section) return;
+  const data = t('aiTeaser');
+  section.querySelector('[data-i18n="aiTeaser.badge"]').textContent = data.badge;
+  section.querySelector('[data-i18n="aiTeaser.title"]').textContent = data.title;
+  section.querySelector('[data-i18n="aiTeaser.subtitle"]').textContent = data.subtitle;
+  section.querySelector('[data-i18n="aiTeaser.cta"]').textContent = data.cta;
+
+  const icons = {
+    Brain: `<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"></path>`,
+    Receipt: `<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>`,
+    FileText: `<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>`
+  };
+  const grid = section.querySelector('#ai-teaser-grid');
+  grid.innerHTML = data.items.map(item => `
+    <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 text-center">
+      <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-3 mx-auto"><svg class="text-white" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icons[item.icon] || ""}</svg></div>
+      <h3 class="font-bold text-white mb-2">${item.title}</h3>
+      <p class="text-sm text-purple-100 leading-relaxed">${item.desc}</p>
+    </div>
+  `).join('');
+}
+
+function renderPricingPreview() {
+  const section = document.getElementById('pricing-preview-section');
+  if (!section) return;
+  const data = t('pricing');
+  section.querySelector('[data-i18n="pricing.title"]').textContent = data.title;
+  section.querySelector('[data-i18n="pricing.subtitle"]').textContent = data.subtitle;
+  section.querySelector('[data-i18n="pricing.viewAll"]').textContent = data.viewAll;
+
+  const noteEl = document.getElementById('pricing-preview-note');
+  if (noteEl) noteEl.textContent = data.note;
+
+  const grid = section.querySelector('#pricing-preview-grid');
+  grid.innerHTML = data.plans.map(plan => `
+    <div class="border ${plan.highlight ? 'border-blue-500 border-2 shadow-lg' : 'border-slate-200'} rounded-2xl p-6 ${plan.highlight ? 'relative' : ''}">
+      ${plan.badge ? `<span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">${plan.badge}</span>` : ''}
+      <h3 class="font-bold text-lg text-slate-900 mb-1">${plan.name}</h3>
+      <div class="mb-4">
+        <span class="text-3xl font-extrabold text-slate-900">${plan.price}</span>
+        <span class="text-sm text-slate-500"> / ${plan.period}</span>
+      </div>
+      <ul class="space-y-2 mb-6">
+        ${plan.features.map(f => `<li class="flex items-start gap-2 text-sm text-slate-600"><svg class="text-green-500 shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>${f}</li>`).join('')}
+      </ul>
+      <a href="${APP_URL}/register" class="block text-center w-full py-2.5 rounded-xl font-semibold text-sm transition-colors ${plan.highlight ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}">${plan.cta}</a>
+    </div>
+  `).join('');
+}
+
+function updateComparisonViewAll() {
+  const section = document.getElementById('comparison-section');
+  if (!section) return;
+  const viewAllEl = section.querySelector('[data-i18n="comparison.viewAll"]');
+  if (viewAllEl) {
+    const data = t('comparison');
+    viewAllEl.textContent = data.viewAll;
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initYouTubeFacade();
   renderStats();
   renderProblems();
-  renderSolutions();
-  renderFeatures();
-  renderWhyUs();
-  renderComparison();
+  initROICalculator();
   renderHowItWorks();
-  renderBenefits();
-  renderFAQ();
+  renderSocialProof();
   renderToolsShowcase();
+  renderTemplatesTeaser();
+  renderAITeaser();
+  renderComparison();
+  updateComparisonViewAll();
+  renderPricingPreview();
+  renderFAQ();
   renderCTA();
   renderVisitorCounter();
   // Lazy-load the latest articles section only when it approaches the viewport.

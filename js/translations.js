@@ -479,6 +479,79 @@ const TRANSLATIONS = {
     "video": {
       "title": "Watch How It Works",
       "subtitle": "See Petty Cash in action in this quick video."
+    },
+    "roi": {
+      "title": "How Much Could You Save?",
+      "subtitle": "Drag the sliders to see your potential savings with PettyCash.",
+      "inputsTitle": "Your Current Setup",
+      "employees": "Number of Employees",
+      "transactions": "Monthly Expense Transactions",
+      "hoursWeek": "Hours Spent on Expense Admin Per Week",
+      "hourlyRate": "Average Hourly Cost (SAR)",
+      "resultsTitle": "Your Estimated Savings",
+      "hoursSaved": "Hours Saved Per Month",
+      "monthlySavings": "Monthly Cost Savings",
+      "annualSavings": "Annual Savings",
+      "errorReduction": "Error Reduction Rate",
+      "cta": "Start Saving Now"
+    },
+    "socialProof": {
+      "title": "Trusted by Modern Teams",
+      "subtitle": "Join businesses across Saudi Arabia and beyond who switched to PettyCash.",
+      "stats": [
+        { "value": "500+", "label": "Active Users" },
+        { "value": "50K+", "label": "Expenses Tracked" },
+        { "value": "99.9%", "label": "Uptime" },
+        { "value": "4.8/5", "label": "User Rating" }
+      ],
+      "testimonials": [
+        {
+          "name": "Ahmed Al-Qahtani",
+          "role": "Finance Manager, Riyadh",
+          "text": "PettyCash cut our expense processing time by 80%. Approvals that took days now take seconds.",
+          "rating": 5
+        },
+        {
+          "name": "Sara Al-Otaibi",
+          "role": "Operations Director, Jeddah",
+          "text": "Finally, no more lost receipts. Everything is tracked and reportable in real time.",
+          "rating": 5
+        },
+        {
+          "name": "Khalid Al-Shehri",
+          "role": "Small Business Owner, Dammam",
+          "text": "The free plan is perfect for my team of 5. Setup took 2 minutes and we never looked back.",
+          "rating": 5
+        }
+      ]
+    },
+    "templatesTeaser": {
+      "title": "Free Templates & Downloads",
+      "subtitle": "Professional templates for petty cash, expense tracking, and financial reporting — all free.",
+      "viewAll": "Browse All Templates",
+      "items": [
+        { "icon": "FileSpreadsheet", "title": "Petty Cash Excel Template", "desc": "Track balances and expenses in Excel." },
+        { "icon": "Receipt", "title": "Expense Approval Form", "desc": "Standard approval form template." },
+        { "icon": "FileText", "title": "Petty Cash Policy PDF", "desc": "Ready-to-use policy document." },
+        { "icon": "CheckCircle", "title": "Internal Audit Checklist", "desc": "Ensure compliance with this checklist." }
+      ]
+    },
+    "aiTeaser": {
+      "badge": "AI-Powered",
+      "title": "Meet Your AI Finance Assistant",
+      "subtitle": "Smart insights, automatic categorization, and instant answers about your expenses — powered by AI.",
+      "cta": "Explore AI Features",
+      "items": [
+        { "icon": "Brain", "title": "Expense Analyzer", "desc": "AI categorizes and analyzes spending patterns automatically." },
+        { "icon": "Receipt", "title": "Receipt Scanner", "desc": "Extract data from receipts with AI-powered OCR." },
+        { "icon": "FileText", "title": "Policy Generator", "desc": "Generate custom expense policies with AI in seconds." }
+      ]
+    },
+    "comparison": {
+      "viewAll": "See All Comparisons"
+    },
+    "pricing": {
+      "viewAll": "Compare All Plans"
     }
   },
   "ar": {
@@ -961,6 +1034,79 @@ const TRANSLATIONS = {
     "video": {
       "title": "شاهد كيف يعمل",
       "subtitle": "شاهد صندوق العهدة أثناء العمل في هذا الفيديو القصير."
+    },
+    "roi": {
+      "title": "كم يمكنك أن توفر؟",
+      "subtitle": "حرّك الأشرطة لمعرفة مدى توفيرك المحتمل مع PettyCash.",
+      "inputsTitle": "إعداداتك الحالية",
+      "employees": "عدد الموظفين",
+      "transactions": "المعاملات الشهرية للمصروفات",
+      "hoursWeek": "الساعات الأسبوعية لإدارة المصروفات",
+      "hourlyRate": "متوسط تكلفة الساعة (ريال)",
+      "resultsTitle": "توفيرك المقدّر",
+      "hoursSaved": "الساعات الموفّرة شهرياً",
+      "monthlySavings": "التوفير الشهري",
+      "annualSavings": "التوفير السنوي",
+      "errorReduction": "نسبة تقليل الأخطاء",
+      "cta": "ابدأ التوفير الآن"
+    },
+    "socialProof": {
+      "title": "موثوق من فرق حديثة",
+      "subtitle": "انضم إلى شركات في جميع أنحاء السعودية وخارجها انتقلت إلى PettyCash.",
+      "stats": [
+        { "value": "+500", "label": "مستخدم نشط" },
+        { "value": "+50K", "label": "مصروف متتبع" },
+        { "value": "99.9%", "label": "وقت التشغيل" },
+        { "value": "4.8/5", "label": "تقييم المستخدمين" }
+      ],
+      "testimonials": [
+        {
+          "name": "أحمد القحطاني",
+          "role": "مدير مالي، الرياض",
+          "text": "PettyCash قلّصت وقت معالجة المصروفات بنسبة 80%. الموافقات التي كانت تستغرق أياماً أصبحت تستغرق ثوانٍ.",
+          "rating": 5
+        },
+        {
+          "name": "سارة العتيبي",
+          "role": "مديرة العمليات، جدة",
+          "text": "أخيراً، لا مزيد من الفواتير المفقودة. كل شيء متتبع وقابل للتقرير في الوقت الفعلي.",
+          "rating": 5
+        },
+        {
+          "name": "خالد الشهري",
+          "role": "صاحب شركة صغيرة، الدمام",
+          "text": "الخطة المجانية مثالية لفريقي المكون من 5 أشخاص. الإعداد استغرق دقيقتين ولم ننظر للوراء منذ ذلك الحين.",
+          "rating": 5
+        }
+      ]
+    },
+    "templatesTeaser": {
+      "title": "قوالب وتنزيلات مجانية",
+      "subtitle": "قوالب احترافية للعهدة وتتبع المصروفات والتقارير المالية — كلها مجانية.",
+      "viewAll": "تصفّح جميع القوالب",
+      "items": [
+        { "icon": "FileSpreadsheet", "title": "قالب العهدة Excel", "desc": "تتبع الأرصدة والمصروفات في Excel." },
+        { "icon": "Receipt", "title": "نموذج موافقة المصروفات", "desc": "نموذج موافقة قياسي." },
+        { "icon": "FileText", "title": "سياسة العهدة PDF", "desc": "وثيقة سياسة جاهزة للاستخدام." },
+        { "icon": "CheckCircle", "title": "قائمة التدقيق الداخلي", "desc": "تأكد من الامتثال مع هذه القائمة." }
+      ]
+    },
+    "aiTeaser": {
+      "badge": "مدعوم بالذكاء الاصطناعي",
+      "title": "تعرّف على مساعدك المالي الذكي",
+      "subtitle": "رؤى ذكية، تصنيف تلقائي، وإجابات فورية عن مصروفاتك — مدعوم بالذكاء الاصطناعي.",
+      "cta": "استكشف ميزات الذكاء الاصطناعي",
+      "items": [
+        { "icon": "Brain", "title": "محلل المصروفات", "desc": "الذكاء الاصطناعي يصنّف ويحلل أنماط الإنفاق تلقائياً." },
+        { "icon": "Receipt", "title": "ماسح الفواتير", "desc": "استخراج البيانات من الفواتير باستخدام OCR الذكي." },
+        { "icon": "FileText", "title": "مولّد السياسات", "desc": "أنشئ سياسات مصروفات مخصصة بالذكاء الاصطناعي في ثوانٍ." }
+      ]
+    },
+    "comparison": {
+      "viewAll": "عرض جميع المقارنات"
+    },
+    "pricing": {
+      "viewAll": "قارن جميع الخطط"
     }
   }
 };
