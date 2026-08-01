@@ -63,7 +63,8 @@ function renderNavbar() {
     { href: './pricing.html', label: t('nav.pricing') },
     { label: t('nav.tools'), children: [
       { href: './tools/', label: t('nav.businessTools') },
-      { href: './pdf-tools/', label: t('nav.pdfTools') }
+      { href: './pdf-tools/', label: t('nav.pdfTools') },
+      { href: './templates/', label: 'Templates' }
     ]},
     { href: './blog.html', label: t('nav.blog') },
     { href: './help.html', label: t('nav.help') },

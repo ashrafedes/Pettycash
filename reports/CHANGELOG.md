@@ -4,6 +4,40 @@ All stage changes are documented here in reverse chronological order.
 
 ---
 
+## Stage 8 — Templates Library
+**Date:** 2026-08-01
+**Status:** ✅ Complete (Awaiting Approval)
+
+### What was done
+- Built templates library hub page with grid of 8 downloadable templates
+- Created 5 Excel/CSV templates: Petty Cash Excel, Expense Tracker, Cash Count Sheet, Receipt Register, Finance Dashboard
+- Created 3 PDF templates: Expense Approval Form, Petty Cash Policy, Internal Audit Checklist
+- Each template page includes email gate (Google Forms), live preview, tutorial, FAQ, schema, soft CTA
+- CSV templates include working Excel formulas (running balance, SUMIF, variance)
+- PDF templates generate professionally formatted documents via jsPDF
+- Email capture with localStorage persistence (user enters email once, all templates unlock)
+- Updated main site nav to include Templates link in Tools dropdown
+- Updated sitemap.xml with 9 new template page URLs
+
+### Files modified
+- `sitemap.xml` — Added 9 new template page URLs (hub + 8 templates)
+- `js/main.js` — Added "Templates" link to Tools dropdown in main site nav
+
+### Files created
+- `templates/js/templates.js` — Shared JS: nav, footer, email gate, CSV/PDF generation
+- `templates/index.html` — Templates hub page
+- `templates/petty-cash-excel-template.html`
+- `templates/expense-tracker-excel.html`
+- `templates/cash-count-sheet-template.html`
+- `templates/expense-approval-form.html`
+- `templates/receipt-register.html`
+- `templates/petty-cash-policy-pdf.html`
+- `templates/internal-audit-checklist.html`
+- `templates/finance-dashboard-excel.html`
+- `reports/STAGE_8_TEMPLATES_LIBRARY.md`
+
+---
+
 ## Stage 7 — PDF & Document Tools Expansion
 **Date:** 2026-08-01
 **Status:** ✅ Complete (Awaiting Approval)
