@@ -21,68 +21,7 @@
   status = 302
   force = false
 
-# Redirect old root HTML pages to /en/ versions
-[[redirects]]
-  from = "/index.html"
-  to = "/en/"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/features.html"
-  to = "/en/features.html"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/pricing.html"
-  to = "/en/pricing.html"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/about.html"
-  to = "/en/about.html"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/contact.html"
-  to = "/en/contact.html"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/blog.html"
-  to = "/en/blog.html"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/help.html"
-  to = "/en/help.html"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/privacy.html"
-  to = "/en/privacy.html"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/security.html"
-  to = "/en/security.html"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/compliance.html"
-  to = "/en/compliance.html"
-  status = 302
-  force = true
-
-# Redirect article.html to root (dynamic page with JS translations)
+# article.html - dynamic page, proxy to root
 [[redirects]]
   from = "/en/article.html"
   to = "/article.html"
@@ -94,6 +33,651 @@
   to = "/article.html"
   status = 200
   force = true
+
+# Redirect all root pages to /en/ versions
+[[redirects]]
+  from = "/about.html"
+  to = "/en/about.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/admin-new.html"
+  to = "/en/admin-new.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/admin.html"
+  to = "/en/admin.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/ai/expense-analyzer.html"
+  to = "/en/ai/expense-analyzer.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/ai/index.html"
+  to = "/en/ai/index.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/ai/policy-generator.html"
+  to = "/en/ai/policy-generator.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/ai/receipt-analyzer.html"
+  to = "/en/ai/receipt-analyzer.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/en/blog.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/changelog.html"
+  to = "/en/changelog.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/cleanup-articles.html"
+  to = "/en/cleanup-articles.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/compare/index.html"
+  to = "/en/compare/index.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/compare/petty-cash-vs-excel.html"
+  to = "/en/compare/petty-cash-vs-excel.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/compare/petty-cash-vs-expensify.html"
+  to = "/en/compare/petty-cash-vs-expensify.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/compare/petty-cash-vs-odoo.html"
+  to = "/en/compare/petty-cash-vs-odoo.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/compare/petty-cash-vs-sap-concur.html"
+  to = "/en/compare/petty-cash-vs-sap-concur.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/compare/petty-cash-vs-zoho-expense.html"
+  to = "/en/compare/petty-cash-vs-zoho-expense.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/compliance.html"
+  to = "/en/compliance.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/en/contact.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/features.html"
+  to = "/en/features.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/fix-missing-images.html"
+  to = "/en/fix-missing-images.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/help.html"
+  to = "/en/help.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/import-articles.html"
+  to = "/en/import-articles.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/en/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/industries/clinics.html"
+  to = "/en/industries/clinics.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/industries/construction.html"
+  to = "/en/industries/construction.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/industries/index.html"
+  to = "/en/industries/index.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/industries/manufacturing.html"
+  to = "/en/industries/manufacturing.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/industries/ngos.html"
+  to = "/en/industries/ngos.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/industries/restaurants.html"
+  to = "/en/industries/restaurants.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/industries/retail.html"
+  to = "/en/industries/retail.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/industries/schools.html"
+  to = "/en/industries/schools.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/industries/transportation.html"
+  to = "/en/industries/transportation.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/add-header-footer.html"
+  to = "/en/pdf-tools/add-header-footer.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/add-page-numbers.html"
+  to = "/en/pdf-tools/add-page-numbers.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/add-watermark.html"
+  to = "/en/pdf-tools/add-watermark.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/ai-summarize-pdf.html"
+  to = "/en/pdf-tools/ai-summarize-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/chat-with-pdf.html"
+  to = "/en/pdf-tools/chat-with-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/compress-pdf.html"
+  to = "/en/pdf-tools/compress-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/crop-pdf.html"
+  to = "/en/pdf-tools/crop-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/delete-blank-pages.html"
+  to = "/en/pdf-tools/delete-blank-pages.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/edit-pdf.html"
+  to = "/en/pdf-tools/edit-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/excel-to-pdf.html"
+  to = "/en/pdf-tools/excel-to-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/extract-images.html"
+  to = "/en/pdf-tools/extract-images.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/extract-pages.html"
+  to = "/en/pdf-tools/extract-pages.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/extract-tables.html"
+  to = "/en/pdf-tools/extract-tables.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/html-to-pdf.html"
+  to = "/en/pdf-tools/html-to-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/image-ocr.html"
+  to = "/en/pdf-tools/image-ocr.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/image-to-pdf.html"
+  to = "/en/pdf-tools/image-to-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/index.html"
+  to = "/en/pdf-tools/index.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/merge-pdf.html"
+  to = "/en/pdf-tools/merge-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/ocr-pdf.html"
+  to = "/en/pdf-tools/ocr-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/optimize-pdf.html"
+  to = "/en/pdf-tools/optimize-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/pdf-to-excel.html"
+  to = "/en/pdf-tools/pdf-to-excel.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/pdf-to-html.html"
+  to = "/en/pdf-tools/pdf-to-html.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/pdf-to-jpg.html"
+  to = "/en/pdf-tools/pdf-to-jpg.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/pdf-to-png.html"
+  to = "/en/pdf-tools/pdf-to-png.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/pdf-to-powerpoint.html"
+  to = "/en/pdf-tools/pdf-to-powerpoint.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/pdf-to-text.html"
+  to = "/en/pdf-tools/pdf-to-text.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/pdf-to-word.html"
+  to = "/en/pdf-tools/pdf-to-word.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/powerpoint-to-pdf.html"
+  to = "/en/pdf-tools/powerpoint-to-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/protect-pdf.html"
+  to = "/en/pdf-tools/protect-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/redact-pdf.html"
+  to = "/en/pdf-tools/redact-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/remove-pages.html"
+  to = "/en/pdf-tools/remove-pages.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/remove-watermark.html"
+  to = "/en/pdf-tools/remove-watermark.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/reorder-pages.html"
+  to = "/en/pdf-tools/reorder-pages.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/repair-pdf.html"
+  to = "/en/pdf-tools/repair-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/rotate-pdf.html"
+  to = "/en/pdf-tools/rotate-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/searchable-pdf.html"
+  to = "/en/pdf-tools/searchable-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/sign-pdf.html"
+  to = "/en/pdf-tools/sign-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/split-pdf.html"
+  to = "/en/pdf-tools/split-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/text-to-pdf.html"
+  to = "/en/pdf-tools/text-to-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/translate-pdf.html"
+  to = "/en/pdf-tools/translate-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/unlock-pdf.html"
+  to = "/en/pdf-tools/unlock-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/word-to-pdf.html"
+  to = "/en/pdf-tools/word-to-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pricing.html"
+  to = "/en/pricing.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/privacy.html"
+  to = "/en/privacy.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/roadmap.html"
+  to = "/en/roadmap.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/security.html"
+  to = "/en/security.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/status.html"
+  to = "/en/status.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/templates/cash-count-sheet-template.html"
+  to = "/en/templates/cash-count-sheet-template.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/templates/expense-approval-form.html"
+  to = "/en/templates/expense-approval-form.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/templates/expense-tracker-excel.html"
+  to = "/en/templates/expense-tracker-excel.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/templates/finance-dashboard-excel.html"
+  to = "/en/templates/finance-dashboard-excel.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/templates/index.html"
+  to = "/en/templates/index.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/templates/internal-audit-checklist.html"
+  to = "/en/templates/internal-audit-checklist.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/templates/petty-cash-excel-template.html"
+  to = "/en/templates/petty-cash-excel-template.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/templates/petty-cash-policy-pdf.html"
+  to = "/en/templates/petty-cash-policy-pdf.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/templates/receipt-register.html"
+  to = "/en/templates/receipt-register.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/approval-workflow-builder.html"
+  to = "/en/tools/approval-workflow-builder.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/budget-vs-actual-report.html"
+  to = "/en/tools/budget-vs-actual-report.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/cash-count-sheet.html"
+  to = "/en/tools/cash-count-sheet.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/expense-policy-generator.html"
+  to = "/en/tools/expense-policy-generator.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/expense-report-generator.html"
+  to = "/en/tools/expense-report-generator.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/expense-savings-calculator.html"
+  to = "/en/tools/expense-savings-calculator.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/index.html"
+  to = "/en/tools/index.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/internal-control-score-quiz.html"
+  to = "/en/tools/internal-control-score-quiz.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/petty-cash-limit-calculator.html"
+  to = "/en/tools/petty-cash-limit-calculator.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/petty-cash-voucher-generator.html"
+  to = "/en/tools/petty-cash-voucher-generator.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/receipt-generator.html"
+  to = "/en/tools/receipt-generator.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/saudi-invoice-generator.html"
+  to = "/en/tools/saudi-invoice-generator.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/vat-calculator.html"
+  to = "/en/tools/vat-calculator.html"
+  status = 302
+  force = true
+
+# Redirect root directories to /en/ versions
+[[redirects]]
+  from = "/ai/"
+  to = "/en/ai/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/compare/"
+  to = "/en/compare/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/industries/"
+  to = "/en/industries/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pdf-tools/"
+  to = "/en/pdf-tools/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/templates/"
+  to = "/en/templates/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/tools/"
+  to = "/en/tools/"
+  status = 302
+  force = true
+
 
 # Custom 404 page
 [[redirects]]
