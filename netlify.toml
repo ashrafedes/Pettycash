@@ -27,14 +27,41 @@
   status = 200
   force = true
 
+# 301 redirect old article URLs to new clean URLs
+[[redirects]]
+  from = "/article.html"
+  to = "/en/articles/:slug"
+  status = 301
+  force = true
+  query = {slug = ":slug"}
+
+[[redirects]]
+  from = "/en/article.html"
+  to = "/en/articles/:slug"
+  status = 301
+  force = true
+  query = {slug = ":slug"}
+
+[[redirects]]
+  from = "/ar/article.html"
+  to = "/ar/articles/:slug"
+  status = 301
+  force = true
+  query = {slug = ":slug"}
+
+# Redirect bare article.html to blog
+[[redirects]]
+  from = "/article.html"
+  to = "/en/blog.html"
+  status = 302
+  force = true
+
 # Redirect root to /en/ (default language)
 [[redirects]]
   from = "/"
   to = "/en/"
   status = 302
   force = false
-
-# Article URL redirects are in _redirects file for proper ordering
 
 # Redirect all root pages to /en/ versions
 [[redirects]]

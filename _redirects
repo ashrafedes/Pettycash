@@ -1,7 +1,0 @@
-# Old article URLs - 301 redirect to new clean URLs
-/article.html    /en/articles/:slug    301!    slug=:slug
-/en/article.html    /en/articles/:slug    301!    slug=:slug
-/ar/article.html    /ar/articles/:slug    301!    slug=:slug
-
-# Bare article.html redirect to blog
-/article.html    /en/blog.html    302!
