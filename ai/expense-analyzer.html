@@ -60,33 +60,234 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </section>
     <section class="py-12 max-w-4xl mx-auto px-4 sm:px-6">
+      <!-- Tool Widget -->
       <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8">
-        <h2 class="text-xl font-bold mb-4" data-i18n-en="Before / After Example" data-i18n-ar="مثال قبل / بعد">Before / After Example</h2>
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div class="bg-red-50 border border-red-200 rounded-xl p-5">
-            <h3 class="font-bold text-red-700 mb-3 text-sm">Before (Manual Review)</h3>
-            <p class="text-sm text-slate-600 mb-3">A finance manager receives a 200-row expense report at month-end. She spends 4 hours manually checking for:</p>
-            <p class="text-sm text-slate-600">Duplicate entries (same vendor, same amount, same date) — missed 3 duplicates worth 2,400 SAR. Missing receipt flags — overlooked 7 transactions without receipts. VAT errors — 2 entries had wrong VAT amounts. Fraud indicators — 1 employee submitted the same taxi receipt twice on different dates.</p>
-            <p class="text-sm font-semibold text-red-600 mt-3">Result: 4 hours, 13 issues missed</p>
+        <h2 class="text-xl font-bold mb-2" data-i18n-en="Upload Expense Report" data-i18n-ar="ارفع تقرير المصروفات">Upload Expense Report</h2>
+        <p class="text-sm text-slate-500 mb-4" data-i18n-en="CSV file with columns: date, vendor, amount, vat, receipt_no, receipt_attached" data-i18n-ar="ملف CSV بأعمدة: التاريخ، البائع، المبلغ، ضريبة القيمة المضافة، رقم الإيصال، إيصال مرفق">CSV file with columns: date, vendor, amount, vat, receipt_no, receipt_attached</p>
+
+        <div id="ea-drop-zone" class="border-2 border-dashed border-violet-300 rounded-xl p-8 text-center cursor-pointer hover:border-violet-500 transition-colors mb-4">
+          <div class="text-4xl mb-2">📄</div>
+          <p class="text-slate-600 font-medium" data-i18n-en="Drop CSV file here or click to browse" data-i18n-ar="أفلت ملف CSV هنا أو انقر للتصفح">Drop CSV file here or click to browse</p>
+          <p class="text-xs text-slate-400 mt-1" data-i18n-en="Or try with sample data" data-i18n-ar="أو جرب ببيانات تجريبية">Or try with sample data</p>
+          <input type="file" id="ea-file-input" accept=".csv" class="hidden">
+        </div>
+
+        <div class="flex gap-3 mb-4">
+          <button id="ea-sample-btn" class="px-4 py-2 text-sm font-medium bg-violet-100 text-violet-700 rounded-lg hover:bg-violet-200 transition-colors" data-i18n-en="Try Sample Data" data-i18n-ar="بيانات تجريبية">Try Sample Data</button>
+          <button id="ea-clear-btn" class="px-4 py-2 text-sm font-medium bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200 transition-colors hidden" data-i18n-en="Clear" data-i18n-ar="مسح">Clear</button>
+        </div>
+
+        <div id="ea-loading" class="hidden text-center py-8">
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-violet-600 mb-3"></div>
+          <p class="text-sm text-slate-600" data-i18n-en="Analyizing expenses..." data-i18n-ar="جاري تحليل المصروفات...">Analyzing expenses...</p>
+        </div>
+
+        <div id="ea-results" class="hidden">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+            <div class="bg-red-50 border border-red-200 rounded-lg p-3 text-center">
+              <div class="text-2xl font-bold text-red-600" id="ea-dup-count">0</div>
+              <div class="text-xs text-slate-600" data-i18n-en="Duplicates" data-i18n-ar="مكرر">Duplicates</div>
+            </div>
+            <div class="bg-orange-50 border border-orange-200 rounded-lg p-3 text-center">
+              <div class="text-2xl font-bold text-orange-600" id="ea-missing-count">0</div>
+              <div class="text-xs text-slate-600" data-i18n-en="Missing Receipts" data-i18n-ar="إيصالات مفقودة">Missing Receipts</div>
+            </div>
+            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 text-center">
+              <div class="text-2xl font-bold text-yellow-600" id="ea-vat-count">0</div>
+              <div class="text-xs text-slate-600" data-i18n-en="VAT Errors" data-i18n-ar="أخطاء ضريبة">VAT Errors</div>
+            </div>
+            <div class="bg-purple-50 border border-purple-200 rounded-lg p-3 text-center">
+              <div class="text-2xl font-bold text-purple-600" id="ea-fraud-count">0</div>
+              <div class="text-xs text-slate-600" data-i18n-en="Fraud Flags" data-i18n-ar="مؤشرات احتيال">Fraud Flags</div>
+            </div>
           </div>
-          <div class="bg-green-50 border border-green-200 rounded-xl p-5">
-            <h3 class="font-bold text-green-700 mb-3 text-sm">After (AI Analysis)</h3>
-            <p class="text-sm text-slate-600 mb-3">The same 200-row expense report is uploaded to the AI Expense Analyzer. In 30 seconds, the AI flags:</p>
-            <p class="text-sm text-slate-600">3 duplicate expenses (2,400 SAR) — same vendor, amount, and date. 7 missing receipt flags — transactions over 100 SAR without receipt. 2 VAT calculation errors — net amount used instead of gross. 1 fraud indicator — same receipt number on different dates from same vendor.</p>
-            <p class="text-sm font-semibold text-green-600 mt-3">Result: 30 seconds, 13 issues found, 0 missed</p>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-slate-200 text-slate-500">
+                  <th class="text-start py-2 px-2" data-i18n-en="Date" data-i18n-ar="التاريخ">Date</th>
+                  <th class="text-start py-2 px-2" data-i18n-en="Vendor" data-i18n-ar="البائع">Vendor</th>
+                  <th class="text-end py-2 px-2" data-i18n-en="Amount" data-i18n-ar="المبلغ">Amount</th>
+                  <th class="text-start py-2 px-2" data-i18n-en="Issues" data-i18n-ar="المشاكل">Issues</th>
+                </tr>
+              </thead>
+              <tbody id="ea-issues-table"></tbody>
+            </table>
           </div>
+
+          <button id="ea-download-btn" class="mt-4 px-4 py-2 text-sm font-medium bg-violet-600 text-white rounded-lg hover:bg-violet-700 transition-colors" data-i18n-en="Download Report (CSV)" data-i18n-ar="تحميل التقرير (CSV)">Download Report (CSV)</button>
         </div>
       </div>
-      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8">
-        <h2 class="text-xl font-bold mb-4" data-i18n-en="What the AI Detects" data-i18n-ar="ما يكتشفه الذكاء الاصطناعي">What the AI Detects</h2>
-        <div class="space-y-3 text-slate-600">
-          <div class="flex gap-3"><span class="text-violet-600 font-bold">•</span><p><strong>Duplicate expenses:</strong> Same vendor, amount, and date — even with slight description variations.</p></div>
-          <div class="flex gap-3"><span class="text-violet-600 font-bold">•</span><p><strong>Missing receipts:</strong> Transactions above a threshold without a linked receipt.</p></div>
-          <div class="flex gap-3"><span class="text-violet-600 font-bold">•</span><p><strong>VAT errors:</strong> Incorrect VAT calculation (e.g., VAT on gross instead of net, wrong rate applied).</p></div>
-          <div class="flex gap-3"><span class="text-violet-600 font-bold">•</span><p><strong>Fraud indicators:</strong> Same receipt number on different dates, round-amount patterns, weekend submissions, and vendor name mismatches.</p></div>
-          <div class="flex gap-3"><span class="text-violet-600 font-bold">•</span><p><strong>Policy violations:</strong> Expenses exceeding limits, unauthorized categories, or missing approvals.</p></div>
-        </div>
-      </div>
+
+      <script>
+      (function() {
+        const lang = document.documentElement.lang || 'en';
+        const isAr = lang === 'ar';
+
+        const SAMPLE_CSV = `date,vendor,amount,vat,receipt_no,receipt_attached
+2026-01-15,Al Baik Restaurant,45.50,5.93,R001,yes
+2026-01-15,Al Baik Restaurant,45.50,5.93,R001,yes
+2026-01-16,Tamimi Markets,120.00,15.00,R002,yes
+2026-01-17,Careem,35.00,4.55,,no
+2026-01-18,STC,200.00,30.00,R003,yes
+2026-01-19,Jarir Bookstore,350.00,45.65,R004,yes
+2026-01-20,Almarai,89.00,11.57,R005,yes
+2026-01-20,Almarai,89.00,11.57,R005,yes
+2026-01-21,Aramco,500.00,65.00,R006,yes
+2026-01-22,Kudu,25.00,3.26,,no
+2026-01-23,Pharmacy,75.00,10.00,R007,yes
+2026-01-24,Careem,35.00,4.55,R003,yes`;
+
+        function parseCSV(text) {
+          const lines = text.trim().split('\n');
+          const headers = lines[0].split(',').map(h => h.trim());
+          return lines.slice(1).map(line => {
+            const vals = line.split(',').map(v => v.trim());
+            const row = {};
+            headers.forEach((h, i) => row[h] = vals[i] || '');
+            return row;
+          });
+        }
+
+        function analyze(rows) {
+          const issues = [];
+          const dupMap = {};
+
+          rows.forEach((r, i) => {
+            const rowIssues = [];
+            const key = (r.vendor || '').toLowerCase() + '|' + (r.amount || '') + '|' + (r.date || '');
+
+            if (!dupMap[key]) dupMap[key] = [];
+            dupMap[key].push({ row: r, index: i });
+
+            if (!r.receipt_attached || r.receipt_attached === 'no' || r.receipt_attached === '') {
+              if (parseFloat(r.amount) > 50) rowIssues.push({ type: 'missing', text: isAr ? 'إيصال مفقود' : 'Missing receipt' });
+            }
+
+            const amount = parseFloat(r.amount) || 0;
+            const vat = parseFloat(r.vat) || 0;
+            const expectedVat = amount * 0.15;
+            if (Math.abs(vat - expectedVat) > 0.5) {
+              rowIssues.push({ type: 'vat', text: isAr ? 'خطأ ضريبة (' + vat + ' متوقع ' + expectedVat.toFixed(2) + ')' : 'VAT error (' + vat + ' expected ' + expectedVat.toFixed(2) + ')' });
+            }
+
+            issues.push({ row: r, index: i, issues: rowIssues });
+          });
+
+          Object.values(dupMap).forEach(group => {
+            if (group.length > 1) {
+              group.forEach(item => {
+                const issueEntry = issues.find(e => e.index === item.index);
+                if (issueEntry) issueEntry.issues.unshift({ type: 'dup', text: isAr ? 'مكرر (' + group.length + ' مرات)' : 'Duplicate (' + group.length + 'x)' });
+              });
+            }
+          });
+
+          const receiptMap = {};
+          rows.forEach((r, i) => {
+            if (r.receipt_no) {
+              if (!receiptMap[r.receipt_no]) receiptMap[r.receipt_no] = [];
+              receiptMap[r.receipt_no].push({ row: r, index: i, date: r.date });
+            }
+          });
+          Object.entries(receiptMap).forEach(([no, entries]) => {
+            if (entries.length > 1) {
+              const dates = entries.map(e => e.date);
+              if (new Set(dates).size > 1) {
+                entries.forEach(e => {
+                  const issueEntry = issues.find(x => x.index === e.index);
+                  if (issueEntry) issueEntry.issues.push({ type: 'fraud', text: isAr ? 'احتيال: رقم إيصال مكرر في تواريخ مختلفة' : 'Fraud: same receipt no. on different dates' });
+                });
+              }
+            }
+          });
+
+          return issues;
+        }
+
+        function renderResults(issues) {
+          const dupCount = issues.filter(i => i.issues.some(x => x.type === 'dup')).length;
+          const missingCount = issues.filter(i => i.issues.some(x => x.type === 'missing')).length;
+          const vatCount = issues.filter(i => i.issues.some(x => x.type === 'vat')).length;
+          const fraudCount = issues.filter(i => i.issues.some(x => x.type === 'fraud')).length;
+
+          document.getElementById('ea-dup-count').textContent = dupCount;
+          document.getElementById('ea-missing-count').textContent = missingCount;
+          document.getElementById('ea-vat-count').textContent = vatCount;
+          document.getElementById('ea-fraud-count').textContent = fraudCount;
+
+          const tbody = document.getElementById('ea-issues-table');
+          const flagged = issues.filter(i => i.issues.length > 0);
+          tbody.innerHTML = flagged.map(item => {
+            const badges = item.issues.map(iss => {
+              const colors = { dup: 'bg-red-100 text-red-700', missing: 'bg-orange-100 text-orange-700', vat: 'bg-yellow-100 text-yellow-700', fraud: 'bg-purple-100 text-purple-700' };
+              return '<span class="inline-block px-2 py-0.5 rounded text-xs font-medium ' + (colors[iss.type] || '') + ' mr-1">' + iss.text + '</span>';
+            }).join('');
+            return '<tr class="border-b border-slate-100"><td class="py-2 px-2 text-slate-600">' + (item.row.date || '') + '</td><td class="py-2 px-2 text-slate-600">' + (item.row.vendor || '') + '</td><td class="py-2 px-2 text-end font-medium text-slate-700">' + (item.row.amount || '') + '</td><td class="py-2 px-2">' + badges + '</td></tr>';
+          }).join('');
+
+          document.getElementById('ea-results').classList.remove('hidden');
+          document.getElementById('ea-loading').classList.add('hidden');
+          document.getElementById('ea-clear-btn').classList.remove('hidden');
+
+          window._eaIssues = issues;
+        }
+
+        function runAnalysis(csvText) {
+          document.getElementById('ea-drop-zone').classList.add('hidden');
+          document.getElementById('ea-loading').classList.remove('hidden');
+          document.getElementById('ea-results').classList.add('hidden');
+          setTimeout(() => {
+            const rows = parseCSV(csvText);
+            const issues = analyze(rows);
+            renderResults(issues);
+          }, 600);
+        }
+
+        const dropZone = document.getElementById('ea-drop-zone');
+        const fileInput = document.getElementById('ea-file-input');
+        dropZone.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = (ev) => runAnalysis(ev.target.result);
+          reader.readAsText(file);
+        });
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('border-violet-500', 'bg-violet-50'); });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('border-violet-500', 'bg-violet-50'));
+        dropZone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          dropZone.classList.remove('border-violet-500', 'bg-violet-50');
+          const file = e.dataTransfer.files[0];
+          if (file) { const reader = new FileReader(); reader.onload = (ev) => runAnalysis(ev.target.result); reader.readAsText(file); }
+        });
+
+        document.getElementById('ea-sample-btn').addEventListener('click', () => runAnalysis(SAMPLE_CSV));
+
+        document.getElementById('ea-clear-btn').addEventListener('click', () => {
+          document.getElementById('ea-results').classList.add('hidden');
+          document.getElementById('ea-drop-zone').classList.remove('hidden');
+          document.getElementById('ea-clear-btn').classList.add('hidden');
+          fileInput.value = '';
+          window._eaIssues = null;
+        });
+
+        document.getElementById('ea-download-btn').addEventListener('click', () => {
+          if (!window._eaIssues) return;
+          const flagged = window._eaIssues.filter(i => i.issues.length > 0);
+          const csv = 'date,vendor,amount,vat,receipt_no,issues\n' + flagged.map(i =>
+            i.row.date + ',' + i.row.vendor + ',' + i.row.amount + ',' + i.row.vat + ',' + (i.row.receipt_no || '') + ',"' + i.issues.map(x => x.text).join('; ') + '"'
+          ).join('\n');
+          const blob = new Blob([csv], { type: 'text/csv' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'expense-analysis-report.csv';
+          a.click();
+        });
+      })();
+      </script>
       <div class="mb-8">
         <h2 class="text-xl font-bold mb-4" data-i18n-en="FAQ" data-i18n-ar="الأسئلة الشائعة">FAQ</h2>
         <div class="space-y-3">

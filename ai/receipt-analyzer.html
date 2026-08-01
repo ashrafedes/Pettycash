@@ -60,34 +60,177 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </section>
     <section class="py-12 max-w-4xl mx-auto px-4 sm:px-6">
+      <!-- Tool Widget -->
       <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8">
-        <h2 class="text-xl font-bold mb-4" data-i18n-en="Before / After Example" data-i18n-ar="مثال قبل / بعد">Before / After Example</h2>
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div class="bg-red-50 border border-red-200 rounded-xl p-5">
-            <h3 class="font-bold text-red-700 mb-3 text-sm">Before (Manual Entry)</h3>
-            <p class="text-sm text-slate-600 mb-3">An employee takes a photo of a restaurant receipt. The finance team manually types:</p>
-            <p class="text-sm text-slate-600">Vendor: "Al Baik" (typed). Amount: 45.00 SAR (typed, but the actual was 45.50 — typo). Date: 15/06/2026 (guessed from photo). VAT: Not entered (forgot). Category: "Meals" (typed). Time: 2 minutes per receipt.</p>
-            <p class="text-sm font-semibold text-red-600 mt-3">Result: 2 min, 1 typo, VAT missing</p>
+        <h2 class="text-xl font-bold mb-2" data-i18n-en="Upload Receipt Image" data-i18n-ar="ارفع صورة الإيصال">Upload Receipt Image</h2>
+        <p class="text-sm text-slate-500 mb-4" data-i18n-en="JPG, PNG, or HEIC. All processing in your browser — no upload to server." data-i18n-ar="JPG أو PNG أو HEIC. كل المعالجة في متصفحك — لا رفع للخادم.">JPG, PNG, or HEIC. All processing in your browser — no upload to server.</p>
+
+        <div id="ra-drop-zone" class="border-2 border-dashed border-blue-300 rounded-xl p-8 text-center cursor-pointer hover:border-blue-500 transition-colors mb-4">
+          <div class="text-4xl mb-2">🧾</div>
+          <p class="text-slate-600 font-medium" data-i18n-en="Drop receipt image here or click to browse" data-i18n-ar="أفلت صورة الإيصال هنا أو انقر للتصفح">Drop receipt image here or click to browse</p>
+          <input type="file" id="ra-file-input" accept="image/*" class="hidden">
+        </div>
+
+        <div class="flex gap-3 mb-4">
+          <button id="ra-clear-btn" class="px-4 py-2 text-sm font-medium bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200 transition-colors hidden" data-i18n-en="Clear" data-i18n-ar="مسح">Clear</button>
+        </div>
+
+        <div id="ra-loading" class="hidden text-center py-8">
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mb-3"></div>
+          <p class="text-sm text-slate-600" data-i18n-en="Scanning receipt with OCR..." data-i18n-ar="جاري مسح الإيصال بالتعرف الضوئي...">Scanning receipt with OCR...</p>
+        </div>
+
+        <div id="ra-results" class="hidden">
+          <div class="grid sm:grid-cols-2 gap-4 mb-6">
+            <div id="ra-preview-wrap" class="rounded-xl overflow-hidden border border-slate-200">
+              <img id="ra-preview" class="w-full" alt="Receipt">
+            </div>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs font-semibold text-slate-500 uppercase" data-i18n-en="Vendor" data-i18n-ar="البائع">Vendor</label>
+                <p id="ra-vendor" class="text-sm font-medium text-slate-800">—</p>
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-slate-500 uppercase" data-i18n-en="Total Amount" data-i18n-ar="المبلغ الإجمالي">Total Amount</label>
+                <p id="ra-amount" class="text-sm font-medium text-slate-800">—</p>
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-slate-500 uppercase" data-i18n-en="VAT (15%)" data-i18n-ar="ضريبة القيمة (15%)">VAT (15%)</label>
+                <p id="ra-vat" class="text-sm font-medium text-slate-800">—</p>
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-slate-500 uppercase" data-i18n-en="Date" data-i18n-ar="التاريخ">Date</label>
+                <p id="ra-date" class="text-sm font-medium text-slate-800">—</p>
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-slate-500 uppercase" data-i18n-en="Receipt Number" data-i18n-ar="رقم الإيصال">Receipt Number</label>
+                <p id="ra-receipt-no" class="text-sm font-medium text-slate-800">—</p>
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-slate-500 uppercase" data-i18n-en="Suspicious Flags" data-i18n-ar="مؤشرات مشبوهة">Suspicious Flags</label>
+                <p id="ra-flags" class="text-sm font-medium text-slate-800">—</p>
+              </div>
+            </div>
           </div>
-          <div class="bg-green-50 border border-green-200 rounded-xl p-5">
-            <h3 class="font-bold text-green-700 mb-3 text-sm">After (AI Extraction)</h3>
-            <p class="text-sm text-slate-600 mb-3">The same receipt photo is uploaded to the AI Receipt Analyzer. In 5 seconds, the AI extracts:</p>
-            <p class="text-sm text-slate-600">Vendor: "Al Baik Restaurant" (exact from receipt). Amount: 45.50 SAR (exact). Date: 15/06/2026 (exact). VAT: 5.93 SAR (15% calculated). Category: "Meals" (auto-categorized). Suspicious flag: None — receipt appears genuine.</p>
-            <p class="text-sm font-semibold text-green-600 mt-3">Result: 5 seconds, 0 errors, VAT captured</p>
+
+          <div class="mb-4">
+            <label class="text-xs font-semibold text-slate-500 uppercase" data-i18n-en="Raw OCR Text" data-i18n-ar="النص الخام المستخرج">Raw OCR Text</label>
+            <pre id="ra-raw-text" class="text-xs text-slate-600 bg-slate-50 rounded-lg p-4 max-h-48 overflow-auto whitespace-pre-wrap"></pre>
           </div>
+
+          <button id="ra-copy-btn" class="px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" data-i18n-en="Copy Extracted Data" data-i18n-ar="نسخ البيانات المستخرجة">Copy Extracted Data</button>
         </div>
       </div>
-      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8">
-        <h2 class="text-xl font-bold mb-4" data-i18n-en="What the AI Extracts" data-i18n-ar="ما يستخرجه الذكاء الاصطناعي">What the AI Extracts</h2>
-        <div class="space-y-3 text-slate-600">
-          <div class="flex gap-3"><span class="text-blue-600 font-bold">•</span><p><strong>Vendor name:</strong> Exact vendor name as printed on the receipt, in Arabic or English.</p></div>
-          <div class="flex gap-3"><span class="text-blue-600 font-bold">•</span><p><strong>Total amount:</strong> Exact total including VAT, extracted with 99%+ accuracy.</p></div>
-          <div class="flex gap-3"><span class="text-blue-600 font-bold">•</span><p><strong>Date and time:</strong> Transaction date and time as printed on the receipt.</p></div>
-          <div class="flex gap-3"><span class="text-blue-600 font-bold">•</span><p><strong>VAT amount:</strong> VAT breakdown extracted and verified against the total.</p></div>
-          <div class="flex gap-3"><span class="text-blue-600 font-bold">•</span><p><strong>Category suggestion:</strong> Auto-categorization based on vendor and items.</p></div>
-          <div class="flex gap-3"><span class="text-blue-600 font-bold">•</span><p><strong>Suspicious flags:</strong> Inconsistent fonts, altered amounts, duplicate receipt numbers, or missing VAT line.</p></div>
-        </div>
-      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+      <script>
+      (function() {
+        const lang = document.documentElement.lang || 'en';
+        const isAr = lang === 'ar';
+
+        const dropZone = document.getElementById('ra-drop-zone');
+        const fileInput = document.getElementById('ra-file-input');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('border-blue-500', 'bg-blue-50'); });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('border-blue-500', 'bg-blue-50'));
+        dropZone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          dropZone.classList.remove('border-blue-500', 'bg-blue-50');
+          const file = e.dataTransfer.files[0];
+          if (file) handleFile(file);
+        });
+        fileInput.addEventListener('change', (e) => {
+          const file = e.target.files[0];
+          if (file) handleFile(file);
+        });
+
+        function handleFile(file) {
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            document.getElementById('ra-preview').src = ev.target.result;
+            runOCR(ev.target.result);
+          };
+          reader.readAsDataURL(file);
+        }
+
+        function runOCR(imgDataUrl) {
+          dropZone.classList.add('hidden');
+          document.getElementById('ra-loading').classList.remove('hidden');
+          document.getElementById('ra-results').classList.add('hidden');
+
+          Tesseract.recognize(imgDataUrl, 'eng', {
+            logger: m => { if (m.status === 'recognizing text') {} }
+          }).then(({ data }) => {
+            const text = data.text || '';
+            extractData(text);
+          }).catch(err => {
+            document.getElementById('ra-loading').classList.add('hidden');
+            dropZone.classList.remove('hidden');
+            alert(isAr ? 'فشل التعرف الضوئي. حاول بصورة أوضح.' : 'OCR failed. Try a clearer image.');
+          });
+        }
+
+        function extractData(text) {
+          const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+          const lowerText = text.toLowerCase();
+
+          const vendor = lines[0] || lines[1] || (isAr ? 'غير معروف' : 'Unknown');
+
+          const amountMatch = text.match(/(?:total|amount|الإجمالي|المجموع)\s*:?\s*(\d+[.,]?\d*)/i);
+          const amount = amountMatch ? parseFloat(amountMatch[1].replace(',', '.')) : null;
+
+          const vatMatch = text.match(/(?:vat|tax|ضريبة)\s*:?\s*(\d+[.,]?\d*)/i);
+          let vat = vatMatch ? parseFloat(vatMatch[1].replace(',', '.')) : null;
+          if (vat === null && amount) vat = amount * 0.15;
+
+          const dateMatch = text.match(/(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})|(\d{4}-\d{2}-\d{2})/);
+          const date = dateMatch ? dateMatch[0] : (isAr ? 'غير موجود' : 'Not found');
+
+          const receiptNoMatch = text.match(/(?:receipt|invoice|recpt|no|رقم)\s*:?\s*([A-Z0-9-]{3,})/i);
+          const receiptNo = receiptNoMatch ? receiptNoMatch[1] : (isAr ? 'غير موجود' : 'Not found');
+
+          const flags = [];
+          if (amount && vat) {
+            const expectedVat = amount * 0.15;
+            if (Math.abs(vat - expectedVat) > 1) flags.push(isAr ? 'خطأ في حساب الضريبة' : 'VAT calculation error');
+          }
+          if (!vatMatch) flags.push(isAr ? 'لا يوجد سطر ضريبة صريح' : 'No explicit VAT line');
+          if (amount && amount === Math.round(amount) && amount > 500) flags.push(isAr ? 'مبلغ مدور كبير' : 'Large round amount');
+
+          document.getElementById('ra-vendor').textContent = vendor;
+          document.getElementById('ra-amount').textContent = amount !== null ? amount.toFixed(2) + ' SAR' : (isAr ? 'غير موجود' : 'Not found');
+          document.getElementById('ra-vat').textContent = vat !== null ? vat.toFixed(2) + ' SAR' : (isAr ? 'غير موجود' : 'Not found');
+          document.getElementById('ra-date').textContent = date;
+          document.getElementById('ra-receipt-no').textContent = receiptNo;
+          document.getElementById('ra-flags').textContent = flags.length > 0 ? flags.join(', ') : (isAr ? 'لا توجد' : 'None');
+          document.getElementById('ra-raw-text').textContent = text;
+
+          document.getElementById('ra-loading').classList.add('hidden');
+          document.getElementById('ra-results').classList.remove('hidden');
+          document.getElementById('ra-clear-btn').classList.remove('hidden');
+
+          window._raData = { vendor, amount, vat, date, receiptNo, flags, text };
+        }
+
+        document.getElementById('ra-clear-btn').addEventListener('click', () => {
+          document.getElementById('ra-results').classList.add('hidden');
+          document.getElementById('ra-drop-zone').classList.remove('hidden');
+          document.getElementById('ra-clear-btn').classList.add('hidden');
+          fileInput.value = '';
+          window._raData = null;
+        });
+
+        document.getElementById('ra-copy-btn').addEventListener('click', () => {
+          if (!window._raData) return;
+          const d = window._raData;
+          const text = 'Vendor: ' + d.vendor + '\nAmount: ' + (d.amount || '') + '\nVAT: ' + (d.vat || '') + '\nDate: ' + d.date + '\nReceipt No: ' + d.receiptNo + '\nFlags: ' + d.flags.join(', ');
+          navigator.clipboard.writeText(text).then(() => {
+            alert(isAr ? 'تم النسخ!' : 'Copied!');
+          });
+        });
+      })();
+      </script>
       <div class="mb-8">
         <h2 class="text-xl font-bold mb-4" data-i18n-en="FAQ" data-i18n-ar="الأسئلة الشائعة">FAQ</h2>
         <div class="space-y-3">
