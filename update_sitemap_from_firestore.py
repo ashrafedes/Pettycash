@@ -32,7 +32,7 @@ SITEMAP_PATH = r'c:\My projects\PettyCash_Static_Web\sitemap.xml'
 with open(SITEMAP_PATH, 'r', encoding='utf-8') as f:
     sitemap = f.read()
 
-first_article_idx = sitemap.find('https://www.pettycash.site/article.html')
+first_article_idx = sitemap.find('https://www.pettycash.site/en/articles/')
 if first_article_idx == -1:
     insert_idx = sitemap.rfind('</urlset>')
 else:
@@ -43,9 +43,9 @@ after = sitemap[sitemap.rfind('</urlset>'):]
 
 article_urls = []
 for slug, date in articles:
-    article_urls.append(f"""  <url>
-    <loc>https://www.pettycash.site/article.html?slug={slug}</loc>
-    <lastmod>{date}</lastmod>
+    for lang in ['en', 'ar']:
+        article_urls.append(f"""  <url>
+    <loc>https://www.pettycash.site/{lang}/articles/{slug}</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>""")
@@ -55,4 +55,4 @@ new_sitemap = before + '\n'.join(article_urls) + '\n' + after
 with open(SITEMAP_PATH, 'w', encoding='utf-8') as f:
     f.write(new_sitemap)
 
-print(f'Updated sitemap with {len(articles)} article URLs')
+print(f'Updated sitemap with {len(articles)*2} article URLs')

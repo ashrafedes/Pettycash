@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /en/articles/
+Allow: /ar/articles/
 Disallow: /admin.html
 Disallow: /admin-new.html
 Disallow: /cleanup-articles.html

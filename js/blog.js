@@ -93,7 +93,7 @@ function renderArticles(articles, lang, data) {
   grid.innerHTML = articles.map(a => {
     const tr = getArticleLocale(a, lang);
     const imageUrl = a.image || a.imageUrl || "./images/article-placeholder.svg";
-    const targetUrl = a.url || `./article.html?slug=${encodeURIComponent(a.slug || a.id)}`;
+    const targetUrl = a.url || `./articles/${encodeURIComponent(a.slug || a.id)}`;
     const tagsHtml = renderTagPills(tr.keywords);
     return `
     <a href="${targetUrl}" class="group block bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">

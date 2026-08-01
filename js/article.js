@@ -69,7 +69,10 @@ function renderArticle(article, lang) {
   const content = tr.content || summary || "";
   const keywords = tr.keywords || [];
   const imageUrl = article.image || article.imageUrl || "/images/article-placeholder.svg";
-  const canonicalUrl = `${window.location.origin}${window.location.pathname}?slug=${encodeURIComponent(article.slug || article.id)}`;
+  const slug = article.slug || article.id;
+  const canonicalUrl = `${window.location.origin}/${lang}/articles/${encodeURIComponent(slug)}`;
+  const altLang = lang === 'ar' ? 'en' : 'ar';
+  const altUrl = `${window.location.origin}/${altLang}/articles/${encodeURIComponent(slug)}`;
   const metaTitle = tr.metaTitle || title;
   const metaDescription = tr.metaDescription || summary;
 
@@ -88,9 +91,25 @@ function renderArticle(article, lang) {
   setOrCreateMeta("twitter:image", imageUrl, true);
   setOrCreateMeta("twitter:card", "summary_large_image", true);
   setOrCreateMeta("article:tag", keywords.slice(0, 5).join(","), true);
+  setOrCreateMeta("twitter:url", canonicalUrl, true);
+  setOrCreateLink("alternate", altUrl, "xhtml:link", "hreflang", altLang);
+  setOrCreateLink("alternate", canonicalUrl, "xhtml:link", "hreflang", lang);
+  setOrCreateLink("alternate", `${window.location.origin}/en/articles/${encodeURIComponent(slug)}`, "xhtml:link", "hreflang", "x-default");
   setArticleSchema(article, tr, lang, canonicalUrl, imageUrl);
 
   if (titleEl) titleEl.textContent = title;
+
+  // Update breadcrumb
+  const breadcrumbEl = document.getElementById("article-breadcrumb");
+  const breadcrumbTitle = document.getElementById("breadcrumb-title");
+  if (breadcrumbEl) {
+    const homeLink = breadcrumbEl.querySelector("a:first-child");
+    const articlesLink = breadcrumbEl.querySelector("a:nth-child(2)");
+    if (homeLink) { homeLink.href = `/${lang}/`; homeLink.textContent = lang === "ar" ? "الرئيسية" : "Home"; }
+    if (articlesLink) { articlesLink.href = `/${lang}/blog.html`; articlesLink.textContent = lang === "ar" ? "المقالات" : "Articles"; }
+    if (breadcrumbTitle) breadcrumbTitle.textContent = title;
+    breadcrumbEl.classList.remove("hidden");
+  }
   if (metaEl) {
     const date = window.PettyCashFirebase ? window.PettyCashFirebase.formatDate(article.date, lang) : article.date;
     const readTime = article.readTime ? `${article.readTime} min read` : "";
@@ -133,11 +152,15 @@ function setOrCreateMeta(name, value, property) {
   tag.setAttribute("content", value);
 }
 
-function setOrCreateLink(rel, href) {
-  let link = document.querySelector(`link[rel="${rel}"]`);
+function setOrCreateLink(rel, href, attrName, attrValue, hreflang) {
+  let selector = `link[rel="${rel}"]`;
+  if (hreflang) selector += `[hreflang="${hreflang}"]`;
+  let link = document.querySelector(selector);
   if (!link) {
     link = document.createElement("link");
     link.setAttribute("rel", rel);
+    if (attrName && attrValue) link.setAttribute(attrName, attrValue);
+    if (hreflang) link.setAttribute("hreflang", hreflang);
     document.head.appendChild(link);
   }
   link.setAttribute("href", href);
@@ -173,17 +196,45 @@ function setArticleSchema(article, tr, lang, url, imageUrl) {
   script.textContent = JSON.stringify(schema, null, 2);
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+function getSlugFromPath() {
+  const path = window.location.pathname;
+  const m = path.match(/\/(en|ar)\/articles\/([^/]+)$/);
+  if (m) return { slug: decodeURIComponent(m[2]), lang: m[1] };
+  return null;
+}
+
+function getSlugFromQuery() {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("slug");
+  if (!slug) return null;
+  const path = window.location.pathname;
+  const langMatch = path.match(/\/(en|ar)\//);
+  const lang = langMatch ? langMatch[1] : 'en';
+  return { slug, lang };
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
   const notFoundEl = document.getElementById("article-not-found");
 
-  if (!slug || !window.PettyCashFirebase) {
+  let slugInfo = getSlugFromPath();
+
+  // Backward compat: old URL format article.html?slug=X → redirect to new clean URL
+  if (!slugInfo) {
+    slugInfo = getSlugFromQuery();
+    if (slugInfo) {
+      const newUrl = `${window.location.origin}/${slugInfo.lang}/articles/${encodeURIComponent(slugInfo.slug)}`;
+      window.location.replace(newUrl);
+      return;
+    }
+  }
+
+  if (!slugInfo || !window.PettyCashFirebase) {
     notFoundEl.classList.remove("hidden");
     return;
   }
 
-  const lang = getLang();
+  const { slug, lang: urlLang } = slugInfo;
+  const lang = urlLang || getLang();
   const cached = findCachedArticleBySlug(slug);
   if (cached) renderArticle(cached, lang);
 

@@ -48,12 +48,10 @@ for (const a of articles) {
   }
 }
 
-const articleUrls = uniqueArticles.map(a => ({
-  loc: `${baseUrl}/article.html?slug=${a.slug}`,
-  lastmod: a.date,
-  changefreq: 'monthly',
-  priority: '0.6'
-}));
+const articleUrls = uniqueArticles.flatMap(a => [
+  { loc: `${baseUrl}/en/articles/${a.slug}`, lastmod: a.date, changefreq: 'monthly', priority: '0.6' },
+  { loc: `${baseUrl}/ar/articles/${a.slug}`, lastmod: a.date, changefreq: 'monthly', priority: '0.6' }
+]);
 
 const urls = [...staticPages, ...articleUrls];
 

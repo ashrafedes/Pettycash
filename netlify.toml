@@ -21,10 +21,46 @@
   status = 302
   force = false
 
-# article.html - dynamic page, redirect root to /en/ version
+# article.html - SEO-friendly URLs: /en/articles/:slug and /ar/articles/:slug
+# 301 redirect old URLs to new clean URLs
 [[redirects]]
   from = "/article.html"
+  query = {slug = ":slug"}
+  to = "/en/articles/:slug"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/article.html"
+  query = {slug = ":slug"}
+  to = "/en/articles/:slug"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ar/article.html"
+  query = {slug = ":slug"}
+  to = "/ar/articles/:slug"
+  status = 301
+  force = true
+
+# Rewrite clean article URLs to serve article.html
+[[redirects]]
+  from = "/en/articles/*"
   to = "/en/article.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/ar/articles/*"
+  to = "/ar/article.html"
+  status = 200
+  force = true
+
+# Redirect bare article.html (no slug) to blog
+[[redirects]]
+  from = "/article.html"
+  to = "/en/blog.html"
   status = 302
   force = true
 

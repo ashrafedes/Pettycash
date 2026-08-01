@@ -48,7 +48,7 @@ function urlEntry(p) {
 
 function articleEntry(article, lang) {
   return urlEntry({
-    loc: `${BASE_URL}/${lang}/article.html?slug=${article.slug}`,
+    loc: `${BASE_URL}/${lang}/articles/${article.slug}`,
     lastmod: article.date || today,
     changefreq: 'monthly',
     priority: '0.6'

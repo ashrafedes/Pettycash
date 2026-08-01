@@ -519,7 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ? await window.PettyCashFirebase.fetchArticleById(id)
           : await window.PettyCashFirebase.fetchArticleBySlug(slug);
         if (article && article.slug) {
-          window.open(`./article.html?slug=${encodeURIComponent(article.slug)}`, "_blank");
+          window.open(`./articles/${encodeURIComponent(article.slug)}`, "_blank");
         }
       });
     });
