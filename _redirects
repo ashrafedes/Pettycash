@@ -4,8 +4,8 @@
 /ar/article.html    /ar/articles/:slug    301!    slug=:slug
 
 # Rewrite clean article URLs to serve article.html (must come before 404 catch-all)
-/en/articles/*    /en/article.html    200
-/ar/articles/*    /ar/article.html    200
+/en/articles/*    /en/article.html    200!
+/ar/articles/*    /ar/article.html    200!
 
 # Bare article.html redirect to blog
 /article.html    /en/blog.html    302!
