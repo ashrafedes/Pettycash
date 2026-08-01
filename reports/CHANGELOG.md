@@ -4,6 +4,34 @@ All stage changes are documented here in reverse chronological order.
 
 ---
 
+## Stage 7 — PDF & Document Tools Expansion
+**Date:** 2026-08-01
+**Status:** ✅ Complete (Awaiting Approval)
+
+### What was done
+- Built 3 new PDF-generation tools on `/tools/` hub, each with SEO landing page, tutorial, comparison callout, FAQ, and soft CTA
+- Expense Report Generator: multi-line expense report with category totals, grand total, and PDF export
+- Cash Count Sheet: denomination breakdown with auto variance calculation and reconciliation status (balanced/surplus/shortage)
+- Budget vs Actual Report: budget variance analysis with auto variance/percentage, status indicators, and summary stats
+- Each tool includes "This Tool vs. Manual Excel" comparison callout
+- Each tool has HowTo schema in addition to BreadcrumbList, SoftwareApplication, and FAQPage
+- Updated tools hub page with 3 new tool cards and footer links
+- Updated shared.js navigation with 3 new tools in Calculators dropdown
+- Updated sitemap.xml with 3 new tool page URLs
+
+### Files modified
+- `tools/js/shared.js` — Added nav entries + translations for 3 new PDF tools, updated Calculators dropdown
+- `tools/index.html` — Added 3 new tool cards + footer links
+- `sitemap.xml` — Added 3 new tool page URLs
+
+### Files created
+- `tools/expense-report-generator.html`
+- `tools/cash-count-sheet.html`
+- `tools/budget-vs-actual-report.html`
+- `reports/STAGE_7_PDF_DOCUMENT_TOOLS.md`
+
+---
+
 ## Stage 6 — Free Business Tools Hub
 **Date:** 2026-08-01
 **Status:** ✅ Complete (Awaiting Approval)

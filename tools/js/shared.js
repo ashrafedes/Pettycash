@@ -65,7 +65,10 @@
         vatCalc: 'VAT Calculator',
         policyGen: 'Expense Policy Generator',
         workflowBuilder: 'Approval Workflow Builder',
-        controlQuiz: 'Internal Control Score Quiz'
+        controlQuiz: 'Internal Control Score Quiz',
+        expenseReport: 'Expense Report Generator',
+        cashCountSheet: 'Cash Count Sheet',
+        budgetReport: 'Budget vs Actual Report'
       },
       invoice: {
         title: 'Saudi Invoice Generator',
@@ -155,6 +158,9 @@
         policyGenCardDesc: 'Generate a professional expense policy in minutes.',
         workflowCardDesc: 'Design approval workflows with custom thresholds and levels.',
         controlQuizCardDesc: 'Assess your internal controls and get a score with recommendations.',
+        expenseReportCardDesc: 'Generate a professional expense report with multiple line items and download as PDF.',
+        cashCountSheetCardDesc: 'Create a petty cash count sheet with denomination breakdown and reconciliation.',
+        budgetReportCardDesc: 'Compare budgeted vs actual expenses and generate a variance report as PDF.',
         footer: '© 2026 PettyCash.site — Free business tools.'
       }
     },
@@ -217,7 +223,10 @@
         vatCalc: 'حاسبة ضريبة القيمة المضافة',
         policyGen: 'مولد سياسة المصروفات',
         workflowBuilder: 'منشئ سير عمل الموافقات',
-        controlQuiz: 'اختبار نقاط الرقابة الداخلية'
+        controlQuiz: 'اختبار نقاط الرقابة الداخلية',
+        expenseReport: 'مولد تقرير المصروفات',
+        cashCountSheet: 'ورقة جرد النقدية',
+        budgetReport: 'تقرير الموازنة مقابل الفعلي'
       },
       invoice: {
         title: 'منشئ الفواتير السعودية',
@@ -307,6 +316,9 @@
         policyGenCardDesc: 'أنشئ سياسة مصروفات احترافية في دقائق.',
         workflowCardDesc: 'صمم سير عمل الموافقات بحدود ومستويات مخصصة.',
         controlQuizCardDesc: 'قيّم نقاط الرقابة الداخلية واحصل على درجة وتوصيات.',
+        expenseReportCardDesc: 'أنشئ تقرير مصروفات احترافي متعدد البنود وحمله كملف PDF.',
+        cashCountSheetCardDesc: 'أنشئ ورقة جرد صندوق صغير مع تفصيل الفئات والمطابقة.',
+        budgetReportCardDesc: 'قارن الموازنة بالمصروفات الفعلية وأنشئ تقرير الانحرافات كملف PDF.',
         footer: '© 2026 PettyCash.site — أدوات الأعمال المجانية.'
       }
     }
@@ -663,6 +675,10 @@
                 <a href="${base}tools/expense-policy-generator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.policyGen">Expense Policy Generator</a>
                 <a href="${base}tools/approval-workflow-builder.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.workflowBuilder">Approval Workflow Builder</a>
                 <a href="${base}tools/internal-control-score-quiz.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.controlQuiz">Internal Control Score Quiz</a>
+                <div class="border-t border-slate-100 dark:border-slate-600 my-1"></div>
+                <a href="${base}tools/expense-report-generator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.expenseReport">Expense Report Generator</a>
+                <a href="${base}tools/cash-count-sheet.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.cashCountSheet">Cash Count Sheet</a>
+                <a href="${base}tools/budget-vs-actual-report.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.budgetReport">Budget vs Actual Report</a>
               </div>
             </div>
           </div>

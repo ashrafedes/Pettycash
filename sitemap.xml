@@ -1645,6 +1645,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.pettycash.site/tools/expense-report-generator.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pettycash.site/tools/cash-count-sheet.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pettycash.site/tools/budget-vs-actual-report.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.pettycash.site/pdf-tools/</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
