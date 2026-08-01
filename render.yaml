@@ -5,3 +5,22 @@ services:
     buildCommand: ""
     staticPublishPath: ./
     branch: main
+    routes:
+      - type: rewrite
+        source: /en/articles/*
+        destination: /en/article.html
+      - type: rewrite
+        source: /ar/articles/*
+        destination: /ar/article.html
+      - type: redirect
+        source: /article.html
+        destination: /en/articles/:slug
+      - type: redirect
+        source: /en/article.html
+        destination: /en/articles/:slug
+      - type: redirect
+        source: /ar/article.html
+        destination: /ar/articles/:slug
+      - type: redirect
+        source: /
+        destination: /en/
