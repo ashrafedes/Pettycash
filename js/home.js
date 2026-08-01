@@ -160,6 +160,8 @@ function renderCTA() {
     btn.textContent = data.button;
     btn.href = `${APP_URL}/register`;
   }
+  const micro = section.querySelector("[data-i18n='cta.microcopy']");
+  if (micro && data.microcopy) micro.textContent = data.microcopy;
 }
 
 function renderStats() {

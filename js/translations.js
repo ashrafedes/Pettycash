@@ -224,7 +224,8 @@ const TRANSLATIONS = {
     "cta": {
       "title": "Ready to get started?",
       "subtitle": "Join hundreds of businesses already using Petty Cash.",
-      "button": "Get Started Free"
+      "button": "Get Started Free",
+      "microcopy": "Free forever • No credit card required • Setup in 2 minutes"
     },
     "stats": {
       "items": [
@@ -445,6 +446,7 @@ const TRANSLATIONS = {
       "message": "Your Message",
       "send": "Send Message",
       "sent": "Message sent! We will reply soon.",
+      "nextStep": "We typically respond within 24 hours. No spam, ever.",
       "emailAddress": "ashrafede@gmail.com"
     },
     "footer": {
@@ -779,7 +781,8 @@ const TRANSLATIONS = {
     "cta": {
       "title": "هل أنت مستعد للبدء",
       "subtitle": "انضم إلى مئات الشركات التي تستخدم صندوق العهدة.",
-      "button": "ابدأ مجانا"
+      "button": "ابدأ مجانا",
+      "microcopy": "مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين"
     },
     "stats": {
       "items": [
@@ -1000,6 +1003,7 @@ const TRANSLATIONS = {
       "message": "رسالتك",
       "send": "إرسال الرسالة",
       "sent": "تم إرسال الرسالة! سنرد قريباً.",
+      "nextStep": "نرد عادةً خلال 24 ساعة. لا رسائل مزعجة، أبداً.",
       "emailAddress": "ashrafede@gmail.com"
     },
     "footer": {

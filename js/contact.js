@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     message: "Your Message",
     send: "Send Message",
     sent: "Message sent! We will reply soon.",
+    nextStep: "We typically respond within 24 hours. No spam, ever.",
     emailAddress: "ashrafede@gmail.com"
   };
 
@@ -29,6 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (title) title.textContent = data.title;
   if (subtitle) subtitle.textContent = data.subtitle;
   if (emailEl) emailEl.textContent = data.emailAddress;
+
+  const nextStepEl = document.querySelector("[data-i18n='contact.nextStep']");
+  if (nextStepEl && data.nextStep) nextStepEl.textContent = data.nextStep;
 
   document.querySelectorAll("[data-i18n='contact.name']").forEach(el => { if (el.placeholder === "") el.placeholder = data.name; else el.textContent = data.name; });
   document.querySelectorAll("[data-i18n='contact.email']").forEach(el => { if (el.placeholder === "") el.placeholder = data.email; else el.textContent = data.email; });

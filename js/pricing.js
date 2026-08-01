@@ -26,4 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (note) note.textContent = data.note;
+
+  const cta = t("cta");
+  const ctaTitle = document.querySelector("[data-i18n='cta.title']");
+  const ctaSubtitle = document.querySelector("[data-i18n='cta.subtitle']");
+  const ctaBtn = document.getElementById("pricing-cta-btn");
+  if (ctaTitle) ctaTitle.textContent = cta.title;
+  if (ctaSubtitle) ctaSubtitle.textContent = cta.subtitle;
+  if (ctaBtn) {
+    ctaBtn.textContent = cta.button;
+    ctaBtn.href = `${APP_URL}/register`;
+  }
+  const ctaMicro = document.querySelector("[data-i18n='cta.microcopy']");
+  if (ctaMicro && cta.microcopy) ctaMicro.textContent = cta.microcopy;
 });

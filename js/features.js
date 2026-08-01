@@ -37,4 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ctaBtn.textContent = cta.button;
     ctaBtn.href = `${APP_URL}/register`;
   }
+  const ctaMicro = document.querySelector("[data-i18n='cta.microcopy']");
+  if (ctaMicro && cta.microcopy) ctaMicro.textContent = cta.microcopy;
 });

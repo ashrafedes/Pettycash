@@ -4,6 +4,33 @@ All stage changes are documented here in reverse chronological order.
 
 ---
 
+## Stage 4 — Conversion Optimization Pass
+**Date:** 2026-08-01
+**Status:** ✅ Complete (Awaiting Approval)
+
+### What was done
+- Audited all CTAs sitewide for clarity, placement, and consistency
+- Fixed critical URL inconsistency: `features.html` and `about.html` were linking to `pettycash-pes4.onrender.com` instead of `pattycashsystem.web.app`
+- Added CTA section to `pricing.html` (was missing entirely)
+- Added trust microcopy under every primary CTA: "Free forever • No credit card required • Setup in 2 minutes" (EN + AR)
+- Made contact form subject field optional to reduce friction
+- Added "what happens next" hint under contact form: "We typically respond within 24 hours. No spam, ever." (EN + AR)
+- Updated JS render functions (home.js, features.js, about.js, pricing.js, contact.js) to render new microcopy
+- Documented 5 A/B test ideas with hypotheses, variants, and metrics
+
+### Files modified
+- `features.html`, `about.html` — Fixed CTA URLs + added microcopy
+- `pricing.html` — Added CTA section
+- `contact.html` — Subject made optional + added nextStep hint
+- `index.html` — Added CTA microcopy
+- `js/translations.js` — Added cta.microcopy + contact.nextStep (EN + AR)
+- `js/home.js`, `js/features.js`, `js/about.js`, `js/pricing.js`, `js/contact.js` — Updated render functions
+
+### Files created
+- `reports/STAGE_4_CONVERSION_OPTIMIZATION.md`
+
+---
+
 ## Stage 3 — Homepage Redesign
 **Date:** 2026-08-01
 **Status:** ✅ Complete (Awaiting Approval)
