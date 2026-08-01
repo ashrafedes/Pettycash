@@ -2,12 +2,12 @@
 const path = require('path');
 const { pathToFileURL } = require('url');
 
-const BASE_URL = 'https://pettycash.site';
+const BASE_URL = 'https://www.pettycash.site';
 const OUTPUT_PATH = path.join(__dirname, 'sitemap.xml');
 const today = new Date().toISOString().split('T')[0];
 
-function page(loc, priority, changefreq = 'monthly') {
-  return { loc, lastmod: today, changefreq, priority };
+function page(loc, priority, changefreq, lastmod) {
+  return { loc, lastmod: lastmod || today, changefreq: changefreq || 'monthly', priority };
 }
 
 function htmlFiles(dir) {
@@ -15,34 +15,53 @@ function htmlFiles(dir) {
   return fs.readdirSync(dir).filter(f => f.toLowerCase().endsWith('.html'));
 }
 
-const rootHtmlFiles = htmlFiles(__dirname).filter(f => f !== 'index.html');
-const rootPages = rootHtmlFiles.map(f => page(`${BASE_URL}/${f}`, f === 'blog.html' ? '0.7' : '0.6'));
-
-const businessToolFiles = htmlFiles(path.join(__dirname, 'tools'));
-const businessToolPages = businessToolFiles.map(f =>
-  page(`${BASE_URL}/tools/${f}`, f === 'index.html' ? '0.8' : '0.7')
-);
-
-const pdfToolFiles = htmlFiles(path.join(__dirname, 'pdf-tools'));
-const pdfToolPages = pdfToolFiles.map(f =>
-  page(`${BASE_URL}/pdf-tools/${f}`, f === 'index.html' ? '0.8' : '0.7')
-);
+const SUBDIRS = ['tools', 'pdf-tools', 'ai', 'templates', 'industries', 'compare'];
 
 const STATIC_PAGES = [
   page(`${BASE_URL}/`, '1.0', 'weekly'),
-  ...rootPages,
-  ...businessToolPages,
-  ...pdfToolPages
+  page(`${BASE_URL}/en/`, '1.0', 'weekly'),
+  page(`${BASE_URL}/ar/`, '1.0', 'weekly'),
 ];
 
-function urlEntry({ loc, lastmod, changefreq, priority }) {
-  return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+const SKIP_ROOT = new Set(['index.html', '404.html', 'article.html', 'admin.html', 'admin-new.html', 'changelog.html', 'cleanup-articles.html', 'fix-missing-images.html', 'import-articles.html', 'roadmap.html', 'status.html']);
+
+for (const f of htmlFiles(__dirname)) {
+  if (SKIP_ROOT.has(f)) continue;
+  const isBlog = f === 'blog.html';
+  STATIC_PAGES.push(page(`${BASE_URL}/en/${f}`, isBlog ? '0.8' : '0.7', isBlog ? 'weekly' : 'monthly'));
+  STATIC_PAGES.push(page(`${BASE_URL}/ar/${f}`, isBlog ? '0.8' : '0.7', isBlog ? 'weekly' : 'monthly'));
 }
 
-function articleEntry(article) {
+for (const sub of SUBDIRS) {
+  const dir = path.join(__dirname, sub);
+  for (const f of htmlFiles(dir)) {
+    const isIndex = f === 'index.html';
+    const p = isIndex ? '0.8' : '0.7';
+    STATIC_PAGES.push(page(`${BASE_URL}/en/${sub}/${f}`, p));
+    STATIC_PAGES.push(page(`${BASE_URL}/ar/${sub}/${f}`, p));
+  }
+}
+
+function urlEntry(p) {
+  const alt = p.loc.includes('/en/')
+    ? p.loc.replace('/en/', '/ar/')
+    : p.loc.includes('/ar/')
+      ? p.loc.replace('/ar/', '/en/')
+      : null;
+  let xml = `  <url>\n    <loc>${p.loc}</loc>\n    <lastmod>${p.lastmod}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>`;
+  if (alt) {
+    xml += `\n    <xhtml:link rel="alternate" hreflang="en" href="${p.loc.includes('/ar/') ? alt : p.loc}" />`;
+    xml += `\n    <xhtml:link rel="alternate" hreflang="ar" href="${p.loc.includes('/en/') ? alt : p.loc}" />`;
+    xml += `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/" />`;
+  }
+  xml += `\n  </url>`;
+  return xml;
+}
+
+function articleEntry(article, lang) {
   return urlEntry({
-    loc: `${BASE_URL}/article.html?slug=${article.slug}`,
-    lastmod: article.date,
+    loc: `${BASE_URL}/${lang}/article.html?slug=${article.slug}`,
+    lastmod: article.date || today,
     changefreq: 'monthly',
     priority: '0.6'
   });
@@ -54,12 +73,12 @@ async function generate() {
   console.log(`Found ${articles.length} articles`);
 
   const staticEntries = STATIC_PAGES.map(p => urlEntry(p)).join('\n');
-  const articleEntries = articles.map(a => articleEntry(a)).join('\n');
+  const articleEntries = articles.flatMap(a => [articleEntry(a, 'en'), articleEntry(a, 'ar')]).join('\n');
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${staticEntries}\n${articleEntries}\n</urlset>\n`;
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${staticEntries}\n${articleEntries}\n</urlset>\n`;
 
   fs.writeFileSync(OUTPUT_PATH, xml, 'utf8');
-  console.log(`sitemap.xml written with ${STATIC_PAGES.length + articles.length} URLs`);
+  console.log(`sitemap.xml written with ${STATIC_PAGES.length + articles.length * 2} URLs`);
 }
 
 generate().catch(err => {
