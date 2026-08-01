@@ -1,6 +1,16 @@
 // AI Center shared JS — nav, footer, language toggle
 const APP_URL = 'https://pattycashsystem.web.app';
 
+const NAV_LABELS = {
+  en: { home: 'Home', features: 'Features', pricing: 'Pricing', resources: 'Resources', blog: 'Blog', help: 'Help', about: 'About', contact: 'Contact', login: 'Login', signup: 'Sign Up', businessTools: 'Business Tools', pdfTools: 'PDF Tools', templates: 'Templates', industries: 'Industries', compare: 'Compare', aiCenter: 'AI Center' },
+  ar: { home: 'الرئيسية', features: 'الميزات', pricing: 'الأسعار', resources: 'الموارد', blog: 'المدونة', help: 'المساعدة', about: 'من نحن', contact: 'تواصل', login: 'تسجيل الدخول', signup: 'إنشاء حساب', businessTools: 'أدوات الأعمال', pdfTools: 'أدوات PDF', templates: 'القوالب', industries: 'القطاعات', compare: 'المقارنة', aiCenter: 'مركز الذكاء' }
+};
+
+const FOOTER_LABELS = {
+  en: { aiTools: 'AI Tools', industries: 'Industries', moreIndustries: 'More Industries', company: 'Company', resources: 'Resources', legal: 'Legal' },
+  ar: { aiTools: 'أدوات الذكاء', industries: 'القطاعات', moreIndustries: 'قطاعات أخرى', company: 'الشركة', resources: 'الموارد', legal: 'قانوني' }
+};
+
 const PCAI = {
   lang: 'en',
 
@@ -10,6 +20,9 @@ const PCAI = {
     this.renderFooter();
     this.applyLang();
   },
+
+  L(key) { return (NAV_LABELS[this.lang] || NAV_LABELS.en)[key] || key; },
+  FL(key) { return (FOOTER_LABELS[this.lang] || FOOTER_LABELS.en)[key] || key; },
 
   renderNav() {
     const nav = document.getElementById('ai-nav');
@@ -22,27 +35,30 @@ const PCAI = {
             <span>Petty Cash</span>
           </a>
           <nav class="hidden md:flex items-center gap-1">
-            <a href="../" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">Home</a>
-            <a href="../features.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">Features</a>
-            <a href="../pricing.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">Pricing</a>
+            <a href="../" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${this.L('home')}</a>
+            <a href="../features.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${this.L('features')}</a>
+            <a href="../pricing.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${this.L('pricing')}</a>
             <div class="relative group">
               <button class="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">
-                <span>Resources</span>
+                <span>${this.L('resources')}</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
               <div class="absolute top-full start-0 mt-1 w-auto bg-white border border-slate-200 rounded-lg shadow-lg p-1 z-50 hidden group-hover:block">
-                <a href="../tools/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">Business Tools</a>
-                <a href="../templates/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">Templates</a>
-                <a href="../industries/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">Industries</a>
-                <a href="../compare/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">Compare</a>
-                <a href="./" class="block px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md whitespace-nowrap">AI Center</a>
+                <a href="../tools/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${this.L('businessTools')}</a>
+                <a href="../pdf-tools/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${this.L('pdfTools')}</a>
+                <a href="../templates/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${this.L('templates')}</a>
+                <a href="./" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${this.L('industries')}</a>
+                <a href="../compare/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${this.L('compare')}</a>
+                <a href="../ai/" class="block px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md whitespace-nowrap">${this.L('aiCenter')}</a>
               </div>
             </div>
-            <a href="../blog.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">Blog</a>
+            <a href="../blog.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${this.L('blog')}</a>
+            <a href="../about.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${this.L('about')}</a>
+            <a href="../contact.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${this.L('contact')}</a>
           </nav>
           <div class="flex items-center gap-2">
-            <a href="${APP_URL}/login" class="hidden sm:inline-block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-lg transition-colors">Login</a>
-            <a href="${APP_URL}/register" class="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">Sign Up</a>
+            <a href="${APP_URL}/login" class="hidden sm:inline-block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-lg transition-colors">${this.L('login')}</a>
+            <a href="${APP_URL}/register" class="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">${this.L('signup')}</a>
             <div class="flex items-center gap-1 bg-slate-100 rounded-lg p-1">
               <button data-ai-lang="en" class="ai-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md ${this.lang === 'en' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-600'}">EN</button>
               <button data-ai-lang="ar" class="ai-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md ${this.lang === 'ar' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-600'}">AR</button>
@@ -53,7 +69,7 @@ const PCAI = {
     `;
     document.querySelectorAll('.ai-lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        this.lang = btn.dataset.aiLang;
+        this.lang = btn.dataset.indLang;
         localStorage.setItem('pettycash-lang', this.lang);
         document.documentElement.lang = this.lang;
         document.documentElement.dir = this.lang === 'ar' ? 'rtl' : 'ltr';
@@ -67,35 +83,57 @@ const PCAI = {
   renderFooter() {
     const footer = document.getElementById('ai-footer');
     if (!footer) return;
+    const isAr = this.lang === 'ar';
+    const aiLinks = [
+      { href: './expense-analyzer.html', en: 'Expense Analyzer', ar: 'محلل المصروفات' },
+      { href: './receipt-analyzer.html', en: 'Receipt Analyzer', ar: 'محلل الإيصالات' },
+      { href: './policy-generator.html', en: 'Policy Generator', ar: 'مولد السياسات' }
+    ];
+    const companyLinks = [
+      { href: '../', en: 'Home', ar: 'الرئيسية' },
+      { href: '../features.html', en: 'Features', ar: 'الميزات' },
+      { href: '../pricing.html', en: 'Pricing', ar: 'الأسعار' },
+      { href: '../about.html', en: 'About', ar: 'من نحن' },
+      { href: '../blog.html', en: 'Blog', ar: 'المدونة' },
+      { href: '../contact.html', en: 'Contact', ar: 'تواصل' }
+    ];
+    const resourceLinks = [
+      { href: '../tools/', en: 'Business Tools', ar: 'أدوات الأعمال' },
+      { href: '../pdf-tools/', en: 'PDF Tools', ar: 'أدوات PDF' },
+      { href: '../templates/', en: 'Templates', ar: 'القوالب' },
+      { href: '../compare/', en: 'Compare', ar: 'المقارنة' },
+      { href: '../ai/', en: 'AI Center', ar: 'مركز الذكاء' }
+    ];
+    const legalLinks = [
+      { href: '../privacy.html', en: 'Privacy Policy', ar: 'سياسة الخصوصية' },
+      { href: '../security.html', en: 'Security', ar: 'الأمان' },
+      { href: '../compliance.html', en: 'Compliance', ar: 'الامتثال' }
+    ];
+    const renderLinks = (links) => links.map(l => `<li><a href="${l.href}" class="hover:text-blue-600">${isAr ? l.ar : l.en}</a></li>`).join('');
     footer.innerHTML = `
-      <div class="max-w-6xl mx-auto px-4 py-8 grid sm:grid-cols-3 gap-6 text-sm text-slate-500">
+      <div class="max-w-6xl mx-auto px-4 py-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm text-slate-500">
         <div>
-          <h4 class="font-semibold text-slate-700 mb-3">AI Center</h4>
-          <ul class="space-y-1">
-            <li><a href="./" class="hover:text-blue-600">AI Center Home</a></li>
-            <li><a href="./expense-analyzer.html" class="hover:text-blue-600">AI Expense Analyzer</a></li>
-            <li><a href="./receipt-analyzer.html" class="hover:text-blue-600">AI Receipt Analyzer</a></li>
-            <li><a href="./policy-generator.html" class="hover:text-blue-600">AI Policy Generator</a></li>
-          </ul>
+          <h3 class="font-semibold text-slate-700 mb-3">${this.FL('aiTools')}</h3>
+          <ul class="space-y-1">${renderLinks(aiLinks)}</ul>
         </div>
         <div>
-          <h4 class="font-semibold text-slate-700 mb-3">Resources</h4>
-          <ul class="space-y-1">
-            <li><a href="../tools/" class="hover:text-blue-600">Business Tools</a></li>
-            <li><a href="../templates/" class="hover:text-blue-600">Templates</a></li>
-            <li><a href="../blog.html" class="hover:text-blue-600">Blog</a></li>
-          </ul>
+          <h3 class="font-semibold text-slate-700 mb-3">${this.FL('resources')}</h3>
+          <ul class="space-y-1">${renderLinks(resourceLinks)}</ul>
         </div>
         <div>
-          <h4 class="font-semibold text-slate-700 mb-3">Company</h4>
-          <ul class="space-y-1">
-            <li><a href="../" class="hover:text-blue-600">Home</a></li>
-            <li><a href="../about.html" class="hover:text-blue-600">About</a></li>
-            <li><a href="../contact.html" class="hover:text-blue-600">Contact</a></li>
-          </ul>
+          <h3 class="font-semibold text-slate-700 mb-3">${this.FL('company')}</h3>
+          <ul class="space-y-1">${renderLinks(companyLinks)}</ul>
+          <h3 class="font-semibold text-slate-700 mb-3 mt-6">${this.FL('resources')}</h3>
+          <ul class="space-y-1">${renderLinks(resourceLinks)}</ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-slate-700 mb-3">${this.FL('legal')}</h3>
+          <ul class="space-y-1">${renderLinks(legalLinks)}</ul>
         </div>
       </div>
-      <div class="border-t border-slate-200 py-4 text-center text-xs text-slate-400">&copy; 2026 PettyCash.site</div>
+      <div class="border-t border-slate-200 py-4 text-center text-xs text-slate-400">
+        &copy; 2026 PettyCash.site
+      </div>
     `;
   },
 
@@ -107,3 +145,5 @@ const PCAI = {
     });
   }
 };
+
+document.addEventListener('DOMContentLoaded', () => PCAI.init());
