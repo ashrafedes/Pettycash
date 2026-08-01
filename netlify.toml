@@ -21,17 +21,11 @@
   status = 302
   force = false
 
-# article.html - dynamic page, proxy to root
+# article.html - dynamic page, redirect root to /en/ version
 [[redirects]]
-  from = "/en/article.html"
-  to = "/article.html"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/ar/article.html"
-  to = "/article.html"
-  status = 200
+  from = "/article.html"
+  to = "/en/article.html"
+  status = 302
   force = true
 
 # Redirect all root pages to /en/ versions
