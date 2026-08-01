@@ -84,7 +84,7 @@ async function getStaticArticles() {
     return window.PettyCashArticlesData;
   }
   try {
-    const m = await import('./articles-data.js?v=3');
+    const m = await import('/js/articles-data.js?v=3');
     return m.articles || [];
   } catch (err) {
     console.error("Failed to load static articles:", err);

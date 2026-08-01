@@ -68,7 +68,7 @@ function renderArticle(article, lang) {
   const summary = tr.summary || "";
   const content = tr.content || summary || "";
   const keywords = tr.keywords || [];
-  const imageUrl = article.image || article.imageUrl || "./images/article-placeholder.svg";
+  const imageUrl = article.image || article.imageUrl || "/images/article-placeholder.svg";
   const canonicalUrl = `${window.location.origin}${window.location.pathname}?slug=${encodeURIComponent(article.slug || article.id)}`;
   const metaTitle = tr.metaTitle || title;
   const metaDescription = tr.metaDescription || summary;
