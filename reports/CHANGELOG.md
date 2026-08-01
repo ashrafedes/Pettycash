@@ -4,6 +4,28 @@ All stage changes are documented here in reverse chronological order.
 
 ---
 
+## Stage 5 — SEO Foundation
+**Date:** 2026-08-01
+**Status:** ✅ Complete (Awaiting Approval)
+
+### What was done
+- Audited all 62 HTML pages for meta tags, canonical URLs, OG, Twitter Cards, and JSON-LD schema
+- Fixed pricing page AggregateOffer schema: added `lowPrice`, `highPrice`, `offerCount`, `aggregateRating`, `brand`
+- Fixed article page Article schema: added `description`, `url`, `image`, `datePublished`, `dateModified`; typed `logo` as `ImageObject`
+- Added 42 missing PDF tool pages to `sitemap.xml` (hub + 41 individual tools)
+- Fixed `robots.txt` sitemap URL from `https://pettycash.site/` to `https://www.pettycash.site/` for consistency
+
+### Files modified
+- `pricing.html` — Enriched Product/AggregateOffer schema
+- `article.html` — Completed Article schema with required fields
+- `sitemap.xml` — Added 42 PDF tool page URLs
+- `robots.txt` — Fixed sitemap URL
+
+### Files created
+- `reports/STAGE_5_SEO_FOUNDATION.md`
+
+---
+
 ## Stage 4 — Conversion Optimization Pass
 **Date:** 2026-08-01
 **Status:** ✅ Complete (Awaiting Approval)
