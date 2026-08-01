@@ -43,19 +43,7 @@ for (const sub of SUBDIRS) {
 }
 
 function urlEntry(p) {
-  const alt = p.loc.includes('/en/')
-    ? p.loc.replace('/en/', '/ar/')
-    : p.loc.includes('/ar/')
-      ? p.loc.replace('/ar/', '/en/')
-      : null;
-  let xml = `  <url>\n    <loc>${p.loc}</loc>\n    <lastmod>${p.lastmod}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>`;
-  if (alt) {
-    xml += `\n    <xhtml:link rel="alternate" hreflang="en" href="${p.loc.includes('/ar/') ? alt : p.loc}" />`;
-    xml += `\n    <xhtml:link rel="alternate" hreflang="ar" href="${p.loc.includes('/en/') ? alt : p.loc}" />`;
-    xml += `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/" />`;
-  }
-  xml += `\n  </url>`;
-  return xml;
+  return `  <url>\n    <loc>${p.loc}</loc>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`;
 }
 
 function articleEntry(article, lang) {
@@ -75,7 +63,7 @@ async function generate() {
   const staticEntries = STATIC_PAGES.map(p => urlEntry(p)).join('\n');
   const articleEntries = articles.flatMap(a => [articleEntry(a, 'en'), articleEntry(a, 'ar')]).join('\n');
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${staticEntries}\n${articleEntries}\n</urlset>\n`;
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${staticEntries}\n${articleEntries}\n</urlset>\n`;
 
   fs.writeFileSync(OUTPUT_PATH, xml, 'utf8');
   console.log(`sitemap.xml written with ${STATIC_PAGES.length + articles.length * 2} URLs`);
