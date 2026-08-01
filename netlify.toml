@@ -19,7 +19,7 @@
   from = "/"
   to = "/en/"
   status = 302
-  force = true
+  force = false
 
 # Redirect old root HTML pages to /en/ versions
 [[redirects]]
@@ -87,6 +87,7 @@
   from = "/*"
   to = "/404.html"
   status = 404
+  force = false
 
 # Security headers
 [[headers]]
