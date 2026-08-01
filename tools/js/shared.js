@@ -58,7 +58,14 @@
         home: 'Home',
         invoice: 'Invoice Generator',
         receipt: 'Receipt Generator',
-        voucher: 'Petty Cash Voucher'
+        voucher: 'Petty Cash Voucher',
+        calculators: 'Calculators',
+        savingsCalc: 'Expense Savings Calculator',
+        limitCalc: 'Petty Cash Limit Calculator',
+        vatCalc: 'VAT Calculator',
+        policyGen: 'Expense Policy Generator',
+        workflowBuilder: 'Approval Workflow Builder',
+        controlQuiz: 'Internal Control Score Quiz'
       },
       invoice: {
         title: 'Saudi Invoice Generator',
@@ -142,6 +149,12 @@
         invoiceCardDesc: 'QR codes, VAT calculations, PDF/PNG export.',
         receiptCardDesc: 'Automatic amount in words, printable receipts, PDF/PNG export.',
         voucherCardDesc: 'Expense tracking, approvals, automatic totals.',
+        savingsCalcCardDesc: 'Calculate how much your business saves by automating expense tracking.',
+        limitCalcCardDesc: 'Determine the optimal petty cash float for your business size.',
+        vatCalcCardDesc: 'Calculate Saudi VAT (15%) on any amount — inclusive or exclusive.',
+        policyGenCardDesc: 'Generate a professional expense policy in minutes.',
+        workflowCardDesc: 'Design approval workflows with custom thresholds and levels.',
+        controlQuizCardDesc: 'Assess your internal controls and get a score with recommendations.',
         footer: '© 2026 PettyCash.site — Free business tools.'
       }
     },
@@ -197,7 +210,14 @@
         home: 'الرئيسية',
         invoice: 'منشئ الفواتير',
         receipt: 'منشئ الإيصالات',
-        voucher: 'قسيمة الصندوق الصغير'
+        voucher: 'قسيمة الصندوق الصغير',
+        calculators: 'الحاسبات',
+        savingsCalc: 'حاسبة توفير المصروفات',
+        limitCalc: 'حاسبة حد الصندوق الصغير',
+        vatCalc: 'حاسبة ضريبة القيمة المضافة',
+        policyGen: 'مولد سياسة المصروفات',
+        workflowBuilder: 'منشئ سير عمل الموافقات',
+        controlQuiz: 'اختبار نقاط الرقابة الداخلية'
       },
       invoice: {
         title: 'منشئ الفواتير السعودية',
@@ -281,6 +301,12 @@
         invoiceCardDesc: 'رموز QR، حسابات VAT، تصدير PDF/PNG.',
         receiptCardDesc: 'المبلغ تلقائياً بالحروف، QR، إيصالات قابلة للطباعة.',
         voucherCardDesc: 'تتبع المصروفات، موافقات، إجماليات تلقائية.',
+        savingsCalcCardDesc: 'احسب كم توفر شركتك بأتمتة تتبع المصروفات.',
+        limitCalcCardDesc: 'حدد الحد الأمثل للصندوق الصغير حسب حجم شركتك.',
+        vatCalcCardDesc: 'احسب ضريبة القيمة المضافة السعودية (15%) على أي مبلغ.',
+        policyGenCardDesc: 'أنشئ سياسة مصروفات احترافية في دقائق.',
+        workflowCardDesc: 'صمم سير عمل الموافقات بحدود ومستويات مخصصة.',
+        controlQuizCardDesc: 'قيّم نقاط الرقابة الداخلية واحصل على درجة وتوصيات.',
         footer: '© 2026 PettyCash.site — أدوات الأعمال المجانية.'
       }
     }
@@ -628,6 +654,17 @@
             <a href="${base}tools/saudi-invoice-generator.html" class="hover:text-blue-600 ${current === 'saudi-invoice-generator.html' ? 'text-blue-600' : ''}" data-i18n="nav.invoice">Invoice Generator</a>
             <a href="${base}tools/receipt-generator.html" class="hover:text-blue-600 ${current === 'receipt-generator.html' ? 'text-blue-600' : ''}" data-i18n="nav.receipt">Receipt Generator</a>
             <a href="${base}tools/petty-cash-voucher-generator.html" class="hover:text-blue-600 ${current === 'petty-cash-voucher-generator.html' ? 'text-blue-600' : ''}" data-i18n="nav.voucher">Voucher</a>
+            <div class="relative group">
+              <button class="hover:text-blue-600 flex items-center gap-1" data-i18n="nav.calculators">Calculators</button>
+              <div class="absolute top-full start-0 mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 py-2 hidden group-hover:block z-50">
+                <a href="${base}tools/expense-savings-calculator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.savingsCalc">Expense Savings Calculator</a>
+                <a href="${base}tools/petty-cash-limit-calculator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.limitCalc">Petty Cash Limit Calculator</a>
+                <a href="${base}tools/vat-calculator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.vatCalc">VAT Calculator</a>
+                <a href="${base}tools/expense-policy-generator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.policyGen">Expense Policy Generator</a>
+                <a href="${base}tools/approval-workflow-builder.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.workflowBuilder">Approval Workflow Builder</a>
+                <a href="${base}tools/internal-control-score-quiz.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.controlQuiz">Internal Control Score Quiz</a>
+              </div>
+            </div>
           </div>
           <div class="flex items-center gap-3">
             <button id="pctool-theme" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" aria-label="Toggle theme">🌙</button>

@@ -4,6 +4,38 @@ All stage changes are documented here in reverse chronological order.
 
 ---
 
+## Stage 6 — Free Business Tools Hub
+**Date:** 2026-08-01
+**Status:** ✅ Complete (Awaiting Approval)
+
+### What was done
+- Built 6 new interactive business tools on `/tools/` hub, each fully client-side, bilingual (EN + AR), with FAQ, schema, SEO content, and soft CTA
+- Expense Savings Calculator: calculates annual savings from automating expense tracking
+- Petty Cash Limit Calculator: determines optimal petty cash float based on daily expenses and replenishment cycle
+- VAT Calculator (Saudi): calculates 15% VAT inclusive or exclusive with custom rate support
+- Expense Policy Generator: generates professional expense policy document with customizable thresholds and categories
+- Approval Workflow Builder: designs multi-level approval workflows with custom thresholds and role-based routing
+- Internal Control Score Quiz: 10-question assessment with score and personalized recommendations
+- Updated tools hub page with 6 new tool cards and footer links
+- Updated shared.js navigation with Calculators dropdown
+- Updated sitemap.xml with 6 new tool page URLs
+
+### Files modified
+- `tools/js/shared.js` — Added nav entries + translations for 6 new tools, Calculators dropdown in renderNav
+- `tools/index.html` — Added 6 new tool cards + footer links
+- `sitemap.xml` — Added 6 new tool page URLs
+
+### Files created
+- `tools/expense-savings-calculator.html`
+- `tools/petty-cash-limit-calculator.html`
+- `tools/vat-calculator.html`
+- `tools/expense-policy-generator.html`
+- `tools/approval-workflow-builder.html`
+- `tools/internal-control-score-quiz.html`
+- `reports/STAGE_6_FREE_BUSINESS_TOOLS.md`
+
+---
+
 ## Stage 5 — SEO Foundation
 **Date:** 2026-08-01
 **Status:** ✅ Complete (Awaiting Approval)
