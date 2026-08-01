@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WXFGWBQD');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Import Articles - Petty Cash</title>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="./js/firebase.js?v=2"></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xof0loht8l");
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4E21GQ00FC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4E21GQ00FC');
+</script>
+</head>
+<body class="bg-white text-slate-900 p-6">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Import Articles</h1>
+    <p class="text-slate-600 mb-4">This page imports articles from the PettyCash_Marketing project into this site's Firestore.</p>
+    <button id="import-btn" class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">Start Import</button>
+    <div id="status" class="mt-4 text-sm"></div>
+  </div>
+
+  <script type="module">
+    import { articles } from './js/articles-data.js';
+
+    const status = document.getElementById('status');
+    const btn = document.getElementById('import-btn');
+
+    function log(message, type = 'info') {
+      const color = type === 'error' ? 'text-red-600' : type === 'success' ? 'text-green-600' : 'text-slate-600';
+      const p = document.createElement('p');
+      p.className = color;
+      p.textContent = message;
+      status.appendChild(p);
+    }
+
+    btn.addEventListener('click', async () => {
+      status.innerHTML = '';
+      btn.disabled = true;
+      btn.textContent = 'Importing...';
+
+      if (!window.PettyCashFirebase) {
+        log('Firebase not loaded. Check your connection.', 'error');
+        btn.disabled = false;
+        btn.textContent = 'Start Import';
+        return;
+      }
+
+      const db = window.PettyCashFirebase.initFirebase();
+      log('Loading existing articles to avoid duplicates...');
+      let existingSlugs = new Set();
+      try {
+        const snap = await db.collection('blog_articles').get();
+        snap.docs.forEach(doc => {
+          const data = doc.data();
+          if (data.slug) existingSlugs.add(data.slug);
+        });
+        log(`Found ${existingSlugs.size} existing articles.`);
+      } catch (err) {
+        log(`Could not read existing articles: ${err.message}`, 'error');
+      }
+
+      let added = 0;
+      let skipped = 0;
+      let failed = 0;
+
+      for (const article of articles) {
+        if (existingSlugs.has(article.slug)) {
+          log(`Skipped (already exists): ${article.slug}`);
+          skipped++;
+          continue;
+        }
+        const adapted = {
+          slug: article.slug,
+          date: article.date,
+          readTime: article.readTime,
+          image: article.image,
+          published: true,
+          translations: {
+            en: article.translations?.en || {},
+            ar: article.translations?.ar || {}
+          }
+        };
+
+        const result = await window.PettyCashFirebase.saveArticle(adapted);
+        if (result.error) {
+          log(`Failed: ${article.slug} - ${result.error}`, 'error');
+          failed++;
+        } else {
+          log(`Imported: ${article.slug}`, 'success');
+          added++;
+        }
+      }
+
+      log(`Done. ${added} imported, ${skipped} skipped, ${failed} failed.`, failed > 0 ? 'error' : 'success');
+      btn.disabled = false;
+      btn.textContent = 'Start Import';
+    });
+  </script>
+<script defer src="./js/pettycash-widget.js"></script>
+<script defer src="./js/ai-assistant.js"></script>
+<script defer src="./js/analytics.js"></script>
+<script defer src="./js/marquee-banner.js?v=4"></script>
+</body>
+</html>
