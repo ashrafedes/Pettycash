@@ -3,9 +3,5 @@
 /en/article.html    /en/articles/:slug    301!    slug=:slug
 /ar/article.html    /ar/articles/:slug    301!    slug=:slug
 
-# Rewrite clean article URLs to serve article.html
-/en/articles/:slug    /en/article.html    200
-/ar/articles/:slug    /ar/article.html    200
-
 # Bare article.html redirect to blog
 /article.html    /en/blog.html    302!
