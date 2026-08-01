@@ -1,0 +1,14 @@
+# Rewrite clean article URLs to serve article.html
+/en/articles/*    /en/article.html    200
+/ar/articles/*    /ar/article.html    200
+
+# 301 redirect old article URLs to new clean URLs
+/article.html    /en/articles/:slug    301    slug=:slug
+/en/article.html    /en/articles/:slug    301    slug=:slug
+/ar/article.html    /ar/articles/:slug    301    slug=:slug
+
+# Bare article.html redirect to blog
+/article.html    /en/blog.html    302
+
+# Redirect root to /en/
+/    /en/    302
