@@ -82,6 +82,19 @@
   status = 302
   force = true
 
+# Redirect article.html to root (dynamic page with JS translations)
+[[redirects]]
+  from = "/en/article.html"
+  to = "/article.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/ar/article.html"
+  to = "/article.html"
+  status = 200
+  force = true
+
 # Custom 404 page
 [[redirects]]
   from = "/*"
