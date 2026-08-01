@@ -14,12 +14,73 @@
 [build.processing.js]
   minify = true
 
-# Redirect /en/ to root (if needed)
+# Redirect root to /en/ (default language)
 [[redirects]]
-  from = "/en/*"
-  to = "/:splat"
-  status = 301
-  force = false
+  from = "/"
+  to = "/en/"
+  status = 302
+  force = true
+
+# Redirect old root HTML pages to /en/ versions
+[[redirects]]
+  from = "/index.html"
+  to = "/en/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/features.html"
+  to = "/en/features.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/pricing.html"
+  to = "/en/pricing.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/about.html"
+  to = "/en/about.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/en/contact.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/en/blog.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/help.html"
+  to = "/en/help.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/privacy.html"
+  to = "/en/privacy.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/security.html"
+  to = "/en/security.html"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/compliance.html"
+  to = "/en/compliance.html"
+  status = 302
+  force = true
 
 # Custom 404 page
 [[redirects]]

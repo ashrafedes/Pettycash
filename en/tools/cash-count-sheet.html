@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="en" dir="ltr" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','en');</script>
+<!-- Google Tag Manager -->
+<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-4E21GQ00FC&amp;cx=c&amp;gtm=4e67t1"></script><script async="" src="https://scripts.clarity.ms/0.8.67/clarity.js"></script><script async="" src="https://www.clarity.ms/tag/xof0loht8l"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-WXFGWBQD"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WXFGWBQD');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Cash Count Sheet Generator | Petty Cash Reconciliation | PettyCash.site</title>
+  <meta name="description" content="Create a petty cash count sheet with denomination breakdown, counted vs system amounts, and reconciliation. Download as PDF. Free and bilingual.">
+  <link rel="canonical" href="https://www.pettycash.site/en/tools/cash-count-sheet.html">
+  <meta property="og:title" content="Free Cash Count Sheet Generator | PettyCash.site">
+  <meta property="og:description" content="Create a petty cash count sheet with denomination breakdown and reconciliation. Download as PDF.">
+  <meta property="og:url" content="https://www.pettycash.site/en/tools/cash-count-sheet.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.pettycash.site/en/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Cash Count Sheet Generator | PettyCash.site">
+  <meta name="twitter:description" content="Create a petty cash count sheet with denomination breakdown and reconciliation.">
+  <meta name="twitter:image" content="https://www.pettycash.site/en/images/favicon.png">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pettycash.site/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://www.pettycash.site/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "Cash Count Sheet", "item": "https://www.pettycash.site/tools/cash-count-sheet.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Cash Count Sheet Generator",
+      "description": "Create a petty cash count sheet with denomination breakdown, counted vs system amounts, and reconciliation.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "SAR" },
+      "url": "https://www.pettycash.site/tools/cash-count-sheet.html",
+      "inLanguage": ["en", "ar"]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Count Petty Cash",
+      "description": "Count each denomination, enter quantities, and reconcile with the system balance.",
+      "step": [
+        { "@type": "HowToStep", "name": "Enter details", "text": "Fill in company name, count date, and responsible person." },
+        { "@type": "HowToStep", "name": "Count denominations", "text": "Enter the quantity of each bill and coin denomination." },
+        { "@type": "HowToStep", "name": "Enter system balance", "text": "Enter the expected petty cash balance from your system." },
+        { "@type": "HowToStep", "name": "Review reconciliation", "text": "The tool calculates the variance and shows if the count is balanced." },
+        { "@type": "HowToStep", "name": "Download PDF", "text": "Download the signed count sheet as PDF." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is a cash count sheet?", "acceptedAnswer": { "@type": "Answer", "text": "A cash count sheet is a document used to physically count and reconcile petty cash on hand against the expected system balance." } },
+        { "@type": "Question", "name": "How often should I count petty cash?", "acceptedAnswer": { "@type": "Answer", "text": "Petty cash should be counted at least monthly, and ideally weekly or at every replenishment cycle." } },
+        { "@type": "Question", "name": "What does variance mean?", "acceptedAnswer": { "@type": "Answer", "text": "Variance is the difference between the physical count and the system balance. A positive variance means you have more cash than expected; negative means less." } }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/css/tailwind.min.css">
+  <link rel="stylesheet" href="/en/tools/css/tools.css">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a]=c[a].q||c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xof0loht8l");
+</script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4E21GQ00FC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4E21GQ00FC');
+</script>
+<style>@keyframes marquee-scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+@keyframes marquee-scroll-rtl { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+#marquee-banner { position: fixed; bottom: 0; left: 0; z-index: 50; background: #16a34a; color: #fff; overflow: hidden; padding: 6px 8px; font-size: 14px; font-weight: 600; box-shadow: 0 -2px 10px rgba(0,0,0,.15); border-top-right-radius: 12px; max-width: 90vw; }
+#marquee-banner .marquee-text { display: inline-block; white-space: nowrap; animation: marquee-scroll 18s linear infinite; }
+#marquee-banner .marquee-text a { color: #fff; text-decoration: none; }
+#marquee-banner .marquee-text a:hover { text-decoration: underline; }</style><style data-ai-assistant="">.ai-fab{position:fixed;right:20px;bottom:20px;z-index:99999;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#7c3aed);border:none;color:#fff;cursor:pointer;box-shadow:0 4px 16px rgba(37,99,235,.4);display:flex;align-items:center;justify-content:center;transition:transform .3s ease,box-shadow .3s ease;}.ai-fab:hover{transform:scale(1.08);box-shadow:0 6px 24px rgba(37,99,235,.5)}.ai-fab svg{width:28px;height:28px}.ai-fab-badge{position:absolute;top:-2px;right:-2px;width:14px;height:14px;background:#22c55e;border-radius:50%;border:2px solid #fff;}.ai-panel{position:fixed;right:20px;bottom:86px;z-index:99999;width:380px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 120px);background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.18);border:1px solid #e2e8f0;display:none;flex-direction:column;opacity:0;transform:translateY(20px) scale(.95);transition:opacity .3s ease,transform .3s ease;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;overflow:hidden;}.ai-panel.ai-open{display:flex;opacity:1;transform:translateY(0) scale(1)}.ai-header{background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:10px;flex-shrink:0;}.ai-header-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}.ai-header-icon svg{width:22px;height:22px}.ai-header-text{flex:1;min-width:0}.ai-header-text h3{margin:0;font-size:15px;font-weight:700}.ai-header-text p{margin:0;font-size:11px;opacity:.85}.ai-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0}.ai-close:hover{background:rgba(255,255,255,.35)}.ai-messages{flex:1;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:12px;scrollbar-width:thin;scrollbar-color:#cbd5e1 transparent}.ai-messages::-webkit-scrollbar{width:6px}.ai-messages::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}.ai-msg{max-width:85%;padding:10px 14px;border-radius:12px;font-size:13.5px;line-height:1.6;word-wrap:break-word;white-space:pre-wrap}.ai-msg-user{background:#2563eb;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}.ai-msg-bot{background:#f1f5f9;color:#1e293b;align-self:flex-start;border-bottom-left-radius:4px}.ai-msg-bot a{color:#2563eb;text-decoration:underline}.ai-typing{display:flex;gap:4px;padding:10px 14px;background:#f1f5f9;border-radius:12px;align-self:flex-start;border-bottom-left-radius:4px}.ai-typing span{width:8px;height:8px;border-radius:50%;background:#94a3b8;animation:ai-bounce 1.4s infinite}.ai-typing span:nth-child(2){animation-delay:.2s}.ai-typing span:nth-child(3){animation-delay:.4s}@keyframes ai-bounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-8px);opacity:1}}.ai-suggestions{padding:0 18px 8px;display:flex;flex-wrap:wrap;gap:6px;flex-shrink:0}.ai-suggestion{background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;transition:background .2s}.ai-suggestion:hover{background:#dbeafe}.ai-input-area{padding:12px 18px 16px;border-top:1px solid #e2e8f0;flex-shrink:0;display:flex;gap:8px;align-items:flex-end}.ai-input{flex:1;border:1px solid #e2e8f0;border-radius:10px;padding:10px 12px;font-size:13.5px;resize:none;font-family:inherit;max-height:80px;outline:none;transition:border-color .2s;line-height:1.5}.ai-input:focus{border-color:#2563eb;box-shadow:0 0 0 2px rgba(37,99,235,.15)}.ai-send{width:40px;height:40px;border-radius:10px;background:#2563eb;border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0}.ai-send:hover{background:#1d4ed8}.ai-send:disabled{background:#94a3b8;cursor:not-allowed}.ai-send svg{width:20px;height:20px}@media(max-width:480px){.ai-panel{width:calc(100vw - 24px);right:12px;bottom:80px;height:calc(100vh - 100px)}.ai-fab{right:16px;bottom:16px}}@media(prefers-color-scheme:dark){.ai-panel{background:#1e293b;border-color:#334155}.ai-msg-bot{background:#334155;color:#e2e8f0}.ai-typing{background:#334155}.ai-input{background:#0f172a;border-color:#475569;color:#e2e8f0}.ai-input:focus{border-color:#3b82f6}.ai-suggestion{background:#1e3a5f;color:#60a5fa;border-color:#1e40af}.ai-suggestion:hover{background:#1e40af}.ai-messages::-webkit-scrollbar-thumb{background:#475569}}@media(prefers-reduced-motion:reduce){.ai-fab{transition:none}.ai-panel{transition:opacity .2s}}</style>
+  <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/cash-count-sheet.html" />
+  <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/cash-count-sheet.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <nav id="pctool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-16">
+          <a href="/en/" class="flex items-center gap-2 font-bold text-lg text-blue-700 dark:text-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            <span data-i18n="common.appName">PettyCash.site Tools</span>
+          </a>
+          <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+            <a href="/en/tools/saudi-invoice-generator.html" class="hover:text-blue-600 " data-i18n="nav.invoice">Invoice Generator</a>
+            <a href="/en/tools/receipt-generator.html" class="hover:text-blue-600 " data-i18n="nav.receipt">Receipt Generator</a>
+            <a href="/en/tools/petty-cash-voucher-generator.html" class="hover:text-blue-600 " data-i18n="nav.voucher">Petty Cash Voucher</a>
+            <div class="relative group">
+              <button class="hover:text-blue-600 flex items-center gap-1" data-i18n="nav.calculators">Calculators</button>
+              <div class="absolute top-full start-0 mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 py-2 hidden group-hover:block z-50">
+                <a href="/en/tools/expense-savings-calculator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.savingsCalc">Expense Savings Calculator</a>
+                <a href="/en/tools/petty-cash-limit-calculator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.limitCalc">Petty Cash Limit Calculator</a>
+                <a href="/en/tools/vat-calculator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.vatCalc">VAT Calculator</a>
+                <a href="/en/tools/expense-policy-generator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.policyGen">Expense Policy Generator</a>
+                <a href="/en/tools/approval-workflow-builder.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.workflowBuilder">Approval Workflow Builder</a>
+                <a href="/en/tools/internal-control-score-quiz.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.controlQuiz">Internal Control Score Quiz</a>
+                <div class="border-t border-slate-100 dark:border-slate-600 my-1"></div>
+                <a href="/en/tools/expense-report-generator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.expenseReport">Expense Report Generator</a>
+                <a href="/en/tools/cash-count-sheet.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.cashCountSheet">Cash Count Sheet</a>
+                <a href="/en/tools/budget-vs-actual-report.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.budgetReport">Budget vs Actual Report</a>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <button id="pctool-theme" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" aria-label="Toggle theme">🌙</button>
+            <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-1" role="group" aria-label="Language switch">
+              <button data-pctool-lang="en" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm">EN</button>
+              <button data-pctool-lang="ar" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100">AR</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 grid lg:grid-cols-12 gap-8">
+    <!-- Form -->
+    <section class="lg:col-span-5 space-y-6 no-print" aria-label="Cash count form">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+        <h1 class="text-2xl font-extrabold mb-1" data-i18n-en="Cash Count Sheet" data-i18n-ar="ورقة جرد النقدية">Cash Count Sheet</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n-en="Count and reconcile your petty cash with denomination breakdown." data-i18n-ar="أعدّ وطابق صندوقك الصغير مع تفصيل الفئات.">Count and reconcile your petty cash with denomination breakdown.</p>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in space-y-4">
+        <h2 class="text-lg font-bold" data-i18n-en="Count Details" data-i18n-ar="تفاصيل الجرد">Count Details</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="Company Name" data-i18n-ar="اسم الشركة">Company Name</label><input id="cc-company" value="My Company" class="form-input"></div>
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="Count Date" data-i18n-ar="تاريخ الجرد">Count Date</label><input id="cc-date" type="date" class="form-input"></div>
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="Counted By" data-i18n-ar="أعدّ بواسطة">Counted By</label><input id="cc-counted" value="" class="form-input"></div>
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="Witnessed By" data-i18n-ar="شاهد">Witnessed By</label><input id="cc-witness" value="" class="form-input"></div>
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="Currency" data-i18n-ar="العملة">Currency</label>
+            <select id="cc-currency" class="form-input"><option value="SAR" selected="">SAR (Saudi Riyal)</option><option value="USD">USD</option><option value="AED">AED</option><option value="EGP">EGP</option></select>
+          </div>
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="System Balance" data-i18n-ar="الرصيد النظامي">System Balance</label><input id="cc-system" type="number" min="0" step="0.01" value="0" class="form-input"></div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+        <h2 class="text-lg font-bold mb-4" data-i18n-en="Denomination Count" data-i18n-ar="عدّ الفئات">Denomination Count</h2>
+        <div id="cc-denominations" class="space-y-2">
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">500 SAR</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="500" onchange="updateQty('500', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-500">0.00</span>
+          </div>
+        
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">200 SAR</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="200" onchange="updateQty('200', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-200">0.00</span>
+          </div>
+        
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">100 SAR</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="100" onchange="updateQty('100', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-100">0.00</span>
+          </div>
+        
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">50 SAR</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="50" onchange="updateQty('50', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-50">0.00</span>
+          </div>
+        
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">10 SAR</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="10" onchange="updateQty('10', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-10">0.00</span>
+          </div>
+        
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">5 SAR</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="5" onchange="updateQty('5', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-5">0.00</span>
+          </div>
+        
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">1 SAR</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="1" onchange="updateQty('1', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-1">0.00</span>
+          </div>
+        
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">0.5 SAR</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="0.5" onchange="updateQty('0.5', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-0.5">0.00</span>
+          </div>
+        
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">0.25 SAR</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="0.25" onchange="updateQty('0.25', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-0.25">0.00</span>
+          </div>
+        
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">0.1 SAR</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="0.1" onchange="updateQty('0.1', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-0.1">0.00</span>
+          </div>
+        
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">0.05 SAR</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="0.05" onchange="updateQty('0.05', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-0.05">0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button type="button" id="btn-pdf" class="btn-primary text-sm"><span data-i18n-en="Download PDF" data-i18n-ar="تحميل PDF">Download PDF</span></button>
+        <button type="button" id="btn-print" class="btn-secondary text-sm"><span data-i18n-en="Print" data-i18n-ar="طباعة">Print</span></button>
+        <button type="button" id="btn-reset" class="btn-secondary text-sm"><span data-i18n-en="Reset" data-i18n-ar="إعادة">Reset</span></button>
+      </div>
+    </section>
+
+    <!-- Preview -->
+    <section class="lg:col-span-7" aria-label="Count sheet preview">
+      <div class="sticky top-20">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 mb-4 no-print">
+          <span class="text-sm text-slate-500" data-i18n-en="Live Preview" data-i18n-ar="معاينة مباشرة">Live Preview</span>
+        </div>
+        <div id="cc-preview" class="paper rounded-xl">
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-6 border-b-2 border-slate-200 pb-4">
+              <div>
+                <h1 class="text-2xl font-bold text-slate-900" id="pv-company">My Company</h1>
+                <p class="text-sm text-slate-500 mt-1" data-i18n-en="Petty Cash Count Sheet" data-i18n-ar="ورقة جرد الصندوق الصغير">Petty Cash Count Sheet</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-slate-500" id="pv-date">Count Date: 2026-08-01</p>
+                <p class="text-sm text-slate-500 mt-1" id="pv-currency-label">Currency: SAR</p>
+              </div>
+            </div>
+
+            <table class="preview-table mb-6">
+              <thead>
+                <tr><th data-i18n-en="Denomination" data-i18n-ar="الفئة">Denomination</th><th data-i18n-en="Quantity" data-i18n-ar="الكمية">Quantity</th><th class="text-right" data-i18n-en="Subtotal" data-i18n-ar="المجموع الفرعي">Subtotal</th></tr>
+              </thead>
+              <tbody id="pv-denominations"><tr><td>500 SAR</td><td>0</td><td class="text-right">0.00</td></tr><tr><td>200 SAR</td><td>0</td><td class="text-right">0.00</td></tr><tr><td>100 SAR</td><td>0</td><td class="text-right">0.00</td></tr><tr><td>50 SAR</td><td>0</td><td class="text-right">0.00</td></tr><tr><td>10 SAR</td><td>0</td><td class="text-right">0.00</td></tr><tr><td>5 SAR</td><td>0</td><td class="text-right">0.00</td></tr><tr><td>1 SAR</td><td>0</td><td class="text-right">0.00</td></tr><tr><td>0.5 SAR</td><td>0</td><td class="text-right">0.00</td></tr><tr><td>0.25 SAR</td><td>0</td><td class="text-right">0.00</td></tr><tr><td>0.1 SAR</td><td>0</td><td class="text-right">0.00</td></tr><tr><td>0.05 SAR</td><td>0</td><td class="text-right">0.00</td></tr></tbody>
+              <tfoot>
+                <tr class="font-bold border-t-2 border-slate-300">
+                  <td data-i18n-en="Total Counted" data-i18n-ar="إجمالي الجرد">Total Counted</td>
+                  <td></td>
+                  <td class="text-right" id="pv-counted-total">0.00 SAR</td>
+                </tr>
+              </tfoot>
+            </table>
+
+            <div class="grid grid-cols-3 gap-4 mt-6">
+              <div class="bg-slate-50 rounded-xl p-4">
+                <p class="text-xs text-slate-500 mb-1" data-i18n-en="System Balance" data-i18n-ar="الرصيد النظامي">System Balance</p>
+                <p class="text-lg font-bold" id="pv-system">0.00 SAR</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4">
+                <p class="text-xs text-slate-500 mb-1" data-i18n-en="Counted Amount" data-i18n-ar="المبلغ المعدود">Counted Amount</p>
+                <p class="text-lg font-bold" id="pv-counted">0.00 SAR</p>
+              </div>
+              <div class="bg-green-50 rounded-xl p-4" id="pv-variance-box">
+                <p class="text-xs text-slate-500 mb-1" data-i18n-en="Variance" data-i18n-ar="الفرق">Variance</p>
+                <p class="text-lg font-bold text-green-700" id="pv-variance">+0.00 SAR</p>
+              </div>
+            </div>
+
+            <div class="mt-8 p-4 rounded-xl bg-green-50 border border-green-200" id="pv-status-box">
+              <p class="text-sm font-medium text-green-700" id="pv-status">✓ Balanced — Count matches system balance</p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-2 gap-8">
+              <div>
+                <div class="border-t border-slate-300 pt-2 text-sm text-slate-500" data-i18n-en="Counted By" data-i18n-ar="أعدّ بواسطة">Counted By</div>
+                <p class="mt-8 text-sm font-medium" id="pv-counted-by"></p>
+              </div>
+              <div>
+                <div class="border-t border-slate-300 pt-2 text-sm text-slate-500" data-i18n-en="Witnessed By" data-i18n-ar="شاهد">Witnessed By</div>
+                <p class="mt-8 text-sm font-medium" id="pv-witness-by"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Tutorial + Comparison + FAQ + CTA -->
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 mb-8">
+      <h2 class="text-xl font-bold mb-4" data-i18n-en="How to Use This Tool" data-i18n-ar="كيفية استخدام هذه الأداة">How to Use This Tool</h2>
+      <ol class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+        <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center font-bold text-xs flex-shrink-0">1</span><span data-i18n-en="Enter company name, count date, and who is counting and witnessing." data-i18n-ar="أدخل اسم الشركة وتاريخ الجرد ومن يععد ومن يشهد.">Enter company name, count date, and who is counting and witnessing.</span></li>
+        <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center font-bold text-xs flex-shrink-0">2</span><span data-i18n-en="Enter the quantity of each bill and coin denomination found in the cash box." data-i18n-ar="أدخل كمية كل فئة من الأوراق والعملات المعدودة في الصندوق.">Enter the quantity of each bill and coin denomination found in the cash box.</span></li>
+        <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center font-bold text-xs flex-shrink-0">3</span><span data-i18n-en="Enter the system balance — the expected petty cash amount from your records." data-i18n-ar="أدخل الرصيد النظامي — المبلغ المتوقع من سجلاتك.">Enter the system balance — the expected petty cash amount from your records.</span></li>
+        <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center font-bold text-xs flex-shrink-0">4</span><span data-i18n-en="Review the variance and reconciliation status, then download as PDF." data-i18n-ar="راجع الفرق وحالة المطابقة، ثم حمل كملف PDF.">Review the variance and reconciliation status, then download as PDF.</span></li>
+      </ol>
+    </div>
+
+    <div class="bg-gradient-to-br from-lime-50 to-green-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl border border-lime-200 dark:border-slate-600 p-8 mb-8">
+      <h3 class="text-lg font-bold mb-3 text-lime-800 dark:text-lime-300" data-i18n-en="This Tool vs. Doing It Manually in Excel" data-i18n-ar="هذه الأداة مقابل القيام بذلك يدوياً في Excel">This Tool vs. Doing It Manually in Excel</h3>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-4">
+          <div class="flex items-center gap-2 mb-2 text-green-600 font-semibold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n-en="With This Tool" data-i18n-ar="مع هذه الأداة">With This Tool</span></div>
+          <ul class="space-y-1 text-slate-600 dark:text-slate-400">
+            <li>✓ <span data-i18n-en="Auto denomination subtotals" data-i18n-ar="مجاميع فرعية تلقائية للفئات">Auto denomination subtotals</span></li>
+            <li>✓ <span data-i18n-en="Auto variance calculation" data-i18n-ar="حساب تلقائي للفرق">Auto variance calculation</span></li>
+            <li>✓ <span data-i18n-en="Reconciliation status indicator" data-i18n-ar="مؤشر حالة المطابقة">Reconciliation status indicator</span></li>
+            <li>✓ <span data-i18n-en="Print-ready PDF with signatures" data-i18n-ar="PDF جاهز للطباعة بالتوقيعات">Print-ready PDF with signatures</span></li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-4">
+          <div class="flex items-center gap-2 mb-2 text-red-500 font-semibold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg><span data-i18n-en="Manual Excel" data-i18n-ar="Excel يدوي">Manual Excel</span></div>
+          <ul class="space-y-1 text-slate-600 dark:text-slate-400">
+            <li>✗ <span data-i18n-en="Manual multiplication per row" data-i18n-ar="ضرب يدوي لكل صف">Manual multiplication per row</span></li>
+            <li>✗ <span data-i18n-en="Manual variance formula" data-i18n-ar="صيغة فرق يدوية">Manual variance formula</span></li>
+            <li>✗ <span data-i18n-en="No status indicator" data-i18n-ar="بدون مؤشر حالة">No status indicator</span></li>
+            <li>✗ <span data-i18n-en="Formatting for print takes time" data-i18n-ar="التنسيق للطباعة يستغرق وقتاً">Formatting for print takes time</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-xl font-bold mb-4" data-i18n-en="Frequently Asked Questions" data-i18n-ar="الأسئلة الشائعة">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
+          <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What is a cash count sheet?" data-i18n-ar="ما هي ورقة جرد النقدية؟">What is a cash count sheet?</summary>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="A cash count sheet is a document used to physically count and reconcile petty cash on hand against the expected system balance." data-i18n-ar="ورقة جرد النقدية هي وثيقة تُستخدم لعد ومطابقة الصندوق الصغير الفعلي مع الرصيد النظامي المتوقع.">A cash count sheet is a document used to physically count and reconcile petty cash on hand against the expected system balance.</p>
+        </details>
+        <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
+          <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="How often should I count petty cash?" data-i18n-ar="كم مرة يجب أن أعدّ الصندوق الصغير؟">How often should I count petty cash?</summary>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Petty cash should be counted at least monthly, and ideally weekly or at every replenishment cycle." data-i18n-ar="يجب عدّ الصندوق الصغير شهرياً على الأقل، ويفضل أسبوعياً أو عند كل دورة تعبئة.">Petty cash should be counted at least monthly, and ideally weekly or at every replenishment cycle.</p>
+        </details>
+        <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
+          <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What does variance mean?" data-i18n-ar="ماذا يعني الفرق؟">What does variance mean?</summary>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Variance is the difference between the physical count and the system balance. A positive variance means you have more cash than expected; negative means less." data-i18n-ar="الفرق هو الاختلاف بين العدد الفعلي والرصيد النظامي. الفرق الموجب يعني أن لديك نقداً أكثر من المتوقع؛ السالب يعني أقل.">Variance is the difference between the physical count and the system balance. A positive variance means you have more cash than expected; negative means less.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-center text-white">
+      <h3 class="text-xl font-bold mb-2" data-i18n-en="Automate Your Cash Counts" data-i18n-ar="أتمت جرد النقدية">Automate Your Cash Counts</h3>
+      <p class="text-blue-100 text-sm mb-4" data-i18n-en="PettyCash tracks your cash balance in real-time and generates count sheets automatically — no manual counting needed." data-i18n-ar="يتتبع PettyCash رصيدك النقدي في الوقت الفعلي وينشئ أوراق الجرد تلقائياً — بدون عدّ يدوي.">PettyCash tracks your cash balance in real-time and generates count sheets automatically — no manual counting needed.</p>
+      <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="جرب PettyCash مجاناً">Try PettyCash Free</a>
+      <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever • No credit card required • Setup in 2 minutes" data-i18n-ar="مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين">Free forever • No credit card required • Setup in 2 minutes</p>
+    </div>
+  </section>
+
+  <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-6 no-print">
+    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 dark:text-slate-400">
+      <p data-i18n="tools.footer">© 2026 PettyCash.site — Free business tools.</p>
+    </div>
+  </footer>
+
+  <script defer="" src="./js/shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      PCTools.renderNav();
+      PCTools.initTheme();
+      document.getElementById('pctool-theme')?.addEventListener('click', PCTools.toggleTheme);
+      PCTools.setLang(PCTools.currentLang);
+
+      const isAr = () => PCTools.currentLang === 'ar';
+
+      // Denominations per currency
+      const denomSets = {
+        SAR: [500, 200, 100, 50, 10, 5, 1, 0.5, 0.25, 0.1, 0.05],
+        USD: [100, 50, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01],
+        AED: [1000, 500, 200, 100, 50, 20, 10, 5, 1, 0.5, 0.25],
+        EGP: [200, 100, 50, 20, 10, 5, 1, 0.5, 0.25]
+      };
+
+      let quantities = {};
+
+      function getDenoms() {
+        const cur = document.getElementById('cc-currency').value || 'SAR';
+        return denomSets[cur] || denomSets.SAR;
+      }
+
+      function renderDenominations() {
+        const denoms = getDenoms();
+        quantities = {};
+        denoms.forEach(d => quantities[d] = 0);
+
+        const container = document.getElementById('cc-denominations');
+        container.innerHTML = denoms.map(d => `
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">${d} ${document.getElementById('cc-currency').value}</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="${d}" onchange="updateQty('${d}', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-${d}">0.00</span>
+          </div>
+        `).join('');
+        renderPreview();
+      }
+
+      window.updateQty = function (denom, val) {
+        quantities[denom] = parseInt(val) || 0;
+        renderPreview();
+      };
+
+      function renderPreview() {
+        const company = document.getElementById('cc-company').value || 'My Company';
+        const date = document.getElementById('cc-date').value || '';
+        const currency = document.getElementById('cc-currency').value || 'SAR';
+        const systemBalance = parseFloat(document.getElementById('cc-system').value) || 0;
+        const countedBy = document.getElementById('cc-counted').value || '';
+        const witnessBy = document.getElementById('cc-witness').value || '';
+        const denoms = getDenoms();
+
+        document.getElementById('pv-company').textContent = company;
+        document.getElementById('pv-date').textContent = (isAr() ? 'تاريخ الجرد: ' : 'Count Date: ') + (date || '—');
+        document.getElementById('pv-currency-label').textContent = (isAr() ? 'العملة: ' : 'Currency: ') + currency;
+
+        // Denomination rows
+        let total = 0;
+        document.getElementById('pv-denominations').innerHTML = denoms.map(d => {
+          const qty = quantities[d] || 0;
+          const sub = qty * d;
+          total += sub;
+          return `<tr><td>${d} ${currency}</td><td>${qty}</td><td class="text-right">${sub.toFixed(2)}</td></tr>`;
+        }).join('');
+
+        document.getElementById('pv-counted-total').textContent = total.toFixed(2) + ' ' + currency;
+        document.getElementById('pv-system').textContent = systemBalance.toFixed(2) + ' ' + currency;
+        document.getElementById('pv-counted').textContent = total.toFixed(2) + ' ' + currency;
+
+        const variance = total - systemBalance;
+        document.getElementById('pv-variance').textContent = (variance >= 0 ? '+' : '') + variance.toFixed(2) + ' ' + currency;
+
+        const varianceBox = document.getElementById('pv-variance-box');
+        if (Math.abs(variance) < 0.01) {
+          varianceBox.className = 'bg-green-50 rounded-xl p-4';
+          document.getElementById('pv-variance').className = 'text-lg font-bold text-green-700';
+        } else if (variance > 0) {
+          varianceBox.className = 'bg-blue-50 rounded-xl p-4';
+          document.getElementById('pv-variance').className = 'text-lg font-bold text-blue-700';
+        } else {
+          varianceBox.className = 'bg-red-50 rounded-xl p-4';
+          document.getElementById('pv-variance').className = 'text-lg font-bold text-red-700';
+        }
+
+        const statusBox = document.getElementById('pv-status-box');
+        const status = document.getElementById('pv-status');
+        if (Math.abs(variance) < 0.01) {
+          statusBox.className = 'mt-8 p-4 rounded-xl bg-green-50 border border-green-200';
+          status.textContent = isAr() ? '✓ متوازن — الجرد مطابق للرصيد النظامي' : '✓ Balanced — Count matches system balance';
+          status.className = 'text-sm font-medium text-green-700';
+        } else if (variance > 0) {
+          statusBox.className = 'mt-8 p-4 rounded-xl bg-blue-50 border border-blue-200';
+          status.textContent = isAr() ? `⚠ فائض — يوجد ${variance.toFixed(2)} ${currency} زيادة عن المتوقع` : `⚠ Surplus — ${variance.toFixed(2)} ${currency} more than expected`;
+          status.className = 'text-sm font-medium text-blue-700';
+        } else {
+          statusBox.className = 'mt-8 p-4 rounded-xl bg-red-50 border border-red-200';
+          status.textContent = isAr() ? `✗ عجز — يوجد ${Math.abs(variance).toFixed(2)} ${currency} أقل من المتوقع` : `✗ Shortage — ${Math.abs(variance).toFixed(2)} ${currency} less than expected`;
+          status.className = 'text-sm font-medium text-red-700';
+        }
+
+        document.getElementById('pv-counted-by').textContent = countedBy;
+        document.getElementById('pv-witness-by').textContent = witnessBy;
+
+        // Update subtotals in form
+        denoms.forEach(d => {
+          const sub = (quantities[d] || 0) * d;
+          const el = document.getElementById('cc-sub-' + d);
+          if (el) el.textContent = sub.toFixed(2);
+        });
+      }
+
+      document.getElementById('cc-currency').addEventListener('change', renderDenominations);
+      ['cc-company', 'cc-date', 'cc-system', 'cc-counted', 'cc-witness'].forEach(id => {
+        document.getElementById(id).addEventListener('input', renderPreview);
+      });
+
+      document.getElementById('btn-pdf').addEventListener('click', function () {
+        PCTools.exportPDF(document.getElementById('cc-preview'), 'cash-count-sheet.pdf');
+      });
+      document.getElementById('btn-print').addEventListener('click', function () {
+        PCTools.printElement('cc-preview');
+      });
+      document.getElementById('btn-reset').addEventListener('click', function () {
+        document.getElementById('cc-system').value = 0;
+        document.getElementById('cc-counted').value = '';
+        document.getElementById('cc-witness').value = '';
+        renderDenominations();
+      });
+
+      document.getElementById('cc-date').value = new Date().toISOString().split('T')[0];
+
+      window.addEventListener('pctool-lang-change', () => { PCTools.renderNav(); renderDenominations(); });
+      renderDenominations();
+    });
+  </script>
+<script defer="" src="../js/pettycash-widget.js"></script>
+<script defer="" src="../js/ai-assistant.js"></script>
+<script defer="" src="../js/analytics.js"></script>
+<script defer="" src="../js/marquee-banner.js?v=4"></script>
+
+
+<div id="marquee-banner"><div class="marquee-text" style="animation: 18s linear 0s infinite normal none running marquee-scroll;"><a href="https://pattycashsystem.web.app/register" target="_blank" rel="noopener noreferrer">Go paperless! Try the Petty Cash System to manage expenses and receipts.</a></div></div><button class="ai-fab" aria-label="Open AI Assistant" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10 10 10 0 0 0 10 10 10 10 0 0 0 10-10 10 10 0 0 0-10-10z"></path><path d="M8 12h.01"></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path></svg><span class="ai-fab-badge"></span></button><div class="ai-panel" role="dialog" aria-label="AI Assistant chat"><div class="ai-header"><div class="ai-header-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10 10 10 0 0 0 10 10 10 10 0 0 0 10-10 10 10 0 0 0-10-10z"></path><path d="M8 12h.01"></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path></svg></div><div class="ai-header-text"><h3>AI Assistant</h3><p>PettyCash.site</p></div><button class="ai-close" aria-label="Close" type="button">×</button><select class="ai-lang-select" title="Language / اللغة" aria-label="Language" style="background: rgba(255, 255, 255, 0.2); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-radius: 6px; padding: 2px 6px; font-size: 12px; cursor: pointer; outline: none; flex-shrink: 0;"><option value="en">EN</option><option value="ar">AR</option></select></div><div class="ai-messages" id="ai-messages"><div class="ai-msg ai-msg-bot">Hi! I'm your AI assistant. I can help you with petty cash management, invoices, receipts, and more. How can I help you today?</div></div><div class="ai-suggestions" id="ai-suggestions"><button class="ai-suggestion" type="button">What is petty cash management?</button><button class="ai-suggestion" type="button">How to create an invoice?</button><button class="ai-suggestion" type="button">Tell me about Petty Cash System</button></div><div class="ai-input-area"><textarea class="ai-input" id="ai-input" rows="1" placeholder="Ask me anything about petty cash, invoices, or our tools..." aria-label="Ask me anything about petty cash, invoices, or our tools..."></textarea><button class="ai-send" id="ai-send" type="button" aria-label="Send" disabled=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button></div></div></body></html>
