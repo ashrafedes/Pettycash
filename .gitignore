@@ -1,0 +1,12 @@
+# Screenshots
+Screenshot*.png
+
+# Node
+node_modules/
+package-lock.json
+
+# Temp scripts
+check-dups.js
+fix-h4.js
+fix-contrast.js
+remove-styles.ps1
