@@ -2,13 +2,13 @@
 const APP_URL = 'https://pattycashsystem.web.app';
 
 const NAV_LABELS = {
-  en: { home: 'Home', features: 'Features', pricing: 'Pricing', resources: 'Resources', blog: 'Blog', help: 'Help', about: 'About', contact: 'Contact', login: 'Login', signup: 'Sign Up', businessTools: 'Business Tools', pdfTools: 'PDF Tools', templates: 'Templates', industries: 'Industries', compare: 'Compare', aiCenter: 'AI Center' },
-  ar: { home: 'الرئيسية', features: 'الميزات', pricing: 'الأسعار', resources: 'الموارد', blog: 'المدونة', help: 'المساعدة', about: 'من نحن', contact: 'تواصل', login: 'تسجيل الدخول', signup: 'إنشاء حساب', businessTools: 'أدوات الأعمال', pdfTools: 'أدوات PDF', templates: 'القوالب', industries: 'القطاعات', compare: 'المقارنة', aiCenter: 'مركز الذكاء' }
+  en: { home: 'Home', features: 'Features', pricing: 'Pricing', tools: 'Tools', blog: 'Blog', help: 'Help', about: 'About', contact: 'Contact', login: 'Login', signup: 'Sign Up', businessTools: 'Business Tools', pdfTools: 'PDF Tools', templates: 'Templates', industries: 'Industries', compare: 'Compare', aiCenter: 'AI Center' },
+  ar: { home: 'الرئيسية', features: 'الميزات', pricing: 'الأسعار', tools: 'الأدوات', blog: 'المدونة', help: 'المساعدة', about: 'من نحن', contact: 'تواصل', login: 'تسجيل الدخول', signup: 'إنشاء حساب', businessTools: 'أدوات الأعمال', pdfTools: 'أدوات PDF', templates: 'القوالب', industries: 'القطاعات', compare: 'المقارنة', aiCenter: 'مركز الذكاء' }
 };
 
 const FOOTER_LABELS = {
-  en: { compare: 'Comparisons', moreCompare: 'More Comparisons', industries: 'Industries', moreIndustries: 'More Industries', company: 'Company', resources: 'Resources', legal: 'Legal' },
-  ar: { compare: 'المقارنات', moreCompare: 'مقارنات أخرى', industries: 'القطاعات', moreIndustries: 'قطاعات أخرى', company: 'الشركة', resources: 'الموارد', legal: 'قانوني' }
+  en: { compare: 'Comparisons', moreCompare: 'More Comparisons', industries: 'Industries', moreIndustries: 'More Industries', company: 'Company', tools: 'Tools', legal: 'Legal' },
+  ar: { compare: 'المقارنات', moreCompare: 'مقارنات أخرى', industries: 'القطاعات', moreIndustries: 'قطاعات أخرى', company: 'الشركة', tools: 'الأدوات', legal: 'قانوني' }
 };
 
 const PCCompare = {
@@ -38,12 +38,12 @@ const PCCompare = {
             <a href="../" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${this.L('home')}</a>
             <a href="../features.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${this.L('features')}</a>
             <a href="../pricing.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${this.L('pricing')}</a>
-            <div class="relative group">
-              <button class="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">
-                <span>${this.L('resources')}</span>
+            <div class="relative">
+              <button id="tools-btn" class="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">
+                <span>${this.L('tools')}</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
-              <div class="absolute top-full start-0 mt-1 w-auto bg-white border border-slate-200 rounded-lg shadow-lg p-1 z-50 hidden group-hover:block">
+              <div id="tools-menu" class="hidden absolute top-full start-0 mt-1 w-auto bg-white border border-slate-200 rounded-lg shadow-lg p-1 z-50">
                 <a href="../tools/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${this.L('businessTools')}</a>
                 <a href="../pdf-tools/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${this.L('pdfTools')}</a>
                 <a href="../templates/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${this.L('templates')}</a>
@@ -78,6 +78,12 @@ const PCCompare = {
         this.renderFooter();
       });
     });
+    const toolsBtn = document.getElementById('tools-btn');
+    const toolsMenu = document.getElementById('tools-menu');
+    if (toolsBtn && toolsMenu) {
+      toolsBtn.addEventListener('click', e => { e.stopPropagation(); toolsMenu.classList.toggle('hidden'); });
+      document.addEventListener('click', () => toolsMenu.classList.add('hidden'));
+    }
   },
 
   renderFooter() {
@@ -125,7 +131,7 @@ const PCCompare = {
         <div>
           <h3 class="font-semibold text-slate-700 mb-3">${this.FL('company')}</h3>
           <ul class="space-y-1">${renderLinks(companyLinks)}</ul>
-          <h3 class="font-semibold text-slate-700 mb-3 mt-6">${this.FL('resources')}</h3>
+          <h3 class="font-semibold text-slate-700 mb-3 mt-6">${this.FL('tools')}</h3>
           <ul class="space-y-1">${renderLinks(resourceLinks)}</ul>
         </div>
         <div>
