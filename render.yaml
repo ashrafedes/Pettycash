@@ -1,26 +1,40 @@
 services:
   - type: static
-    name: pettycash-static
+    name: pettycash-static-test
     env: static
     buildCommand: ""
     staticPublishPath: ./
-    branch: main
+    branch: test/render-redirect-behavior
     routes:
-      - type: rewrite
-        source: /en/articles/*
-        destination: /en/article.html
-      - type: rewrite
-        source: /ar/articles/*
-        destination: /ar/article.html
+      # TEST 1: Does a redirect rule fire for a path where a static file
+      # (about.html) already exists at root? Do NOT delete/rename about.html
+      # for this test — the whole point is to check Render's behavior when
+      # the file is still physically present.
       - type: redirect
-        source: /article.html
-        destination: /en/articles/:slug
-      - type: redirect
-        source: /en/article.html
-        destination: /en/articles/:slug
-      - type: redirect
-        source: /ar/article.html
-        destination: /ar/articles/:slug
-      - type: redirect
-        source: /
-        destination: /en/
+        source: /about.html
+        destination: /en/about.html
+
+    headers:
+      # TEST 3: Confirm both cache-control and security headers apply
+      # together and neither rule silently overrides the other.
+      - path: /*.html
+        name: Cache-Control
+        value: no-cache
+      - path: /css/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /js/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /images/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
