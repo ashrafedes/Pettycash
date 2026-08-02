@@ -15,7 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta property="og:description" content="Convert PDF to editable Word document (DOCX). Free, no upload, all in your browser.">
   <meta property="og:url" content="https://www.pettycash.site/ar/pdf-tools/pdf-to-word.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://www.pettycash.site/ar/images/favicon.png">
+  <meta property="og:image" content="https://www.pettycash.site/images/favicon.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="PDF to Word — Free Online">
   <meta name="twitter:description" content="Convert PDF to editable Word document (DOCX). Free, no upload, all in your browser.">
@@ -31,12 +31,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     { "@type": "FAQPage", "mainEntity": [{"@type":"Question","name":"Is PDF to Word free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free."}},{"@type":"Question","name":"Are my files uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens in your browser."}},{"@type":"Question","name":"Is the output editable?","acceptedAnswer":{"@type":"Answer","text":"Yes, the output is an HTML-based .doc file editable in Microsoft Word."}},{"@type":"Question","name":"Will formatting be preserved?","acceptedAnswer":{"@type":"Answer","text":"Best effort is made to preserve text structure and basic formatting."}}] }
   ]}
   </script>
-  <link rel="icon" type="image/png" href="/ar/images/favicon.png">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="/ar/css/tailwind.min.css">
-  <link rel="stylesheet" href="/ar/pdf-tools/css/pdf-tools.css">
+  <link rel="stylesheet" href="/css/tailwind.min.css">
+  <link rel="stylesheet" href="/pdf-tools/css/pdf-tools.css">
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -63,7 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <main class="flex-1">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
       <nav class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <a href="/ar/" class="hover:text-blue-600">Home</a><span>/</span>
+        <a href="/ar/./" class="hover:text-blue-600">Home</a><span>/</span>
         <a href="/ar/pdf-tools/" class="hover:text-blue-600">PDF Tools</a><span>/</span>
         <span class="text-slate-700 dark:text-slate-300" id="bc-title">PDF to Word</span>
       </nav>
@@ -100,9 +100,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
   </main>
   <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>© 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p></div></footer>
-  <script defer="" src="./js/pdf-translations.js"></script>
-  <script defer="" src="./js/pdf-tools-registry.js"></script>
-  <script defer="" src="./js/pdf-shared.js"></script>
+  <script defer="" src="/pdf-tools/js/pdf-translations.js"></script>
+  <script defer="" src="/pdf-tools/js/pdf-tools-registry.js"></script>
+  <script defer="" src="/pdf-tools/js/pdf-shared.js"></script>
   
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -114,7 +114,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       document.getElementById('related-tools').innerHTML = related.map(key => {
         const tool = window.PDF_TOOLS_REGISTRY.find(t => t.key === key);
         if (!tool) return '';
-        return '<a href="/ar/pdf-tools/'+tool.slug+'.html" class="tool-card text-center"><div class="text-2xl">'+tool.icon+'</div><p class="text-xs font-semibold mt-1">'+PDFTools.t('tools.'+tool.key+'.title')+'</p></a>';
+        return '<a href="./'+tool.slug+'.html" class="tool-card text-center"><div class="text-2xl">'+tool.icon+'</div><p class="text-xs font-semibold mt-1">'+PDFTools.t('tools.'+tool.key+'.title')+'</p></a>';
       }).join('');
       
       let pdfFile=null, resultBlob=null;
@@ -185,10 +185,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             if(i<pdf.numpages) htmlparts.push('<div="" class="page-break">');
             PDFTools.showProgress(document.getElementById('progress-area'),10+Math.round((i/pdf.numPages)*80));
           }
-          htmlParts.push('<script defer="" src="../js/pettycash-widget.js"></script>
-<script defer="" src="../js/ai-assistant.js"></script>
-<script defer="" src="../js/analytics.js"></script>
-<script defer="" src="../js/marquee-banner.js?v=4"></script>
+          htmlParts.push('<script defer="" src="/js/pettycash-widget.js"></script>
+<script defer="" src="/js/ai-assistant.js"></script>
+<script defer="" src="/js/analytics.js"></script>
+<script defer="" src="/js/marquee-banner.js?v=4"></script>
 ');
           const docHtml=htmlParts.join('\n');
           resultBlob=new Blob(['\ufeff'+docHtml],{type:'application/msword'});
@@ -201,9 +201,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     });
   
   
-<script defer="" src="../js/pettycash-widget.js"></script>
-<script defer="" src="../js/ai-assistant.js"></script>
-<script defer="" src="../js/analytics.js"></script>
-<script defer="" src="../js/marquee-banner.js?v=4"></script>
+<script defer="" src="/js/pettycash-widget.js"></script>
+<script defer="" src="/js/ai-assistant.js"></script>
+<script defer="" src="/js/analytics.js"></script>
+<script defer="" src="/js/marquee-banner.js?v=4"></script>
 
 </pdf.numpages)></body></html>

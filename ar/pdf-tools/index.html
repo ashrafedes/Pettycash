@@ -15,7 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta property="og:description" content="Merge, split, compress, convert, rotate, edit, protect PDF files. All in your browser.">
   <meta property="og:url" content="https://www.pettycash.site/ar/pdf-tools/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://www.pettycash.site/ar/images/favicon.png">
+  <meta property="og:image" content="https://www.pettycash.site/images/favicon.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Free PDF Tools — 40+ Online PDF Tools">
   <meta name="twitter:description" content="Merge, split, compress, convert, rotate, edit, protect PDF files.">
@@ -40,12 +40,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     ]
   }
   </script>
-  <link rel="icon" type="image/png" href="/ar/images/favicon.png">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="/ar/css/tailwind.min.css">
-  <link rel="stylesheet" href="/ar/pdf-tools/css/pdf-tools.css">
+  <link rel="stylesheet" href="/css/tailwind.min.css">
+  <link rel="stylesheet" href="/pdf-tools/css/pdf-tools.css">
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -125,9 +125,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </footer>
 
-  <script defer="" src="./js/pdf-translations.js"></script>
-  <script defer="" src="./js/pdf-tools-registry.js"></script>
-  <script defer="" src="./js/pdf-shared.js"></script>
+  <script defer="" src="/pdf-tools/js/pdf-translations.js"></script>
+  <script defer="" src="/pdf-tools/js/pdf-tools-registry.js"></script>
+  <script defer="" src="/pdf-tools/js/pdf-shared.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       PDFTools.initTheme();
@@ -157,7 +157,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         const title = PDFTools.t(tKey + '.title');
         const desc = PDFTools.t(tKey + '.desc');
         return `
-          <a href="/ar/pdf-tools/${tool.slug}.html" class="tool-card group animate-fade-up" data-tool-key="${tool.key}" data-tool-cat="${tool.cat}">
+          <a href="./${tool.slug}.html" class="tool-card group animate-fade-up" data-tool-key="${tool.key}" data-tool-cat="${tool.cat}">
             <div class="flex items-start justify-between">
               <div class="text-3xl">${tool.icon}</div>
               ${tool.clientSide ? '<span class="cat-badge bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">Browser</span>' : '<span class="cat-badge bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">Cloud</span>'}
@@ -222,10 +222,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       renderTools();
     });
   </script>
-<script defer="" src="../js/pettycash-widget.js"></script>
-<script defer="" src="../js/ai-assistant.js"></script>
-<script defer="" src="../js/analytics.js"></script>
-<script defer="" src="../js/marquee-banner.js?v=4"></script>
+<script defer="" src="/js/pettycash-widget.js"></script>
+<script defer="" src="/js/ai-assistant.js"></script>
+<script defer="" src="/js/analytics.js"></script>
+<script defer="" src="/js/marquee-banner.js?v=4"></script>
 
 
 </body></html>

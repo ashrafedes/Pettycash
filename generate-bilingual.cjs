@@ -71,38 +71,136 @@ function findHtmlFiles(dir, base = '') {
   return results;
 }
 
-// ─── Fix internal links for /lang/ prefix ───
+// ─── Asset extensions that should resolve to root / ───
+const ASSET_EXTS = ['.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico',
+  '.webp', '.woff', '.woff2', '.ttf', '.eot', '.otf', '.mp4', '.webm',
+  '.ogg', '.mp3', '.wav', '.json', '.xml', '.txt', '.webmanifest', '.pdf'];
+
+function isAssetPath(p) {
+  // Strip query string and hash
+  const clean = p.split('?')[0].split('#')[0];
+  const lower = clean.toLowerCase();
+  // Check if it ends with an asset extension
+  for (const ext of ASSET_EXTS) {
+    if (lower.endsWith(ext)) return true;
+  }
+  // No extension and not ending in / → could be a directory or a page
+  // If it has no dot at all in the last segment, treat as page (directory index)
+  return false;
+}
+
+function isExternalUrl(p) {
+  return p.startsWith('http') || p.startsWith('https') || p.startsWith('//') ||
+    p.startsWith('mailto:') || p.startsWith('tel:') || p.startsWith('#') ||
+    p.startsWith('data:') || p.startsWith('blob:');
+}
+
+// ─── Resolve a relative path against a file path to an absolute path ───
+function resolveRelative(relPath, filePath) {
+  const fileDir = path.dirname(filePath);
+  const resolved = path.normalize(path.join(fileDir, relPath)).replace(/\\/g, '/');
+  return resolved;
+}
+
+// ─── Fix internal links and asset paths for /lang/ prefix ───
 function fixLinksForFile(html, lang, filePath) {
+  const $ = cheerio.load(html, { decodeEntities: false });
   const fileDir = path.dirname(filePath);
   const isInSubdir = fileDir !== '.';
-  const dirPrefix = isInSubdir ? fileDir.replace(/\\/g, '/') + '/' : '';
 
-  // Pattern 1: href="../..." (from subdir, go to root)
-  if (isInSubdir) {
-    html = html.replace(/href="\.\.\/([^"]*)"/g, (match, p1) => {
-      if (p1.startsWith('http') || p1.startsWith('mailto') || p1.startsWith('tel') || p1.startsWith('#')) return match;
-      return 'href="/' + lang + '/' + p1 + '"';
-    });
-    // ./ → /lang/dirPrefix
-    html = html.replace(/href="\.\//g, 'href="/' + lang + '/' + dirPrefix);
-  } else {
-    // ./ → /lang/
-    html = html.replace(/href="\.\//g, 'href="/' + lang + '/');
-  }
+  // Fix href attributes on link, a tags
+  $('[href]').each(function () {
+    const href = $(this).attr('href');
+    if (!href || isExternalUrl(href)) return;
 
-  // Fix canonical URLs
-  html = html.replace(/href="https:\/\/www\.pettycash\.site\/([^"]*)"/g, (match, p1) => {
-    if (p1 === '' || p1 === '/') return 'href="https://www.pettycash.site/' + lang + '/"';
-    return 'href="https://www.pettycash.site/' + lang + '/' + p1 + '"';
+    // Handle relative paths (./ or ../)
+    if (href.startsWith('./') || href.startsWith('../')) {
+      const resolved = resolveRelative(href, filePath);
+
+      if (isAssetPath(resolved)) {
+        // Asset → resolve to root /
+        $(this).attr('href', '/' + resolved);
+      } else {
+        // Page link → prefix with /lang/
+        $(this).attr('href', '/' + lang + '/' + resolved);
+      }
+    } else if (href.startsWith('/') && !href.startsWith('//')) {
+      // Already absolute path starting with / — check if it's an asset or page
+      // Leave absolute paths as-is (they should already be correct)
+      // But fix any that were previously mangled to /en/ or /ar/ for assets
+      const cleanPath = href.split('?')[0].split('#')[0];
+      if (isAssetPath(cleanPath)) {
+        // Strip /en/ or /ar/ prefix from asset paths
+        const stripped = cleanPath.replace(/^\/(en|ar)\//, '/');
+        if (stripped !== cleanPath) {
+          // Re-add query/hash
+          const queryHash = href.substring(cleanPath.length);
+          $(this).attr('href', stripped + queryHash);
+        }
+      }
+    }
   });
 
-  // Fix og:url
-  html = html.replace(/content="https:\/\/www\.pettycash\.site\/([^"]*)"/g, (match, p1) => {
-    if (p1 === '' || p1 === '/') return 'content="https://www.pettycash.site/' + lang + '/"';
-    return 'content="https://www.pettycash.site/' + lang + '/' + p1 + '"';
+  // Fix src attributes on script, img, etc.
+  $('[src]').each(function () {
+    const src = $(this).attr('src');
+    if (!src || isExternalUrl(src)) return;
+
+    if (src.startsWith('./') || src.startsWith('../')) {
+      const resolved = resolveRelative(src, filePath);
+
+      if (isAssetPath(resolved)) {
+        // Asset → resolve to root /
+        $(this).attr('src', '/' + resolved);
+      } else {
+        // Page link → prefix with /lang/
+        $(this).attr('src', '/' + lang + '/' + resolved);
+      }
+    } else if (src.startsWith('/') && !src.startsWith('//')) {
+      // Strip /en/ or /ar/ prefix from asset paths
+      const cleanPath = src.split('?')[0].split('#')[0];
+      if (isAssetPath(cleanPath)) {
+        const stripped = cleanPath.replace(/^\/(en|ar)\//, '/');
+        if (stripped !== cleanPath) {
+          const queryHash = src.substring(cleanPath.length);
+          $(this).attr('src', stripped + queryHash);
+        }
+      }
+    }
   });
 
-  return html;
+  // Fix content attributes (og:url, og:image, twitter:image, etc.)
+  $('[content]').each(function () {
+    const content = $(this).attr('content');
+    if (!content || !content.includes('pettycash.site')) return;
+
+    $(this).attr('content', content.replace(
+      /https:\/\/www\.pettycash\.site\/([^"\s]*)/g,
+      (match, p1) => {
+        if (p1 === '' || p1 === '/') return 'https://www.pettycash.site/' + lang + '/';
+        // If it's an asset path (images/, css/, js/), don't add /lang/ prefix
+        if (isAssetPath(p1) || /^(images|css|js)\//.test(p1)) {
+          return 'https://www.pettycash.site/' + p1;
+        }
+        return 'https://www.pettycash.site/' + lang + '/' + p1;
+      }
+    ));
+  });
+
+  // Fix canonical link href
+  $('link[rel="canonical"]').each(function () {
+    const href = $(this).attr('href');
+    if (!href || !href.includes('pettycash.site')) return;
+    $(this).attr('href', href.replace(
+      /https:\/\/www\.pettycash\.site\/([^"\s]*)/g,
+      (match, p1) => {
+        if (p1 === '' || p1 === '/') return 'https://www.pettycash.site/' + lang + '/';
+        return 'https://www.pettycash.site/' + lang + '/' + p1;
+      }
+    ));
+  });
+
+  return $.html();
 }
 
 // ─── Apply translations to HTML using cheerio ───
