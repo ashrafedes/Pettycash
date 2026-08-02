@@ -6,21 +6,35 @@ services:
     staticPublishPath: ./
     branch: main
     routes:
+      # Article URL rewrites — serve article.html at clean URL
       - type: rewrite
         source: /en/articles/*
         destination: /en/article.html
       - type: rewrite
         source: /ar/articles/*
         destination: /ar/article.html
-      - type: redirect
-        source: /article.html
-        destination: /en/articles/:slug
-      - type: redirect
-        source: /en/article.html
-        destination: /en/articles/:slug
-      - type: redirect
-        source: /ar/article.html
-        destination: /ar/articles/:slug
-      - type: redirect
-        source: /
-        destination: /en/
+    headers:
+      # HTML pages — no cache (stubs are tiny redirects, /en/ and /ar/ content should revalidate)
+      - path: /*.html
+        name: Cache-Control
+        value: no-cache
+      # CSS/JS/Images — long cache
+      - path: /css/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /js/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /images/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      # Security headers
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin

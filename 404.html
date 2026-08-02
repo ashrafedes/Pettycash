@@ -3,36 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loading… | PettyCash</title>
-<script>
-(function() {
-  var path = window.location.pathname;
-  var m = path.match(/^\/(en|ar)\/articles\/(.+)$/);
-  if (m) {
-    // Article URL detected — dynamically load article.html content
-    var lang = m[1];
-    var slug = m[2];
-    // Fetch the article.html and inject it
-    fetch('/' + lang + '/article.html')
-      .then(function(r) { return r.text(); })
-      .then(function(html) {
-        // Replace the entire page with article.html content
-        document.open();
-        document.write(html);
-        document.close();
-      })
-      .catch(function() {
-        document.title = 'Article Not Found | PettyCash';
-        document.body.innerHTML = '<p style="text-align:center;padding:40px">Article not found. <a href="/' + lang + '/blog.html">Back to blog</a></p>';
-      });
-  } else {
-    // Not an article URL — show normal 404
-    document.title = '404 | PettyCash';
-  }
-})();
-</script>
+<title>404 | Page Not Found | PettyCash</title>
+<meta name="robots" content="noindex">
 </head>
 <body style="font-family:Inter,sans-serif;text-align:center;padding:60px 20px">
-<p id="loading" style="color:#64748b">Loading…</p>
+<h1 style="font-size:48px;color:#1e293b;margin:0">404</h1>
+<p style="color:#64748b;margin:12px 0 24px">Page not found.</p>
+<a href="/en/" style="color:#2563eb;text-decoration:underline">Go to homepage</a>
 </body>
 </html>
