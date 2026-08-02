@@ -242,6 +242,43 @@ function applyTranslations(html, translations, lang) {
   return $.html();
 }
 
+// ─── Fix ./ paths inside inline <script> tags (e.g. ES module imports) ───
+function fixInlineScriptPaths(html, lang, filePath) {
+  const $ = cheerio.load(html, { decodeEntities: false });
+  const fileDir = path.dirname(filePath);
+
+  $('script:not([src])').each(function () {
+    let code = $(this).html();
+    if (!code) return;
+
+    // Fix import ... from './...' and import ... from "../..."
+    code = code.replace(/from\s+['"](\.\.?\/[^'"]+)['"]/g, (match, relPath) => {
+      const resolved = resolveRelative(relPath, filePath);
+      if (isAssetPath(resolved)) {
+        return match.replace(relPath, '/' + resolved);
+      } else {
+        return match.replace(relPath, '/' + lang + '/' + resolved);
+      }
+    });
+
+    // Fix any remaining string literals with ./ that look like paths
+    // e.g. "./images/foo.png" or "./js/bar.js"
+    code = code.replace(/['"](\.\/[^'"]+)['"]/g, (match, relPath) => {
+      // Skip if it's already been handled or doesn't look like a file path
+      if (!relPath.includes('.')) return match;
+      const resolved = resolveRelative(relPath, filePath);
+      if (isAssetPath(resolved)) {
+        return match.replace(relPath, '/' + resolved);
+      }
+      return match;
+    });
+
+    $(this).html(code);
+  });
+
+  return $.html();
+}
+
 // ─── Process a single HTML file for a given language ───
 function processHtml(rawHtml, lang, filePath, translations) {
   let html = rawHtml;
@@ -256,8 +293,11 @@ function processHtml(rawHtml, lang, filePath, translations) {
   // Also handle single-quote variant
   html = html.replace(/<html\s+lang='[^']*'\s+dir='[^']*'/, '<html lang="' + lang + '" dir="' + (lang === 'ar' ? 'rtl' : 'ltr') + '"');
 
-  // Fix internal links
+  // Fix internal links and asset paths
   html = fixLinksForFile(html, lang, filePath);
+
+  // Fix ./ paths inside inline <script> tags (e.g. ES module imports)
+  html = fixInlineScriptPaths(html, lang, filePath);
 
   // Add hreflang tags (before </head>)
   const otherLang = lang === 'en' ? 'ar' : 'en';
