@@ -218,14 +218,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let slugInfo = getSlugFromPath();
 
-  // Backward compat: old URL format article.html?slug=X → redirect to new clean URL
+  // Fallback: article.html?slug=X (from 404 handler)
   if (!slugInfo) {
     slugInfo = getSlugFromQuery();
-    if (slugInfo) {
-      const newUrl = `${window.location.origin}/${slugInfo.lang}/articles/${encodeURIComponent(slugInfo.slug)}`;
-      window.location.replace(newUrl);
-      return;
-    }
   }
 
   if (!slugInfo || !window.PettyCashFirebase) {

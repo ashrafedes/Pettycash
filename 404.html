@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>404 | Page Not Found | PettyCash</title>
 <meta name="robots" content="noindex">
+<script>
+// Handle article URLs: /en/articles/slug or /ar/articles/slug
+(function() {
+  var path = window.location.pathname;
+  var m = path.match(/^\/(en|ar)\/articles\/(.+)$/);
+  if (m) {
+    var lang = m[1];
+    var slug = m[2];
+    window.location.replace('/' + lang + '/article.html?slug=' + slug);
+    return;
+  }
+  var m2 = path.match(/^\/articles\/(.+)$/);
+  if (m2) {
+    window.location.replace('/en/article.html?slug=' + m2[1]);
+    return;
+  }
+})();
+</script>
 </head>
 <body style="font-family:Inter,sans-serif;text-align:center;padding:60px 20px">
 <h1 style="font-size:48px;color:#1e293b;margin:0">404</h1>
