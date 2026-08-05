@@ -1,12 +1,414 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;url=/en/tools/cash-count-sheet.html">
-<script>window.location.replace("/en/tools/cash-count-sheet.html");</script>
-<link rel="canonical" href="https://www.pettycash.site/ar/en/tools/cash-count-sheet.html">
-<title>Free Cash Count Sheet Generator | Petty Cash Reconciliation | PettyCash.site</title>
-
+<html lang="ar" dir="rtl" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
   <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/cash-count-sheet.html" />
   <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/cash-count-sheet.html" />
   <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
-</head><body>
+</head><body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">﻿
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WXFGWBQD');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Cash Count Sheet Generator | Petty Cash Reconciliation | PettyCash.site</title>
+  <meta name="description" content="Create a petty cash count sheet with denomination breakdown, counted vs system amounts, and reconciliation. Download as PDF. Free and bilingual.">
+  <link rel="canonical" href="https://www.pettycash.site/ar/tools/cash-count-sheet.html">
+  <meta property="og:title" content="Free Cash Count Sheet Generator | PettyCash.site">
+  <meta property="og:description" content="Create a petty cash count sheet with denomination breakdown and reconciliation. Download as PDF.">
+  <meta property="og:url" content="https://www.pettycash.site/ar/tools/cash-count-sheet.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.pettycash.site/images/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Cash Count Sheet Generator | PettyCash.site">
+  <meta name="twitter:description" content="Create a petty cash count sheet with denomination breakdown and reconciliation.">
+  <meta name="twitter:image" content="https://www.pettycash.site/images/favicon.png">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pettycash.site/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://www.pettycash.site/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "Cash Count Sheet", "item": "https://www.pettycash.site/tools/cash-count-sheet.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Cash Count Sheet Generator",
+      "description": "Create a petty cash count sheet with denomination breakdown, counted vs system amounts, and reconciliation.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "SAR" },
+      "url": "https://www.pettycash.site/tools/cash-count-sheet.html",
+      "inLanguage": ["en", "ar"]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Count Petty Cash",
+      "description": "Count each denomination, enter quantities, and reconcile with the system balance.",
+      "step": [
+        { "@type": "HowToStep", "name": "Enter details", "text": "Fill in company name, count date, and responsible person." },
+        { "@type": "HowToStep", "name": "Count denominations", "text": "Enter the quantity of each bill and coin denomination." },
+        { "@type": "HowToStep", "name": "Enter system balance", "text": "Enter the expected petty cash balance from your system." },
+        { "@type": "HowToStep", "name": "Review reconciliation", "text": "The tool calculates the variance and shows if the count is balanced." },
+        { "@type": "HowToStep", "name": "Download PDF", "text": "Download the signed count sheet as PDF." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is a cash count sheet?", "acceptedAnswer": { "@type": "Answer", "text": "A cash count sheet is a document used to physically count and reconcile petty cash on hand against the expected system balance." } },
+        { "@type": "Question", "name": "How often should I count petty cash?", "acceptedAnswer": { "@type": "Answer", "text": "Petty cash should be counted at least monthly, and ideally weekly or at every replenishment cycle." } },
+        { "@type": "Question", "name": "What does variance mean?", "acceptedAnswer": { "@type": "Answer", "text": "Variance is the difference between the physical count and the system balance. A positive variance means you have more cash than expected; negative means less." } }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/css/tailwind.min.css">
+  <link rel="stylesheet" href="/tools/css/tools.css">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a]=c[a].q||c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xof0loht8l");
+</script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4E21GQ00FC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4E21GQ00FC');
+</script>
+
+
+  <nav id="pctool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
+
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 grid lg:grid-cols-12 gap-8">
+    <!-- Form -->
+    <section class="lg:col-span-5 space-y-6 no-print" aria-label="Cash count form">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+        <h1 class="text-2xl font-extrabold mb-1" data-i18n-en="Cash Count Sheet" data-i18n-ar="┘ê╪▒┘é╪⌐ ╪¼╪▒╪» ╪º┘ä┘å┘é╪»┘è╪⌐">Cash Count Sheet</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n-en="Count and reconcile your petty cash with denomination breakdown." data-i18n-ar="╪ú╪╣╪»┘æ ┘ê╪╖╪º╪¿┘é ╪╡┘å╪»┘ê┘é┘â ╪º┘ä╪╡╪║┘è╪▒ ┘à╪╣ ╪¬┘ü╪╡┘è┘ä ╪º┘ä┘ü╪ª╪º╪¬.">Count and reconcile your petty cash with denomination breakdown.</p>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in space-y-4">
+        <h2 class="text-lg font-bold" data-i18n-en="Count Details" data-i18n-ar="╪¬┘ü╪º╪╡┘è┘ä ╪º┘ä╪¼╪▒╪»">Count Details</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="Company Name" data-i18n-ar="╪º╪│┘à ╪º┘ä╪┤╪▒┘â╪⌐">Company Name</label><input id="cc-company" value="My Company" class="form-input"></div>
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="Count Date" data-i18n-ar="╪¬╪º╪▒┘è╪« ╪º┘ä╪¼╪▒╪»">Count Date</label><input id="cc-date" type="date" class="form-input"></div>
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="Counted By" data-i18n-ar="╪ú╪╣╪»┘æ ╪¿┘ê╪º╪│╪╖╪⌐">Counted By</label><input id="cc-counted" value="" class="form-input"></div>
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="Witnessed By" data-i18n-ar="╪┤╪º┘ç╪»">Witnessed By</label><input id="cc-witness" value="" class="form-input"></div>
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="Currency" data-i18n-ar="╪º┘ä╪╣┘à┘ä╪⌐">Currency</label>
+            <select id="cc-currency" class="form-input"><option value="SAR" selected="">SAR (Saudi Riyal)</option><option value="USD">USD</option><option value="AED">AED</option><option value="EGP">EGP</option></select>
+          </div>
+          <div><label class="block text-sm font-medium mb-1" data-i18n-en="System Balance" data-i18n-ar="╪º┘ä╪▒╪╡┘è╪» ╪º┘ä┘å╪╕╪º┘à┘è">System Balance</label><input id="cc-system" type="number" min="0" step="0.01" value="0" class="form-input"></div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-fade-in">
+        <h2 class="text-lg font-bold mb-4" data-i18n-en="Denomination Count" data-i18n-ar="╪╣╪»┘æ ╪º┘ä┘ü╪ª╪º╪¬">Denomination Count</h2>
+        <div id="cc-denominations" class="space-y-2"></div>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button type="button" id="btn-pdf" class="btn-primary text-sm"><span data-i18n-en="Download PDF" data-i18n-ar="╪¬╪¡┘à┘è┘ä PDF">Download PDF</span></button>
+        <button type="button" id="btn-print" class="btn-secondary text-sm"><span data-i18n-en="Print" data-i18n-ar="╪╖╪¿╪º╪╣╪⌐">Print</span></button>
+        <button type="button" id="btn-reset" class="btn-secondary text-sm"><span data-i18n-en="Reset" data-i18n-ar="╪Ñ╪╣╪º╪»╪⌐">Reset</span></button>
+      </div>
+    </section>
+
+    <!-- Preview -->
+    <section class="lg:col-span-7" aria-label="Count sheet preview">
+      <div class="sticky top-20">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 mb-4 no-print">
+          <span class="text-sm text-slate-500" data-i18n-en="Live Preview" data-i18n-ar="┘à╪╣╪º┘è┘å╪⌐ ┘à╪¿╪º╪┤╪▒╪⌐">Live Preview</span>
+        </div>
+        <div id="cc-preview" class="paper rounded-xl">
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-6 border-b-2 border-slate-200 pb-4">
+              <div>
+                <h1 class="text-2xl font-bold text-slate-900" id="pv-company">My Company</h1>
+                <p class="text-sm text-slate-500 mt-1" data-i18n-en="Petty Cash Count Sheet" data-i18n-ar="┘ê╪▒┘é╪⌐ ╪¼╪▒╪» ╪º┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒">Petty Cash Count Sheet</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-slate-500" id="pv-date"></p>
+                <p class="text-sm text-slate-500 mt-1" id="pv-currency-label"></p>
+              </div>
+            </div>
+
+            <table class="preview-table mb-6">
+              <thead>
+                <tr><th data-i18n-en="Denomination" data-i18n-ar="╪º┘ä┘ü╪ª╪⌐">Denomination</th><th data-i18n-en="Quantity" data-i18n-ar="╪º┘ä┘â┘à┘è╪⌐">Quantity</th><th class="text-right" data-i18n-en="Subtotal" data-i18n-ar="╪º┘ä┘à╪¼┘à┘ê╪╣ ╪º┘ä┘ü╪▒╪╣┘è">Subtotal</th></tr>
+              </thead>
+              <tbody id="pv-denominations"></tbody>
+              <tfoot>
+                <tr class="font-bold border-t-2 border-slate-300">
+                  <td data-i18n-en="Total Counted" data-i18n-ar="╪Ñ╪¼┘à╪º┘ä┘è ╪º┘ä╪¼╪▒╪»">Total Counted</td>
+                  <td></td>
+                  <td class="text-right" id="pv-counted-total">0.00</td>
+                </tr>
+              </tfoot>
+            </table>
+
+            <div class="grid grid-cols-3 gap-4 mt-6">
+              <div class="bg-slate-50 rounded-xl p-4">
+                <p class="text-xs text-slate-500 mb-1" data-i18n-en="System Balance" data-i18n-ar="╪º┘ä╪▒╪╡┘è╪» ╪º┘ä┘å╪╕╪º┘à┘è">System Balance</p>
+                <p class="text-lg font-bold" id="pv-system">0.00</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4">
+                <p class="text-xs text-slate-500 mb-1" data-i18n-en="Counted Amount" data-i18n-ar="╪º┘ä┘à╪¿┘ä╪║ ╪º┘ä┘à╪╣╪»┘ê╪»">Counted Amount</p>
+                <p class="text-lg font-bold" id="pv-counted">0.00</p>
+              </div>
+              <div class="rounded-xl p-4" id="pv-variance-box">
+                <p class="text-xs text-slate-500 mb-1" data-i18n-en="Variance" data-i18n-ar="╪º┘ä┘ü╪▒┘é">Variance</p>
+                <p class="text-lg font-bold" id="pv-variance">0.00</p>
+              </div>
+            </div>
+
+            <div class="mt-8 p-4 rounded-xl" id="pv-status-box">
+              <p class="text-sm font-medium" id="pv-status"></p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-2 gap-8">
+              <div>
+                <div class="border-t border-slate-300 pt-2 text-sm text-slate-500" data-i18n-en="Counted By" data-i18n-ar="╪ú╪╣╪»┘æ ╪¿┘ê╪º╪│╪╖╪⌐">Counted By</div>
+                <p class="mt-8 text-sm font-medium" id="pv-counted-by"></p>
+              </div>
+              <div>
+                <div class="border-t border-slate-300 pt-2 text-sm text-slate-500" data-i18n-en="Witnessed By" data-i18n-ar="╪┤╪º┘ç╪»">Witnessed By</div>
+                <p class="mt-8 text-sm font-medium" id="pv-witness-by"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Tutorial + Comparison + FAQ + CTA -->
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 mb-8">
+      <h2 class="text-xl font-bold mb-4" data-i18n-en="How to Use This Tool" data-i18n-ar="┘â┘è┘ü┘è╪⌐ ╪º╪│╪¬╪«╪»╪º┘à ┘ç╪░┘ç ╪º┘ä╪ú╪»╪º╪⌐">How to Use This Tool</h2>
+      <ol class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+        <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center font-bold text-xs flex-shrink-0">1</span><span data-i18n-en="Enter company name, count date, and who is counting and witnessing." data-i18n-ar="╪ú╪»╪«┘ä ╪º╪│┘à ╪º┘ä╪┤╪▒┘â╪⌐ ┘ê╪¬╪º╪▒┘è╪« ╪º┘ä╪¼╪▒╪» ┘ê┘à┘å ┘è╪╣╪╣╪» ┘ê┘à┘å ┘è╪┤┘ç╪».">Enter company name, count date, and who is counting and witnessing.</span></li>
+        <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center font-bold text-xs flex-shrink-0">2</span><span data-i18n-en="Enter the quantity of each bill and coin denomination found in the cash box." data-i18n-ar="╪ú╪»╪«┘ä ┘â┘à┘è╪⌐ ┘â┘ä ┘ü╪ª╪⌐ ┘à┘å ╪º┘ä╪ú┘ê╪▒╪º┘é ┘ê╪º┘ä╪╣┘à┘ä╪º╪¬ ╪º┘ä┘à╪╣╪»┘ê╪»╪⌐ ┘ü┘è ╪º┘ä╪╡┘å╪»┘ê┘é.">Enter the quantity of each bill and coin denomination found in the cash box.</span></li>
+        <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center font-bold text-xs flex-shrink-0">3</span><span data-i18n-en="Enter the system balance ΓÇö the expected petty cash amount from your records." data-i18n-ar="╪ú╪»╪«┘ä ╪º┘ä╪▒╪╡┘è╪» ╪º┘ä┘å╪╕╪º┘à┘è ΓÇö ╪º┘ä┘à╪¿┘ä╪║ ╪º┘ä┘à╪¬┘ê┘é╪╣ ┘à┘å ╪│╪¼┘ä╪º╪¬┘â.">Enter the system balance ΓÇö the expected petty cash amount from your records.</span></li>
+        <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center font-bold text-xs flex-shrink-0">4</span><span data-i18n-en="Review the variance and reconciliation status, then download as PDF." data-i18n-ar="╪▒╪º╪¼╪╣ ╪º┘ä┘ü╪▒┘é ┘ê╪¡╪º┘ä╪⌐ ╪º┘ä┘à╪╖╪º╪¿┘é╪⌐╪î ╪½┘à ╪¡┘à┘ä ┘â┘à┘ä┘ü PDF.">Review the variance and reconciliation status, then download as PDF.</span></li>
+      </ol>
+    </div>
+
+    <div class="bg-gradient-to-br from-lime-50 to-green-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl border border-lime-200 dark:border-slate-600 p-8 mb-8">
+      <h3 class="text-lg font-bold mb-3 text-lime-800 dark:text-lime-300" data-i18n-en="This Tool vs. Doing It Manually in Excel" data-i18n-ar="┘ç╪░┘ç ╪º┘ä╪ú╪»╪º╪⌐ ┘à┘é╪º╪¿┘ä ╪º┘ä┘é┘è╪º┘à ╪¿╪░┘ä┘â ┘è╪»┘ê┘è╪º┘ï ┘ü┘è Excel">This Tool vs. Doing It Manually in Excel</h3>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-4">
+          <div class="flex items-center gap-2 mb-2 text-green-600 font-semibold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n-en="With This Tool" data-i18n-ar="┘à╪╣ ┘ç╪░┘ç ╪º┘ä╪ú╪»╪º╪⌐">With This Tool</span></div>
+          <ul class="space-y-1 text-slate-600 dark:text-slate-400">
+            <li>Γ£ô <span data-i18n-en="Auto denomination subtotals" data-i18n-ar="┘à╪¼╪º┘à┘è╪╣ ┘ü╪▒╪╣┘è╪⌐ ╪¬┘ä┘é╪º╪ª┘è╪⌐ ┘ä┘ä┘ü╪ª╪º╪¬">Auto denomination subtotals</span></li>
+            <li>Γ£ô <span data-i18n-en="Auto variance calculation" data-i18n-ar="╪¡╪│╪º╪¿ ╪¬┘ä┘é╪º╪ª┘è ┘ä┘ä┘ü╪▒┘é">Auto variance calculation</span></li>
+            <li>Γ£ô <span data-i18n-en="Reconciliation status indicator" data-i18n-ar="┘à╪ñ╪┤╪▒ ╪¡╪º┘ä╪⌐ ╪º┘ä┘à╪╖╪º╪¿┘é╪⌐">Reconciliation status indicator</span></li>
+            <li>Γ£ô <span data-i18n-en="Print-ready PDF with signatures" data-i18n-ar="PDF ╪¼╪º┘ç╪▓ ┘ä┘ä╪╖╪¿╪º╪╣╪⌐ ╪¿╪º┘ä╪¬┘ê┘é┘è╪╣╪º╪¬">Print-ready PDF with signatures</span></li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-4">
+          <div class="flex items-center gap-2 mb-2 text-red-500 font-semibold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg><span data-i18n-en="Manual Excel" data-i18n-ar="Excel ┘è╪»┘ê┘è">Manual Excel</span></div>
+          <ul class="space-y-1 text-slate-600 dark:text-slate-400">
+            <li>Γ£ù <span data-i18n-en="Manual multiplication per row" data-i18n-ar="╪╢╪▒╪¿ ┘è╪»┘ê┘è ┘ä┘â┘ä ╪╡┘ü">Manual multiplication per row</span></li>
+            <li>Γ£ù <span data-i18n-en="Manual variance formula" data-i18n-ar="╪╡┘è╪║╪⌐ ┘ü╪▒┘é ┘è╪»┘ê┘è╪⌐">Manual variance formula</span></li>
+            <li>Γ£ù <span data-i18n-en="No status indicator" data-i18n-ar="╪¿╪»┘ê┘å ┘à╪ñ╪┤╪▒ ╪¡╪º┘ä╪⌐">No status indicator</span></li>
+            <li>Γ£ù <span data-i18n-en="Formatting for print takes time" data-i18n-ar="╪º┘ä╪¬┘å╪│┘è┘é ┘ä┘ä╪╖╪¿╪º╪╣╪⌐ ┘è╪│╪¬╪║╪▒┘é ┘ê┘é╪¬╪º┘ï">Formatting for print takes time</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-xl font-bold mb-4" data-i18n-en="Frequently Asked Questions" data-i18n-ar="╪º┘ä╪ú╪│╪ª┘ä╪⌐ ╪º┘ä╪┤╪º╪ª╪╣╪⌐">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
+          <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What is a cash count sheet?" data-i18n-ar="┘à╪º ┘ç┘è ┘ê╪▒┘é╪⌐ ╪¼╪▒╪» ╪º┘ä┘å┘é╪»┘è╪⌐╪ƒ">What is a cash count sheet?</summary>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="A cash count sheet is a document used to physically count and reconcile petty cash on hand against the expected system balance." data-i18n-ar="┘ê╪▒┘é╪⌐ ╪¼╪▒╪» ╪º┘ä┘å┘é╪»┘è╪⌐ ┘ç┘è ┘ê╪½┘è┘é╪⌐ ╪¬┘Å╪│╪¬╪«╪»┘à ┘ä╪╣╪» ┘ê┘à╪╖╪º╪¿┘é╪⌐ ╪º┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒ ╪º┘ä┘ü╪╣┘ä┘è ┘à╪╣ ╪º┘ä╪▒╪╡┘è╪» ╪º┘ä┘å╪╕╪º┘à┘è ╪º┘ä┘à╪¬┘ê┘é╪╣.">A cash count sheet is a document used to physically count and reconcile petty cash on hand against the expected system balance.</p>
+        </details>
+        <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
+          <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="How often should I count petty cash?" data-i18n-ar="┘â┘à ┘à╪▒╪⌐ ┘è╪¼╪¿ ╪ú┘å ╪ú╪╣╪»┘æ ╪º┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒╪ƒ">How often should I count petty cash?</summary>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Petty cash should be counted at least monthly, and ideally weekly or at every replenishment cycle." data-i18n-ar="┘è╪¼╪¿ ╪╣╪»┘æ ╪º┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒ ╪┤┘ç╪▒┘è╪º┘ï ╪╣┘ä┘ë ╪º┘ä╪ú┘é┘ä╪î ┘ê┘è┘ü╪╢┘ä ╪ú╪│╪¿┘ê╪╣┘è╪º┘ï ╪ú┘ê ╪╣┘å╪» ┘â┘ä ╪»┘ê╪▒╪⌐ ╪¬╪╣╪¿╪ª╪⌐.">Petty cash should be counted at least monthly, and ideally weekly or at every replenishment cycle.</p>
+        </details>
+        <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
+          <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What does variance mean?" data-i18n-ar="┘à╪º╪░╪º ┘è╪╣┘å┘è ╪º┘ä┘ü╪▒┘é╪ƒ">What does variance mean?</summary>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Variance is the difference between the physical count and the system balance. A positive variance means you have more cash than expected; negative means less." data-i18n-ar="╪º┘ä┘ü╪▒┘é ┘ç┘ê ╪º┘ä╪º╪«╪¬┘ä╪º┘ü ╪¿┘è┘å ╪º┘ä╪╣╪»╪» ╪º┘ä┘ü╪╣┘ä┘è ┘ê╪º┘ä╪▒╪╡┘è╪» ╪º┘ä┘å╪╕╪º┘à┘è. ╪º┘ä┘ü╪▒┘é ╪º┘ä┘à┘ê╪¼╪¿ ┘è╪╣┘å┘è ╪ú┘å ┘ä╪»┘è┘â ┘å┘é╪»╪º┘ï ╪ú┘â╪½╪▒ ┘à┘å ╪º┘ä┘à╪¬┘ê┘é╪╣╪¢ ╪º┘ä╪│╪º┘ä╪¿ ┘è╪╣┘å┘è ╪ú┘é┘ä.">Variance is the difference between the physical count and the system balance. A positive variance means you have more cash than expected; negative means less.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-center text-white">
+      <h3 class="text-xl font-bold mb-2" data-i18n-en="Automate Your Cash Counts" data-i18n-ar="╪ú╪¬┘à╪¬ ╪¼╪▒╪» ╪º┘ä┘å┘é╪»┘è╪⌐">Automate Your Cash Counts</h3>
+      <p class="text-blue-100 text-sm mb-4" data-i18n-en="PettyCash tracks your cash balance in real-time and generates count sheets automatically ΓÇö no manual counting needed." data-i18n-ar="┘è╪¬╪¬╪¿╪╣ PettyCash ╪▒╪╡┘è╪»┘â ╪º┘ä┘å┘é╪»┘è ┘ü┘è ╪º┘ä┘ê┘é╪¬ ╪º┘ä┘ü╪╣┘ä┘è ┘ê┘è┘å╪┤╪ª ╪ú┘ê╪▒╪º┘é ╪º┘ä╪¼╪▒╪» ╪¬┘ä┘é╪º╪ª┘è╪º┘ï ΓÇö ╪¿╪»┘ê┘å ╪╣╪»┘æ ┘è╪»┘ê┘è.">PettyCash tracks your cash balance in real-time and generates count sheets automatically ΓÇö no manual counting needed.</p>
+      <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="╪¼╪▒╪¿ PettyCash ┘à╪¼╪º┘å╪º┘ï">Try PettyCash Free</a>
+      <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes" data-i18n-ar="┘à╪¼╪º┘å┘è ┘ä┘ä╪ú╪¿╪» ΓÇó ╪¿╪»┘ê┘å ╪¿╪╖╪º┘é╪⌐ ╪º╪ª╪¬┘à╪º┘å ΓÇó ╪º┘ä╪Ñ╪╣╪»╪º╪» ┘ü┘è ╪»┘é┘è┘é╪¬┘è┘å">Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes</p>
+    </div>
+  </section>
+
+  <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-6 no-print">
+    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 dark:text-slate-400">
+      <p data-i18n="tools.footer">© 2026 PettyCash.site ΓÇö Free business tools.</p>
+    </div>
+  </footer>
+
+  <script defer="" src="/tools/js/shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      PCTools.renderNav();
+      PCTools.initTheme();
+      document.getElementById('pctool-theme')?.addEventListener('click', PCTools.toggleTheme);
+      PCTools.setLang(PCTools.currentLang);
+
+      const isAr = () => PCTools.currentLang === 'ar';
+
+      // Denominations per currency
+      const denomSets = {
+        SAR: [500, 200, 100, 50, 10, 5, 1, 0.5, 0.25, 0.1, 0.05],
+        USD: [100, 50, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01],
+        AED: [1000, 500, 200, 100, 50, 20, 10, 5, 1, 0.5, 0.25],
+        EGP: [200, 100, 50, 20, 10, 5, 1, 0.5, 0.25]
+      };
+
+      let quantities = {};
+
+      function getDenoms() {
+        const cur = document.getElementById('cc-currency').value || 'SAR';
+        return denomSets[cur] || denomSets.SAR;
+      }
+
+      function renderDenominations() {
+        const denoms = getDenoms();
+        quantities = {};
+        denoms.forEach(d => quantities[d] = 0);
+
+        const container = document.getElementById('cc-denominations');
+        container.innerHTML = denoms.map(d => `
+          <div class="grid grid-cols-3 gap-2 items-center">
+            <label class="text-sm font-medium text-slate-700 dark:text-slate-300">${d} ${document.getElementById('cc-currency').value}</label>
+            <input type="number" min="0" value="0" class="form-input text-sm" data-denom="${d}" onchange="updateQty('${d}', this.value)">
+            <span class="text-sm text-slate-500" id="cc-sub-${d}">0.00</span>
+          </div>
+        `).join('');
+        renderPreview();
+      }
+
+      window.updateQty = function (denom, val) {
+        quantities[denom] = parseInt(val) || 0;
+        renderPreview();
+      };
+
+      function renderPreview() {
+        const company = document.getElementById('cc-company').value || 'My Company';
+        const date = document.getElementById('cc-date').value || '';
+        const currency = document.getElementById('cc-currency').value || 'SAR';
+        const systemBalance = parseFloat(document.getElementById('cc-system').value) || 0;
+        const countedBy = document.getElementById('cc-counted').value || '';
+        const witnessBy = document.getElementById('cc-witness').value || '';
+        const denoms = getDenoms();
+
+        document.getElementById('pv-company').textContent = company;
+        document.getElementById('pv-date').textContent = (isAr() ? '╪¬╪º╪▒┘è╪« ╪º┘ä╪¼╪▒╪»: ' : 'Count Date: ') + (date || 'ΓÇö');
+        document.getElementById('pv-currency-label').textContent = (isAr() ? '╪º┘ä╪╣┘à┘ä╪⌐: ' : 'Currency: ') + currency;
+
+        // Denomination rows
+        let total = 0;
+        document.getElementById('pv-denominations').innerHTML = denoms.map(d => {
+          const qty = quantities[d] || 0;
+          const sub = qty * d;
+          total += sub;
+          return `<tr><td>${d} ${currency}</td><td>${qty}</td><td class="text-right">${sub.toFixed(2)}</td></tr>`;
+        }).join('');
+
+        document.getElementById('pv-counted-total').textContent = total.toFixed(2) + ' ' + currency;
+        document.getElementById('pv-system').textContent = systemBalance.toFixed(2) + ' ' + currency;
+        document.getElementById('pv-counted').textContent = total.toFixed(2) + ' ' + currency;
+
+        const variance = total - systemBalance;
+        document.getElementById('pv-variance').textContent = (variance >= 0 ? '+' : '') + variance.toFixed(2) + ' ' + currency;
+
+        const varianceBox = document.getElementById('pv-variance-box');
+        if (Math.abs(variance) < 0.01) {
+          varianceBox.className = 'bg-green-50 rounded-xl p-4';
+          document.getElementById('pv-variance').className = 'text-lg font-bold text-green-700';
+        } else if (variance > 0) {
+          varianceBox.className = 'bg-blue-50 rounded-xl p-4';
+          document.getElementById('pv-variance').className = 'text-lg font-bold text-blue-700';
+        } else {
+          varianceBox.className = 'bg-red-50 rounded-xl p-4';
+          document.getElementById('pv-variance').className = 'text-lg font-bold text-red-700';
+        }
+
+        const statusBox = document.getElementById('pv-status-box');
+        const status = document.getElementById('pv-status');
+        if (Math.abs(variance) < 0.01) {
+          statusBox.className = 'mt-8 p-4 rounded-xl bg-green-50 border border-green-200';
+          status.textContent = isAr() ? 'Γ£ô ┘à╪¬┘ê╪º╪▓┘å ΓÇö ╪º┘ä╪¼╪▒╪» ┘à╪╖╪º╪¿┘é ┘ä┘ä╪▒╪╡┘è╪» ╪º┘ä┘å╪╕╪º┘à┘è' : 'Γ£ô Balanced ΓÇö Count matches system balance';
+          status.className = 'text-sm font-medium text-green-700';
+        } else if (variance > 0) {
+          statusBox.className = 'mt-8 p-4 rounded-xl bg-blue-50 border border-blue-200';
+          status.textContent = isAr() ? `ΓÜá ┘ü╪º╪ª╪╢ ΓÇö ┘è┘ê╪¼╪» ${variance.toFixed(2)} ${currency} ╪▓┘è╪º╪»╪⌐ ╪╣┘å ╪º┘ä┘à╪¬┘ê┘é╪╣` : `ΓÜá Surplus ΓÇö ${variance.toFixed(2)} ${currency} more than expected`;
+          status.className = 'text-sm font-medium text-blue-700';
+        } else {
+          statusBox.className = 'mt-8 p-4 rounded-xl bg-red-50 border border-red-200';
+          status.textContent = isAr() ? `Γ£ù ╪╣╪¼╪▓ ΓÇö ┘è┘ê╪¼╪» ${Math.abs(variance).toFixed(2)} ${currency} ╪ú┘é┘ä ┘à┘å ╪º┘ä┘à╪¬┘ê┘é╪╣` : `Γ£ù Shortage ΓÇö ${Math.abs(variance).toFixed(2)} ${currency} less than expected`;
+          status.className = 'text-sm font-medium text-red-700';
+        }
+
+        document.getElementById('pv-counted-by').textContent = countedBy;
+        document.getElementById('pv-witness-by').textContent = witnessBy;
+
+        // Update subtotals in form
+        denoms.forEach(d => {
+          const sub = (quantities[d] || 0) * d;
+          const el = document.getElementById('cc-sub-' + d);
+          if (el) el.textContent = sub.toFixed(2);
+        });
+      }
+
+      document.getElementById('cc-currency').addEventListener('change', renderDenominations);
+      ['cc-company', 'cc-date', 'cc-system', 'cc-counted', 'cc-witness'].forEach(id => {
+        document.getElementById(id).addEventListener('input', renderPreview);
+      });
+
+      document.getElementById('btn-pdf').addEventListener('click', function () {
+        PCTools.exportPDF(document.getElementById('cc-preview'), 'cash-count-sheet.pdf');
+      });
+      document.getElementById('btn-print').addEventListener('click', function () {
+        PCTools.printElement('cc-preview');
+      });
+      document.getElementById('btn-reset').addEventListener('click', function () {
+        document.getElementById('cc-system').value = 0;
+        document.getElementById('cc-counted').value = '';
+        document.getElementById('cc-witness').value = '';
+        renderDenominations();
+      });
+
+      document.getElementById('cc-date').value = new Date().toISOString().split('T')[0];
+
+      window.addEventListener('pctool-lang-change', () => { PCTools.renderNav(); renderDenominations(); });
+      renderDenominations();
+    });
+  </script>
+<script defer="" src="/js/pettycash-widget.js"></script>
+<script defer="" src="/js/ai-assistant.js"></script>
+<script defer="" src="/js/analytics.js"></script>
+<script defer="" src="/js/marquee-banner.js?v=4"></script>
+
+
 </body></html>
