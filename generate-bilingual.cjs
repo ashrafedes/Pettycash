@@ -127,6 +127,11 @@ function findHtmlFiles(dir, base = '') {
     if (entry.isDirectory()) {
       results.push(...findHtmlFiles(fullPath, relPath));
     } else if (entry.name.endsWith('.html') && !SKIP_FILES.includes(entry.name)) {
+      // Skip redirect stubs — they would generate self-redirecting pages in en/ar
+      const content = fs.readFileSync(fullPath, 'utf8');
+      if (content.length < 500 && /meta\s+http-equiv.*refresh.*url=/i.test(content)) {
+        continue; // skip stub
+      }
       results.push(relPath.replace(/\\/g, '/'));
     }
   }
