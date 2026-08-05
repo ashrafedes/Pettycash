@@ -68,7 +68,8 @@
         controlQuiz: 'Internal Control Score Quiz',
         expenseReport: 'Expense Report Generator',
         cashCountSheet: 'Cash Count Sheet',
-        budgetReport: 'Budget vs Actual Report'
+        budgetReport: 'Budget vs Actual Report',
+        presentationGen: 'AI Presentation Generator'
       },
       invoice: {
         title: 'Saudi Invoice Generator',
@@ -161,6 +162,7 @@
         expenseReportCardDesc: 'Generate a professional expense report with multiple line items and download as PDF.',
         cashCountSheetCardDesc: 'Create a petty cash count sheet with denomination breakdown and reconciliation.',
         budgetReportCardDesc: 'Compare budgeted vs actual expenses and generate a variance report as PDF.',
+        presentationGenCardDesc: 'Create professional PowerPoint presentations with AI. Enter your topic and download as PPTX.',
         footer: '© 2026 PettyCash.site — Free business tools.'
       }
     },
@@ -226,7 +228,8 @@
         controlQuiz: 'اختبار نقاط الرقابة الداخلية',
         expenseReport: 'مولد تقرير المصروفات',
         cashCountSheet: 'ورقة جرد النقدية',
-        budgetReport: 'تقرير الموازنة مقابل الفعلي'
+        budgetReport: 'تقرير الموازنة مقابل الفعلي',
+        presentationGen: 'مولد العروض التقديمية بالذكاء الاصطناعي'
       },
       invoice: {
         title: 'منشئ الفواتير السعودية',
@@ -319,6 +322,7 @@
         expenseReportCardDesc: 'أنشئ تقرير مصروفات احترافي متعدد البنود وحمله كملف PDF.',
         cashCountSheetCardDesc: 'أنشئ ورقة جرد صندوق صغير مع تفصيل الفئات والمطابقة.',
         budgetReportCardDesc: 'قارن الموازنة بالمصروفات الفعلية وأنشئ تقرير الانحرافات كملف PDF.',
+        presentationGenCardDesc: 'أنشئ عروضًا تقديمية احترافية بالذكاء الاصطناعي. أدخل موضوعك وحمله كملف PPTX.',
         footer: '© 2026 PettyCash.site — أدوات الأعمال المجانية.'
       }
     }
@@ -679,6 +683,7 @@
                 <a href="${base}tools/expense-report-generator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.expenseReport">Expense Report Generator</a>
                 <a href="${base}tools/cash-count-sheet.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.cashCountSheet">Cash Count Sheet</a>
                 <a href="${base}tools/budget-vs-actual-report.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.budgetReport">Budget vs Actual Report</a>
+                <a href="${base}tools/ai-presentation-generator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.presentationGen">AI Presentation Generator</a>
               </div>
             </div>
           </div>
