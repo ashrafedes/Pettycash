@@ -5,7 +5,7 @@
   // OpenRouter API key (same as ai-assistant.js)
   const API_KEY = ['sk-or-v1-996f54942eed60552', 'bbab9c5b43d9f73e9bc623f3', '37dd90d0ca5356f14fc5fad'].join('');
   const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
-  const MODELS = ['meta-llama/llama-3.3-70b-instruct:free', 'openai/gpt-oss-20b:free', 'google/gemma-4-31b-it:free'];
+  const MODELS = ['google/gemma-4-31b-it:free', 'openai/gpt-oss-20b:free', 'nvidia/nemotron-3-super-120b-a12b:free'];
 
   // Design themes
   const THEMES = {
