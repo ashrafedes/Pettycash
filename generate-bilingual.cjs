@@ -53,6 +53,68 @@ function lookupTranslation(translations, key) {
   return obj != null ? obj : null;
 }
 
+// ─── Build reverse map: English string → Arabic string ───
+function buildReverseMap(translations) {
+  const map = {};
+  function walk(enObj, arObj) {
+    if (typeof enObj === 'string' && typeof arObj === 'string') {
+      map[enObj] = arObj;
+    } else if (enObj && arObj && typeof enObj === 'object') {
+      for (const key of Object.keys(enObj)) {
+        if (key in arObj) walk(enObj[key], arObj[key]);
+      }
+    }
+  }
+  walk(translations.en, translations.ar);
+  return map;
+}
+
+// ─── Cp437→Unicode reverse map for mojibake fix ───
+const _cp437Map = {
+  0xC7:0x80,0xFC:0x81,0xE9:0x82,0xE2:0x83,0xE4:0x84,0xE0:0x85,0xE5:0x86,0xE7:0x87,
+  0xEA:0x88,0xEB:0x89,0xE8:0x8A,0xEF:0x8B,0xEE:0x8C,0xEC:0x8D,0xC4:0x8E,0xC5:0x8F,
+  0xC9:0x90,0xE6:0x91,0xC6:0x92,0xF4:0x93,0xF6:0x94,0xF2:0x95,0xFB:0x96,0xF9:0x97,
+  0xFF:0x98,0xD6:0x99,0xDC:0x9A,0xA2:0x9B,0xA3:0x9C,0xA5:0x9D,0x20AC:0x9E,0x192:0x9F,
+  0xE1:0xA0,0xED:0xA1,0xF3:0xA2,0xFA:0xA3,0xF1:0xA4,0xD1:0xA5,0xAA:0xA6,0xBA:0xA7,
+  0xBF:0xA8,0x2310:0xA9,0xAC:0xAA,0xBD:0xAB,0xBC:0xAC,0xA1:0xAD,0xAB:0xAE,0xBB:0xAF,
+  0x2591:0xB0,0x2592:0xB1,0x2593:0xB2,0x2502:0xB3,0x2524:0xB4,0x2561:0xB5,0x2562:0xB6,
+  0x2556:0xB7,0x2555:0xB8,0x2563:0xB9,0x2551:0xBA,0x2557:0xBB,0x255D:0xBC,0x255C:0xBD,
+  0x255B:0xBE,0x2510:0xBF,0x2514:0xC0,0x2534:0xC1,0x252C:0xC2,0x251C:0xC3,0x2500:0xC4,
+  0x253C:0xC5,0x255E:0xC6,0x255F:0xC7,0x255A:0xC8,0x2554:0xC9,0x2569:0xCA,0x2566:0xCB,
+  0x2560:0xCC,0x2550:0xCD,0x256C:0xCE,0x2567:0xCF,0x2568:0xD0,0x2564:0xD1,0x2565:0xD2,
+  0x2559:0xD3,0x2558:0xD4,0x2552:0xD5,0x2553:0xD6,0x256B:0xD7,0x256A:0xD8,0x2518:0xD9,
+  0x250C:0xDA,0x2588:0xDB,0x2584:0xDC,0x258C:0xDD,0x2590:0xDE,0x2580:0xDF,
+  0x03B1:0xE0,0x03B2:0xE1,0x0393:0xE2,0x03C0:0xE3,0x03A3:0xE4,0x03C3:0xE5,0x03BC:0xE6,
+  0x03C4:0xE7,0x03A6:0xE8,0x0398:0xE9,0x03A9:0xEA,0x03B4:0xEB,0x221E:0xEC,0x03C6:0xED,
+  0x03B5:0xEE,0x2229:0xEF,0x2261:0xF0,0x00B1:0xF1,0x2265:0xF2,0x2264:0xF3,0x2320:0xF4,
+  0x2321:0xF5,0x00F7:0xF6,0x2248:0xF7,0x00B0:0xF8,0x2219:0xF9,0x00B7:0xFA,0x221A:0xFB,
+  0x207F:0xFC,0x00B2:0xFD,0x25A0:0xFE,0x00A0:0xFF
+};
+const _unicodeToCp437 = {};
+for (const [u, b] of Object.entries(_cp437Map)) {
+  _unicodeToCp437[String.fromCharCode(parseInt(u))] = b;
+}
+for (let i = 0x20; i <= 0x7E; i++) _unicodeToCp437[String.fromCharCode(i)] = i;
+
+// ─── Fix mojibake: Cp437-misinterpreted UTF-8 → proper text ───
+function fixMojibake(str) {
+  if (!str || !/[\u2500-\u257F]/.test(str)) return str;
+  const bytes = [];
+  for (const ch of str) {
+    const b = _unicodeToCp437[ch];
+    if (b !== undefined) bytes.push(b);
+    else bytes.push(ch.charCodeAt(0));
+  }
+  try {
+    const decoded = Buffer.from(bytes).toString('utf8');
+    // Verify it's valid Arabic/text (not more garbage)
+    if (/[\u0600-\u06FF]/.test(decoded)) return decoded;
+    return str;
+  } catch (e) {
+    return str;
+  }
+}
+
 // ─── Find all HTML files to process ───
 function findHtmlFiles(dir, base = '') {
   const results = [];
@@ -204,7 +266,7 @@ function fixLinksForFile(html, lang, filePath) {
 }
 
 // ─── Apply translations to HTML using cheerio ───
-function applyTranslations(html, translations, lang) {
+function applyTranslations(html, translations, lang, reverseMap) {
   const $ = cheerio.load(html, { decodeEntities: false });
 
   // Handle data-i18n (text content / placeholder / attribute)
@@ -236,6 +298,23 @@ function applyTranslations(html, translations, lang) {
     const translated = lookupTranslation(translations, key);
     if (translated != null) {
       $(this).html(translated);
+    }
+  });
+
+  // Handle data-i18n-en / data-i18n-ar (inline bilingual text)
+  // Set textContent from the matching language attribute
+  $('[data-i18n-en], [data-i18n-ar]').each(function () {
+    let val = $(this).attr('data-i18n-' + lang);
+    if (val && val.length > 0) {
+      // Fix mojibake (Cp437-misinterpreted UTF-8) in Arabic attributes
+      if (lang === 'ar' && /[\u2500-\u257F]/.test(val)) {
+        const fixed = fixMojibake(val);
+        if (fixed !== val) {
+          $(this).attr('data-i18n-ar', fixed);
+          val = fixed;
+        }
+      }
+      $(this).text(val);
     }
   });
 
@@ -280,12 +359,12 @@ function fixInlineScriptPaths(html, lang, filePath) {
 }
 
 // ─── Process a single HTML file for a given language ───
-function processHtml(rawHtml, lang, filePath, translations) {
+function processHtml(rawHtml, lang, filePath, translations, reverseMap) {
   let html = rawHtml;
 
   // For AR: apply build-time translation substitution
   if (lang === 'ar') {
-    html = applyTranslations(html, translations.ar, lang);
+    html = applyTranslations(html, translations.ar, lang, reverseMap);
   }
 
   // Set lang and dir on <html> tag
@@ -324,6 +403,8 @@ function main() {
 
   // Load translations
   const translations = loadTranslations();
+  const reverseMap = buildReverseMap(translations);
+  console.log('Reverse map: ' + Object.keys(reverseMap).length + ' EN→AR entries');
 
   // Find all HTML files
   const files = findHtmlFiles('.');
@@ -338,7 +419,7 @@ function main() {
 
     for (const lang of ['en', 'ar']) {
       try {
-        const processed = processHtml(rawHtml, lang, file, translations);
+        const processed = processHtml(rawHtml, lang, file, translations, reverseMap);
         const outDir = lang; // 'en' or 'ar'
         const outFile = path.join(__dirname, outDir, file);
         fs.mkdirSync(path.dirname(outFile), { recursive: true });

@@ -1,10 +1,4 @@
-<html lang="ar" dir="rtl" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
-  <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/approval-workflow-builder.html" />
-  <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/approval-workflow-builder.html" />
-  <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
-</head><body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">﻿
-
-
+<!DOCTYPE html><html lang="ar" dir="rtl" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -82,14 +76,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-4E21GQ00FC');
 </script>
 
-
+  <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/approval-workflow-builder.html" />
+  <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/approval-workflow-builder.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
   <nav id="pctool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
 
   <main class="flex-1">
     <section class="bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-800 text-white py-16 text-center">
       <div class="max-w-2xl mx-auto px-4 sm:px-6">
-        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3" data-i18n-en="Approval Workflow Builder" data-i18n-ar="┘à┘å╪┤╪ª ╪│┘è╪▒ ╪╣┘à┘ä ╪º┘ä┘à┘ê╪º┘ü┘é╪º╪¬">Approval Workflow Builder</h1>
-        <p class="text-indigo-100 text-lg" data-i18n-en="Design custom approval workflows with thresholds and levels." data-i18n-ar="╪╡┘à┘à ╪│┘è╪▒ ╪╣┘à┘ä ╪º┘ä┘à┘ê╪º┘ü┘é╪º╪¬ ╪¿╪¡╪»┘ê╪» ┘ê┘à╪│╪¬┘ê┘è╪º╪¬ ┘à╪«╪╡╪╡╪⌐.">Design custom approval workflows with thresholds and levels.</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3" data-i18n-en="Approval Workflow Builder" data-i18n-ar="منشئ سير عمل الموافقات">منشئ سير عمل الموافقات</h1>
+        <p class="text-indigo-100 text-lg" data-i18n-en="Design custom approval workflows with thresholds and levels." data-i18n-ar="صمم سير عمل الموافقات بحدود ومستويات مخصصة.">صمم سير عمل الموافقات بحدود ومستويات مخصصة.</p>
       </div>
     </section>
 
@@ -98,7 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 mb-6">
         <div class="flex gap-4 items-end">
           <div class="flex-1">
-            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" data-i18n-en="Currency" data-i18n-ar="╪º┘ä╪╣┘à┘ä╪⌐">Currency</label>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" data-i18n-en="Currency" data-i18n-ar="العملة">العملة</label>
             <select id="currency" class="form-input">
               <option value="SAR" selected="">SAR</option>
               <option value="USD">USD</option>
@@ -106,7 +104,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <option value="EGP">EGP</option>
             </select>
           </div>
-          <button id="add-level" class="btn-primary text-sm whitespace-nowrap" data-i18n-en="+ Add Level" data-i18n-ar="+ ╪Ñ╪╢╪º┘ü╪⌐ ┘à╪│╪¬┘ê┘ë">+ Add Level</button>
+          <button id="add-level" class="btn-primary text-sm whitespace-nowrap" data-i18n-en="+ Add Level" data-i18n-ar="+ إضافة مستوى">+ إضافة مستوى</button>
         </div>
       </div>
 
@@ -115,42 +113,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <!-- Summary -->
       <div class="mt-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6">
-        <h2 class="text-lg font-bold mb-4" data-i18n-en="Workflow Summary" data-i18n-ar="┘à┘ä╪«╪╡ ╪│┘è╪▒ ╪º┘ä╪╣┘à┘ä">Workflow Summary</h2>
+        <h2 class="text-lg font-bold mb-4" data-i18n-en="Workflow Summary" data-i18n-ar="ملخص سير العمل">ملخص سير العمل</h2>
         <div id="workflow-summary" class="text-sm text-slate-600 dark:text-slate-400 space-y-2"></div>
-        <button id="copy-summary" class="btn-secondary text-sm mt-4" data-i18n-en="Copy Summary" data-i18n-ar="┘å╪│╪« ╪º┘ä┘à┘ä╪«╪╡">Copy Summary</button>
+        <button id="copy-summary" class="btn-secondary text-sm mt-4" data-i18n-en="Copy Summary" data-i18n-ar="نسخ الملخص">نسخ الملخص</button>
       </div>
 
       <!-- SEO Content -->
       <div class="mt-10 prose prose-slate dark:prose-invert max-w-none">
-        <h2 class="text-xl font-bold mb-3" data-i18n-en="Designing Effective Approval Workflows" data-i18n-ar="╪¬╪╡┘à┘è┘à ╪│┘è╪▒ ╪╣┘à┘ä ╪º┘ä┘à┘ê╪º┘ü┘é╪º╪¬ ╪º┘ä┘ü╪╣╪º┘ä">Designing Effective Approval Workflows</h2>
-        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n-en="An effective approval workflow balances control with efficiency. Too many approval levels slow down operations and frustrate employees. Too few, and you risk unauthorized spending. Best practices include: setting clear thresholds based on expense value, routing by department for better context, using auto-approval for small amounts, and implementing digital workflows to eliminate bottlenecks. Most businesses need 2-3 approval levels for optimal balance." data-i18n-ar="┘è┘ê╪º╪▓┘å ╪│┘è╪▒ ╪╣┘à┘ä ╪º┘ä┘à┘ê╪º┘ü┘é╪º╪¬ ╪º┘ä┘ü╪╣╪º┘ä ╪¿┘è┘å ╪º┘ä╪▒┘é╪º╪¿╪⌐ ┘ê╪º┘ä┘â┘ü╪º╪í╪⌐. ╪º┘ä┘â╪½┘è╪▒ ┘à┘å ┘à╪│╪¬┘ê┘è╪º╪¬ ╪º┘ä┘à┘ê╪º┘ü┘é╪⌐ ┘è╪¿╪╖╪ª ╪º┘ä╪╣┘à┘ä┘è╪º╪¬ ┘ê┘è╪¡╪¿╪╖ ╪º┘ä┘à┘ê╪╕┘ü┘è┘å. ╪º┘ä┘é┘ä┘è┘ä ╪¼╪»╪º┘ï╪î ┘ê╪¬╪«╪º╪╖╪▒ ╪¿╪Ñ┘å┘ü╪º┘é ╪║┘è╪▒ ┘à╪╡╪▒╪¡ ╪¿┘ç. ╪ú┘ü╪╢┘ä ╪º┘ä┘à┘à╪º╪▒╪│╪º╪¬ ╪¬╪┤┘à┘ä: ╪¬╪¡╪»┘è╪» ╪¡╪»┘ê╪» ┘ê╪º╪╢╪¡╪⌐ ╪¿┘å╪º╪í┘ï ╪╣┘ä┘ë ┘é┘è┘à╪⌐ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪î ╪º┘ä╪¬┘ê╪¼┘è┘ç ╪¡╪│╪¿ ╪º┘ä┘é╪│┘à ┘ä╪│┘è╪º┘é ╪ú┘ü╪╢┘ä╪î ╪º┘ä┘à┘ê╪º┘ü┘é╪⌐ ╪º┘ä╪¬┘ä┘é╪º╪ª┘è╪⌐ ┘ä┘ä┘à╪¿╪º┘ä╪║ ╪º┘ä╪╡╪║┘è╪▒╪⌐╪î ┘ê╪¬╪╖╪¿┘è┘é ╪│┘è╪▒ ╪º┘ä╪╣┘à┘ä ╪º┘ä╪▒┘é┘à┘è ┘ä┘ä┘é╪╢╪º╪í ╪╣┘ä┘ë ╪º┘ä╪º╪«╪¬┘å╪º┘é╪º╪¬. ┘à╪╣╪╕┘à ╪º┘ä╪┤╪▒┘â╪º╪¬ ╪¬╪¡╪¬╪º╪¼ 2-3 ┘à╪│╪¬┘ê┘è╪º╪¬ ┘à┘ê╪º┘ü┘é╪⌐ ┘ä┘ä╪¬┘ê╪º╪▓┘å ╪º┘ä╪ú┘à╪½┘ä.">An effective approval workflow balances control with efficiency. Too many approval levels slow down operations and frustrate employees. Too few, and you risk unauthorized spending. Best practices include: setting clear thresholds based on expense value, routing by department for better context, using auto-approval for small amounts, and implementing digital workflows to eliminate bottlenecks. Most businesses need 2-3 approval levels for optimal balance.</p>
+        <h2 class="text-xl font-bold mb-3" data-i18n-en="Designing Effective Approval Workflows" data-i18n-ar="تصميم سير عمل الموافقات الفعال">تصميم سير عمل الموافقات الفعال</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n-en="An effective approval workflow balances control with efficiency. Too many approval levels slow down operations and frustrate employees. Too few, and you risk unauthorized spending. Best practices include: setting clear thresholds based on expense value, routing by department for better context, using auto-approval for small amounts, and implementing digital workflows to eliminate bottlenecks. Most businesses need 2-3 approval levels for optimal balance." data-i18n-ar="يوازن سير عمل الموافقات الفعال بين الرقابة والكفاءة. الكثير من مستويات الموافقة يبطئ العمليات ويحبط الموظفين. القليل جداً، وتخاطر بإنفاق غير مصرح به. أفضل الممارسات تشمل: تحديد حدود واضحة بناءً على قيمة المصروف، التوجيه حسب القسم لسياق أفضل، الموافقة التلقائية للمبالغ الصغيرة، وتطبيق سير العمل الرقمي للقضاء على الاختناقات. معظم الشركات تحتاج 2-3 مستويات موافقة للتوازن الأمثل.">يوازن سير عمل الموافقات الفعال بين الرقابة والكفاءة. الكثير من مستويات الموافقة يبطئ العمليات ويحبط الموظفين. القليل جداً، وتخاطر بإنفاق غير مصرح به. أفضل الممارسات تشمل: تحديد حدود واضحة بناءً على قيمة المصروف، التوجيه حسب القسم لسياق أفضل، الموافقة التلقائية للمبالغ الصغيرة، وتطبيق سير العمل الرقمي للقضاء على الاختناقات. معظم الشركات تحتاج 2-3 مستويات موافقة للتوازن الأمثل.</p>
       </div>
 
       <!-- FAQ -->
       <div class="mt-10">
-        <h2 class="text-xl font-bold mb-4" data-i18n-en="Frequently Asked Questions" data-i18n-ar="╪º┘ä╪ú╪│╪ª┘ä╪⌐ ╪º┘ä╪┤╪º╪ª╪╣╪⌐">Frequently Asked Questions</h2>
+        <h2 class="text-xl font-bold mb-4" data-i18n-en="Frequently Asked Questions" data-i18n-ar="الأسئلة الشائعة">الأسئلة الشائعة</h2>
         <div class="space-y-3">
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What is an approval workflow?" data-i18n-ar="┘à╪º ┘ç┘ê ╪│┘è╪▒ ╪╣┘à┘ä ╪º┘ä┘à┘ê╪º┘ü┘é╪º╪¬╪ƒ">What is an approval workflow?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="An approval workflow defines who needs to approve an expense based on the amount, department, or category." data-i18n-ar="╪│┘è╪▒ ╪╣┘à┘ä ╪º┘ä┘à┘ê╪º┘ü┘é╪º╪¬ ┘è╪¡╪»╪» ┘à┘å ┘è╪¡╪¬╪º╪¼ ┘ä┘ä┘à┘ê╪º┘ü┘é╪⌐ ╪╣┘ä┘ë ┘à╪╡╪▒┘ê┘ü ╪¿┘å╪º╪í┘ï ╪╣┘ä┘ë ╪º┘ä┘à╪¿┘ä╪║ ╪ú┘ê ╪º┘ä┘é╪│┘à ╪ú┘ê ╪º┘ä┘ü╪ª╪⌐.">An approval workflow defines who needs to approve an expense based on the amount, department, or category.</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What is an approval workflow?" data-i18n-ar="ما هو سير عمل الموافقات؟">ما هو سير عمل الموافقات؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="An approval workflow defines who needs to approve an expense based on the amount, department, or category." data-i18n-ar="سير عمل الموافقات يحدد من يحتاج للموافقة على مصروف بناءً على المبلغ أو القسم أو الفئة.">سير عمل الموافقات يحدد من يحتاج للموافقة على مصروف بناءً على المبلغ أو القسم أو الفئة.</p>
           </details>
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="How many approval levels can I add?" data-i18n-ar="┘â┘à ┘à╪│╪¬┘ê┘ë ┘à┘ê╪º┘ü┘é╪⌐ ┘è┘à┘â┘å┘å┘è ╪Ñ╪╢╪º┘ü╪⌐╪ƒ">How many approval levels can I add?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="You can add as many levels as needed. Most businesses use 2-4 levels depending on their size." data-i18n-ar="┘è┘à┘â┘å┘â ╪Ñ╪╢╪º┘ü╪⌐ ╪ú┘è ╪╣╪»╪» ╪¬╪¡╪¬╪º╪¼┘ç. ┘à╪╣╪╕┘à ╪º┘ä╪┤╪▒┘â╪º╪¬ ╪¬╪│╪¬╪«╪»┘à 2-4 ┘à╪│╪¬┘ê┘è╪º╪¬ ╪¡╪│╪¿ ╪º┘ä╪¡╪¼┘à.">You can add as many levels as needed. Most businesses use 2-4 levels depending on their size.</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="How many approval levels can I add?" data-i18n-ar="كم مستوى موافقة يمكنني إضافة؟">كم مستوى موافقة يمكنني إضافة؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="You can add as many levels as needed. Most businesses use 2-4 levels depending on their size." data-i18n-ar="يمكنك إضافة أي عدد تحتاجه. معظم الشركات تستخدم 2-4 مستويات حسب الحجم.">يمكنك إضافة أي عدد تحتاجه. معظم الشركات تستخدم 2-4 مستويات حسب الحجم.</p>
           </details>
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="Can I set different thresholds per level?" data-i18n-ar="┘ç┘ä ┘è┘à┘â┘å┘å┘è ╪¬╪¡╪»┘è╪» ╪¡╪»┘ê╪» ┘à╪«╪¬┘ä┘ü╪⌐ ┘ä┘â┘ä ┘à╪│╪¬┘ê┘ë╪ƒ">Can I set different thresholds per level?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Yes, each approval level has its own minimum and maximum amount range." data-i18n-ar="┘å╪╣┘à╪î ┘ä┘â┘ä ┘à╪│╪¬┘ê┘ë ┘à┘ê╪º┘ü┘é╪⌐ ┘å╪╖╪º┘é ┘à╪¿┘ä╪║┘ç ╪º┘ä╪ú╪»┘å┘ë ┘ê╪º┘ä╪ú┘é╪╡┘ë.">Yes, each approval level has its own minimum and maximum amount range.</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="Can I set different thresholds per level?" data-i18n-ar="هل يمكنني تحديد حدود مختلفة لكل مستوى؟">هل يمكنني تحديد حدود مختلفة لكل مستوى؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Yes, each approval level has its own minimum and maximum amount range." data-i18n-ar="نعم، لكل مستوى موافقة نطاق مبلغه الأدنى والأقصى.">نعم، لكل مستوى موافقة نطاق مبلغه الأدنى والأقصى.</p>
           </details>
         </div>
       </div>
 
       <!-- Soft CTA -->
       <div class="mt-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-center text-white">
-        <h3 class="text-xl font-bold mb-2" data-i18n-en="Automate Your Approvals" data-i18n-ar="╪ú╪¬┘à╪¬ ┘à┘ê╪º┘ü┘é╪º╪¬┘â">Automate Your Approvals</h3>
-        <p class="text-blue-100 text-sm mb-4" data-i18n-en="PettyCash routes expenses to the right approver automatically based on your custom workflow rules." data-i18n-ar="┘è╪¡┘è┘ä PettyCash ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬ ╪Ñ┘ä┘ë ╪º┘ä┘à╪╣╪¬┘à╪» ╪º┘ä┘à┘å╪º╪│╪¿ ╪¬┘ä┘é╪º╪ª┘è╪º┘ï ╪¿┘å╪º╪í┘ï ╪╣┘ä┘ë ┘é┘ê╪º╪╣╪» ╪│┘è╪▒ ╪╣┘à┘ä┘â ╪º┘ä┘à╪«╪╡╪╡╪⌐.">PettyCash routes expenses to the right approver automatically based on your custom workflow rules.</p>
-        <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="╪¼╪▒╪¿ PettyCash ┘à╪¼╪º┘å╪º┘ï">Try PettyCash Free</a>
-        <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes" data-i18n-ar="┘à╪¼╪º┘å┘è ┘ä┘ä╪ú╪¿╪» ΓÇó ╪¿╪»┘ê┘å ╪¿╪╖╪º┘é╪⌐ ╪º╪ª╪¬┘à╪º┘å ΓÇó ╪º┘ä╪Ñ╪╣╪»╪º╪» ┘ü┘è ╪»┘é┘è┘é╪¬┘è┘å">Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes</p>
+        <h3 class="text-xl font-bold mb-2" data-i18n-en="Automate Your Approvals" data-i18n-ar="أتمت موافقاتك">أتمت موافقاتك</h3>
+        <p class="text-blue-100 text-sm mb-4" data-i18n-en="PettyCash routes expenses to the right approver automatically based on your custom workflow rules." data-i18n-ar="يحيل PettyCash المصروفات إلى المعتمد المناسب تلقائياً بناءً على قواعد سير عملك المخصصة.">يحيل PettyCash المصروفات إلى المعتمد المناسب تلقائياً بناءً على قواعد سير عملك المخصصة.</p>
+        <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="جرب PettyCash مجاناً">جرب PettyCash مجاناً</a>
+        <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes" data-i18n-ar="مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين">مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين</p>
       </div>
     </section>
   </main>
@@ -261,6 +259,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script defer="" src="/js/ai-assistant.js"></script>
 <script defer="" src="/js/analytics.js"></script>
 <script defer="" src="/js/marquee-banner.js?v=4"></script>
-
 
 </body></html>

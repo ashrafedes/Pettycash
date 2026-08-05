@@ -149,7 +149,13 @@ const PCCompare = {
     document.documentElement.lang = this.lang;
     document.documentElement.dir = this.lang === 'ar' ? 'rtl' : 'ltr';
     document.querySelectorAll('[data-i18n-en]').forEach(el => {
-      el.textContent = this.lang === 'ar' ? el.dataset.i18nAr : el.dataset.i18nEn;
+      if (this.lang === 'ar') {
+        let val = el.dataset.i18nAr;
+        if (val && /[\u2500-\u257F]/.test(val)) val = el.dataset.i18nEn;
+        el.textContent = val || el.dataset.i18nEn;
+      } else {
+        el.textContent = el.dataset.i18nEn;
+      }
     });
   }
 };

@@ -1,10 +1,4 @@
-<html lang="ar" dir="rtl" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
-  <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/expense-savings-calculator.html" />
-  <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/expense-savings-calculator.html" />
-  <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
-</head><body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">﻿
-
-
+<!DOCTYPE html><html lang="ar" dir="rtl" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -82,14 +76,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-4E21GQ00FC');
 </script>
 
-
+  <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/expense-savings-calculator.html" />
+  <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/expense-savings-calculator.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
   <nav id="pctool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
 
   <main class="flex-1">
     <section class="bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-800 text-white py-16 text-center">
       <div class="max-w-2xl mx-auto px-4 sm:px-6">
-        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3" data-i18n-en="Expense Savings Calculator" data-i18n-ar="╪¡╪º╪│╪¿╪⌐ ╪¬┘ê┘ü┘è╪▒ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬">Expense Savings Calculator</h1>
-        <p class="text-emerald-100 text-lg" data-i18n-en="See how much your business saves by automating expense tracking." data-i18n-ar="╪º┘â╪¬╪┤┘ü ┘â┘à ╪¬┘ê┘ü╪▒ ╪┤╪▒┘â╪¬┘â ╪¿╪ú╪¬┘à╪¬╪⌐ ╪¬╪¬╪¿╪╣ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬.">See how much your business saves by automating expense tracking.</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3" data-i18n-en="Expense Savings Calculator" data-i18n-ar="حاسبة توفير المصروفات">حاسبة توفير المصروفات</h1>
+        <p class="text-emerald-100 text-lg" data-i18n-en="See how much your business saves by automating expense tracking." data-i18n-ar="اكتشف كم توفر شركتك بأتمتة تتبع المصروفات.">اكتشف كم توفر شركتك بأتمتة تتبع المصروفات.</p>
       </div>
     </section>
 
@@ -97,23 +95,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-8">
         <div class="space-y-5">
           <div>
-            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Number of employees" data-i18n-ar="╪╣╪»╪» ╪º┘ä┘à┘ê╪╕┘ü┘è┘å">Number of employees</label>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Number of employees" data-i18n-ar="عدد الموظفين">عدد الموظفين</label>
             <input type="number" id="emp-count" value="10" min="1" class="form-input">
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Monthly expense transactions" data-i18n-ar="┘à╪╣╪º┘à┘ä╪º╪¬ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬ ╪º┘ä╪┤┘ç╪▒┘è╪⌐">Monthly expense transactions</label>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Monthly expense transactions" data-i18n-ar="معاملات المصروفات الشهرية">معاملات المصروفات الشهرية</label>
             <input type="number" id="monthly-transactions" value="50" min="1" class="form-input">
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Hours spent per month on manual tracking" data-i18n-ar="╪º┘ä╪│╪º╪╣╪º╪¬ ╪º┘ä┘à╪│╪¬╪«╪»┘à╪⌐ ╪┤┘ç╪▒┘è╪º┘ï ┘ü┘è ╪º┘ä╪¬╪¬╪¿╪╣ ╪º┘ä┘è╪»┘ê┘è">Hours spent per month on manual tracking</label>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Hours spent per month on manual tracking" data-i18n-ar="الساعات المستخدمة شهرياً في التتبع اليدوي">الساعات المستخدمة شهرياً في التتبع اليدوي</label>
             <input type="number" id="manual-hours" value="20" min="0" step="0.5" class="form-input">
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Average hourly cost (SAR)" data-i18n-ar="┘à╪¬┘ê╪│╪╖ ╪¬┘â┘ä┘ü╪⌐ ╪º┘ä╪│╪º╪╣╪⌐ (╪▒┘è╪º┘ä)">Average hourly cost (SAR)</label>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Average hourly cost (SAR)" data-i18n-ar="متوسط تكلفة الساعة (ريال)">متوسط تكلفة الساعة (ريال)</label>
             <input type="number" id="hourly-cost" value="50" min="0" class="form-input">
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Average expense amount (SAR)" data-i18n-ar="┘à╪¬┘ê╪│╪╖ ┘à╪¿┘ä╪║ ╪º┘ä┘à╪╡╪▒┘ê┘ü (╪▒┘è╪º┘ä)">Average expense amount (SAR)</label>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Average expense amount (SAR)" data-i18n-ar="متوسط مبلغ المصروف (ريال)">متوسط مبلغ المصروف (ريال)</label>
             <input type="number" id="avg-expense" value="200" min="0" class="form-input">
           </div>
         </div>
@@ -121,19 +119,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- Results -->
         <div class="mt-8 space-y-3">
           <div class="flex justify-between items-center py-3 px-4 rounded-xl bg-slate-50 dark:bg-slate-700/50">
-            <span class="text-sm text-slate-500 dark:text-slate-400" data-i18n-en="Time saved per year" data-i18n-ar="╪º┘ä┘ê┘é╪¬ ╪º┘ä┘à┘ê┘ü╪▒ ╪│┘å┘ê┘è╪º┘ï">Time saved per year</span>
+            <span class="text-sm text-slate-500 dark:text-slate-400" data-i18n-en="Time saved per year" data-i18n-ar="الوقت الموفر سنوياً">الوقت الموفر سنوياً</span>
             <span id="result-hours" class="text-lg font-bold text-slate-900 dark:text-white">0 hrs</span>
           </div>
           <div class="flex justify-between items-center py-3 px-4 rounded-xl bg-slate-50 dark:bg-slate-700/50">
-            <span class="text-sm text-slate-500 dark:text-slate-400" data-i18n-en="Error reduction savings" data-i18n-ar="╪¬┘ê┘ü┘è╪▒ ╪¬┘é┘ä┘è┘ä ╪º┘ä╪ú╪«╪╖╪º╪í">Error reduction savings</span>
+            <span class="text-sm text-slate-500 dark:text-slate-400" data-i18n-en="Error reduction savings" data-i18n-ar="توفير تقليل الأخطاء">توفير تقليل الأخطاء</span>
             <span id="result-errors" class="text-lg font-bold text-slate-900 dark:text-white">0 SAR</span>
           </div>
           <div class="flex justify-between items-center py-3 px-4 rounded-xl bg-emerald-50 dark:bg-slate-700/50">
-            <span class="text-sm text-emerald-600 dark:text-emerald-300" data-i18n-en="Labor cost savings" data-i18n-ar="╪¬┘ê┘ü┘è╪▒ ╪¬┘â╪º┘ä┘è┘ü ╪º┘ä╪╣┘à╪º┘ä╪⌐">Labor cost savings</span>
+            <span class="text-sm text-emerald-600 dark:text-emerald-300" data-i18n-en="Labor cost savings" data-i18n-ar="توفير تكاليف العمالة">توفير تكاليف العمالة</span>
             <span id="result-labor" class="text-lg font-bold text-emerald-700 dark:text-emerald-300">0 SAR</span>
           </div>
           <div class="flex justify-between items-center py-4 px-4 rounded-xl bg-emerald-600 text-white">
-            <span class="text-sm font-semibold" data-i18n-en="Estimated annual savings" data-i18n-ar="╪º┘ä╪¬┘ê┘ü┘è╪▒ ╪º┘ä╪│┘å┘ê┘è ╪º┘ä┘à┘é╪»╪▒">Estimated annual savings</span>
+            <span class="text-sm font-semibold" data-i18n-en="Estimated annual savings" data-i18n-ar="التوفير السنوي المقدر">التوفير السنوي المقدر</span>
             <span id="result-total" class="text-xl font-extrabold">0 SAR</span>
           </div>
         </div>
@@ -141,35 +139,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <!-- SEO Content -->
       <div class="mt-10 prose prose-slate dark:prose-invert max-w-none">
-        <h2 class="text-xl font-bold mb-3" data-i18n-en="Why Automate Expense Tracking?" data-i18n-ar="┘ä┘à╪º╪░╪º ╪ú╪¬┘à╪¬╪⌐ ╪¬╪¬╪¿╪╣ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬╪ƒ">Why Automate Expense Tracking?</h2>
-        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n-en="Manual expense tracking costs businesses significantly in lost time, errors, and missing receipts. Studies show that companies spend an average of 20 hours per month on manual expense management, with error rates as high as 8%. By automating with PettyCash, you can reduce processing time by 80%, eliminate receipt loss, gain real-time spending visibility, and ensure compliance with company policies and tax regulations." data-i18n-ar="┘è┘â┘ä┘æ┘ü ╪º┘ä╪¬╪¬╪¿╪╣ ╪º┘ä┘è╪»┘ê┘è ┘ä┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬ ╪º┘ä╪┤╪▒┘â╪º╪¬ ╪¬┘â╪º┘ä┘è┘ü ┘â╪¿┘è╪▒╪⌐ ┘ü┘è ╪º┘ä┘ê┘é╪¬ ╪º┘ä┘à┘ü┘é┘ê╪» ┘ê╪º┘ä╪ú╪«╪╖╪º╪í ┘ê╪º┘ä╪Ñ┘è╪╡╪º┘ä╪º╪¬ ╪º┘ä┘à┘ü┘é┘ê╪»╪⌐. ╪¬╪╕┘ç╪▒ ╪º┘ä╪»╪▒╪º╪│╪º╪¬ ╪ú┘å ╪º┘ä╪┤╪▒┘â╪º╪¬ ╪¬┘é╪╢┘è ┘ü┘è ╪º┘ä┘à╪¬┘ê╪│╪╖ 20 ╪│╪º╪╣╪⌐ ╪┤┘ç╪▒┘è╪º┘ï ┘ü┘è ╪Ñ╪»╪º╪▒╪⌐ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬ ┘è╪»┘ê┘è╪º┘ï╪î ╪¿┘à╪╣╪»┘ä ╪ú╪«╪╖╪º╪í ┘è╪╡┘ä ╪Ñ┘ä┘ë 8%. ┘à┘å ╪«┘ä╪º┘ä ╪º┘ä╪ú╪¬┘à╪¬╪⌐ ┘à╪╣ PettyCash╪î ┘è┘à┘â┘å┘â ╪¬┘é┘ä┘è┘ä ┘ê┘é╪¬ ╪º┘ä┘à╪╣╪º┘ä╪¼╪⌐ ╪¿┘å╪│╪¿╪⌐ 80%╪î ┘ê╪º┘ä┘é╪╢╪º╪í ╪╣┘ä┘ë ┘ü┘é╪»╪º┘å ╪º┘ä╪Ñ┘è╪╡╪º┘ä╪º╪¬╪î ┘ê╪º┘ä╪¡╪╡┘ê┘ä ╪╣┘ä┘ë ╪▒╪ñ┘è╪⌐ ┘ü┘ê╪▒┘è╪⌐ ┘ä┘ä╪Ñ┘å┘ü╪º┘é╪î ┘ê╪╢┘à╪º┘å ╪º┘ä╪º┘à╪¬╪½╪º┘ä ┘ä╪│┘è╪º╪│╪º╪¬ ╪º┘ä╪┤╪▒┘â╪⌐ ┘ê╪º┘ä┘ä┘ê╪º╪ª╪¡ ╪º┘ä╪╢╪▒┘è╪¿┘è╪⌐.">Manual expense tracking costs businesses significantly in lost time, errors, and missing receipts. Studies show that companies spend an average of 20 hours per month on manual expense management, with error rates as high as 8%. By automating with PettyCash, you can reduce processing time by 80%, eliminate receipt loss, gain real-time spending visibility, and ensure compliance with company policies and tax regulations.</p>
+        <h2 class="text-xl font-bold mb-3" data-i18n-en="Why Automate Expense Tracking?" data-i18n-ar="لماذا أتمتة تتبع المصروفات؟">لماذا أتمتة تتبع المصروفات؟</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n-en="Manual expense tracking costs businesses significantly in lost time, errors, and missing receipts. Studies show that companies spend an average of 20 hours per month on manual expense management, with error rates as high as 8%. By automating with PettyCash, you can reduce processing time by 80%, eliminate receipt loss, gain real-time spending visibility, and ensure compliance with company policies and tax regulations." data-i18n-ar="يكلّف التتبع اليدوي للمصروفات الشركات تكاليف كبيرة في الوقت المفقود والأخطاء والإيصالات المفقودة. تظهر الدراسات أن الشركات تقضي في المتوسط 20 ساعة شهرياً في إدارة المصروفات يدوياً، بمعدل أخطاء يصل إلى 8%. من خلال الأتمتة مع PettyCash، يمكنك تقليل وقت المعالجة بنسبة 80%، والقضاء على فقدان الإيصالات، والحصول على رؤية فورية للإنفاق، وضمان الامتثال لسياسات الشركة واللوائح الضريبية.">يكلّف التتبع اليدوي للمصروفات الشركات تكاليف كبيرة في الوقت المفقود والأخطاء والإيصالات المفقودة. تظهر الدراسات أن الشركات تقضي في المتوسط 20 ساعة شهرياً في إدارة المصروفات يدوياً، بمعدل أخطاء يصل إلى 8%. من خلال الأتمتة مع PettyCash، يمكنك تقليل وقت المعالجة بنسبة 80%، والقضاء على فقدان الإيصالات، والحصول على رؤية فورية للإنفاق، وضمان الامتثال لسياسات الشركة واللوائح الضريبية.</p>
       </div>
 
       <!-- FAQ -->
       <div class="mt-10">
-        <h2 class="text-xl font-bold mb-4" data-i18n-en="Frequently Asked Questions" data-i18n-ar="╪º┘ä╪ú╪│╪ª┘ä╪⌐ ╪º┘ä╪┤╪º╪ª╪╣╪⌐">Frequently Asked Questions</h2>
+        <h2 class="text-xl font-bold mb-4" data-i18n-en="Frequently Asked Questions" data-i18n-ar="الأسئلة الشائعة">الأسئلة الشائعة</h2>
         <div class="space-y-3">
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="How does the expense savings calculator work?" data-i18n-ar="┘â┘è┘ü ╪¬╪╣┘à┘ä ╪¡╪º╪│╪¿╪⌐ ╪¬┘ê┘ü┘è╪▒ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬╪ƒ">How does the expense savings calculator work?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Enter your number of employees, monthly expense transactions, hours spent on manual tracking, and average hourly cost. The calculator estimates your annual savings from automation." data-i18n-ar="╪ú╪»╪«┘ä ╪╣╪»╪» ╪º┘ä┘à┘ê╪╕┘ü┘è┘å╪î ┘ê┘à╪╣╪º┘à┘ä╪º╪¬ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬ ╪º┘ä╪┤┘ç╪▒┘è╪⌐╪î ┘ê╪º┘ä╪│╪º╪╣╪º╪¬ ╪º┘ä┘à╪│╪¬╪«╪»┘à╪⌐ ┘ü┘è ╪º┘ä╪¬╪¬╪¿╪╣ ╪º┘ä┘è╪»┘ê┘è╪î ┘ê┘à╪¬┘ê╪│╪╖ ╪¬┘â┘ä┘ü╪⌐ ╪º┘ä╪│╪º╪╣╪⌐. ╪¬╪¡╪│╪¿ ╪º┘ä╪¡╪º╪│╪¿╪⌐ ╪¬┘ê┘ü┘è╪▒┘â ╪º┘ä╪│┘å┘ê┘è ┘à┘å ╪º┘ä╪ú╪¬┘à╪¬╪⌐.">Enter your number of employees, monthly expense transactions, hours spent on manual tracking, and average hourly cost. The calculator estimates your annual savings from automation.</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="How does the expense savings calculator work?" data-i18n-ar="كيف تعمل حاسبة توفير المصروفات؟">كيف تعمل حاسبة توفير المصروفات؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Enter your number of employees, monthly expense transactions, hours spent on manual tracking, and average hourly cost. The calculator estimates your annual savings from automation." data-i18n-ar="أدخل عدد الموظفين، ومعاملات المصروفات الشهرية، والساعات المستخدمة في التتبع اليدوي، ومتوسط تكلفة الساعة. تحسب الحاسبة توفيرك السنوي من الأتمتة.">أدخل عدد الموظفين، ومعاملات المصروفات الشهرية، والساعات المستخدمة في التتبع اليدوي، ومتوسط تكلفة الساعة. تحسب الحاسبة توفيرك السنوي من الأتمتة.</p>
           </details>
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What costs does automating expense tracking save?" data-i18n-ar="┘à╪º ┘ç┘è ╪º┘ä╪¬┘â╪º┘ä┘è┘ü ╪º┘ä╪¬┘è ┘è┘ê┘ü╪▒┘ç╪º ╪ú╪¬┘à╪¬╪⌐ ╪¬╪¬╪¿╪╣ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬╪ƒ">What costs does automating expense tracking save?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Automation saves time on data entry, reduces errors, eliminates lost receipts, speeds up approvals, and provides real-time visibility into spending." data-i18n-ar="╪¬┘ê┘ü╪▒ ╪º┘ä╪ú╪¬┘à╪¬╪⌐ ╪º┘ä┘ê┘é╪¬ ┘ü┘è ╪Ñ╪»╪«╪º┘ä ╪º┘ä╪¿┘è╪º┘å╪º╪¬╪î ┘ê╪¬┘é┘ä┘ä ╪º┘ä╪ú╪«╪╖╪º╪í╪î ┘ê╪¬┘é╪╢┘è ╪╣┘ä┘ë ┘ü┘é╪»╪º┘å ╪º┘ä╪Ñ┘è╪╡╪º┘ä╪º╪¬╪î ┘ê╪¬╪│╪▒╪╣ ╪º┘ä┘à┘ê╪º┘ü┘é╪º╪¬╪î ┘ê╪¬┘ê┘ü╪▒ ╪▒╪ñ┘è╪⌐ ┘ü┘ê╪▒┘è╪⌐ ┘ä┘ä╪Ñ┘å┘ü╪º┘é.">Automation saves time on data entry, reduces errors, eliminates lost receipts, speeds up approvals, and provides real-time visibility into spending.</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What costs does automating expense tracking save?" data-i18n-ar="ما هي التكاليف التي يوفرها أتمتة تتبع المصروفات؟">ما هي التكاليف التي يوفرها أتمتة تتبع المصروفات؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Automation saves time on data entry, reduces errors, eliminates lost receipts, speeds up approvals, and provides real-time visibility into spending." data-i18n-ar="توفر الأتمتة الوقت في إدخال البيانات، وتقلل الأخطاء، وتقضي على فقدان الإيصالات، وتسرع الموافقات، وتوفر رؤية فورية للإنفاق.">توفر الأتمتة الوقت في إدخال البيانات، وتقلل الأخطاء، وتقضي على فقدان الإيصالات، وتسرع الموافقات، وتوفر رؤية فورية للإنفاق.</p>
           </details>
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="Is this calculator free?" data-i18n-ar="┘ç┘ä ┘ç╪░┘ç ╪º┘ä╪¡╪º╪│╪¿╪⌐ ┘à╪¼╪º┘å┘è╪⌐╪ƒ">Is this calculator free?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Yes, completely free with no signup required." data-i18n-ar="┘å╪╣┘à╪î ┘à╪¼╪º┘å┘è╪⌐ ╪¬┘à╪º┘à╪º┘ï ┘ê╪¿╪»┘ê┘å ╪¬╪│╪¼┘è┘ä.">Yes, completely free with no signup required.</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="Is this calculator free?" data-i18n-ar="هل هذه الحاسبة مجانية؟">هل هذه الحاسبة مجانية؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Yes, completely free with no signup required." data-i18n-ar="نعم، مجانية تماماً وبدون تسجيل.">نعم، مجانية تماماً وبدون تسجيل.</p>
           </details>
         </div>
       </div>
 
       <!-- Soft CTA -->
       <div class="mt-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-center text-white">
-        <h3 class="text-xl font-bold mb-2" data-i18n-en="Start Saving Today" data-i18n-ar="╪º╪¿╪»╪ú ╪º┘ä╪¬┘ê┘ü┘è╪▒ ╪º┘ä┘è┘ê┘à">Start Saving Today</h3>
-        <p class="text-blue-100 text-sm mb-4" data-i18n-en="Join hundreds of Saudi businesses already saving time and money with PettyCash." data-i18n-ar="╪º┘å╪╢┘à ╪Ñ┘ä┘ë ┘à╪ª╪º╪¬ ╪º┘ä╪┤╪▒┘â╪º╪¬ ╪º┘ä╪│╪╣┘ê╪»┘è╪⌐ ╪º┘ä╪¬┘è ╪¬┘ê┘ü╪▒ ╪º┘ä┘ê┘é╪¬ ┘ê╪º┘ä┘à╪º┘ä ╪¿╪º┘ä┘ü╪╣┘ä ┘à╪╣ PettyCash.">Join hundreds of Saudi businesses already saving time and money with PettyCash.</p>
-        <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="╪¼╪▒╪¿ PettyCash ┘à╪¼╪º┘å╪º┘ï">Try PettyCash Free</a>
-        <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes" data-i18n-ar="┘à╪¼╪º┘å┘è ┘ä┘ä╪ú╪¿╪» ΓÇó ╪¿╪»┘ê┘å ╪¿╪╖╪º┘é╪⌐ ╪º╪ª╪¬┘à╪º┘å ΓÇó ╪º┘ä╪Ñ╪╣╪»╪º╪» ┘ü┘è ╪»┘é┘è┘é╪¬┘è┘å">Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes</p>
+        <h3 class="text-xl font-bold mb-2" data-i18n-en="Start Saving Today" data-i18n-ar="ابدأ التوفير اليوم">ابدأ التوفير اليوم</h3>
+        <p class="text-blue-100 text-sm mb-4" data-i18n-en="Join hundreds of Saudi businesses already saving time and money with PettyCash." data-i18n-ar="انضم إلى مئات الشركات السعودية التي توفر الوقت والمال بالفعل مع PettyCash.">انضم إلى مئات الشركات السعودية التي توفر الوقت والمال بالفعل مع PettyCash.</p>
+        <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="جرب PettyCash مجاناً">جرب PettyCash مجاناً</a>
+        <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes" data-i18n-ar="مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين">مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين</p>
       </div>
     </section>
   </main>
@@ -226,6 +224,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script defer="" src="/js/ai-assistant.js"></script>
 <script defer="" src="/js/analytics.js"></script>
 <script defer="" src="/js/marquee-banner.js?v=4"></script>
-
 
 </body></html>

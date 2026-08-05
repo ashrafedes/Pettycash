@@ -1,10 +1,4 @@
-<html lang="ar" dir="rtl" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
-  <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/saudi-invoice-generator.html" />
-  <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/saudi-invoice-generator.html" />
-  <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
-</head><body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">﻿
-
-
+<!DOCTYPE html><html lang="ar" dir="rtl" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -119,7 +113,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-4E21GQ00FC');
 </script>
 
-
+  <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/saudi-invoice-generator.html" />
+  <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/saudi-invoice-generator.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
   <nav id="pctool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
 
   <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 grid lg:grid-cols-12 gap-8">
@@ -235,9 +233,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <button type="button" id="btn-png" class="btn-secondary text-sm"><span data-i18n="common.downloadPNG">Download PNG</span></button>
         </div>
         <div class="text-center text-xs sm:text-sm text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-slate-800/60 border border-blue-100 dark:border-slate-700 rounded-xl p-3 animate-fade-in">
-          <span data-i18n-en="Go paperless! " data-i18n-ar="╪¬╪«┘ä╪╡ ┘à┘å ╪º┘ä┘ê╪▒┘é! "></span>
-          <a href="https://pattycashsystem.web.app" target="_blank" rel="noopener noreferrer" class="font-semibold underline hover:text-blue-900 dark:hover:text-blue-100" data-i18n-en="Try the Petty Cash System" data-i18n-ar="╪¼╪▒┘æ╪¿ ┘å╪╕╪º┘à Petty Cash">Try the Petty Cash System</a>
-          <span data-i18n-en=" to manage expenses and receipts." data-i18n-ar=" ┘ä╪Ñ╪»╪º╪▒╪⌐ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬ ┘ê╪º┘ä╪Ñ┘è╪╡╪º┘ä╪º╪¬."></span>
+          <span data-i18n-en="Go paperless! " data-i18n-ar="تخلص من الورق! ">تخلص من الورق! </span>
+          <a href="https://pattycashsystem.web.app" target="_blank" rel="noopener noreferrer" class="font-semibold underline hover:text-blue-900 dark:hover:text-blue-100" data-i18n-en="Try the Petty Cash System" data-i18n-ar="جرّب نظام Petty Cash">جرّب نظام Petty Cash</a>
+          <span data-i18n-en=" to manage expenses and receipts." data-i18n-ar=" لإدارة المصروفات والإيصالات."> لإدارة المصروفات والإيصالات.</span>
         </div>
         <div id="preview-container" class="overflow-auto rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-200 dark:bg-slate-900 p-4">
           <div id="invoice-preview" class="paper invoice-paper">
@@ -246,21 +244,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div>
                 <img id="preview-logo" src="" alt="Logo" class="h-12 object-contain mb-1 hidden">
                 <h2 id="preview-company-name" class="text-2xl font-bold"></h2>
-                <p class="text-sm text-slate-600 my-1"><span id="preview-company-vat-label" data-i18n-en="VAT:" data-i18n-ar="╪º┘ä╪▒┘é┘à ╪º┘ä╪╢╪▒┘è╪¿┘è:">VAT:</span> <span id="preview-company-vat"></span></p>
+                <p class="text-sm text-slate-600 my-1"><span id="preview-company-vat-label" data-i18n-en="VAT:" data-i18n-ar="الرقم الضريبي:">الرقم الضريبي:</span> <span id="preview-company-vat"></span></p>
                 <p class="text-sm text-slate-600" id="preview-company-address"></p>
                 <p class="text-sm text-slate-600" id="preview-company-contact"></p>
               </div>
               <div class="text-end">
                 <h2 id="preview-title" class="text-2xl font-extrabold text-blue-700 leading-tight">Simplified Tax Invoice</h2>
-                <p class="text-sm text-slate-600 mt-1"><span data-i18n-en="Invoice No:" data-i18n-ar="╪▒┘é┘à ╪º┘ä┘ü╪º╪¬┘ê╪▒╪⌐:">Invoice No:</span> <strong id="preview-invoice-number"></strong></p>
-                <p class="text-sm text-slate-600"><span data-i18n-en="Issue Date:" data-i18n-ar="╪¬╪º╪▒┘è╪« ╪º┘ä╪Ñ╪╡╪»╪º╪▒:">Issue Date:</span> <span id="preview-issue-date"></span></p>
-                <p class="text-sm text-slate-600"><span data-i18n-en="Due Date:" data-i18n-ar="╪¬╪º╪▒┘è╪« ╪º┘ä╪º╪│╪¬╪¡┘é╪º┘é:">Due Date:</span> <span id="preview-due-date"></span></p>
+                <p class="text-sm text-slate-600 mt-1"><span data-i18n-en="Invoice No:" data-i18n-ar="رقم الفاتورة:">رقم الفاتورة:</span> <strong id="preview-invoice-number"></strong></p>
+                <p class="text-sm text-slate-600"><span data-i18n-en="Issue Date:" data-i18n-ar="تاريخ الإصدار:">تاريخ الإصدار:</span> <span id="preview-issue-date"></span></p>
+                <p class="text-sm text-slate-600"><span data-i18n-en="Due Date:" data-i18n-ar="تاريخ الاستحقاق:">تاريخ الاستحقاق:</span> <span id="preview-due-date"></span></p>
               </div>
             </div>
 
             <!-- Customer -->
             <div class="mb-4">
-              <h3 class="font-bold text-slate-800 mb-1" data-i18n-en="Bill To:" data-i18n-ar="┘ü╪º╪¬┘ê╪▒╪⌐ ╪Ñ┘ä┘ë:">Bill To:</h3>
+              <h3 class="font-bold text-slate-800 mb-1" data-i18n-en="Bill To:" data-i18n-ar="فاتورة إلى:">فاتورة إلى:</h3>
               <p class="font-semibold" id="preview-customer-name"></p>
               <p class="text-sm text-slate-600" id="preview-customer-vat"></p>
               <p class="text-sm text-slate-600" id="preview-customer-address"></p>
@@ -271,13 +269,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <table class="preview-table mb-2" id="preview-items-table">
               <thead>
                 <tr>
-                  <th data-i18n-en="Description" data-i18n-ar="╪º┘ä┘ê╪╡┘ü">Description</th>
-                  <th data-i18n-en="Qty" data-i18n-ar="╪º┘ä┘â┘à┘è╪⌐">Qty</th>
-                  <th data-i18n-en="Unit" data-i18n-ar="╪º┘ä┘ê╪¡╪»╪⌐">Unit</th>
-                  <th data-i18n-en="Price" data-i18n-ar="╪º┘ä╪│╪╣╪▒">Price</th>
-                  <th data-i18n-en="Disc." data-i18n-ar="╪º┘ä╪«╪╡┘à">Disc.</th>
-                  <th data-i18n-en="VAT%" data-i18n-ar="╪╢%">VAT%</th>
-                  <th data-i18n-en="Total" data-i18n-ar="╪º┘ä╪Ñ╪¼┘à╪º┘ä┘è">Total</th>
+                  <th data-i18n-en="Description" data-i18n-ar="الوصف">الوصف</th>
+                  <th data-i18n-en="Qty" data-i18n-ar="الكمية">الكمية</th>
+                  <th data-i18n-en="Unit" data-i18n-ar="الوحدة">الوحدة</th>
+                  <th data-i18n-en="Price" data-i18n-ar="السعر">السعر</th>
+                  <th data-i18n-en="Disc." data-i18n-ar="الخصم">الخصم</th>
+                  <th data-i18n-en="VAT%" data-i18n-ar="ض%">ض%</th>
+                  <th data-i18n-en="Total" data-i18n-ar="الإجمالي">الإجمالي</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -286,19 +284,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <!-- Totals -->
             <div class="mt-4 flex justify-end">
               <div class="w-64 space-y-2 text-sm">
-                <div class="flex justify-between"><span data-i18n-en="Subtotal" data-i18n-ar="╪º┘ä┘à╪¼┘à┘ê╪╣ ╪º┘ä┘ü╪▒╪╣┘è">Subtotal</span><span id="preview-subtotal"></span></div>
-                <div class="flex justify-between"><span data-i18n-en="Discount" data-i18n-ar="╪º┘ä╪«╪╡┘à">Discount</span><span id="preview-discount"></span></div>
-                <div class="flex justify-between"><span data-i18n-en="VAT" data-i18n-ar="╪╢╪▒┘è╪¿╪⌐ ╪º┘ä┘é┘è┘à╪⌐ ╪º┘ä┘à╪╢╪º┘ü╪⌐">VAT</span><span id="preview-vat"></span></div>
-                <div class="flex justify-between font-bold text-base border-t border-slate-200 pt-2"><span data-i18n-en="Grand Total" data-i18n-ar="╪º┘ä╪Ñ╪¼┘à╪º┘ä┘è ╪º┘ä┘â┘ä┘è">Grand Total</span><span id="preview-grand"></span></div>
-                <div class="flex justify-between"><span data-i18n-en="Paid" data-i18n-ar="╪º┘ä┘à╪»┘ü┘ê╪╣">Paid</span><span id="preview-paid"></span></div>
-                <div class="flex justify-between font-semibold"><span data-i18n-en="Remaining" data-i18n-ar="╪º┘ä┘à╪¬╪¿┘é┘è">Remaining</span><span id="preview-remaining"></span></div>
+                <div class="flex justify-between"><span data-i18n-en="Subtotal" data-i18n-ar="المجموع الفرعي">المجموع الفرعي</span><span id="preview-subtotal"></span></div>
+                <div class="flex justify-between"><span data-i18n-en="Discount" data-i18n-ar="الخصم">الخصم</span><span id="preview-discount"></span></div>
+                <div class="flex justify-between"><span data-i18n-en="VAT" data-i18n-ar="ضريبة القيمة المضافة">ضريبة القيمة المضافة</span><span id="preview-vat"></span></div>
+                <div class="flex justify-between font-bold text-base border-t border-slate-200 pt-2"><span data-i18n-en="Grand Total" data-i18n-ar="الإجمالي الكلي">الإجمالي الكلي</span><span id="preview-grand"></span></div>
+                <div class="flex justify-between"><span data-i18n-en="Paid" data-i18n-ar="المدفوع">المدفوع</span><span id="preview-paid"></span></div>
+                <div class="flex justify-between font-semibold"><span data-i18n-en="Remaining" data-i18n-ar="المتبقي">المتبقي</span><span id="preview-remaining"></span></div>
               </div>
             </div>
 
             <!-- Amount in words & QR -->
             <div class="mt-6 grid sm:grid-cols-2 gap-4 items-end border-t border-slate-200 pt-4">
               <div>
-                <p class="text-sm font-semibold text-slate-700 mb-1" data-i18n-en="Amount in Words" data-i18n-ar="╪º┘ä┘à╪¿┘ä╪║ ╪¿╪º┘ä╪¡╪▒┘ê┘ü">Amount in Words</p>
+                <p class="text-sm font-semibold text-slate-700 mb-1" data-i18n-en="Amount in Words" data-i18n-ar="المبلغ بالحروف">المبلغ بالحروف</p>
                 <p id="preview-words" class="text-sm italic text-slate-600"></p>
               </div>
               <div class="text-end">
@@ -308,18 +306,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <!-- Footer -->
             <div class="mt-6 pt-4 border-t border-slate-200 text-sm text-slate-600">
-              <p class="font-semibold mb-1" data-i18n-en="Notes" data-i18n-ar="┘à┘ä╪º╪¡╪╕╪º╪¬">Notes</p>
+              <p class="font-semibold mb-1" data-i18n-en="Notes" data-i18n-ar="ملاحظات">ملاحظات</p>
               <p id="preview-notes" class="mb-4"></p>
-              <p class="font-semibold mb-1" data-i18n-en="Terms" data-i18n-ar="╪º┘ä╪┤╪▒┘ê╪╖ ┘ê╪º┘ä╪ú╪¡┘â╪º┘à">Terms</p>
+              <p class="font-semibold mb-1" data-i18n-en="Terms" data-i18n-ar="الشروط والأحكام">الشروط والأحكام</p>
               <p id="preview-terms" class="mb-6"></p>
               <div class="flex justify-between items-end">
                 <div>
-                  <p class="font-semibold" data-i18n-en="Authorized Signature" data-i18n-ar="╪¬┘ê┘é┘è╪╣ ╪º┘ä┘à┘ü┘ê╪╢">Authorized Signature</p>
+                  <p class="font-semibold" data-i18n-en="Authorized Signature" data-i18n-ar="توقيع المفوض">توقيع المفوض</p>
                   <p id="preview-signature" class="mt-4"></p>
                 </div>
                 <div>
-                  <p class="font-semibold" data-i18n-en="Company Stamp" data-i18n-ar="╪«╪¬┘à ╪º┘ä╪┤╪▒┘â╪⌐">Company Stamp</p>
-                  <div class="stamp-circle rounded-full border-2 border-dashed border-slate-300 mt-2 flex items-center justify-center text-slate-400 text-center" data-i18n-en="Stamp" data-i18n-ar="╪«╪¬┘à">Stamp</div>
+                  <p class="font-semibold" data-i18n-en="Company Stamp" data-i18n-ar="ختم الشركة">ختم الشركة</p>
+                  <div class="stamp-circle rounded-full border-2 border-dashed border-slate-300 mt-2 flex items-center justify-center text-slate-400 text-center" data-i18n-en="Stamp" data-i18n-ar="ختم">ختم</div>
                 </div>
               </div>
             </div>
@@ -330,21 +328,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </main>
 
   <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 pb-8 no-print">
-    <p class="text-xs text-slate-400 dark:text-slate-500 text-center" data-i18n-en="Note: This tool generates invoice templates only. It is not connected to ZATCA's electronic invoicing platform and does not claim official compliance." data-i18n-ar="┘à┘ä╪º╪¡╪╕╪⌐: ╪¬┘é┘ê┘à ┘ç╪░┘ç ╪º┘ä╪ú╪»╪º╪⌐ ╪¿╪Ñ┘å╪┤╪º╪í ┘å┘à╪º╪░╪¼ ┘ü┘ê╪º╪¬┘è╪▒ ┘ü┘é╪╖╪î ┘ê┘ä╪º ╪¬╪▒╪¬╪¿╪╖ ╪¿┘à┘å╪╡╪⌐ ╪º┘ä┘ü┘ê╪¬╪▒╪⌐ ╪º┘ä╪Ñ┘ä┘â╪¬╪▒┘ê┘å┘è╪⌐ ╪º┘ä╪¬╪º╪¿╪╣╪⌐ ┘ä┘ç┘è╪ª╪⌐ ╪º┘ä╪▓┘â╪º╪⌐ ┘ê╪º┘ä╪╢╪▒┘è╪¿╪⌐ ┘ê╪º┘ä╪¼┘à╪º╪▒┘â╪î ┘ê┘ä╪º ╪¬╪»┘æ╪╣┘è ╪º┘ä╪¬┘ê╪º┘ü┘é ╪º┘ä╪▒╪│┘à┘è ┘à╪╣┘ç╪º.">Note: This tool generates invoice templates only. It is not connected to ZATCA's electronic invoicing platform and does not claim official compliance.</p>
+    <p class="text-xs text-slate-400 dark:text-slate-500 text-center" data-i18n-en="Note: This tool generates invoice templates only. It is not connected to ZATCA's electronic invoicing platform and does not claim official compliance." data-i18n-ar="ملاحظة: تقوم هذه الأداة بإنشاء نماذج فواتير فقط، ولا ترتبط بمنصة الفوترة الإلكترونية التابعة لهيئة الزكاة والضريبة والجمارك، ولا تدّعي التوافق الرسمي معها.">ملاحظة: تقوم هذه الأداة بإنشاء نماذج فواتير فقط، ولا ترتبط بمنصة الفوترة الإلكترونية التابعة لهيئة الزكاة والضريبة والجمارك، ولا تدّعي التوافق الرسمي معها.</p>
   </div>
 
       <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-8 no-print">
     <div class="max-w-7xl mx-auto px-4 grid sm:grid-cols-2 gap-6 text-sm text-slate-500 dark:text-slate-400">
       <div>
-        <h4 class="font-semibold text-slate-700 dark:text-slate-200 mb-3" data-i18n-en="Free Tools" data-i18n-ar="╪ú╪»┘ê╪º╪¬ ┘à╪¼╪º┘å┘è╪⌐">Free Tools</h4>
+        <h4 class="font-semibold text-slate-700 dark:text-slate-200 mb-3" data-i18n-en="Free Tools" data-i18n-ar="أدوات مجانية">أدوات مجانية</h4>
         <ul class="space-y-1">
-          <li><a href="/ar/tools/saudi-invoice-generator.html" class="hover:text-blue-600 dark:hover:text-blue-400" data-i18n-en="Saudi Invoice Generator" data-i18n-ar="┘à┘å╪┤╪ª ╪º┘ä┘ü┘ê╪º╪¬┘è╪▒ ╪º┘ä╪│╪╣┘ê╪»┘è╪⌐">Saudi Invoice Generator</a></li>
-          <li><a href="/ar/tools/receipt-generator.html" class="hover:text-blue-600 dark:hover:text-blue-400" data-i18n-en="Receipt Generator" data-i18n-ar="┘à┘å╪┤╪ª ╪º┘ä╪Ñ┘è╪╡╪º┘ä╪º╪¬">Receipt Generator</a></li>
-          <li><a href="/ar/tools/petty-cash-voucher-generator.html" class="hover:text-blue-600 dark:hover:text-blue-400" data-i18n-en="Petty Cash Voucher" data-i18n-ar="┘é╪│┘è┘à╪⌐ ╪º┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒">Petty Cash Voucher</a></li>
+          <li><a href="/ar/tools/saudi-invoice-generator.html" class="hover:text-blue-600 dark:hover:text-blue-400" data-i18n-en="Saudi Invoice Generator" data-i18n-ar="منشئ الفواتير السعودية">منشئ الفواتير السعودية</a></li>
+          <li><a href="/ar/tools/receipt-generator.html" class="hover:text-blue-600 dark:hover:text-blue-400" data-i18n-en="Receipt Generator" data-i18n-ar="منشئ الإيصالات">منشئ الإيصالات</a></li>
+          <li><a href="/ar/tools/petty-cash-voucher-generator.html" class="hover:text-blue-600 dark:hover:text-blue-400" data-i18n-en="Petty Cash Voucher" data-i18n-ar="قسيمة الصندوق الصغير">قسيمة الصندوق الصغير</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="font-semibold text-slate-700 dark:text-slate-200 mb-3" data-i18n-en="Company" data-i18n-ar="╪º┘ä╪┤╪▒┘â╪⌐">Company</h4>
+        <h4 class="font-semibold text-slate-700 dark:text-slate-200 mb-3" data-i18n-en="Company" data-i18n-ar="الشركة">الشركة</h4>
         <ul class="space-y-1">
           <li><a href="/ar/./" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a></li>
           <li><a href="/ar/features.html" class="hover:text-blue-600 dark:hover:text-blue-400">Features</a></li>
@@ -373,6 +371,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script defer="" src="/js/ai-assistant.js"></script>
 <script defer="" src="/js/analytics.js"></script>
 <script defer="" src="/js/marquee-banner.js?v=4"></script>
-
 
 </body></html>

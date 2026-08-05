@@ -1,10 +1,4 @@
-<html lang="ar" dir="rtl" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
-  <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/petty-cash-limit-calculator.html" />
-  <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/petty-cash-limit-calculator.html" />
-  <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
-</head><body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">﻿
-
-
+<!DOCTYPE html><html lang="ar" dir="rtl" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -82,14 +76,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-4E21GQ00FC');
 </script>
 
-
+  <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/petty-cash-limit-calculator.html" />
+  <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/petty-cash-limit-calculator.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
   <nav id="pctool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
 
   <main class="flex-1">
     <section class="bg-gradient-to-br from-cyan-600 via-cyan-700 to-blue-800 text-white py-16 text-center">
       <div class="max-w-2xl mx-auto px-4 sm:px-6">
-        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3" data-i18n-en="Petty Cash Limit Calculator" data-i18n-ar="╪¡╪º╪│╪¿╪⌐ ╪¡╪» ╪º┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒">Petty Cash Limit Calculator</h1>
-        <p class="text-cyan-100 text-lg" data-i18n-en="Determine the optimal petty cash float for your business." data-i18n-ar="╪¡╪»╪» ╪º┘ä╪¡╪» ╪º┘ä╪ú┘à╪½┘ä ┘ä┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒ ┘ä╪┤╪▒┘â╪¬┘â.">Determine the optimal petty cash float for your business.</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3" data-i18n-en="Petty Cash Limit Calculator" data-i18n-ar="حاسبة حد الصندوق الصغير">حاسبة حد الصندوق الصغير</h1>
+        <p class="text-cyan-100 text-lg" data-i18n-en="Determine the optimal petty cash float for your business." data-i18n-ar="حدد الحد الأمثل للصندوق الصغير لشركتك.">حدد الحد الأمثل للصندوق الصغير لشركتك.</p>
       </div>
     </section>
 
@@ -97,23 +95,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-8">
         <div class="space-y-5">
           <div>
-            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Average daily petty cash expenses (SAR)" data-i18n-ar="┘à╪¬┘ê╪│╪╖ ┘à╪╡╪▒┘ê┘ü╪º╪¬ ╪º┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒ ╪º┘ä┘è┘ê┘à┘è╪⌐ (╪▒┘è╪º┘ä)">Average daily petty cash expenses (SAR)</label>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Average daily petty cash expenses (SAR)" data-i18n-ar="متوسط مصروفات الصندوق الصغير اليومية (ريال)">متوسط مصروفات الصندوق الصغير اليومية (ريال)</label>
             <input type="number" id="daily-expenses" value="200" min="0" class="form-input">
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Replenishment cycle (days)" data-i18n-ar="╪»┘ê╪▒╪⌐ ╪º┘ä╪¬╪╣╪¿╪ª╪⌐ (╪ú┘è╪º┘à)">Replenishment cycle (days)</label>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Replenishment cycle (days)" data-i18n-ar="دورة التعبئة (أيام)">دورة التعبئة (أيام)</label>
             <select id="replenishment-cycle" class="form-input">
-              <option value="7" data-i18n-en="Weekly (7 days)" data-i18n-ar="╪ú╪│╪¿┘ê╪╣┘è╪º┘ï (7 ╪ú┘è╪º┘à)">Weekly (7 days)</option>
-              <option value="14" data-i18n-en="Bi-weekly (14 days)" data-i18n-ar="┘â┘ä ╪ú╪│╪¿┘ê╪╣┘è┘å (14 ┘è┘ê┘à)">Bi-weekly (14 days)</option>
-              <option value="30" selected="" data-i18n-en="Monthly (30 days)" data-i18n-ar="╪┤┘ç╪▒┘è╪º┘ï (30 ┘è┘ê┘à)">Monthly (30 days)</option>
+              <option value="7" data-i18n-en="Weekly (7 days)" data-i18n-ar="أسبوعياً (7 أيام)">أسبوعياً (7 أيام)</option>
+              <option value="14" data-i18n-en="Bi-weekly (14 days)" data-i18n-ar="كل أسبوعين (14 يوم)">كل أسبوعين (14 يوم)</option>
+              <option value="30" selected="" data-i18n-en="Monthly (30 days)" data-i18n-ar="شهرياً (30 يوم)">شهرياً (30 يوم)</option>
             </select>
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Safety buffer (%)" data-i18n-ar="┘ç╪º┘à╪┤ ╪º┘ä╪ú┘à╪º┘å (%)">Safety buffer (%)</label>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Safety buffer (%)" data-i18n-ar="هامش الأمان (%)">هامش الأمان (%)</label>
             <input type="number" id="safety-buffer" value="20" min="0" max="100" class="form-input">
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Number of employees using petty cash" data-i18n-ar="╪╣╪»╪» ╪º┘ä┘à┘ê╪╕┘ü┘è┘å ╪º┘ä┘à╪│╪¬╪«╪»┘à┘è┘å ┘ä┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒">Number of employees using petty cash</label>
+            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n-en="Number of employees using petty cash" data-i18n-ar="عدد الموظفين المستخدمين للصندوق الصغير">عدد الموظفين المستخدمين للصندوق الصغير</label>
             <input type="number" id="emp-count" value="10" min="1" class="form-input">
           </div>
         </div>
@@ -121,15 +119,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- Results -->
         <div class="mt-8 space-y-3">
           <div class="flex justify-between items-center py-3 px-4 rounded-xl bg-slate-50 dark:bg-slate-700/50">
-            <span class="text-sm text-slate-500 dark:text-slate-400" data-i18n-en="Base float amount" data-i18n-ar="╪º┘ä┘à╪¿┘ä╪║ ╪º┘ä╪ú╪│╪º╪│┘è ┘ä┘ä╪╡┘å╪»┘ê┘é">Base float amount</span>
+            <span class="text-sm text-slate-500 dark:text-slate-400" data-i18n-en="Base float amount" data-i18n-ar="المبلغ الأساسي للصندوق">المبلغ الأساسي للصندوق</span>
             <span id="result-base" class="text-lg font-bold text-slate-900 dark:text-white">0 SAR</span>
           </div>
           <div class="flex justify-between items-center py-3 px-4 rounded-xl bg-slate-50 dark:bg-slate-700/50">
-            <span class="text-sm text-slate-500 dark:text-slate-400" data-i18n-en="Safety buffer amount" data-i18n-ar="┘à╪¿┘ä╪║ ┘ç╪º┘à╪┤ ╪º┘ä╪ú┘à╪º┘å">Safety buffer amount</span>
+            <span class="text-sm text-slate-500 dark:text-slate-400" data-i18n-en="Safety buffer amount" data-i18n-ar="مبلغ هامش الأمان">مبلغ هامش الأمان</span>
             <span id="result-buffer" class="text-lg font-bold text-slate-900 dark:text-white">0 SAR</span>
           </div>
           <div class="flex justify-between items-center py-4 px-4 rounded-xl bg-cyan-600 text-white">
-            <span class="text-sm font-semibold" data-i18n-en="Recommended petty cash limit" data-i18n-ar="╪º┘ä╪¡╪» ╪º┘ä┘à┘ê╪╡┘ë ╪¿┘ç ┘ä┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒">Recommended petty cash limit</span>
+            <span class="text-sm font-semibold" data-i18n-en="Recommended petty cash limit" data-i18n-ar="الحد الموصى به للصندوق الصغير">الحد الموصى به للصندوق الصغير</span>
             <span id="result-total" class="text-xl font-extrabold">0 SAR</span>
           </div>
           <div class="mt-4 p-4 rounded-xl bg-cyan-50 dark:bg-slate-700/30 border border-cyan-200 dark:border-slate-600">
@@ -140,35 +138,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <!-- SEO Content -->
       <div class="mt-10 prose prose-slate dark:prose-invert max-w-none">
-        <h2 class="text-xl font-bold mb-3" data-i18n-en="How to Set the Right Petty Cash Limit" data-i18n-ar="┘â┘è┘ü ╪¬╪¡╪»╪» ╪º┘ä╪¡╪» ╪º┘ä┘à┘å╪º╪│╪¿ ┘ä┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒">How to Set the Right Petty Cash Limit</h2>
-        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n-en="Setting the right petty cash limit is critical for effective cash management. Too little, and you constantly run out of cash for small expenses. Too much, and you risk loss, theft, or misuse. The general rule is to maintain enough cash to cover your average daily petty cash expenses for one full replenishment cycle, plus a safety buffer of 15-25%. Review your limit quarterly and adjust based on actual usage patterns." data-i18n-ar="╪¬╪¡╪»┘è╪» ╪º┘ä╪¡╪» ╪º┘ä┘à┘å╪º╪│╪¿ ┘ä┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒ ╪ú┘à╪▒ ╪¿╪º┘ä╪║ ╪º┘ä╪ú┘ç┘à┘è╪⌐ ┘ä┘ä╪Ñ╪»╪º╪▒╪⌐ ╪º┘ä┘ü╪╣╪º┘ä╪⌐ ┘ä┘ä┘å┘é╪». ╪º┘ä┘é┘ä┘è┘ä ╪¼╪»╪º┘ï╪î ┘ê╪¬┘å┘ü╪» ╪º┘ä┘å┘é╪»┘è╪⌐ ╪¿╪º╪│╪¬┘à╪▒╪º╪▒ ┘ä┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬ ╪º┘ä╪╡╪║┘è╪▒╪⌐. ╪º┘ä┘â╪½┘è╪▒ ╪¼╪»╪º┘ï╪î ┘ê╪¬╪«╪│╪▒ ╪º┘ä╪«╪│╪º╪▒╪⌐ ╪ú┘ê ╪º┘ä╪│╪▒┘é╪⌐ ╪ú┘ê ╪│┘ê╪í ╪º┘ä╪º╪│╪¬╪«╪»╪º┘à. ╪º┘ä┘é╪º╪╣╪»╪⌐ ╪º┘ä╪╣╪º┘à╪⌐ ┘ç┘è ╪º┘ä╪º╪¡╪¬┘ü╪º╪╕ ╪¿┘à╪º ┘è┘â┘ü┘è ┘ä╪¬╪║╪╖┘è╪⌐ ┘à╪¬┘ê╪│╪╖ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬ ╪º┘ä┘è┘ê┘à┘è╪⌐ ┘ä╪»┘ê╪▒╪⌐ ╪º┘ä╪¬╪╣╪¿╪ª╪⌐ ┘â╪º┘à┘ä╪⌐╪î ╪¿╪º┘ä╪Ñ╪╢╪º┘ü╪⌐ ╪Ñ┘ä┘ë ┘ç╪º┘à╪┤ ╪ú┘à╪º┘å 15-25%. ╪▒╪º╪¼╪╣ ╪¡╪»┘â ┘â┘ä ╪½┘ä╪º╪½╪⌐ ╪ú╪┤┘ç╪▒ ┘ê╪╣╪»┘æ┘ä┘ç ╪¿┘å╪º╪í┘ï ╪╣┘ä┘ë ╪ú┘å┘à╪º╪╖ ╪º┘ä╪º╪│╪¬╪«╪»╪º┘à ╪º┘ä┘ü╪╣┘ä┘è╪⌐.">Setting the right petty cash limit is critical for effective cash management. Too little, and you constantly run out of cash for small expenses. Too much, and you risk loss, theft, or misuse. The general rule is to maintain enough cash to cover your average daily petty cash expenses for one full replenishment cycle, plus a safety buffer of 15-25%. Review your limit quarterly and adjust based on actual usage patterns.</p>
+        <h2 class="text-xl font-bold mb-3" data-i18n-en="How to Set the Right Petty Cash Limit" data-i18n-ar="كيف تحدد الحد المناسب للصندوق الصغير">كيف تحدد الحد المناسب للصندوق الصغير</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n-en="Setting the right petty cash limit is critical for effective cash management. Too little, and you constantly run out of cash for small expenses. Too much, and you risk loss, theft, or misuse. The general rule is to maintain enough cash to cover your average daily petty cash expenses for one full replenishment cycle, plus a safety buffer of 15-25%. Review your limit quarterly and adjust based on actual usage patterns." data-i18n-ar="تحديد الحد المناسب للصندوق الصغير أمر بالغ الأهمية للإدارة الفعالة للنقد. القليل جداً، وتنفد النقدية باستمرار للمصروفات الصغيرة. الكثير جداً، وتخسر الخسارة أو السرقة أو سوء الاستخدام. القاعدة العامة هي الاحتفاظ بما يكفي لتغطية متوسط المصروفات اليومية لدورة التعبئة كاملة، بالإضافة إلى هامش أمان 15-25%. راجع حدك كل ثلاثة أشهر وعدّله بناءً على أنماط الاستخدام الفعلية.">تحديد الحد المناسب للصندوق الصغير أمر بالغ الأهمية للإدارة الفعالة للنقد. القليل جداً، وتنفد النقدية باستمرار للمصروفات الصغيرة. الكثير جداً، وتخسر الخسارة أو السرقة أو سوء الاستخدام. القاعدة العامة هي الاحتفاظ بما يكفي لتغطية متوسط المصروفات اليومية لدورة التعبئة كاملة، بالإضافة إلى هامش أمان 15-25%. راجع حدك كل ثلاثة أشهر وعدّله بناءً على أنماط الاستخدام الفعلية.</p>
       </div>
 
       <!-- FAQ -->
       <div class="mt-10">
-        <h2 class="text-xl font-bold mb-4" data-i18n-en="Frequently Asked Questions" data-i18n-ar="╪º┘ä╪ú╪│╪ª┘ä╪⌐ ╪º┘ä╪┤╪º╪ª╪╣╪⌐">Frequently Asked Questions</h2>
+        <h2 class="text-xl font-bold mb-4" data-i18n-en="Frequently Asked Questions" data-i18n-ar="الأسئلة الشائعة">الأسئلة الشائعة</h2>
         <div class="space-y-3">
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="How is the petty cash limit calculated?" data-i18n-ar="┘â┘è┘ü ┘è┘Å╪¡╪│╪¿ ╪¡╪» ╪º┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒╪ƒ">How is the petty cash limit calculated?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="The recommended limit = (average daily petty cash expenses ├ù replenishment cycle in days) + safety buffer (typically 20% of the base amount)." data-i18n-ar="╪º┘ä╪¡╪» ╪º┘ä┘à┘ê╪╡┘ë ╪¿┘ç = (┘à╪¬┘ê╪│╪╖ ╪º┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬ ╪º┘ä┘è┘ê┘à┘è╪⌐ ├ù ╪»┘ê╪▒╪⌐ ╪º┘ä╪¬╪╣╪¿╪ª╪⌐ ╪¿╪º┘ä╪ú┘è╪º┘à) + ┘ç╪º┘à╪┤ ╪º┘ä╪ú┘à╪º┘å (╪╣╪º╪»╪⌐ 20% ┘à┘å ╪º┘ä┘à╪¿┘ä╪║ ╪º┘ä╪ú╪│╪º╪│┘è).">The recommended limit = (average daily petty cash expenses ├ù replenishment cycle in days) + safety buffer (typically 20% of the base amount).</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="How is the petty cash limit calculated?" data-i18n-ar="كيف يُحسب حد الصندوق الصغير؟">كيف يُحسب حد الصندوق الصغير؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="The recommended limit = (average daily petty cash expenses ├ù replenishment cycle in days) + safety buffer (typically 20% of the base amount)." data-i18n-ar="الحد الموصى به = (متوسط المصروفات اليومية × دورة التعبئة بالأيام) + هامش الأمان (عادة 20% من المبلغ الأساسي).">الحد الموصى به = (متوسط المصروفات اليومية × دورة التعبئة بالأيام) + هامش الأمان (عادة 20% من المبلغ الأساسي).</p>
           </details>
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What is a replenishment cycle?" data-i18n-ar="┘à╪º ┘ç┘è ╪»┘ê╪▒╪⌐ ╪º┘ä╪¬╪╣╪¿╪ª╪⌐╪ƒ">What is a replenishment cycle?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="The replenishment cycle is how often you refill the petty cash box ΓÇö typically weekly, bi-weekly, or monthly." data-i18n-ar="╪»┘ê╪▒╪⌐ ╪º┘ä╪¬╪╣╪¿╪ª╪⌐ ┘ç┘è ╪╣╪»╪» ╪º┘ä┘à╪▒╪º╪¬ ╪º┘ä╪¬┘è ╪¬╪╣╪¿╪ª ┘ü┘è┘ç╪º ╪º┘ä╪╡┘å╪»┘ê┘é ╪º┘ä╪╡╪║┘è╪▒ ΓÇö ╪╣╪º╪»╪⌐ ╪ú╪│╪¿┘ê╪╣┘è╪º┘ï ╪ú┘ê ┘â┘ä ╪ú╪│╪¿┘ê╪╣┘è┘å ╪ú┘ê ╪┤┘ç╪▒┘è╪º┘ï.">The replenishment cycle is how often you refill the petty cash box ΓÇö typically weekly, bi-weekly, or monthly.</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What is a replenishment cycle?" data-i18n-ar="ما هي دورة التعبئة؟">ما هي دورة التعبئة؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="The replenishment cycle is how often you refill the petty cash box ΓÇö typically weekly, bi-weekly, or monthly." data-i18n-ar="دورة التعبئة هي عدد المرات التي تعبئ فيها الصندوق الصغير — عادة أسبوعياً أو كل أسبوعين أو شهرياً.">دورة التعبئة هي عدد المرات التي تعبئ فيها الصندوق الصغير — عادة أسبوعياً أو كل أسبوعين أو شهرياً.</p>
           </details>
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What is a safety buffer?" data-i18n-ar="┘à╪º ┘ç┘ê ┘ç╪º┘à╪┤ ╪º┘ä╪ú┘à╪º┘å╪ƒ">What is a safety buffer?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="A safety buffer is an extra amount kept on hand for unexpected expenses. We recommend 20% of the base calculated amount." data-i18n-ar="┘ç╪º┘à╪┤ ╪º┘ä╪ú┘à╪º┘å ┘ç┘ê ┘à╪¿┘ä╪║ ╪Ñ╪╢╪º┘ü┘è ┘è┘Å╪¡╪¬┘ü╪╕ ╪¿┘ç ┘ä┘ä┘à╪╡╪▒┘ê┘ü╪º╪¬ ╪║┘è╪▒ ╪º┘ä┘à╪¬┘ê┘é╪╣╪⌐. ┘å┘ê╪╡┘è ╪¿┘Ç 20% ┘à┘å ╪º┘ä┘à╪¿┘ä╪║ ╪º┘ä╪ú╪│╪º╪│┘è ╪º┘ä┘à╪¡╪│┘ê╪¿.">A safety buffer is an extra amount kept on hand for unexpected expenses. We recommend 20% of the base calculated amount.</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What is a safety buffer?" data-i18n-ar="ما هو هامش الأمان؟">ما هو هامش الأمان؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="A safety buffer is an extra amount kept on hand for unexpected expenses. We recommend 20% of the base calculated amount." data-i18n-ar="هامش الأمان هو مبلغ إضافي يُحتفظ به للمصروفات غير المتوقعة. نوصي بـ 20% من المبلغ الأساسي المحسوب.">هامش الأمان هو مبلغ إضافي يُحتفظ به للمصروفات غير المتوقعة. نوصي بـ 20% من المبلغ الأساسي المحسوب.</p>
           </details>
         </div>
       </div>
 
       <!-- Soft CTA -->
       <div class="mt-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-center text-white">
-        <h3 class="text-xl font-bold mb-2" data-i18n-en="Automate Your Petty Cash" data-i18n-ar="╪ú╪¬┘à╪¬ ╪╡┘å╪»┘ê┘é┘â ╪º┘ä╪╡╪║┘è╪▒">Automate Your Petty Cash</h3>
-        <p class="text-blue-100 text-sm mb-4" data-i18n-en="PettyCash automatically tracks your float, alerts you when it's low, and generates replenishment reports." data-i18n-ar="┘è╪¬╪¬╪¿╪╣ PettyCash ╪¬┘ä┘é╪º╪ª┘è╪º┘ï ╪╡┘å╪»┘ê┘é┘â╪î ┘ê┘è┘å╪¿┘ç┘â ╪╣┘å╪»┘à╪º ┘è┘å╪«┘ü╪╢╪î ┘ê┘è┘å╪┤╪ª ╪¬┘é╪º╪▒┘è╪▒ ╪º┘ä╪¬╪╣╪¿╪ª╪⌐.">PettyCash automatically tracks your float, alerts you when it's low, and generates replenishment reports.</p>
-        <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="╪¼╪▒╪¿ PettyCash ┘à╪¼╪º┘å╪º┘ï">Try PettyCash Free</a>
-        <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes" data-i18n-ar="┘à╪¼╪º┘å┘è ┘ä┘ä╪ú╪¿╪» ΓÇó ╪¿╪»┘ê┘å ╪¿╪╖╪º┘é╪⌐ ╪º╪ª╪¬┘à╪º┘å ΓÇó ╪º┘ä╪Ñ╪╣╪»╪º╪» ┘ü┘è ╪»┘é┘è┘é╪¬┘è┘å">Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes</p>
+        <h3 class="text-xl font-bold mb-2" data-i18n-en="Automate Your Petty Cash" data-i18n-ar="أتمت صندوقك الصغير">أتمت صندوقك الصغير</h3>
+        <p class="text-blue-100 text-sm mb-4" data-i18n-en="PettyCash automatically tracks your float, alerts you when it's low, and generates replenishment reports." data-i18n-ar="يتتبع PettyCash تلقائياً صندوقك، وينبهك عندما ينخفض، وينشئ تقارير التعبئة.">يتتبع PettyCash تلقائياً صندوقك، وينبهك عندما ينخفض، وينشئ تقارير التعبئة.</p>
+        <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="جرب PettyCash مجاناً">جرب PettyCash مجاناً</a>
+        <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes" data-i18n-ar="مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين">مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين</p>
       </div>
     </section>
   </main>
@@ -231,6 +229,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script defer="" src="/js/ai-assistant.js"></script>
 <script defer="" src="/js/analytics.js"></script>
 <script defer="" src="/js/marquee-banner.js?v=4"></script>
-
 
 </body></html>

@@ -1,10 +1,4 @@
-<html lang="ar" dir="rtl" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
-  <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/internal-control-score-quiz.html" />
-  <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/internal-control-score-quiz.html" />
-  <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
-</head><body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">﻿
-
-
+<!DOCTYPE html><html lang="ar" dir="rtl" class="scroll-smooth"><head><script>window.localStorage&&localStorage.setItem('pettycash-lang','ar');</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -82,14 +76,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-4E21GQ00FC');
 </script>
 
-
+  <link rel="alternate" hreflang="en" href="https://www.pettycash.site/en/tools/internal-control-score-quiz.html" />
+  <link rel="alternate" hreflang="ar" href="https://www.pettycash.site/ar/tools/internal-control-score-quiz.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.pettycash.site/" />
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
   <nav id="pctool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
 
   <main class="flex-1">
     <section class="bg-gradient-to-br from-teal-600 via-teal-700 to-cyan-800 text-white py-16 text-center">
       <div class="max-w-2xl mx-auto px-4 sm:px-6">
-        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3" data-i18n-en="Internal Control Score Quiz" data-i18n-ar="╪º╪«╪¬╪¿╪º╪▒ ┘å┘é╪º╪╖ ╪º┘ä╪▒┘é╪º╪¿╪⌐ ╪º┘ä╪»╪º╪«┘ä┘è╪⌐">Internal Control Score Quiz</h1>
-        <p class="text-teal-100 text-lg" data-i18n-en="Assess your internal controls and get a score with recommendations." data-i18n-ar="┘é┘è┘æ┘à ┘å┘é╪º╪╖ ╪º┘ä╪▒┘é╪º╪¿╪⌐ ╪º┘ä╪»╪º╪«┘ä┘è╪⌐ ┘ê╪º╪¡╪╡┘ä ╪╣┘ä┘ë ╪»╪▒╪¼╪⌐ ┘ê╪¬┘ê╪╡┘è╪º╪¬.">Assess your internal controls and get a score with recommendations.</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3" data-i18n-en="Internal Control Score Quiz" data-i18n-ar="اختبار نقاط الرقابة الداخلية">اختبار نقاط الرقابة الداخلية</h1>
+        <p class="text-teal-100 text-lg" data-i18n-en="Assess your internal controls and get a score with recommendations." data-i18n-ar="قيّم نقاط الرقابة الداخلية واحصل على درجة وتوصيات.">قيّم نقاط الرقابة الداخلية واحصل على درجة وتوصيات.</p>
       </div>
     </section>
 
@@ -97,7 +95,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Quiz -->
       <div id="quiz-container" class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-8">
         <div id="quiz-questions" class="space-y-6"></div>
-        <button id="calculate-btn" class="btn-primary w-full justify-center mt-8" data-i18n-en="Calculate My Score" data-i18n-ar="╪º╪¡╪│╪¿ ╪»╪▒╪¼╪¬┘è">Calculate My Score</button>
+        <button id="calculate-btn" class="btn-primary w-full justify-center mt-8" data-i18n-en="Calculate My Score" data-i18n-ar="احسب درجتي">احسب درجتي</button>
       </div>
 
       <!-- Results (hidden initially) -->
@@ -106,44 +104,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-teal-100 dark:bg-slate-700 mb-4">
             <span id="score-number" class="text-3xl font-extrabold text-teal-700 dark:text-teal-300">0</span>
           </div>
-          <h2 class="text-xl font-bold" id="score-label" data-i18n-en="Your Control Score" data-i18n-ar="╪»╪▒╪¼╪⌐ ╪º┘ä╪▒┘é╪º╪¿╪⌐ ╪º┘ä╪«╪º╪╡╪⌐ ╪¿┘â">Your Control Score</h2>
+          <h2 class="text-xl font-bold" id="score-label" data-i18n-en="Your Control Score" data-i18n-ar="درجة الرقابة الخاصة بك">درجة الرقابة الخاصة بك</h2>
           <p class="text-sm text-slate-500 dark:text-slate-400 mt-1" id="score-description"></p>
         </div>
         <div id="recommendations" class="space-y-3"></div>
-        <button id="retake-btn" class="btn-secondary w-full justify-center mt-6" data-i18n-en="Retake Quiz" data-i18n-ar="╪Ñ╪╣╪º╪»╪⌐ ╪º┘ä╪º╪«╪¬╪¿╪º╪▒">Retake Quiz</button>
+        <button id="retake-btn" class="btn-secondary w-full justify-center mt-6" data-i18n-en="Retake Quiz" data-i18n-ar="إعادة الاختبار">إعادة الاختبار</button>
       </div>
 
       <!-- SEO Content -->
       <div class="mt-10 prose prose-slate dark:prose-invert max-w-none">
-        <h2 class="text-xl font-bold mb-3" data-i18n-en="What Are Internal Controls?" data-i18n-ar="┘à╪º ┘ç┘è ╪º┘ä╪▒┘é╪º╪¿╪⌐ ╪º┘ä╪»╪º╪«┘ä┘è╪⌐╪ƒ">What Are Internal Controls?</h2>
-        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n-en="Internal controls are the processes, procedures, and policies that ensure the accuracy of financial reporting, prevent fraud, and protect company assets. They include segregation of duties, documentation requirements, approval workflows, regular reconciliations, access controls, and audit trails. Strong internal controls are essential for business sustainability, regulatory compliance, and stakeholder confidence. Weak controls can lead to fraud, errors, financial losses, and reputational damage." data-i18n-ar="╪º┘ä╪▒┘é╪º╪¿╪⌐ ╪º┘ä╪»╪º╪«┘ä┘è╪⌐ ┘ç┘è ╪º┘ä╪╣┘à┘ä┘è╪º╪¬ ┘ê╪º┘ä╪Ñ╪¼╪▒╪º╪í╪º╪¬ ┘ê╪º┘ä╪│┘è╪º╪│╪º╪¬ ╪º┘ä╪¬┘è ╪¬╪╢┘à┘å ╪»┘é╪⌐ ╪º┘ä╪¬┘é╪º╪▒┘è╪▒ ╪º┘ä┘à╪º┘ä┘è╪⌐╪î ┘ê╪¬┘à┘å╪╣ ╪º┘ä╪º╪¡╪¬┘è╪º┘ä╪î ┘ê╪¬╪¡┘à┘è ╪ú╪╡┘ê┘ä ╪º┘ä╪┤╪▒┘â╪⌐. ╪¬╪┤┘à┘ä ┘ü╪╡┘ä ╪º┘ä┘à┘ç╪º┘à╪î ┘ê┘à╪¬╪╖┘ä╪¿╪º╪¬ ╪º┘ä╪¬┘ê╪½┘è┘é╪î ┘ê╪│┘è╪▒ ╪╣┘à┘ä ╪º┘ä┘à┘ê╪º┘ü┘é╪º╪¬╪î ┘ê╪º┘ä┘à╪╖╪º╪¿┘é╪º╪¬ ╪º┘ä╪»┘ê╪▒┘è╪⌐╪î ┘ê╪╢┘ê╪º╪¿╪╖ ╪º┘ä┘ê╪╡┘ê┘ä╪î ┘ê┘à╪│╪º╪▒╪º╪¬ ╪º┘ä╪¬╪»┘é┘è┘é. ╪º┘ä╪▒┘é╪º╪¿╪⌐ ╪º┘ä╪»╪º╪«┘ä┘è╪⌐ ╪º┘ä┘é┘ê┘è╪⌐ ╪╢╪▒┘ê╪▒┘è╪⌐ ┘ä╪º╪│╪¬╪»╪º┘à╪⌐ ╪º┘ä╪ú╪╣┘à╪º┘ä ┘ê╪º┘ä╪º┘à╪¬╪½╪º┘ä ╪º┘ä╪¬┘å╪╕┘è┘à┘è ┘ê╪½┘é╪⌐ ╪ú╪╡╪¡╪º╪¿ ╪º┘ä┘à╪╡┘ä╪¡╪⌐. ╪º┘ä╪▒┘é╪º╪¿╪⌐ ╪º┘ä╪╢╪╣┘è┘ü╪⌐ ┘è┘à┘â┘å ╪ú┘å ╪¬╪ñ╪»┘è ╪Ñ┘ä┘ë ╪º┘ä╪º╪¡╪¬┘è╪º┘ä ┘ê╪º┘ä╪ú╪«╪╖╪º╪í ┘ê╪º┘ä╪«╪│╪º╪ª╪▒ ╪º┘ä┘à╪º┘ä┘è╪⌐ ┘ê╪º┘ä╪Ñ╪╢╪▒╪º╪▒ ╪¿╪º┘ä╪│┘à╪╣╪⌐.">Internal controls are the processes, procedures, and policies that ensure the accuracy of financial reporting, prevent fraud, and protect company assets. They include segregation of duties, documentation requirements, approval workflows, regular reconciliations, access controls, and audit trails. Strong internal controls are essential for business sustainability, regulatory compliance, and stakeholder confidence. Weak controls can lead to fraud, errors, financial losses, and reputational damage.</p>
+        <h2 class="text-xl font-bold mb-3" data-i18n-en="What Are Internal Controls?" data-i18n-ar="ما هي الرقابة الداخلية؟">ما هي الرقابة الداخلية؟</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n-en="Internal controls are the processes, procedures, and policies that ensure the accuracy of financial reporting, prevent fraud, and protect company assets. They include segregation of duties, documentation requirements, approval workflows, regular reconciliations, access controls, and audit trails. Strong internal controls are essential for business sustainability, regulatory compliance, and stakeholder confidence. Weak controls can lead to fraud, errors, financial losses, and reputational damage." data-i18n-ar="الرقابة الداخلية هي العمليات والإجراءات والسياسات التي تضمن دقة التقارير المالية، وتمنع الاحتيال، وتحمي أصول الشركة. تشمل فصل المهام، ومتطلبات التوثيق، وسير عمل الموافقات، والمطابقات الدورية، وضوابط الوصول، ومسارات التدقيق. الرقابة الداخلية القوية ضرورية لاستدامة الأعمال والامتثال التنظيمي وثقة أصحاب المصلحة. الرقابة الضعيفة يمكن أن تؤدي إلى الاحتيال والأخطاء والخسائر المالية والإضرار بالسمعة.">الرقابة الداخلية هي العمليات والإجراءات والسياسات التي تضمن دقة التقارير المالية، وتمنع الاحتيال، وتحمي أصول الشركة. تشمل فصل المهام، ومتطلبات التوثيق، وسير عمل الموافقات، والمطابقات الدورية، وضوابط الوصول، ومسارات التدقيق. الرقابة الداخلية القوية ضرورية لاستدامة الأعمال والامتثال التنظيمي وثقة أصحاب المصلحة. الرقابة الضعيفة يمكن أن تؤدي إلى الاحتيال والأخطاء والخسائر المالية والإضرار بالسمعة.</p>
       </div>
 
       <!-- FAQ -->
       <div class="mt-10">
-        <h2 class="text-xl font-bold mb-4" data-i18n-en="Frequently Asked Questions" data-i18n-ar="╪º┘ä╪ú╪│╪ª┘ä╪⌐ ╪º┘ä╪┤╪º╪ª╪╣╪⌐">Frequently Asked Questions</h2>
+        <h2 class="text-xl font-bold mb-4" data-i18n-en="Frequently Asked Questions" data-i18n-ar="الأسئلة الشائعة">الأسئلة الشائعة</h2>
         <div class="space-y-3">
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What are internal controls?" data-i18n-ar="┘à╪º ┘ç┘è ╪º┘ä╪▒┘é╪º╪¿╪⌐ ╪º┘ä╪»╪º╪«┘ä┘è╪⌐╪ƒ">What are internal controls?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Internal controls are processes and procedures that ensure the accuracy of financial reporting, prevent fraud, and protect company assets." data-i18n-ar="╪º┘ä╪▒┘é╪º╪¿╪⌐ ╪º┘ä╪»╪º╪«┘ä┘è╪⌐ ┘ç┘è ╪º┘ä╪╣┘à┘ä┘è╪º╪¬ ┘ê╪º┘ä╪Ñ╪¼╪▒╪º╪í╪º╪¬ ╪º┘ä╪¬┘è ╪¬╪╢┘à┘å ╪»┘é╪⌐ ╪º┘ä╪¬┘é╪º╪▒┘è╪▒ ╪º┘ä┘à╪º┘ä┘è╪⌐╪î ┘ê╪¬┘à┘å╪╣ ╪º┘ä╪º╪¡╪¬┘è╪º┘ä╪î ┘ê╪¬╪¡┘à┘è ╪ú╪╡┘ê┘ä ╪º┘ä╪┤╪▒┘â╪⌐.">Internal controls are processes and procedures that ensure the accuracy of financial reporting, prevent fraud, and protect company assets.</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What are internal controls?" data-i18n-ar="ما هي الرقابة الداخلية؟">ما هي الرقابة الداخلية؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="Internal controls are processes and procedures that ensure the accuracy of financial reporting, prevent fraud, and protect company assets." data-i18n-ar="الرقابة الداخلية هي العمليات والإجراءات التي تضمن دقة التقارير المالية، وتمنع الاحتيال، وتحمي أصول الشركة.">الرقابة الداخلية هي العمليات والإجراءات التي تضمن دقة التقارير المالية، وتمنع الاحتيال، وتحمي أصول الشركة.</p>
           </details>
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="How is the control score calculated?" data-i18n-ar="┘â┘è┘ü ╪¬┘Å╪¡╪│╪¿ ╪»╪▒╪¼╪⌐ ╪º┘ä╪▒┘é╪º╪¿╪⌐╪ƒ">How is the control score calculated?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="The score is based on 10 key control areas including segregation of duties, documentation, approval workflows, reconciliation, and access controls." data-i18n-ar="╪¬╪│╪¬┘å╪» ╪º┘ä╪»╪▒╪¼╪⌐ ╪Ñ┘ä┘ë 10 ┘à╪¼╪º┘ä╪º╪¬ ╪▒┘é╪º╪¿┘è╪⌐ ╪▒╪ª┘è╪│┘è╪⌐ ╪¬╪┤┘à┘ä ┘ü╪╡┘ä ╪º┘ä┘à┘ç╪º┘à╪î ┘ê╪º┘ä╪¬┘ê╪½┘è┘é╪î ┘ê╪│┘è╪▒ ╪╣┘à┘ä ╪º┘ä┘à┘ê╪º┘ü┘é╪º╪¬╪î ┘ê╪º┘ä┘à╪╖╪º╪¿┘é╪⌐╪î ┘ê╪╢┘ê╪º╪¿╪╖ ╪º┘ä┘ê╪╡┘ê┘ä.">The score is based on 10 key control areas including segregation of duties, documentation, approval workflows, reconciliation, and access controls.</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="How is the control score calculated?" data-i18n-ar="كيف تُحسب درجة الرقابة؟">كيف تُحسب درجة الرقابة؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="The score is based on 10 key control areas including segregation of duties, documentation, approval workflows, reconciliation, and access controls." data-i18n-ar="تستند الدرجة إلى 10 مجالات رقابية رئيسية تشمل فصل المهام، والتوثيق، وسير عمل الموافقات، والمطابقة، وضوابط الوصول.">تستند الدرجة إلى 10 مجالات رقابية رئيسية تشمل فصل المهام، والتوثيق، وسير عمل الموافقات، والمطابقة، وضوابط الوصول.</p>
           </details>
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What score should I aim for?" data-i18n-ar="┘à╪º ╪º┘ä╪»╪▒╪¼╪⌐ ╪º┘ä╪¬┘è ┘è╪¼╪¿ ╪ú┘å ╪ú┘ç╪»┘ü ╪Ñ┘ä┘è┘ç╪º╪ƒ">What score should I aim for?</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="A score of 80+ indicates strong controls. 60-79 means moderate controls. Below 60 indicates weak controls needing immediate attention." data-i18n-ar="╪»╪▒╪¼╪⌐ 80+ ╪¬╪┤┘è╪▒ ╪Ñ┘ä┘ë ╪▒┘é╪º╪¿╪⌐ ┘é┘ê┘è╪⌐. 60-79 ╪¬╪╣┘å┘è ╪▒┘é╪º╪¿╪⌐ ┘à╪¬┘ê╪│╪╖╪⌐. ╪ú┘é┘ä ┘à┘å 60 ╪¬╪┤┘è╪▒ ╪Ñ┘ä┘ë ╪▒┘é╪º╪¿╪⌐ ╪╢╪╣┘è┘ü╪⌐ ╪¬╪¡╪¬╪º╪¼ ╪º┘ç╪¬┘à╪º┘à╪º┘ï ┘ü┘ê╪▒┘è╪º┘ï.">A score of 80+ indicates strong controls. 60-79 means moderate controls. Below 60 indicates weak controls needing immediate attention.</p>
+            <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What score should I aim for?" data-i18n-ar="ما الدرجة التي يجب أن أهدف إليها؟">ما الدرجة التي يجب أن أهدف إليها؟</summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="A score of 80+ indicates strong controls. 60-79 means moderate controls. Below 60 indicates weak controls needing immediate attention." data-i18n-ar="درجة 80+ تشير إلى رقابة قوية. 60-79 تعني رقابة متوسطة. أقل من 60 تشير إلى رقابة ضعيفة تحتاج اهتماماً فورياً.">درجة 80+ تشير إلى رقابة قوية. 60-79 تعني رقابة متوسطة. أقل من 60 تشير إلى رقابة ضعيفة تحتاج اهتماماً فورياً.</p>
           </details>
         </div>
       </div>
 
       <!-- Soft CTA -->
       <div class="mt-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-center text-white">
-        <h3 class="text-xl font-bold mb-2" data-i18n-en="Strengthen Your Controls" data-i18n-ar="╪╣╪▓╪▓ ╪▒┘é╪º╪¿╪¬┘â">Strengthen Your Controls</h3>
-        <p class="text-blue-100 text-sm mb-4" data-i18n-en="PettyCash provides built-in internal controls including approval workflows, audit trails, and segregation of duties." data-i18n-ar="┘è┘ê┘ü╪▒ PettyCash ╪▒┘é╪º╪¿╪⌐ ╪»╪º╪«┘ä┘è╪⌐ ┘à╪»┘à╪¼╪⌐ ╪¬╪┤┘à┘ä ╪│┘è╪▒ ╪╣┘à┘ä ╪º┘ä┘à┘ê╪º┘ü┘é╪º╪¬╪î ┘ê┘à╪│╪º╪▒╪º╪¬ ╪º┘ä╪¬╪»┘é┘è┘é╪î ┘ê┘ü╪╡┘ä ╪º┘ä┘à┘ç╪º┘à.">PettyCash provides built-in internal controls including approval workflows, audit trails, and segregation of duties.</p>
-        <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="╪¼╪▒╪¿ PettyCash ┘à╪¼╪º┘å╪º┘ï">Try PettyCash Free</a>
-        <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes" data-i18n-ar="┘à╪¼╪º┘å┘è ┘ä┘ä╪ú╪¿╪» ΓÇó ╪¿╪»┘ê┘å ╪¿╪╖╪º┘é╪⌐ ╪º╪ª╪¬┘à╪º┘å ΓÇó ╪º┘ä╪Ñ╪╣╪»╪º╪» ┘ü┘è ╪»┘é┘è┘é╪¬┘è┘å">Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes</p>
+        <h3 class="text-xl font-bold mb-2" data-i18n-en="Strengthen Your Controls" data-i18n-ar="عزز رقابتك">عزز رقابتك</h3>
+        <p class="text-blue-100 text-sm mb-4" data-i18n-en="PettyCash provides built-in internal controls including approval workflows, audit trails, and segregation of duties." data-i18n-ar="يوفر PettyCash رقابة داخلية مدمجة تشمل سير عمل الموافقات، ومسارات التدقيق، وفصل المهام.">يوفر PettyCash رقابة داخلية مدمجة تشمل سير عمل الموافقات، ومسارات التدقيق، وفصل المهام.</p>
+        <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="جرب PettyCash مجاناً">جرب PettyCash مجاناً</a>
+        <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes" data-i18n-ar="مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين">مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين</p>
       </div>
     </section>
   </main>
@@ -266,6 +264,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script defer="" src="/js/ai-assistant.js"></script>
 <script defer="" src="/js/analytics.js"></script>
 <script defer="" src="/js/marquee-banner.js?v=4"></script>
-
 
 </body></html>
