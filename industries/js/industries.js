@@ -27,6 +27,7 @@ const PCIndustries = {
   renderNav() {
     const nav = document.getElementById('ind-nav');
     if (!nav) return;
+    nav.className = 'sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm';
     nav.innerHTML = `
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="flex items-center justify-between h-16">

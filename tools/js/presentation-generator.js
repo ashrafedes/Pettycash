@@ -2,10 +2,19 @@
 (function () {
   'use strict';
 
-  // OpenRouter API key (same as ai-assistant.js)
-  const API_KEY = ['sk-or-v1-996f54942eed60552', 'bbab9c5b43d9f73e9bc623f3', '37dd90d0ca5356f14fc5fad'].join('');
-  const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
-  const MODELS = ['google/gemma-4-31b-it:free', 'openai/gpt-oss-20b:free', 'nvidia/nemotron-3-super-120b-a12b:free'];
+  // OpenRouter API config
+  const API_URL = (window.AI_CONFIG && window.AI_CONFIG.baseUrl) || 'https://openrouter.ai/api/v1/chat/completions';
+  const FALLBACK_API_KEY = ['sk-or-v1-996f54942eed60552', 'bbab9c5b43d9f73e9bc623f3', '37dd90d0ca5356f14fc5fad'].join('');
+  const MODELS = (window.AI_CONFIG && window.AI_CONFIG.models) || ['google/gemma-4-31b-it:free', 'openai/gpt-oss-20b:free', 'nvidia/nemotron-3-super-120b-a12b:free'];
+
+  function getApiKey() {
+    try {
+      if (window.AI_CONFIG && window.AI_CONFIG.apiKey) return window.AI_CONFIG.apiKey;
+      const stored = localStorage.getItem('openrouter_api_key');
+      if (stored) return stored;
+    } catch (e) {}
+    return FALLBACK_API_KEY;
+  }
 
   // Design themes
   const THEMES = {
@@ -106,7 +115,7 @@ Use varied layouts. Keep bullet points concise and impactful.`;
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + API_KEY,
+        'Authorization': 'Bearer ' + getApiKey(),
         'HTTP-Referer': window.location.origin,
         'X-Title': 'PettyCash AI Presentation Generator'
       },
@@ -120,7 +129,7 @@ Use varied layouts. Keep bullet points concise and impactful.`;
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + API_KEY,
+          'Authorization': 'Bearer ' + getApiKey(),
           'HTTP-Referer': window.location.origin,
           'X-Title': 'PettyCash AI Presentation Generator'
         },

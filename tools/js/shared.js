@@ -717,6 +717,7 @@
   function renderNav() {
     const nav = document.getElementById('pctool-nav');
     if (!nav) return;
+    nav.className = 'sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm';
     const base = nav.dataset.base || '../';
     const APP_URL = 'https://pattycashsystem.web.app';
     const path = window.location.pathname;

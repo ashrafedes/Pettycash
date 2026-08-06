@@ -17,6 +17,7 @@ const PCTemplates = {
   renderNav() {
     const nav = document.getElementById('tmpl-nav');
     if (!nav) return;
+    nav.className = 'sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm';
     const current = window.location.pathname.split('/').pop();
     const isHub = current === 'index.html' || current === '';
     nav.innerHTML = `
