@@ -2,8 +2,8 @@
 const APP_URL = 'https://pattycashsystem.web.app';
 
 const NAV_LABELS = {
-  en: { home: 'Home', features: 'Features', pricing: 'Pricing', tools: 'Tools', blog: 'Blog', help: 'Help', about: 'About', contact: 'Contact', login: 'Login', signup: 'Sign Up', businessTools: 'Business Tools', pdfTools: 'PDF Tools', templates: 'Templates', industries: 'Industries', compare: 'Compare', aiCenter: 'AI Center' },
-  ar: { home: 'الرئيسية', features: 'الميزات', pricing: 'الأسعار', tools: 'الأدوات', blog: 'المدونة', help: 'المساعدة', about: 'من نحن', contact: 'تواصل', login: 'تسجيل الدخول', signup: 'إنشاء حساب', businessTools: 'أدوات الأعمال', pdfTools: 'أدوات PDF', templates: 'القوالب', industries: 'القطاعات', compare: 'المقارنة', aiCenter: 'مركز الذكاء' }
+  en: { home: 'Home', features: 'Features', pricing: 'Pricing', tools: 'Free Tools', blog: 'Blog', help: 'Help', about: 'About', contact: 'Contact', login: 'Login', signup: 'Sign Up', businessTools: 'Business Tools', pdfTools: 'PDF Tools', templates: 'Templates', industries: 'Industries', compare: 'Compare', aiCenter: 'AI Center', aiPresentation: 'AI Presentation Generator' },
+  ar: { home: 'الرئيسية', features: 'الميزات', pricing: 'الأسعار', tools: 'الأدوات المجانية', blog: 'المدونة', help: 'المساعدة', about: 'من نحن', contact: 'تواصل', login: 'تسجيل الدخول', signup: 'إنشاء حساب', businessTools: 'أدوات الأعمال', pdfTools: 'أدوات PDF', templates: 'القوالب', industries: 'القطاعات', compare: 'المقارنة', aiCenter: 'مركز الذكاء', aiPresentation: 'مولد العروض التقديمية بالذكاء الاصطناعي' }
 };
 
 const FOOTER_LABELS = {
@@ -50,6 +50,7 @@ const PCIndustries = {
                 <a href="./" class="block px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md whitespace-nowrap">${this.L('industries')}</a>
                 <a href="../compare/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${this.L('compare')}</a>
                 <a href="../ai/" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${this.L('aiCenter')}</a>
+                <a href="../tools/ai-presentation-generator.html" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${this.L('aiPresentation')}</a>
               </div>
             </div>
             <a href="../blog.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${this.L('blog')}</a>

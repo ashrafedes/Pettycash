@@ -71,22 +71,63 @@
     const nav = document.getElementById('pdftool-nav');
     if (!nav) return;
     const base = nav.dataset.base || '../';
-    const current = window.location.pathname.split('/').pop();
+    const APP_URL = 'https://pattycashsystem.web.app';
     currentLang = getLang();
 
+    const tr = (window.PDF_TRANSLATIONS && window.PDF_TRANSLATIONS[currentLang]) || window.PDF_TRANSLATIONS?.en || {};
+    const navTr = tr.nav || {};
+    const toolsChildren = [
+      { href: base + 'tools/', label: navTr.businessTools || 'Business Tools' },
+      { href: base + 'pdf-tools/', label: navTr.allTools || 'PDF Tools' },
+      { href: base + 'templates/', label: navTr.templates || 'Templates' },
+      { href: base + 'industries/', label: navTr.industries || 'Industries' },
+      { href: base + 'compare/', label: navTr.compare || 'Compare' },
+      { href: base + 'ai/', label: navTr.aiCenter || 'AI Center' },
+      { href: base + 'tools/ai-presentation-generator.html', label: navTr.aiPresentation || 'AI Presentation Generator' }
+    ].map(c => `<a href="${c.href}" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${c.label}</a>`).join('');
+
+    const navItems = [
+      { href: base, label: navTr.home || 'Home' },
+      { href: base + 'features.html', label: navTr.features || 'Features' },
+      { href: base + 'pricing.html', label: navTr.pricing || 'Pricing' },
+      { href: base + 'blog.html', label: navTr.blog || 'Blog' },
+      { href: base + 'help.html', label: navTr.help || 'Help' },
+      { href: base + 'about.html', label: navTr.about || 'About' },
+      { href: base + 'contact.html', label: navTr.contact || 'Contact' }
+    ].map(n => `<a href="${n.href}" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${n.label}</a>`).join('');
+
+    const mobileItems = [
+      { href: base, label: navTr.home || 'Home' },
+      { href: base + 'features.html', label: navTr.features || 'Features' },
+      { href: base + 'pricing.html', label: navTr.pricing || 'Pricing' },
+      { href: base + 'blog.html', label: navTr.blog || 'Blog' },
+      { href: base + 'help.html', label: navTr.help || 'Help' },
+      { href: base + 'about.html', label: navTr.about || 'About' },
+      { href: base + 'contact.html', label: navTr.contact || 'Contact' }
+    ].map(n => `<a href="${n.href}" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">${n.label}</a>`).join('');
+
     nav.innerHTML = `
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="flex items-center justify-between h-16">
-          <a href="${base}pdf-tools/" class="flex items-center gap-2 font-bold text-lg text-blue-600 dark:text-blue-400">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
-            <span data-pt="nav.appName">PDF Tools</span>
+          <a href="${base}" class="flex items-center gap-2 font-bold text-xl text-blue-600">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
+            <span>Petty Cash</span>
           </a>
-          <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
-            <a href="${base}pdf-tools/" class="hover:text-blue-600 ${current === 'index.html' || current === '' ? 'text-blue-600' : ''}" data-pt="nav.allTools">All Tools</a>
-            <a href="${base}tools/" class="hover:text-blue-600" data-pt="nav.businessTools">Business Tools</a>
-            <a href="${base}" class="hover:text-blue-600" data-pt="nav.home">Home</a>
-          </div>
-          <div class="flex items-center gap-3">
+          <nav class="hidden md:flex items-center gap-1">
+            ${navItems}
+            <div class="relative">
+              <button id="pdftool-tools-btn" class="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">
+                <span>${navTr.tools || 'Free Tools'}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div id="pdftool-tools-menu" class="hidden absolute top-full start-0 mt-1 w-auto bg-white border border-slate-200 rounded-lg shadow-lg p-1 z-50">
+                ${toolsChildren}
+              </div>
+            </div>
+          </nav>
+          <div class="hidden md:flex items-center gap-2">
+            <a href="${APP_URL}/login" class="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-lg transition-colors">${navTr.login || 'Login'}</a>
+            <a href="${APP_URL}/register" class="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">${navTr.getStarted || 'Get Started'}</a>
             <button id="pdftool-theme" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" aria-label="Toggle theme">
               ${document.documentElement.classList.contains('dark') ? '☀️' : '🌙'}
             </button>
@@ -95,11 +136,36 @@
               <button data-pdftool-lang="ar" class="px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'ar' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100'}">AR</button>
             </div>
           </div>
+          <button id="pdftool-mobile-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div id="pdftool-mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-1">
+        ${mobileItems}
+        <div class="px-3 py-2 text-sm font-semibold text-slate-900">${navTr.tools || 'Free Tools'}</div>
+        ${toolsChildren}
+        <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+          <a href="${APP_URL}/login" class="block text-center px-4 py-2.5 text-sm font-medium text-slate-700 border border-slate-200 rounded-lg">${navTr.login || 'Login'}</a>
+          <a href="${APP_URL}/register" class="block text-center px-4 py-2.5 text-sm font-semibold text-white bg-blue-600 rounded-lg">${navTr.getStarted || 'Get Started'}</a>
+          <button id="pdftool-mobile-theme" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-center" aria-label="Toggle theme">🌙</button>
+          <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-1 justify-center" role="group" aria-label="Language switch">
+            <button data-pdftool-lang="en" class="px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'en' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300'}">EN</button>
+            <button data-pdftool-lang="ar" class="px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'ar' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300'}">AR</button>
+          </div>
         </div>
       </div>
     `;
 
     document.getElementById('pdftool-theme')?.addEventListener('click', toggleTheme);
+    document.getElementById('pdftool-mobile-theme')?.addEventListener('click', toggleTheme);
+    const mobileBtn = document.getElementById('pdftool-mobile-btn');
+    const mobileMenu = document.getElementById('pdftool-mobile-menu');
+    if (mobileBtn && mobileMenu) mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    const toolsBtn = document.getElementById('pdftool-tools-btn');
+    const toolsMenu = document.getElementById('pdftool-tools-menu');
+    if (toolsBtn && toolsMenu) toolsBtn.addEventListener('click', e => { e.stopPropagation(); toolsMenu.classList.toggle('hidden'); });
+    document.addEventListener('click', () => { if (toolsMenu) toolsMenu.classList.add('hidden'); });
     document.querySelectorAll('[data-pdftool-lang]').forEach(btn => {
       btn.addEventListener('click', () => setLang(btn.dataset.pdftoolLang));
     });

@@ -56,6 +56,21 @@
       },
       nav: {
         home: 'Home',
+        features: 'Features',
+        pricing: 'Pricing',
+        tools: 'Free Tools',
+        blog: 'Blog',
+        help: 'Help',
+        about: 'About',
+        contact: 'Contact',
+        login: 'Login',
+        getStarted: 'Get Started',
+        businessTools: 'Business Tools',
+        pdfTools: 'PDF Tools',
+        templates: 'Templates',
+        industries: 'Industries',
+        compare: 'Compare',
+        aiCenter: 'AI Center',
         invoice: 'Invoice Generator',
         receipt: 'Receipt Generator',
         voucher: 'Petty Cash Voucher',
@@ -216,6 +231,21 @@
       },
       nav: {
         home: 'الرئيسية',
+        features: 'المميزات',
+        pricing: 'الأسعار',
+        tools: 'الأدوات المجانية',
+        blog: 'المدونة',
+        help: 'المساعدة',
+        about: 'من نحن',
+        contact: 'اتصل بنا',
+        login: 'تسجيل الدخول',
+        getStarted: 'ابدأ الآن',
+        businessTools: 'أدوات الأعمال',
+        pdfTools: 'أدوات PDF',
+        templates: 'القوالب',
+        industries: 'الصناعات',
+        compare: 'المقارنة',
+        aiCenter: 'مركز الذكاء الاصطناعي',
         invoice: 'منشئ الفواتير',
         receipt: 'منشئ الإيصالات',
         voucher: 'قسيمة الصندوق الصغير',
@@ -685,49 +715,111 @@
   function clone(obj) { return JSON.parse(JSON.stringify(obj)); }
 
   function renderNav() {
-    const current = window.location.pathname.split('/').pop();
     const nav = document.getElementById('pctool-nav');
     if (!nav) return;
     const base = nav.dataset.base || '../';
+    const APP_URL = 'https://pattycashsystem.web.app';
+    const path = window.location.pathname;
+    const isAr = currentLang === 'ar';
+    const langLabel = isAr ? 'العربية' : 'English';
+
+    // Build tools dropdown children
+    const toolsChildren = [
+      { href: base + 'tools/', label: t('nav.businessTools') },
+      { href: base + 'pdf-tools/', label: t('nav.pdfTools') },
+      { href: base + 'templates/', label: t('nav.templates') },
+      { href: base + 'industries/', label: t('nav.industries') },
+      { href: base + 'compare/', label: t('nav.compare') },
+      { href: base + 'ai/', label: t('nav.aiCenter') },
+      { href: base + 'tools/ai-presentation-generator.html', label: t('nav.presentationGen') }
+    ].map(c => `<a href="${c.href}" class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-md whitespace-nowrap">${c.label}</a>`).join('');
+
+    // Main nav items
+    const navItems = [
+      { href: base, label: t('nav.home') },
+      { href: base + 'features.html', label: t('nav.features') },
+      { href: base + 'pricing.html', label: t('nav.pricing') },
+      { href: base + 'blog.html', label: t('nav.blog') },
+      { href: base + 'help.html', label: t('nav.help') },
+      { href: base + 'about.html', label: t('nav.about') },
+      { href: base + 'contact.html', label: t('nav.contact') }
+    ].map(n => `<a href="${n.href}" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">${n.label}</a>`).join('');
+
+    // Mobile menu items
+    const mobileItems = [
+      { href: base, label: t('nav.home') },
+      { href: base + 'features.html', label: t('nav.features') },
+      { href: base + 'pricing.html', label: t('nav.pricing') },
+      { href: base + 'blog.html', label: t('nav.blog') },
+      { href: base + 'help.html', label: t('nav.help') },
+      { href: base + 'about.html', label: t('nav.about') },
+      { href: base + 'contact.html', label: t('nav.contact') }
+    ].map(n => `<a href="${n.href}" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">${n.label}</a>`).join('');
+
     nav.innerHTML = `
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="flex items-center justify-between h-16">
-          <a href="${base}" class="flex items-center gap-2 font-bold text-lg text-blue-700 dark:text-blue-400">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
-            <span data-i18n="common.appName">PettyCash.site Tools</span>
+          <a href="${base}" class="flex items-center gap-2 font-bold text-xl text-blue-600">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
+            <span>Petty Cash</span>
           </a>
-          <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
-            <a href="${base}tools/saudi-invoice-generator.html" class="hover:text-blue-600 ${current === 'saudi-invoice-generator.html' ? 'text-blue-600' : ''}" data-i18n="nav.invoice">Invoice Generator</a>
-            <a href="${base}tools/receipt-generator.html" class="hover:text-blue-600 ${current === 'receipt-generator.html' ? 'text-blue-600' : ''}" data-i18n="nav.receipt">Receipt Generator</a>
-            <a href="${base}tools/petty-cash-voucher-generator.html" class="hover:text-blue-600 ${current === 'petty-cash-voucher-generator.html' ? 'text-blue-600' : ''}" data-i18n="nav.voucher">Voucher</a>
-            <div class="relative group">
-              <button class="hover:text-blue-600 flex items-center gap-1" data-i18n="nav.calculators">Calculators</button>
-              <div class="absolute top-full start-0 mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 py-2 hidden group-hover:block z-50">
-                <a href="${base}tools/expense-savings-calculator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.savingsCalc">Expense Savings Calculator</a>
-                <a href="${base}tools/petty-cash-limit-calculator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.limitCalc">Petty Cash Limit Calculator</a>
-                <a href="${base}tools/vat-calculator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.vatCalc">VAT Calculator</a>
-                <a href="${base}tools/expense-policy-generator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.policyGen">Expense Policy Generator</a>
-                <a href="${base}tools/approval-workflow-builder.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.workflowBuilder">Approval Workflow Builder</a>
-                <a href="${base}tools/internal-control-score-quiz.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.controlQuiz">Internal Control Score Quiz</a>
-                <div class="border-t border-slate-100 dark:border-slate-600 my-1"></div>
-                <a href="${base}tools/expense-report-generator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.expenseReport">Expense Report Generator</a>
-                <a href="${base}tools/cash-count-sheet.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.cashCountSheet">Cash Count Sheet</a>
-                <a href="${base}tools/budget-vs-actual-report.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.budgetReport">Budget vs Actual Report</a>
-                <a href="${base}tools/ai-presentation-generator.html" class="block px-4 py-2 text-sm hover:bg-blue-50 dark:hover:bg-slate-700" data-i18n="nav.presentationGen">AI Presentation Generator</a>
+          <nav class="hidden md:flex items-center gap-1">
+            ${navItems}
+            <div class="relative">
+              <button id="pctool-tools-btn" class="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors">
+                <span>${t('nav.tools')}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div id="pctool-tools-menu" class="hidden absolute top-full start-0 mt-1 w-auto bg-white border border-slate-200 rounded-lg shadow-lg p-1 z-50">
+                ${toolsChildren}
               </div>
             </div>
-          </div>
-          <div class="flex items-center gap-3">
+          </nav>
+          <div class="hidden md:flex items-center gap-2">
+            <a href="${APP_URL}/login" class="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-lg transition-colors">${t('nav.login')}</a>
+            <a href="${APP_URL}/register" class="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">${t('nav.getStarted')}</a>
             <button id="pctool-theme" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" aria-label="Toggle theme">🌙</button>
             <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-1" role="group" aria-label="Language switch">
               <button data-pctool-lang="en" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'en' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100'}">EN</button>
               <button data-pctool-lang="ar" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'ar' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100'}">AR</button>
             </div>
           </div>
+          <button id="pctool-mobile-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div id="pctool-mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-1">
+        ${mobileItems}
+        <div class="px-3 py-2 text-sm font-semibold text-slate-900">${t('nav.tools')}</div>
+        ${toolsChildren}
+        <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+          <a href="${APP_URL}/login" class="block text-center px-4 py-2.5 text-sm font-medium text-slate-700 border border-slate-200 rounded-lg">${t('nav.login')}</a>
+          <a href="${APP_URL}/register" class="block text-center px-4 py-2.5 text-sm font-semibold text-white bg-blue-600 rounded-lg">${t('nav.getStarted')}</a>
+          <button id="pctool-mobile-theme" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-center" aria-label="Toggle theme">🌙</button>
+          <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-1 justify-center" role="group" aria-label="Language switch">
+            <button data-pctool-lang="en" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'en' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300'}">EN</button>
+            <button data-pctool-lang="ar" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'ar' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300'}">AR</button>
+          </div>
         </div>
       </div>
     `;
-    document.getElementById('pctool-theme').addEventListener('click', toggleTheme);
+
+    // Wire up interactions
+    const themeBtn = document.getElementById('pctool-theme');
+    const mobileThemeBtn = document.getElementById('pctool-mobile-theme');
+    if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+    const mobileBtn = document.getElementById('pctool-mobile-btn');
+    const mobileMenu = document.getElementById('pctool-mobile-menu');
+    if (mobileBtn && mobileMenu) mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    const toolsBtn = document.getElementById('pctool-tools-btn');
+    const toolsMenu = document.getElementById('pctool-tools-menu');
+    if (toolsBtn && toolsMenu) toolsBtn.addEventListener('click', e => { e.stopPropagation(); toolsMenu.classList.toggle('hidden'); });
+    document.addEventListener('click', () => { if (toolsMenu) toolsMenu.classList.add('hidden'); });
+
     document.querySelectorAll('[data-pctool-lang]').forEach(btn => {
       btn.addEventListener('click', () => setLang(btn.dataset.pctoolLang));
     });
