@@ -431,6 +431,43 @@ Use varied layouts. Keep bullet points concise and impactful.`;
     if (typeof PCTools !== 'undefined') PCTools.toast(tt('Downloaded!', 'تم التحميل!'));
   }
 
+  function resetPresentation() {
+    slides = [];
+    currentSlideIdx = 0;
+    isEditing = false;
+
+    const formEl = document.getElementById('preso-form');
+    const loadingEl = document.getElementById('preso-loading');
+    const errorEl = document.getElementById('preso-error');
+    const resultsEl = document.getElementById('preso-results');
+    const editorEl = document.getElementById('preso-editor');
+    const topicEl = document.getElementById('preso-topic');
+    const slideNavEl = document.getElementById('preso-slide-nav');
+    const slidePreviewEl = document.getElementById('preso-slide-preview');
+    const editorSlidesEl = document.getElementById('preso-editor-slides');
+    const btnEdit = document.getElementById('preso-edit');
+
+    formEl?.classList.remove('hidden');
+    loadingEl?.classList.add('hidden');
+    errorEl?.classList.add('hidden');
+    resultsEl?.classList.add('hidden');
+    editorEl?.classList.add('hidden');
+
+    if (topicEl) topicEl.value = '';
+    if (slideNavEl) slideNavEl.innerHTML = '';
+    if (slidePreviewEl) slidePreviewEl.innerHTML = '';
+    if (editorSlidesEl) editorSlidesEl.innerHTML = '';
+
+    if (btnEdit) {
+      const span = btnEdit.querySelector('span');
+      if (span) span.textContent = tt('Edit', 'تعديل');
+    }
+
+    if (typeof PCTools !== 'undefined') {
+      PCTools.toast(tt('Ready for a new presentation.', 'جاهز لعرض تقديمي جديد.'));
+    }
+  }
+
   // ─── Init ───
   function init() {
     if (typeof PCTools === 'undefined') {
@@ -448,10 +485,12 @@ Use varied layouts. Keep bullet points concise and impactful.`;
     const btnEdit = document.getElementById('preso-edit');
     const btnRetry = document.getElementById('preso-retry');
     const btnAddSlide = document.getElementById('preso-add-slide');
+    const btnNew = document.getElementById('preso-new');
 
     btnGenerate?.addEventListener('click', handleGenerate);
     btnDownload?.addEventListener('click', downloadPPTX);
     btnRetry?.addEventListener('click', handleGenerate);
+    btnNew?.addEventListener('click', resetPresentation);
     btnEdit?.addEventListener('click', () => {
       isEditing = !isEditing;
       const editor = document.getElementById('preso-editor');

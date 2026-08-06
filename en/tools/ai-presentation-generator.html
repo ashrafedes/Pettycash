@@ -38,8 +38,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <section class="bg-gradient-to-br from-violet-600 via-purple-700 to-fuchsia-800 text-white py-16 text-center">
       <div class="max-w-2xl mx-auto px-4 sm:px-6">
         <span class="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-4" data-i18n-en="AI Powered" data-i18n-ar="مدعوم بالذكاء الاصطناعي">AI Powered</span>
-        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3 text-white" data-i18n-en="AI Presentation Generator" data-i18n-ar="مولد العروض التقديمية بالذكاء الاصطناعي">AI Presentation Generator</h1>
-        <p class="text-lg font-medium text-slate-100" data-i18n-en="Create professional PowerPoint presentations with AI. Enter your topic, get a full slide deck in seconds." data-i18n-ar="أنشئ عروضًا تقديمية احترافية بالذكاء الاصطناعي. أدخل موضوعك واحصل على شرائح كاملة في ثوانٍ.">Create professional PowerPoint presentations with AI. Enter your topic, get a full slide deck in seconds.</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3 text-blue-900" style="color:#1e3a8a;" data-i18n-en="AI Presentation Generator" data-i18n-ar="مولد العروض التقديمية بالذكاء الاصطناعي">AI Presentation Generator</h1>
+        <p class="text-lg font-medium text-blue-900" style="color:#1e3a8a;" data-i18n-en="Create professional PowerPoint presentations with AI. Enter your topic, get a full slide deck in seconds." data-i18n-ar="أنشئ عروضًا تقديمية احترافية بالذكاء الاصطناعي. أدخل موضوعك واحصل على شرائح كاملة في ثوانٍ.">Create professional PowerPoint presentations with AI. Enter your topic, get a full slide deck in seconds.</p>
       </div>
     </section>
     <section class="py-12 sm:py-16 max-w-4xl mx-auto px-4 sm:px-6">
@@ -91,11 +91,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div id="preso-results" class="hidden">
         <div class="flex flex-wrap items-center justify-between gap-4 mb-6 no-print">
-          <h2 class="text-xl font-bold" data-i18n-en="Your Presentation" data-i18n-ar="عرضك التقديمي">Your Presentation</h2>
+          <h2 class="text-xl font-bold text-blue-900" data-i18n-en="Your Presentation" data-i18n-ar="عرضك التقديمي">Your Presentation</h2>
           <div class="flex gap-3">
             <button id="preso-download-pptx" class="btn-primary">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
               <span data-i18n-en="Download PPTX" data-i18n-ar="تحميل PPTX">Download PPTX</span>
+            </button>
+            <button id="preso-new" class="btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span data-i18n-en="Create New" data-i18n-ar="إنشاء جديد">Create New</span>
             </button>
             <button id="preso-edit" class="btn-secondary">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
