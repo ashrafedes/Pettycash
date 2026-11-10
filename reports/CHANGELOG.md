@@ -107,7 +107,7 @@ All stage changes are documented here in reverse chronological order.
 - Fixed pricing page AggregateOffer schema: added `lowPrice`, `highPrice`, `offerCount`, `aggregateRating`, `brand`
 - Fixed article page Article schema: added `description`, `url`, `image`, `datePublished`, `dateModified`; typed `logo` as `ImageObject`
 - Added 42 missing PDF tool pages to `sitemap.xml` (hub + 41 individual tools)
-- Fixed `robots.txt` sitemap URL from `https://pettycash.site/` to `https://www.pettycash.site/` for consistency
+- Fixed `robots.txt` sitemap URL from `https://pettycash.site/` to `https://pettycash.site/` for consistency
 
 ### Files modified
 - `pricing.html` — Enriched Product/AggregateOffer schema

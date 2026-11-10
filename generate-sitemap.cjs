@@ -2,7 +2,7 @@
 const path = require('path');
 const { pathToFileURL } = require('url');
 
-const BASE_URL = 'https://www.pettycash.site';
+const BASE_URL = 'https://pettycash.site';
 const OUTPUT_PATH = path.join(__dirname, 'sitemap.xml');
 const today = new Date().toISOString().split('T')[0];
 
@@ -18,7 +18,6 @@ function htmlFiles(dir) {
 const SUBDIRS = ['tools', 'pdf-tools', 'ai', 'templates', 'industries', 'compare'];
 
 const STATIC_PAGES = [
-  page(`${BASE_URL}/`, '1.0', 'weekly'),
   page(`${BASE_URL}/en/`, '1.0', 'weekly'),
   page(`${BASE_URL}/ar/`, '1.0', 'weekly'),
 ];

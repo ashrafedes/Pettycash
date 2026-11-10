@@ -61,17 +61,19 @@ const PCAI = {
           <div class="flex items-center gap-2">
             <a href="${APP_URL}/login" class="hidden sm:inline-block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-lg transition-colors">${this.L('login')}</a>
             <a href="${APP_URL}/register" class="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">${this.L('signup')}</a>
-            <div class="flex items-center gap-1 bg-slate-100 rounded-lg p-1">
-              <button data-ai-lang="en" class="ai-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md ${this.lang === 'en' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-600'}">EN</button>
-              <button data-ai-lang="ar" class="ai-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md ${this.lang === 'ar' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-600'}">AR</button>
-            </div>
+            <label class="sr-only" for="ai-lang-select">${this.lang === 'ar' ? 'اللغة' : 'Language'}</label>
+            <select id="ai-lang-select" class="text-xs font-semibold rounded-md border border-slate-200 bg-white text-slate-700 px-2 py-1">
+              <option value="en" ${this.lang === 'en' ? 'selected' : ''}>English</option>
+              <option value="ar" ${this.lang === 'ar' ? 'selected' : ''}>العربية</option>
+            </select>
           </div>
         </div>
       </div>
     `;
-    document.querySelectorAll('.ai-lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        this.lang = btn.dataset.indLang;
+    const langSelect = document.getElementById('ai-lang-select');
+    if (langSelect) {
+      langSelect.addEventListener('change', () => {
+        this.lang = langSelect.value;
         localStorage.setItem('pettycash-lang', this.lang);
         document.documentElement.lang = this.lang;
         document.documentElement.dir = this.lang === 'ar' ? 'rtl' : 'ltr';
@@ -79,7 +81,7 @@ const PCAI = {
         this.renderNav();
         this.renderFooter();
       });
-    });
+    }
     const toolsBtn = document.getElementById('tools-btn');
     const toolsMenu = document.getElementById('tools-menu');
     if (toolsBtn && toolsMenu) {

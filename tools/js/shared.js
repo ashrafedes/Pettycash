@@ -780,10 +780,11 @@
             <a href="${APP_URL}/login" class="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-lg transition-colors">${t('nav.login')}</a>
             <a href="${APP_URL}/register" class="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">${t('nav.getStarted')}</a>
             <button id="pctool-theme" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" aria-label="Toggle theme">🌙</button>
-            <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-1" role="group" aria-label="Language switch">
-              <button data-pctool-lang="en" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'en' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100'}">EN</button>
-              <button data-pctool-lang="ar" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'ar' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100'}">AR</button>
-            </div>
+            <label class="sr-only" for="pctool-lang-select">${t('common.langLabel') || 'Language'}</label>
+            <select id="pctool-lang-select" class="text-xs font-semibold rounded-md border border-slate-200 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-100 px-2 py-1">
+              <option value="en" ${currentLang === 'en' ? 'selected' : ''}>English</option>
+              <option value="ar" ${currentLang === 'ar' ? 'selected' : ''}>العربية</option>
+            </select>
           </div>
           <button id="pctool-mobile-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100" aria-label="Toggle menu">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -798,9 +799,12 @@
           <a href="${APP_URL}/login" class="block text-center px-4 py-2.5 text-sm font-medium text-slate-700 border border-slate-200 rounded-lg">${t('nav.login')}</a>
           <a href="${APP_URL}/register" class="block text-center px-4 py-2.5 text-sm font-semibold text-white bg-blue-600 rounded-lg">${t('nav.getStarted')}</a>
           <button id="pctool-mobile-theme" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-center" aria-label="Toggle theme">🌙</button>
-          <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-1 justify-center" role="group" aria-label="Language switch">
-            <button data-pctool-lang="en" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'en' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300'}">EN</button>
-            <button data-pctool-lang="ar" class="pctool-lang-btn px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${currentLang === 'ar' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-slate-600 dark:text-slate-300'}">AR</button>
+          <div class="flex flex-col gap-1">
+            <label class="text-xs font-medium text-slate-500" for="pctool-mobile-lang">${t('common.langLabel') || 'Language'}</label>
+            <select id="pctool-mobile-lang" class="w-full text-xs font-semibold rounded-md border border-slate-200 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-100 px-2 py-1">
+              <option value="en" ${currentLang === 'en' ? 'selected' : ''}>English</option>
+              <option value="ar" ${currentLang === 'ar' ? 'selected' : ''}>العربية</option>
+            </select>
           </div>
         </div>
       </div>
@@ -821,9 +825,10 @@
     if (toolsBtn && toolsMenu) toolsBtn.addEventListener('click', e => { e.stopPropagation(); toolsMenu.classList.toggle('hidden'); });
     document.addEventListener('click', () => { if (toolsMenu) toolsMenu.classList.add('hidden'); });
 
-    document.querySelectorAll('[data-pctool-lang]').forEach(btn => {
-      btn.addEventListener('click', () => setLang(btn.dataset.pctoolLang));
-    });
+    const langSelect = document.getElementById('pctool-lang-select');
+    const mobileLangSelect = document.getElementById('pctool-mobile-lang');
+    if (langSelect) langSelect.addEventListener('change', () => setLang(langSelect.value));
+    if (mobileLangSelect) mobileLangSelect.addEventListener('change', () => setLang(mobileLangSelect.value));
     translatePage();
   }
 

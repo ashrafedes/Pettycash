@@ -57,7 +57,7 @@ Audited all 62 HTML pages for meta tags, canonical URLs, Open Graph, Twitter Car
 
 | Issue | Fix |
 |-------|-----|
-| Sitemap URL used `https://pettycash.site/sitemap.xml` (no `www`) while all canonical URLs use `https://www.pettycash.site/` | Updated to `https://www.pettycash.site/sitemap.xml` |
+| Sitemap URL used `https://pettycash.site/sitemap.xml` (no `www`) while all canonical URLs use `https://pettycash.site/` | Updated to `https://pettycash.site/sitemap.xml` |
 | Admin/utility pages disallowed | Already correct (admin.html, admin-new.html, cleanup-articles.html, fix-missing-images.html, import-articles.html) |
 
 ## Fixes Applied
@@ -102,7 +102,7 @@ Added 42 new `<url>` entries for all PDF tool pages (hub + 41 individual tools).
 
 ### 4. Robots.txt Fix
 
-Corrected sitemap URL from `https://pettycash.site/` to `https://www.pettycash.site/`.
+Corrected sitemap URL from `https://pettycash.site/` to `https://pettycash.site/`.
 
 ## Files Modified
 

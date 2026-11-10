@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
 
-const BASE_HOST = 'https://www.pettycash.site';
+const BASE_HOST = 'https://pettycash.site';
 const SKIP_FILES = [
   'admin.html', 'admin-new.html', 'cleanup-articles.html',
   'import-articles.html', 'fix-missing-images.html',
@@ -244,12 +244,12 @@ function fixLinksForFile(html, lang, filePath) {
     $(this).attr('content', content.replace(
       /https:\/\/www\.pettycash\.site\/([^"\s]*)/g,
       (match, p1) => {
-        if (p1 === '' || p1 === '/') return 'https://www.pettycash.site/' + lang + '/';
+        if (p1 === '' || p1 === '/') return 'https://pettycash.site/' + lang + '/';
         // If it's an asset path (images/, css/, js/), don't add /lang/ prefix
         if (isAssetPath(p1) || /^(images|css|js)\//.test(p1)) {
-          return 'https://www.pettycash.site/' + p1;
+          return 'https://pettycash.site/' + p1;
         }
-        return 'https://www.pettycash.site/' + lang + '/' + p1;
+        return 'https://pettycash.site/' + lang + '/' + p1;
       }
     ));
   });
@@ -261,8 +261,8 @@ function fixLinksForFile(html, lang, filePath) {
     $(this).attr('href', href.replace(
       /https:\/\/www\.pettycash\.site\/([^"\s]*)/g,
       (match, p1) => {
-        if (p1 === '' || p1 === '/') return 'https://www.pettycash.site/' + lang + '/';
-        return 'https://www.pettycash.site/' + lang + '/' + p1;
+        if (p1 === '' || p1 === '/') return 'https://pettycash.site/' + lang + '/';
+        return 'https://pettycash.site/' + lang + '/' + p1;
       }
     ));
   });

@@ -32,7 +32,7 @@ SITEMAP_PATH = r'c:\My projects\PettyCash_Static_Web\sitemap.xml'
 with open(SITEMAP_PATH, 'r', encoding='utf-8') as f:
     sitemap = f.read()
 
-first_article_idx = sitemap.find('https://www.pettycash.site/en/articles/')
+first_article_idx = sitemap.find('https://pettycash.site/en/articles/')
 if first_article_idx == -1:
     insert_idx = sitemap.rfind('</urlset>')
 else:
@@ -45,7 +45,7 @@ article_urls = []
 for slug, date in articles:
     for lang in ['en', 'ar']:
         article_urls.append(f"""  <url>
-    <loc>https://www.pettycash.site/{lang}/articles/{slug}</loc>
+    <loc>https://pettycash.site/{lang}/articles/{slug}</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>""")
