@@ -990,17 +990,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://pettycash.site/en/articles/cost-management-frameworks</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://pettycash.site/ar/articles/cost-management-frameworks</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
+<url>
     <loc>https://pettycash.site/en/articles/cost-management-mistakes-to-avoid</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1080,37 +1070,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://pettycash.site/en/articles/lean-cost-management</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://pettycash.site/ar/articles/lean-cost-management</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://pettycash.site/en/articles/lean-cost-management</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://pettycash.site/ar/articles/lean-cost-management</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://pettycash.site/en/articles/lean-cost-management</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://pettycash.site/ar/articles/lean-cost-management</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
+<url>
     <loc>https://pettycash.site/en/articles/value-engineering-for-cost-reduction</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

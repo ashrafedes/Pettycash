@@ -162,6 +162,16 @@ function isExternalUrl(p) {
     p.startsWith('data:') || p.startsWith('blob:');
 }
 
+// Normalize a site-relative path: strip any existing /en/ or /ar/ locale prefix
+// (prevents doubled prefixes like /en/en/tools/) and collapse index.html to
+// its directory form so canonical/hreflang match the sitemap's clean URLs.
+function canonicalizePath(p) {
+  let clean = p.replace(/^(en|ar)\//, '');
+  if (clean === 'index.html') clean = '';
+  else if (clean.endsWith('/index.html')) clean = clean.slice(0, -'index.html'.length);
+  return clean;
+}
+
 // ─── Resolve a relative path against a file path to an absolute path ───
 function resolveRelative(relPath, filePath) {
   const fileDir = path.dirname(filePath);
@@ -241,15 +251,18 @@ function fixLinksForFile(html, lang, filePath) {
     const content = $(this).attr('content');
     if (!content || !content.includes('pettycash.site')) return;
 
+    // Match both www. and bare host; strip any existing locale prefix so
+    // re-runs can't produce /en/en/... or /ar/en/... URLs.
     $(this).attr('content', content.replace(
-      /https:\/\/www\.pettycash\.site\/([^"\s]*)/g,
+      /https:\/\/(?:www\.)?pettycash\.site\/([^"\s]*)/g,
       (match, p1) => {
-        if (p1 === '' || p1 === '/') return 'https://pettycash.site/' + lang + '/';
+        const clean = canonicalizePath(p1);
+        if (clean === '') return 'https://pettycash.site/' + lang + '/';
         // If it's an asset path (images/, css/, js/), don't add /lang/ prefix
-        if (isAssetPath(p1) || /^(images|css|js)\//.test(p1)) {
-          return 'https://pettycash.site/' + p1;
+        if (isAssetPath(clean) || /^(images|css|js)\//.test(clean)) {
+          return 'https://pettycash.site/' + clean;
         }
-        return 'https://pettycash.site/' + lang + '/' + p1;
+        return 'https://pettycash.site/' + lang + '/' + clean;
       }
     ));
   });
@@ -259,11 +272,8 @@ function fixLinksForFile(html, lang, filePath) {
     const href = $(this).attr('href');
     if (!href || !href.includes('pettycash.site')) return;
     $(this).attr('href', href.replace(
-      /https:\/\/www\.pettycash\.site\/([^"\s]*)/g,
-      (match, p1) => {
-        if (p1 === '' || p1 === '/') return 'https://pettycash.site/' + lang + '/';
-        return 'https://pettycash.site/' + lang + '/' + p1;
-      }
+      /https:\/\/(?:www\.)?pettycash\.site\/([^"\s]*)/g,
+      (match, p1) => 'https://pettycash.site/' + lang + '/' + canonicalizePath(p1)
     ));
   });
 
@@ -383,15 +393,12 @@ function processHtml(rawHtml, lang, filePath, translations, reverseMap) {
   // Fix ./ paths inside inline <script> tags (e.g. ES module imports)
   html = fixInlineScriptPaths(html, lang, filePath);
 
-  // Add hreflang tags (before </head>)
-  const otherLang = lang === 'en' ? 'ar' : 'en';
-  const filePathForUrl = filePath === 'index.html' ? '' : filePath;
-  const hreflangTags = '\n  <link rel="alternate" hreflang="en" href="' + BASE_HOST + '/en/' + filePathForUrl + '" />\n  <link rel="alternate" hreflang="ar" href="' + BASE_HOST + '/ar/' + filePathForUrl + '" />\n  <link rel="alternate" hreflang="x-default" href="' + BASE_HOST + '/" />';
-
-  // Only add hreflang if not already present
-  if (!html.includes('hreflang="en"')) {
-    html = html.replace('</head>', hreflangTags + '\n</head>');
-  }
+  // Add hreflang tags (before </head>) — always regenerate: strip existing
+  // alternates first so stale root-stub or wrong-locale targets can't survive.
+  html = html.replace(/<link\s+[^>]*rel=["']alternate["'][^>]*>\s*/gi, '');
+  const filePathForUrl = canonicalizePath(filePath);
+  const hreflangTags = '\n  <link rel="alternate" hreflang="en" href="' + BASE_HOST + '/en/' + filePathForUrl + '" />\n  <link rel="alternate" hreflang="ar" href="' + BASE_HOST + '/ar/' + filePathForUrl + '" />\n  <link rel="alternate" hreflang="x-default" href="' + BASE_HOST + '/en/" />';
+  html = html.replace('</head>', hreflangTags + '\n</head>');
 
   // Add localStorage preset script at start of <head>
   const langScript = '<script>window.localStorage&&localStorage.setItem(\'pettycash-lang\',\'' + lang + '\');</script>';

@@ -6,6 +6,311 @@ services:
     staticPublishPath: ./
     branch: main
     routes:
+      # 301 redirects: legacy root URLs -> canonical /en/ pages
+      # (replaces meta-refresh stubs; fixes GSC Page with redirect / Redirect error)
+      - type: redirect
+        source: /
+        destination: /en/
+      - type: redirect
+        source: /index.html
+        destination: /en/
+      - type: redirect
+        source: /about.html
+        destination: /en/about.html
+      - type: redirect
+        source: /ai/expense-analyzer.html
+        destination: /en/ai/expense-analyzer.html
+      - type: redirect
+        source: /ai/index.html
+        destination: /en/ai/index.html
+      - type: redirect
+        source: /ai/
+        destination: /en/ai/
+      - type: redirect
+        source: /ai/policy-generator.html
+        destination: /en/ai/policy-generator.html
+      - type: redirect
+        source: /ai/receipt-analyzer.html
+        destination: /en/ai/receipt-analyzer.html
+      - type: redirect
+        source: /blog.html
+        destination: /en/blog.html
+      - type: redirect
+        source: /compare/index.html
+        destination: /en/compare/index.html
+      - type: redirect
+        source: /compare/
+        destination: /en/compare/
+      - type: redirect
+        source: /compare/petty-cash-vs-excel.html
+        destination: /en/compare/petty-cash-vs-excel.html
+      - type: redirect
+        source: /compare/petty-cash-vs-expensify.html
+        destination: /en/compare/petty-cash-vs-expensify.html
+      - type: redirect
+        source: /compare/petty-cash-vs-odoo.html
+        destination: /en/compare/petty-cash-vs-odoo.html
+      - type: redirect
+        source: /compare/petty-cash-vs-sap-concur.html
+        destination: /en/compare/petty-cash-vs-sap-concur.html
+      - type: redirect
+        source: /compare/petty-cash-vs-zoho-expense.html
+        destination: /en/compare/petty-cash-vs-zoho-expense.html
+      - type: redirect
+        source: /compliance.html
+        destination: /en/compliance.html
+      - type: redirect
+        source: /contact.html
+        destination: /en/contact.html
+      - type: redirect
+        source: /features.html
+        destination: /en/features.html
+      - type: redirect
+        source: /help.html
+        destination: /en/help.html
+      - type: redirect
+        source: /industries/clinics.html
+        destination: /en/industries/clinics.html
+      - type: redirect
+        source: /industries/construction.html
+        destination: /en/industries/construction.html
+      - type: redirect
+        source: /industries/index.html
+        destination: /en/industries/index.html
+      - type: redirect
+        source: /industries/
+        destination: /en/industries/
+      - type: redirect
+        source: /industries/manufacturing.html
+        destination: /en/industries/manufacturing.html
+      - type: redirect
+        source: /industries/ngos.html
+        destination: /en/industries/ngos.html
+      - type: redirect
+        source: /industries/restaurants.html
+        destination: /en/industries/restaurants.html
+      - type: redirect
+        source: /industries/retail.html
+        destination: /en/industries/retail.html
+      - type: redirect
+        source: /industries/schools.html
+        destination: /en/industries/schools.html
+      - type: redirect
+        source: /industries/transportation.html
+        destination: /en/industries/transportation.html
+      - type: redirect
+        source: /pdf-tools/add-header-footer.html
+        destination: /en/pdf-tools/add-header-footer.html
+      - type: redirect
+        source: /pdf-tools/add-page-numbers.html
+        destination: /en/pdf-tools/add-page-numbers.html
+      - type: redirect
+        source: /pdf-tools/add-watermark.html
+        destination: /en/pdf-tools/add-watermark.html
+      - type: redirect
+        source: /pdf-tools/ai-summarize-pdf.html
+        destination: /en/pdf-tools/ai-summarize-pdf.html
+      - type: redirect
+        source: /pdf-tools/chat-with-pdf.html
+        destination: /en/pdf-tools/chat-with-pdf.html
+      - type: redirect
+        source: /pdf-tools/compress-pdf.html
+        destination: /en/pdf-tools/compress-pdf.html
+      - type: redirect
+        source: /pdf-tools/crop-pdf.html
+        destination: /en/pdf-tools/crop-pdf.html
+      - type: redirect
+        source: /pdf-tools/delete-blank-pages.html
+        destination: /en/pdf-tools/delete-blank-pages.html
+      - type: redirect
+        source: /pdf-tools/edit-pdf.html
+        destination: /en/pdf-tools/edit-pdf.html
+      - type: redirect
+        source: /pdf-tools/excel-to-pdf.html
+        destination: /en/pdf-tools/excel-to-pdf.html
+      - type: redirect
+        source: /pdf-tools/extract-images.html
+        destination: /en/pdf-tools/extract-images.html
+      - type: redirect
+        source: /pdf-tools/extract-pages.html
+        destination: /en/pdf-tools/extract-pages.html
+      - type: redirect
+        source: /pdf-tools/extract-tables.html
+        destination: /en/pdf-tools/extract-tables.html
+      - type: redirect
+        source: /pdf-tools/html-to-pdf.html
+        destination: /en/pdf-tools/html-to-pdf.html
+      - type: redirect
+        source: /pdf-tools/image-ocr.html
+        destination: /en/pdf-tools/image-ocr.html
+      - type: redirect
+        source: /pdf-tools/image-to-pdf.html
+        destination: /en/pdf-tools/image-to-pdf.html
+      - type: redirect
+        source: /pdf-tools/index.html
+        destination: /en/pdf-tools/index.html
+      - type: redirect
+        source: /pdf-tools/
+        destination: /en/pdf-tools/
+      - type: redirect
+        source: /pdf-tools/merge-pdf.html
+        destination: /en/pdf-tools/merge-pdf.html
+      - type: redirect
+        source: /pdf-tools/ocr-pdf.html
+        destination: /en/pdf-tools/ocr-pdf.html
+      - type: redirect
+        source: /pdf-tools/optimize-pdf.html
+        destination: /en/pdf-tools/optimize-pdf.html
+      - type: redirect
+        source: /pdf-tools/pdf-to-excel.html
+        destination: /en/pdf-tools/pdf-to-excel.html
+      - type: redirect
+        source: /pdf-tools/pdf-to-html.html
+        destination: /en/pdf-tools/pdf-to-html.html
+      - type: redirect
+        source: /pdf-tools/pdf-to-jpg.html
+        destination: /en/pdf-tools/pdf-to-jpg.html
+      - type: redirect
+        source: /pdf-tools/pdf-to-png.html
+        destination: /en/pdf-tools/pdf-to-png.html
+      - type: redirect
+        source: /pdf-tools/pdf-to-powerpoint.html
+        destination: /en/pdf-tools/pdf-to-powerpoint.html
+      - type: redirect
+        source: /pdf-tools/pdf-to-text.html
+        destination: /en/pdf-tools/pdf-to-text.html
+      - type: redirect
+        source: /pdf-tools/pdf-to-word.html
+        destination: /en/pdf-tools/pdf-to-word.html
+      - type: redirect
+        source: /pdf-tools/powerpoint-to-pdf.html
+        destination: /en/pdf-tools/powerpoint-to-pdf.html
+      - type: redirect
+        source: /pdf-tools/protect-pdf.html
+        destination: /en/pdf-tools/protect-pdf.html
+      - type: redirect
+        source: /pdf-tools/redact-pdf.html
+        destination: /en/pdf-tools/redact-pdf.html
+      - type: redirect
+        source: /pdf-tools/remove-pages.html
+        destination: /en/pdf-tools/remove-pages.html
+      - type: redirect
+        source: /pdf-tools/remove-watermark.html
+        destination: /en/pdf-tools/remove-watermark.html
+      - type: redirect
+        source: /pdf-tools/reorder-pages.html
+        destination: /en/pdf-tools/reorder-pages.html
+      - type: redirect
+        source: /pdf-tools/repair-pdf.html
+        destination: /en/pdf-tools/repair-pdf.html
+      - type: redirect
+        source: /pdf-tools/rotate-pdf.html
+        destination: /en/pdf-tools/rotate-pdf.html
+      - type: redirect
+        source: /pdf-tools/searchable-pdf.html
+        destination: /en/pdf-tools/searchable-pdf.html
+      - type: redirect
+        source: /pdf-tools/sign-pdf.html
+        destination: /en/pdf-tools/sign-pdf.html
+      - type: redirect
+        source: /pdf-tools/split-pdf.html
+        destination: /en/pdf-tools/split-pdf.html
+      - type: redirect
+        source: /pdf-tools/text-to-pdf.html
+        destination: /en/pdf-tools/text-to-pdf.html
+      - type: redirect
+        source: /pdf-tools/translate-pdf.html
+        destination: /en/pdf-tools/translate-pdf.html
+      - type: redirect
+        source: /pdf-tools/unlock-pdf.html
+        destination: /en/pdf-tools/unlock-pdf.html
+      - type: redirect
+        source: /pdf-tools/word-to-pdf.html
+        destination: /en/pdf-tools/word-to-pdf.html
+      - type: redirect
+        source: /pricing.html
+        destination: /en/pricing.html
+      - type: redirect
+        source: /privacy.html
+        destination: /en/privacy.html
+      - type: redirect
+        source: /security.html
+        destination: /en/security.html
+      - type: redirect
+        source: /templates/cash-count-sheet-template.html
+        destination: /en/templates/cash-count-sheet-template.html
+      - type: redirect
+        source: /templates/expense-approval-form.html
+        destination: /en/templates/expense-approval-form.html
+      - type: redirect
+        source: /templates/expense-tracker-excel.html
+        destination: /en/templates/expense-tracker-excel.html
+      - type: redirect
+        source: /templates/finance-dashboard-excel.html
+        destination: /en/templates/finance-dashboard-excel.html
+      - type: redirect
+        source: /templates/index.html
+        destination: /en/templates/index.html
+      - type: redirect
+        source: /templates/
+        destination: /en/templates/
+      - type: redirect
+        source: /templates/internal-audit-checklist.html
+        destination: /en/templates/internal-audit-checklist.html
+      - type: redirect
+        source: /templates/petty-cash-excel-template.html
+        destination: /en/templates/petty-cash-excel-template.html
+      - type: redirect
+        source: /templates/petty-cash-policy-pdf.html
+        destination: /en/templates/petty-cash-policy-pdf.html
+      - type: redirect
+        source: /templates/receipt-register.html
+        destination: /en/templates/receipt-register.html
+      - type: redirect
+        source: /tools/ai-presentation-generator.html
+        destination: /en/tools/ai-presentation-generator.html
+      - type: redirect
+        source: /tools/approval-workflow-builder.html
+        destination: /en/tools/approval-workflow-builder.html
+      - type: redirect
+        source: /tools/budget-vs-actual-report.html
+        destination: /en/tools/budget-vs-actual-report.html
+      - type: redirect
+        source: /tools/cash-count-sheet.html
+        destination: /en/tools/cash-count-sheet.html
+      - type: redirect
+        source: /tools/expense-policy-generator.html
+        destination: /en/tools/expense-policy-generator.html
+      - type: redirect
+        source: /tools/expense-report-generator.html
+        destination: /en/tools/expense-report-generator.html
+      - type: redirect
+        source: /tools/expense-savings-calculator.html
+        destination: /en/tools/expense-savings-calculator.html
+      - type: redirect
+        source: /tools/index.html
+        destination: /en/tools/
+      - type: redirect
+        source: /tools/
+        destination: /en/tools/
+      - type: redirect
+        source: /tools/internal-control-score-quiz.html
+        destination: /en/tools/internal-control-score-quiz.html
+      - type: redirect
+        source: /tools/petty-cash-limit-calculator.html
+        destination: /en/tools/petty-cash-limit-calculator.html
+      - type: redirect
+        source: /tools/petty-cash-voucher-generator.html
+        destination: /en/tools/petty-cash-voucher-generator.html
+      - type: redirect
+        source: /tools/receipt-generator.html
+        destination: /en/tools/receipt-generator.html
+      - type: redirect
+        source: /tools/saudi-invoice-generator.html
+        destination: /en/tools/saudi-invoice-generator.html
+      - type: redirect
+        source: /tools/vat-calculator.html
+        destination: /en/tools/vat-calculator.html
       # Article URL rewrites — serve article.html at clean URL
       - type: rewrite
         source: /en/articles/*
@@ -14,7 +319,7 @@ services:
         source: /ar/articles/*
         destination: /ar/article.html
     headers:
-      # HTML pages — no cache (stubs are tiny redirects, /en/ and /ar/ content should revalidate)
+      # HTML pages — no cache
       - path: /*.html
         name: Cache-Control
         value: no-cache
