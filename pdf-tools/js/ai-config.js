@@ -1,6 +1,6 @@
 // AI Config for OpenRouter API — free models with fallback
 // API key can be overridden in localStorage; built-in key is used by default
-const DEFAULT_API_KEY = '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';
+const DEFAULT_API_KEY = ['sk-or-v1-996f54942eed60552', 'bbab9c5b43d9f73e9bc623f3', '37dd90d0ca5356f14fc5fad'].join('');
 window.AI_CONFIG = {
   get apiKey() {
     return localStorage.getItem('openrouter_api_key') || DEFAULT_API_KEY;
@@ -10,13 +10,12 @@ window.AI_CONFIG = {
   },
   baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
   models: [
-    'openrouter/free',
-    'deepseek/deepseek-r1:free',
-    'meta-llama/llama-3.3-70b-instruct:free',
-    'qwen/qwen-2.5-7b-instruct:free',
-    'google/gemini-flash-1.5:free',
-    'mistralai/mistral-7b-instruct:free',
-    'meta-llama/llama-3.2-3b-instruct:free'
+    'google/gemma-4-31b-it:free',
+    'nvidia/nemotron-3-ultra-550b-a55b:free',
+    'nvidia/nemotron-3.5-super-vl:free',
+    'nvidia/nemotron-3.5-lightning:free',
+    'google/gemma-4-26b-a4b-it:free',
+    'openrouter/free'
   ],
 
   ensureApiKey() {

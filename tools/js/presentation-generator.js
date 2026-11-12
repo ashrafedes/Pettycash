@@ -5,7 +5,14 @@
   // OpenRouter API config
   const API_URL = (window.AI_CONFIG && window.AI_CONFIG.baseUrl) || 'https://openrouter.ai/api/v1/chat/completions';
   const FALLBACK_API_KEY = ['sk-or-v1-996f54942eed60552', 'bbab9c5b43d9f73e9bc623f3', '37dd90d0ca5356f14fc5fad'].join('');
-  const MODELS = (window.AI_CONFIG && window.AI_CONFIG.models) || ['google/gemma-4-31b-it:free', 'openai/gpt-oss-20b:free', 'nvidia/nemotron-3-super-120b-a12b:free'];
+  const MODELS = (window.AI_CONFIG && window.AI_CONFIG.models) || [
+    'google/gemma-4-31b-it:free',
+    'nvidia/nemotron-3-ultra-550b-a55b:free',
+    'nvidia/nemotron-3.5-super-vl:free',
+    'nvidia/nemotron-3.5-lightning:free',
+    'google/gemma-4-26b-a4b-it:free',
+    'openrouter/free'
+  ];
 
   function getApiKey() {
     try {
@@ -107,45 +114,41 @@ Use varied layouts. Keep bullet points concise and impactful.`;
         { role: 'user', content: userPrompt }
       ],
       temperature: 0.7,
-      max_tokens: 4000,
-      response_format: { type: 'json_object' }
+      max_tokens: 4000
     };
 
-    const resp = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + getApiKey(),
-        'HTTP-Referer': window.location.origin,
-        'X-Title': 'PettyCash AI Presentation Generator'
-      },
-      body: JSON.stringify(body)
-    });
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + getApiKey(),
+      'HTTP-Referer': window.location.origin,
+      'X-Title': 'PettyCash AI Presentation Generator'
+    };
 
-    if (!resp.ok) {
-      // Try fallback model
-      body.model = MODELS[1];
-      const resp2 = await fetch(API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + getApiKey(),
-          'HTTP-Referer': window.location.origin,
-          'X-Title': 'PettyCash AI Presentation Generator'
-        },
-        body: JSON.stringify(body)
-      });
-      if (!resp2.ok) throw new Error('AI API error: ' + resp2.status);
-      const data2 = await resp2.json();
-      return parseAIResponse(data2);
+    let lastError = null;
+    for (const model of MODELS) {
+      try {
+        body.model = model;
+        const resp = await fetch(API_URL, {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify(body)
+        });
+        if (!resp.ok) {
+          lastError = new Error('AI API error ' + resp.status + ' (' + model + ')');
+          continue;
+        }
+        const data = await resp.json();
+        return parseAIResponse(data);
+      } catch (err) {
+        lastError = err;
+      }
     }
-
-    const data = await resp.json();
-    return parseAIResponse(data);
+    throw lastError || new Error('All AI models failed');
   }
 
   function parseAIResponse(data) {
-    const content = data.choices?.[0]?.message?.content || '';
+    let content = data.choices?.[0]?.message?.content || '';
+    content = content.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim();
     try {
       const parsed = JSON.parse(content);
       if (parsed.slides && Array.isArray(parsed.slides)) {
