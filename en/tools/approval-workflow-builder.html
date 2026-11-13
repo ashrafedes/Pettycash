@@ -155,7 +155,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-6 no-print">
     <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 dark:text-slate-400">
-      <p data-i18n="tools.footer">© 2026 PettyCash.site ΓÇö Free business tools.</p>
+      <p data-i18n="tools.footer">© 2026 PettyCash.site — Free business tools.</p>
     </div>
   </footer>
 
@@ -225,14 +225,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             const roleAr = { 'Direct Manager': '╪º┘ä┘à╪»┘è╪▒ ╪º┘ä┘à╪¿╪º╪┤╪▒', 'Department Head': '╪▒╪ª┘è╪│ ╪º┘ä┘é╪│┘à', 'Finance Director': '╪º┘ä┘à╪»┘è╪▒ ╪º┘ä┘à╪º┘ä┘è', 'CEO': '╪º┘ä╪▒╪ª┘è╪│ ╪º┘ä╪¬┘å┘ü┘è╪░┘è', 'CFO': '╪º┘ä┘à╪»┘è╪▒ ╪º┘ä┘à╪º┘ä┘è' }[l.role] || l.role;
             return `<div class="flex items-center gap-2">
               <span class="w-6 h-6 rounded-full bg-indigo-600 text-white text-xs flex items-center justify-center font-bold">${i + 1}</span>
-              <span><strong>${roleAr}</strong> ΓÇö ${l.min} ╪Ñ┘ä┘ë ${l.max} ${currency}</span>
+              <span><strong>${roleAr}</strong> — ${l.min} ╪Ñ┘ä┘ë ${l.max} ${currency}</span>
             </div>`;
           }).join('<div class="text-center text-slate-400">Γåô</div>');
         } else {
           summary.innerHTML = levels.map((l, i) => 
             `<div class="flex items-center gap-2">
               <span class="w-6 h-6 rounded-full bg-indigo-600 text-white text-xs flex items-center justify-center font-bold">${i + 1}</span>
-              <span><strong>${l.role}</strong> ΓÇö ${l.min} to ${l.max} ${currency}</span>
+              <span><strong>${l.role}</strong> — ${l.min} to ${l.max} ${currency}</span>
             </div>`
           ).join('<div class="text-center text-slate-400">Γåô</div>');
         }

@@ -218,9 +218,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let slugInfo = getSlugFromPath();
 
-  // Fallback: article.html?slug=X (from 404 handler)
+  // Fallback: article.html?slug=X (from 404 handler) — redirect to clean URL
+  // so legacy query-param URLs consolidate to /{lang}/articles/{slug} in search
   if (!slugInfo) {
-    slugInfo = getSlugFromQuery();
+    const fromQuery = getSlugFromQuery();
+    if (fromQuery) {
+      window.location.replace('/' + fromQuery.lang + '/articles/' + encodeURIComponent(fromQuery.slug));
+      return;
+    }
   }
 
   if (!slugInfo || !window.PettyCashFirebase) {

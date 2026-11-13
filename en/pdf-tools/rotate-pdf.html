@@ -8,16 +8,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rotate PDF ΓÇö Rotate PDF Pages Online Free | PettyCash.site</title>
+  <title>Rotate PDF — Rotate PDF Pages Online Free | PettyCash.site</title>
   <meta name="description" content="Rotate pages in your PDF file. 90┬░, 180┬░, or 270┬░. Free online tool, no upload, no signup. All processing in your browser.">
   <link rel="canonical" href="https://pettycash.site/en/pdf-tools/rotate-pdf.html">
-  <meta property="og:title" content="Rotate PDF ΓÇö Rotate PDF Pages Online Free">
+  <meta property="og:title" content="Rotate PDF — Rotate PDF Pages Online Free">
   <meta property="og:description" content="Rotate PDF pages 90┬░, 180┬░, or 270┬░. All in your browser.">
   <meta property="og:url" content="https://pettycash.site/en/pdf-tools/rotate-pdf.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pettycash.site/images/favicon.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Rotate PDF ΓÇö Rotate PDF Pages Online Free">
+  <meta name="twitter:title" content="Rotate PDF — Rotate PDF Pages Online Free">
   <meta name="twitter:description" content="Rotate PDF pages 90┬░, 180┬░, or 270┬░. All in your browser.">
   <meta name="robots" content="index, follow">
   <script type="application/ld+json">
@@ -159,7 +159,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <footer class="bg-slate-900 text-slate-400 mt-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm">
-      <p>© 2026 PettyCash.site ΓÇö Free PDF Tools. All processing happens in your browser.</p>
+      <p>© 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p>
     </div>
   </footer>
 
@@ -334,8 +334,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         if (pagesMode === 'preview') {
           const selectedCount = selectedFromPreview.size;
           previewHint.textContent = lang === 'ar'
-            ? '╪º┘ä╪▓╪º┘ê┘è╪⌐ ╪º┘ä┘à╪¡╪»╪»╪⌐: ' + angle + '┬░ ΓÇö ╪º┘å┘é╪▒ ╪╣┘ä┘ë ╪º┘ä╪╡┘ü╪¡╪º╪¬ ┘ä╪¬╪¡╪»┘è╪»┘ç╪º ┘ä┘ä╪¬╪»┘ê┘è╪▒' + (selectedCount ? ' (' + selectedCount + ' ╪╡┘ü╪¡╪⌐ ┘à╪¡╪»╪»╪⌐)' : '')
-            : 'Selected angle: ' + angle + '┬░ ΓÇö Click pages to select them for rotation' + (selectedCount ? ' (' + selectedCount + ' pages selected)' : '');
+            ? '╪º┘ä╪▓╪º┘ê┘è╪⌐ ╪º┘ä┘à╪¡╪»╪»╪⌐: ' + angle + '┬░ — ╪º┘å┘é╪▒ ╪╣┘ä┘ë ╪º┘ä╪╡┘ü╪¡╪º╪¬ ┘ä╪¬╪¡╪»┘è╪»┘ç╪º ┘ä┘ä╪¬╪»┘ê┘è╪▒' + (selectedCount ? ' (' + selectedCount + ' ╪╡┘ü╪¡╪⌐ ┘à╪¡╪»╪»╪⌐)' : '')
+            : 'Selected angle: ' + angle + '┬░ — Click pages to select them for rotation' + (selectedCount ? ' (' + selectedCount + ' pages selected)' : '');
         }
       }
 
@@ -411,7 +411,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             if (!targetPages.size) { PDFTools.toast(lang === 'ar' ? '╪º╪«╪¬╪▒ ╪╡┘ü╪¡╪º╪¬ ┘à┘å ╪º┘ä┘à╪╣╪º┘è┘å╪⌐' : 'Select pages from preview'); rotateBtn.disabled = false; return; }
           }
 
-          // Update rotationMap cumulatively ΓÇö rotate from current preview state
+          // Update rotationMap cumulatively — rotate from current preview state
           targetPages.forEach(idx => {
             const current = rotationMap[idx] || 0;
             rotationMap[idx] = (current + angle) % 360;

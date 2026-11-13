@@ -8,16 +8,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Word to PDF ΓÇö Free Online | PettyCash.site</title>
+  <title>Word to PDF — Free Online | PettyCash.site</title>
   <meta name="description" content="Convert Word documents (DOCX) to PDF. Free, no upload, all in your browser.">
   <link rel="canonical" href="https://pettycash.site/en/pdf-tools/word-to-pdf.html">
-  <meta property="og:title" content="Word to PDF ΓÇö Free Online">
+  <meta property="og:title" content="Word to PDF — Free Online">
   <meta property="og:description" content="Convert Word documents (DOCX) to PDF. Free, no upload, all in your browser.">
   <meta property="og:url" content="https://pettycash.site/en/pdf-tools/word-to-pdf.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pettycash.site/images/favicon.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Word to PDF ΓÇö Free Online">
+  <meta name="twitter:title" content="Word to PDF — Free Online">
   <meta name="twitter:description" content="Convert Word documents (DOCX) to PDF. Free, no upload, all in your browser.">
   <meta name="robots" content="index, follow">
   <script type="application/ld+json">
@@ -99,7 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="mt-12"><h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2><div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div></div>
     </section>
   </main>
-  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>© 2026 PettyCash.site ΓÇö Free PDF Tools. All processing happens in your browser.</p></div></footer>
+  <footer class="bg-slate-900 text-slate-400 mt-auto"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-sm"><p>© 2026 PettyCash.site — Free PDF Tools. All processing happens in your browser.</p></div></footer>
   <script defer="" src="/pdf-tools/js/pdf-translations.js"></script>
   <script defer="" src="/pdf-tools/js/pdf-tools-registry.js"></script>
   <script defer="" src="/pdf-tools/js/pdf-shared.js"></script>
@@ -165,7 +165,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           renderContainer.style.cssText='position:fixed;left:-9999px;top:0;width:794px;background:#fff;';
           document.body.appendChild(renderContainer);
 
-          // Render DOCX with docx-preview ΓÇö preserves fonts, colors, alignment, tables, images, page breaks
+          // Render DOCX with docx-preview — preserves fonts, colors, alignment, tables, images, page breaks
           await docx.renderAsync(wordFile, renderContainer, null, {
             className: 'docx',
             inWrapper: true,
@@ -185,7 +185,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           // Wait for fonts and images to settle
           await new Promise(r=>setTimeout(r,500));
 
-          // Find rendered pages ΓÇö docx-preview creates .docx-page wrappers
+          // Find rendered pages — docx-preview creates .docx-page wrappers
           const pageEls=renderContainer.querySelectorAll('.docx-page, .docx-wrapper > div');
           const pages=pageEls.length>0?Array.from(pageEls):[renderContainer];
 
@@ -229,7 +229,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             });
             ctx.drawImage(img,0,0);
 
-            // Convert to PDF page ΓÇö use PNG for better text quality
+            // Convert to PDF page — use PNG for better text quality
             const png=await new Promise(r=>canvas.toBlob(r,'image/png'));
             const embedded=await doc.embedPng(await png.arrayBuffer());
             // A4 dimensions in points

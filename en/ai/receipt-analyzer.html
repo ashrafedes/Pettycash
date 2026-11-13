@@ -68,13 +68,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="bg-red-50 border border-red-200 rounded-xl p-5">
             <h3 class="font-bold text-red-700 mb-3 text-sm">Before (Manual Entry)</h3>
             <p class="text-sm text-slate-600 mb-3">An employee takes a photo of a restaurant receipt. The finance team manually types:</p>
-            <p class="text-sm text-slate-600">Vendor: "Al Baik" (typed). Amount: 45.00 SAR (typed, but the actual was 45.50 ΓÇö typo). Date: 15/06/2026 (guessed from photo). VAT: Not entered (forgot). Category: "Meals" (typed). Time: 2 minutes per receipt.</p>
+            <p class="text-sm text-slate-600">Vendor: "Al Baik" (typed). Amount: 45.00 SAR (typed, but the actual was 45.50 — typo). Date: 15/06/2026 (guessed from photo). VAT: Not entered (forgot). Category: "Meals" (typed). Time: 2 minutes per receipt.</p>
             <p class="text-sm font-semibold text-red-600 mt-3">Result: 2 min, 1 typo, VAT missing</p>
           </div>
           <div class="bg-green-50 border border-green-200 rounded-xl p-5">
             <h3 class="font-bold text-green-700 mb-3 text-sm">After (AI Extraction)</h3>
             <p class="text-sm text-slate-600 mb-3">The same receipt photo is uploaded to the AI Receipt Analyzer. In 5 seconds, the AI extracts:</p>
-            <p class="text-sm text-slate-600">Vendor: "Al Baik Restaurant" (exact from receipt). Amount: 45.50 SAR (exact). Date: 15/06/2026 (exact). VAT: 5.93 SAR (15% calculated). Category: "Meals" (auto-categorized). Suspicious flag: None ΓÇö receipt appears genuine.</p>
+            <p class="text-sm text-slate-600">Vendor: "Al Baik Restaurant" (exact from receipt). Amount: 45.50 SAR (exact). Date: 15/06/2026 (exact). VAT: 5.93 SAR (15% calculated). Category: "Meals" (auto-categorized). Suspicious flag: None — receipt appears genuine.</p>
             <p class="text-sm font-semibold text-green-600 mt-3">Result: 5 seconds, 0 errors, VAT captured</p>
           </div>
         </div>
