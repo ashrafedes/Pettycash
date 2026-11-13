@@ -46,7 +46,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "How is the petty cash limit calculated?", "acceptedAnswer": { "@type": "Answer", "text": "The recommended limit = (average daily petty cash expenses ├ù replenishment cycle in days) + safety buffer (typically 20% of the base amount)." } },
+        { "@type": "Question", "name": "How is the petty cash limit calculated?", "acceptedAnswer": { "@type": "Answer", "text": "The recommended limit = (average daily petty cash expenses × replenishment cycle in days) + safety buffer (typically 20% of the base amount)." } },
         { "@type": "Question", "name": "What is a replenishment cycle?", "acceptedAnswer": { "@type": "Answer", "text": "The replenishment cycle is how often you refill the petty cash box — typically weekly, bi-weekly, or monthly." } },
         { "@type": "Question", "name": "What is a safety buffer?", "acceptedAnswer": { "@type": "Answer", "text": "A safety buffer is an extra amount kept on hand for unexpected expenses. We recommend 20% of the base calculated amount." } }
       ]
@@ -148,7 +148,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="space-y-3">
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
             <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="How is the petty cash limit calculated?" data-i18n-ar="كيف يُحسب حد الصندوق الصغير؟">كيف يُحسب حد الصندوق الصغير؟</summary>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="The recommended limit = (average daily petty cash expenses ├ù replenishment cycle in days) + safety buffer (typically 20% of the base amount)." data-i18n-ar="الحد الموصى به = (متوسط المصروفات اليومية × دورة التعبئة بالأيام) + هامش الأمان (عادة 20% من المبلغ الأساسي).">الحد الموصى به = (متوسط المصروفات اليومية × دورة التعبئة بالأيام) + هامش الأمان (عادة 20% من المبلغ الأساسي).</p>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400" data-i18n-en="The recommended limit = (average daily petty cash expenses × replenishment cycle in days) + safety buffer (typically 20% of the base amount)." data-i18n-ar="الحد الموصى به = (متوسط المصروفات اليومية × دورة التعبئة بالأيام) + هامش الأمان (عادة 20% من المبلغ الأساسي).">الحد الموصى به = (متوسط المصروفات اليومية × دورة التعبئة بالأيام) + هامش الأمان (عادة 20% من المبلغ الأساسي).</p>
           </details>
           <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
             <summary class="font-semibold cursor-pointer text-sm" data-i18n-en="What is a replenishment cycle?" data-i18n-ar="ما هي دورة التعبئة؟">ما هي دورة التعبئة؟</summary>
@@ -166,10 +166,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <h3 class="text-xl font-bold mb-2" data-i18n-en="Automate Your Petty Cash" data-i18n-ar="أتمت صندوقك الصغير">أتمت صندوقك الصغير</h3>
         <p class="text-blue-100 text-sm mb-4" data-i18n-en="PettyCash automatically tracks your float, alerts you when it's low, and generates replenishment reports." data-i18n-ar="يتتبع PettyCash تلقائياً صندوقك، وينبهك عندما ينخفض، وينشئ تقارير التعبئة.">يتتبع PettyCash تلقائياً صندوقك، وينبهك عندما ينخفض، وينشئ تقارير التعبئة.</p>
         <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="جرب PettyCash مجاناً">جرب PettyCash مجاناً</a>
-        <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever ΓÇó No credit card required ΓÇó Setup in 2 minutes" data-i18n-ar="مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين">مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين</p>
+        <p class="mt-3 text-xs text-blue-200" data-i18n-en="Free forever • No credit card required • Setup in 2 minutes" data-i18n-ar="مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين">مجاني للأبد • بدون بطاقة ائتمان • الإعداد في دقيقتين</p>
       </div>
     </section>
-  </main>
+  
+      <div class="mt-12 border-t border-slate-200 dark:border-slate-700 pt-8 no-print">
+        <h2 class="text-xl font-bold mb-4">أدوات ذات صلة</h2>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <a href="/ar/tools/ai-presentation-generator.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">مولد العروض التقديمية بالذكاء الاصطناعي</p></a>
+            <a href="/ar/tools/approval-workflow-builder.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">منشئ سير عمل الموافقات</p></a>
+            <a href="/ar/tools/budget-vs-actual-report.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">تقرير الموازنة مقابل الفعلي</p></a>
+            <a href="/ar/tools/cash-count-sheet.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">ورقة جرد النقدية</p></a>
+            <a href="/ar/tools/expense-policy-generator.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">مولد سياسة المصروفات</p></a>
+            <a href="/ar/tools/expense-report-generator.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">مولد تقرير المصروفات</p></a>
+            <a href="/ar/tools/expense-savings-calculator.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">حاسبة توفير المصروفات</p></a>
+            <a href="/ar/tools/internal-control-score-quiz.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">اختبار نقاط الرقابة الداخلية</p></a>
+            <a href="/ar/tools/petty-cash-voucher-generator.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">منشئ قسيمة الصندوق الصغير | PDF مجاني</p></a>
+            <a href="/ar/tools/receipt-generator.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">منشئ إيصالات مجاني | PDF و PNG</p></a>
+            <a href="/ar/tools/saudi-invoice-generator.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">منشئ فواتير سعودية | QR و PDF | مجاني</p></a>
+            <a href="/ar/tools/vat-calculator.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800 dark:text-slate-100">حاسبة ضريبة القيمة المضافة السعودية</p></a>
+        </div>
+      </div></main>
 
   <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-6 no-print">
     <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 dark:text-slate-400">
@@ -203,10 +220,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         let rec;
         if (PCTools.currentLang === 'ar') {
-          if (total < 1000) rec = '╪¡╪» ┘à┘å╪«┘ü╪╢ — ┘à┘å╪º╪│╪¿ ┘ä┘ä╪┤╪▒┘â╪º╪¬ ╪º┘ä╪╡╪║┘è╪▒╪⌐. ┘ü┘â╪▒ ┘ü┘è ┘à╪▒╪º╪¼╪╣╪⌐ ╪┤┘ç╪▒┘è╪⌐.';
-          else if (total < 5000) rec = '╪¡╪» ┘à╪¬┘ê╪│╪╖ — ┘à┘å╪º╪│╪¿ ┘ä┘à╪╣╪╕┘à ╪º┘ä╪┤╪▒┘â╪º╪¬. ╪▒╪º╪¼╪╣ ┘â┘ä ╪½┘ä╪º╪½╪⌐ ╪ú╪┤┘ç╪▒.';
-          else if (total < 20000) rec = '╪¡╪» ┘à╪▒╪¬┘ü╪╣ — ╪¬╪ú┘â╪» ┘à┘å ┘ê╪¼┘ê╪» ╪╢┘ê╪º╪¿╪╖ ╪▒┘é╪º╪¿╪⌐ ┘é┘ê┘è╪⌐ ┘ê┘à╪▒╪º╪¼╪╣╪⌐ ╪┤┘ç╪▒┘è╪⌐.';
-          else rec = '╪¡╪» ┘à╪▒╪¬┘ü╪╣ ╪¼╪»╪º┘ï — ┘ü┘â╪▒ ┘ü┘è ╪¬┘é┘ä┘è┘ä ╪º┘ä╪»┘ê╪▒╪⌐ ╪ú┘ê ╪º╪│╪¬╪«╪»╪º┘à ┘å╪╕╪º┘à ╪▒┘é┘à┘è ┘ä╪¬╪¬╪¿╪╣ ╪ú┘ü╪╢┘ä.';
+          if (total < 1000) rec = 'حد منخفض — مناسب للشركات الصغيرة. فكر في مراجعة شهرية.';
+          else if (total < 5000) rec = 'حد متوسط — مناسب لمعظم الشركات. راجع كل ثلاثة أشهر.';
+          else if (total < 20000) rec = 'حد مرتفع — تأكد من وجود ضوابط رقابة قوية ومراجعة شهرية.';
+          else rec = 'حد مرتفع جداً — فكر في تقليل الدورة أو استخدام نظام رقمي لتتبع أفضل.';
         } else {
           if (total < 1000) rec = 'Low limit — suitable for small businesses. Consider monthly reviews.';
           else if (total < 5000) rec = 'Moderate limit — suitable for most businesses. Review quarterly.';

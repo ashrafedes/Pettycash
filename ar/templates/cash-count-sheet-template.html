@@ -74,7 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <tr><td class="border border-slate-200 px-3 py-2">SAR 10</td><td class="border border-slate-200 px-3 py-2 text-right">5</td><td class="border border-slate-200 px-3 py-2 text-right">50.00</td></tr>
               <tr class="font-bold border-t-2 border-slate-300"><td class="border border-slate-200 px-3 py-2">Total Counted</td><td class="border border-slate-200 px-3 py-2"></td><td class="border border-slate-200 px-3 py-2 text-right">950.00</td></tr>
               <tr><td class="border border-slate-200 px-3 py-2">System Balance</td><td class="border border-slate-200 px-3 py-2"></td><td class="border border-slate-200 px-3 py-2 text-right">950.00</td></tr>
-              <tr class="font-bold text-green-700"><td class="border border-slate-200 px-3 py-2">Variance</td><td class="border border-slate-200 px-3 py-2"></td><td class="border border-slate-200 px-3 py-2 text-right">0.00 Γ£ô</td></tr>
+              <tr class="font-bold text-green-700"><td class="border border-slate-200 px-3 py-2">Variance</td><td class="border border-slate-200 px-3 py-2"></td><td class="border border-slate-200 px-3 py-2 text-right">0.00 ✓</td></tr>
             </tbody>
           </table>
         </div>
@@ -122,7 +122,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="https://pattycashsystem.web.app/register" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm" data-i18n-en="Try PettyCash Free" data-i18n-ar="جرب PettyCash مجاناً">جرب PettyCash مجاناً</a>
       </div>
     </section>
-  </main>
+  
+      <div class="mt-12 border-t border-slate-200 pt-8">
+        <h2 class="text-xl font-bold mb-4">قوالب ذات صلة</h2>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <a href="/ar/templates/expense-approval-form.html" class="block bg-white border border-slate-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800">نموذج موافقة المصروفات</p></a>
+            <a href="/ar/templates/expense-tracker-excel.html" class="block bg-white border border-slate-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800">متتبع المصروفات Excel</p></a>
+            <a href="/ar/templates/finance-dashboard-excel.html" class="block bg-white border border-slate-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800">لوحة المالية Excel</p></a>
+            <a href="/ar/templates/internal-audit-checklist.html" class="block bg-white border border-slate-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800">قائمة التدقيق الداخلي</p></a>
+            <a href="/ar/templates/petty-cash-excel-template.html" class="block bg-white border border-slate-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800">قالب الصندوق الصغير Excel</p></a>
+            <a href="/ar/templates/petty-cash-policy-pdf.html" class="block bg-white border border-slate-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800">قالب سياسة الصندوق الصغير</p></a>
+            <a href="/ar/templates/receipt-register.html" class="block bg-white border border-slate-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow"><p class="text-sm font-semibold text-slate-800">سجل الإيصالات</p></a>
+        </div>
+        <p class="mt-4 text-sm"><a href="/ar/tools/" class="text-blue-600 hover:underline font-medium">جميع الأدوات المجانية →</a></p>
+      </div></main>
   <footer id="tmpl-footer" class="bg-white border-t border-slate-200"></footer>
   <script defer="" src="/templates/js/templates.js"></script>
   <script>
@@ -154,7 +167,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           ['Signature:', '', 'Signature:', '']
         ];
         PCTemplates.downloadCSV('cash-count-sheet-template.csv', rows);
-        PCTemplates.toast(PCTemplates.lang === 'ar' ? '╪¬┘à ╪º┘ä╪¬╪¡┘à┘è┘ä!' : 'Downloaded!');
+        PCTemplates.toast(PCTemplates.lang === 'ar' ? 'تم التحميل!' : 'Downloaded!');
       });
     });
   </script>

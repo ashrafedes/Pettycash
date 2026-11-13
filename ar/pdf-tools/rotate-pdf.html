@@ -80,7 +80,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
       <div class="text-5xl mb-4">≡ƒöä</div>
       <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" data-pt="rotate.title">Rotate PDF</h1>
-      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" data-pt="rotate.desc">Rotate all or specific pages in your PDF. Choose 90┬░, 180┬░, or 270┬░ rotation.</p>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" data-pt="rotate.desc">Rotate all or specific pages in your PDF. Choose 90°, 180°, or 270° rotation.</p>
     </section>
 
     <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
@@ -104,9 +104,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div>
               <label class="block text-sm font-semibold mb-2" data-pt="rotate.angleLabel">Rotation Angle</label>
               <div class="flex gap-3" id="angle-cards">
-                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="90" class="sr-only" checked=""><div class="angle-card text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all"><div class="text-2xl">Γå╗</div><div class="text-xs font-semibold mt-1">90┬░</div></div></label>
-                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="180" class="sr-only"><div class="angle-card text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all"><div class="text-2xl">Γå╗Γå╗</div><div class="text-xs font-semibold mt-1">180┬░</div></div></label>
-                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="270" class="sr-only"><div class="angle-card text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all"><div class="text-2xl">Γå║</div><div class="text-xs font-semibold mt-1">270┬░</div></div></label>
+                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="90" class="sr-only" checked=""><div class="angle-card text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all"><div class="text-2xl">↻</div><div class="text-xs font-semibold mt-1">90°</div></div></label>
+                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="180" class="sr-only"><div class="angle-card text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all"><div class="text-2xl">↻↻</div><div class="text-xs font-semibold mt-1">180°</div></div></label>
+                <label class="flex-1 cursor-pointer"><input type="radio" name="angle" value="270" class="sr-only"><div class="angle-card text-center py-3 border-2 border-slate-200 dark:border-slate-600 rounded-lg transition-all"><div class="text-2xl">↺</div><div class="text-xs font-semibold mt-1">270°</div></div></label>
               </div>
             </div>
             <div>
@@ -136,7 +136,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div id="progress-area"></div>
 
         <div id="result" class="hidden text-center py-8">
-          <div class="text-4xl mb-3">Γ£à</div>
+          <div class="text-4xl mb-3">✅</div>
           <p class="font-semibold text-lg mb-4" data-pt="common.done">Done!</p>
           <button id="download-btn" class="btn-pdf btn-pdf-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -151,8 +151,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
 
       <div class="mt-12">
-        <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2>
-        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+        <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">أدوات ذات صلة</h2>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <a href="./merge-pdf.html" class="tool-card text-center"><div class="text-2xl">🔗</div><p class="text-xs font-semibold mt-1">دمج PDF</p></a>
+          <a href="./split-pdf.html" class="tool-card text-center"><div class="text-2xl">✂️</div><p class="text-xs font-semibold mt-1">تقسيم PDF</p></a>
+          <a href="./remove-pages.html" class="tool-card text-center"><div class="text-2xl">🗑️</div><p class="text-xs font-semibold mt-1">حذف صفحات</p></a>
+          <a href="./reorder-pages.html" class="tool-card text-center"><div class="text-2xl">↕️</div><p class="text-xs font-semibold mt-1">ترتيب الصفحات</p></a>
+        </div>
       </div>
     </section>
   </main>
@@ -173,9 +178,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       const lang = PDFTools.getLang();
 
       const faqs = lang === 'ar' ? [
-        { q: '┘ç┘ä ╪¬╪»┘ê┘è╪▒ PDF ┘à╪¼╪º┘å┘è╪ƒ', a: '┘å╪╣┘à╪î ┘à╪¼╪º┘å┘è ╪¬┘à╪º┘à╪º┘ï.' },
-        { q: '┘ç┘ä ┘è╪¬┘à ╪▒┘ü╪╣ ┘à┘ä┘ü╪º╪¬┘è╪ƒ', a: '┘ä╪º. ┘â┘ä ╪º┘ä┘à╪╣╪º┘ä╪¼╪⌐ ╪¬╪¬┘à ┘ü┘è ┘à╪¬╪╡┘ü╪¡┘â.' },
-        { q: '┘ç┘ä ┘è┘à┘â┘å┘å┘è ╪¬╪»┘ê┘è╪▒ ╪╡┘ü╪¡╪º╪¬ ┘à╪¡╪»╪»╪⌐ ┘ü┘é╪╖╪ƒ', a: '┘å╪╣┘à╪î ┘è┘à┘â┘å┘â ╪¬╪»┘ê┘è╪▒ ╪¼┘à┘è╪╣ ╪º┘ä╪╡┘ü╪¡╪º╪¬ ╪ú┘ê ╪╡┘ü╪¡╪º╪¬ ┘à╪¡╪»╪»╪⌐.' }
+        { q: 'هل تدوير PDF مجاني؟', a: 'نعم، مجاني تماماً.' },
+        { q: 'هل يتم رفع ملفاتي؟', a: 'لا. كل المعالجة تتم في متصفحك.' },
+        { q: 'هل يمكنني تدوير صفحات محددة فقط؟', a: 'نعم، يمكنك تدوير جميع الصفحات أو صفحات محددة.' }
       ] : [
         { q: 'Is rotating PDF free?', a: 'Yes, completely free.' },
         { q: 'Are my files uploaded?', a: 'No. All processing happens in your browser.' },
@@ -289,7 +294,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               rotBadge.className = 'rot-badge absolute bottom-1 start-1 bg-amber-500 text-white text-xs font-bold px-1.5 py-0.5 rounded shadow-lg';
               item.appendChild(rotBadge);
             }
-            rotBadge.textContent = angle + '┬░';
+            rotBadge.textContent = angle + '°';
           } else if (rotBadge) {
             rotBadge.remove();
           }
@@ -305,7 +310,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         rotationMap = {};
         resultBlob = null;
         document.getElementById('file-name-display').textContent = pdfFile.name;
-        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' ΓÇó ' + pageCount + ' ' + (lang === 'ar' ? '╪╡┘ü╪¡╪⌐' : 'pages');
+        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' • ' + pageCount + ' ' + (lang === 'ar' ? 'صفحة' : 'pages');
         dropZone.classList.add('hidden');
         fileInfo.classList.remove('hidden');
         rotateOptions.classList.remove('hidden');
@@ -334,8 +339,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         if (pagesMode === 'preview') {
           const selectedCount = selectedFromPreview.size;
           previewHint.textContent = lang === 'ar'
-            ? '╪º┘ä╪▓╪º┘ê┘è╪⌐ ╪º┘ä┘à╪¡╪»╪»╪⌐: ' + angle + '┬░ — ╪º┘å┘é╪▒ ╪╣┘ä┘ë ╪º┘ä╪╡┘ü╪¡╪º╪¬ ┘ä╪¬╪¡╪»┘è╪»┘ç╪º ┘ä┘ä╪¬╪»┘ê┘è╪▒' + (selectedCount ? ' (' + selectedCount + ' ╪╡┘ü╪¡╪⌐ ┘à╪¡╪»╪»╪⌐)' : '')
-            : 'Selected angle: ' + angle + '┬░ — Click pages to select them for rotation' + (selectedCount ? ' (' + selectedCount + ' pages selected)' : '');
+            ? 'الزاوية المحددة: ' + angle + '° — انقر على الصفحات لتحديدها للتدوير' + (selectedCount ? ' (' + selectedCount + ' صفحة محددة)' : '')
+            : 'Selected angle: ' + angle + '° — Click pages to select them for rotation' + (selectedCount ? ' (' + selectedCount + ' pages selected)' : '');
         }
       }
 
@@ -408,7 +413,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             targetPages = parseRanges(document.getElementById('page-ranges').value, pageCount);
           } else if (pagesMode === 'preview') {
             targetPages = selectedFromPreview;
-            if (!targetPages.size) { PDFTools.toast(lang === 'ar' ? '╪º╪«╪¬╪▒ ╪╡┘ü╪¡╪º╪¬ ┘à┘å ╪º┘ä┘à╪╣╪º┘è┘å╪⌐' : 'Select pages from preview'); rotateBtn.disabled = false; return; }
+            if (!targetPages.size) { PDFTools.toast(lang === 'ar' ? 'اختر صفحات من المعاينة' : 'Select pages from preview'); rotateBtn.disabled = false; return; }
           }
 
           // Update rotationMap cumulatively — rotate from current preview state

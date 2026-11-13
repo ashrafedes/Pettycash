@@ -99,7 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div id="progress-area"></div>
         <div id="result" class="hidden text-center py-8">
-          <div class="text-4xl mb-3">Γ£à</div>
+          <div class="text-4xl mb-3">✅</div>
           <p class="font-semibold text-lg mb-4" data-pt="common.done">Done!</p>
           <button id="download-btn" class="btn-pdf btn-pdf-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -112,8 +112,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div id="faq-list" class="space-y-3"></div>
       </div>
       <div class="mt-12">
-        <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2>
-        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+        <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">أدوات ذات صلة</h2>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <a href="./pdf-to-text.html" class="tool-card text-center"><div class="text-2xl">📃</div><p class="text-xs font-semibold mt-1">PDF إلى نص</p></a>
+          <a href="./pdf-to-jpg.html" class="tool-card text-center"><div class="text-2xl">🖼️</div><p class="text-xs font-semibold mt-1">PDF إلى JPG</p></a>
+          <a href="./html-to-pdf.html" class="tool-card text-center"><div class="text-2xl">🌐</div><p class="text-xs font-semibold mt-1">HTML إلى PDF</p></a>
+          <a href="./merge-pdf.html" class="tool-card text-center"><div class="text-2xl">🔗</div><p class="text-xs font-semibold mt-1">دمج PDF</p></a>
+        </div>
       </div>
     </section>
   </main>
@@ -131,8 +136,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       PDFTools.renderNav();
       const lang = PDFTools.getLang();
       const T = lang === 'ar' ? {
-        title: 'PDF ╪Ñ┘ä┘ë HTML', desc: '╪¬╪¡┘ê┘è┘ä PDF ╪Ñ┘ä┘ë HTML. ╪º╪│╪¬╪«╪▒╪º╪¼ ╪º┘ä┘å╪╡ ┘ê╪º┘ä╪¿┘å┘è╪⌐ ┘â┘à┘ä┘ü HTML ┘å╪╕┘è┘ü.',
-        convertBtn: '╪¬╪¡┘ê┘è┘ä ╪Ñ┘ä┘ë HTML', pageCount: '╪╡┘ü╪¡╪⌐', noFile: '╪º╪«╪¬╪▒ ┘à┘ä┘ü PDF ╪ú┘ê┘ä╪º┘ï'
+        title: 'PDF إلى HTML', desc: 'تحويل PDF إلى HTML. استخراج النص والبنية كملف HTML نظيف.',
+        convertBtn: 'تحويل إلى HTML', pageCount: 'صفحة', noFile: 'اختر ملف PDF أولاً'
       } : {
         title: 'PDF to HTML', desc: 'Convert PDF to HTML. Extract text and structure as a clean HTML file.',
         convertBtn: 'Convert to HTML', pageCount: 'pages', noFile: 'Select a PDF file first'
@@ -143,10 +148,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       document.getElementById('convert-btn-label').textContent = T.convertBtn;
 
       const faqs = lang === 'ar' ? [
-        { q: '┘ç┘ä ╪º┘ä╪¬╪¡┘ê┘è┘ä ┘à╪¼╪º┘å┘è╪ƒ', a: '┘å╪╣┘à╪î ┘à╪¼╪º┘å┘è ╪¬┘à╪º┘à╪º┘ï.' },
-        { q: '┘ç┘ä ┘è╪¬┘à ╪▒┘ü╪╣ ┘à┘ä┘ü╪º╪¬┘è╪ƒ', a: '┘ä╪º. ┘â┘ä ╪º┘ä┘à╪╣╪º┘ä╪¼╪⌐ ╪¬╪¬┘à ┘ü┘è ┘à╪¬╪╡┘ü╪¡┘â.' },
-        { q: '┘ç┘ä ┘è╪¡╪º┘ü╪╕ ╪╣┘ä┘ë ╪º┘ä╪¬┘å╪│┘è┘é╪ƒ', a: '┘è╪│╪¬╪«╪▒╪¼ ╪º┘ä┘à╪¡╪¬┘ê┘ë ╪º┘ä┘å╪╡┘è ┘à╪╣ ╪¿┘å┘è╪⌐ ╪ú╪│╪º╪│┘è╪⌐. ╪º┘ä╪¬╪«╪╖┘è╪╖╪º╪¬ ╪º┘ä┘à╪╣┘é╪»╪⌐ ┘é╪» ┘ä╪º ╪¬┘Å╪¡╪º┘ü╪╕ ╪¬┘à╪º┘à╪º┘ï.' },
-        { q: '┘à╪º ╪º┘ä┘à╪«╪▒╪¼╪º╪¬╪ƒ', a: '┘à┘ä┘ü .html ┘å╪╕┘è┘ü ┘è╪¡╪¬┘ê┘è ╪╣┘ä┘ë ╪º┘ä┘à╪¡╪¬┘ê┘ë ╪º┘ä┘å╪╡┘è ┘à┘å ╪¼┘à┘è╪╣ ╪º┘ä╪╡┘ü╪¡╪º╪¬.' }
+        { q: 'هل التحويل مجاني؟', a: 'نعم، مجاني تماماً.' },
+        { q: 'هل يتم رفع ملفاتي؟', a: 'لا. كل المعالجة تتم في متصفحك.' },
+        { q: 'هل يحافظ على التنسيق؟', a: 'يستخرج المحتوى النصي مع بنية أساسية. التخطيطات المعقدة قد لا تُحافظ تماماً.' },
+        { q: 'ما المخرجات؟', a: 'ملف .html نظيف يحتوي على المحتوى النصي من جميع الصفحات.' }
       ] : [
         { q: 'Is PDF to HTML free?', a: 'Yes, completely free.' },
         { q: 'Are my files uploaded?', a: 'No. All processing happens in your browser.' },
@@ -179,7 +184,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         const pdf = await pdfjs.getDocument({ data: buf }).promise;
         pageCount = pdf.numPages;
         document.getElementById('file-name-display').textContent = pdfFile.name;
-        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' ΓÇó ' + pageCount + ' ' + T.pageCount;
+        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' • ' + pageCount + ' ' + T.pageCount;
         dropZone.classList.add('hidden');
         fileInfo.classList.remove('hidden');
         convertOptions.classList.remove('hidden');
@@ -205,7 +210,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           return t.length > 0;
         });
         if (!nonEmpty.length) {
-          return '<div class="page"><div class="page-num">' + (lang === 'ar' ? '╪╡┘ü╪¡╪⌐ ' : 'Page ') + pageNum + '</div><p class="text-sm text-slate-500" data-pt="common.noText">No extractable text on this page. The PDF may contain scanned images.</p></div>';
+          return '<div class="page"><div class="page-num">' + (lang === 'ar' ? 'صفحة ' : 'Page ') + pageNum + '</div><p class="text-sm text-slate-500" data-pt="common.noText">No extractable text on this page. The PDF may contain scanned images.</p></div>';
         }
 
         const items = nonEmpty.map(it => {
@@ -268,7 +273,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         // Group lines into paragraphs
         let html = '<div class="page">';
-        html += '<div class="page-num">' + (lang === 'ar' ? '╪╡┘ü╪¡╪⌐ ' : 'Page ') + pageNum + '</div>';
+        html += '<div class="page-num">' + (lang === 'ar' ? 'صفحة ' : 'Page ') + pageNum + '</div>';
         let paraLines = [];
         let prevY = null;
         let prevHeight = 12;

@@ -78,7 +78,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
-      <div class="text-5xl mb-4">Γ£é∩╕Å</div>
+      <div class="text-5xl mb-4">✂️</div>
       <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" data-pt="split.title">Split PDF</h1>
       <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" data-pt="split.desc">Split a PDF into multiple files by page ranges. Each range becomes a separate file.</p>
     </section>
@@ -155,8 +155,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <!-- Related -->
       <div class="mt-12">
-        <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2>
-        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+        <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">أدوات ذات صلة</h2>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <a href="./merge-pdf.html" class="tool-card text-center"><div class="text-2xl">🔗</div><p class="text-xs font-semibold mt-1">دمج PDF</p></a>
+          <a href="./rotate-pdf.html" class="tool-card text-center"><div class="text-2xl">🔄</div><p class="text-xs font-semibold mt-1">تدوير PDF</p></a>
+          <a href="./remove-pages.html" class="tool-card text-center"><div class="text-2xl">🗑️</div><p class="text-xs font-semibold mt-1">حذف صفحات</p></a>
+          <a href="./extract-pages.html" class="tool-card text-center"><div class="text-2xl">📄</div><p class="text-xs font-semibold mt-1">استخراج صفحات</p></a>
+        </div>
       </div>
     </section>
   </main>
@@ -178,14 +183,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       // Add split translations dynamically
       const splitT = lang === 'ar' ? {
-        title: '╪¬┘é╪│┘è┘à PDF', desc: '╪¬┘é╪│┘è┘à ┘à┘ä┘ü PDF ╪Ñ┘ä┘ë ╪╣╪»╪⌐ ┘à┘ä┘ü╪º╪¬ ╪¡╪│╪¿ ┘å╪╖╪º┘é╪º╪¬ ╪º┘ä╪╡┘ü╪¡╪º╪¬. ┘â┘ä ┘å╪╖╪º┘é ┘è╪╡╪¿╪¡ ┘à┘ä┘ü╪º┘ï ┘à┘å┘ü╪╡┘ä╪º┘ï.',
-        mode: '┘ê╪╢╪╣ ╪º┘ä╪¬┘é╪│┘è┘à', byRange: '╪¡╪│╪¿ ┘å╪╖╪º┘é╪º╪¬ ╪º┘ä╪╡┘ü╪¡╪º╪¬', eachPage: '┘â┘ä ╪╡┘ü╪¡╪⌐ ┘â┘à┘ä┘ü', everyN: '┘â┘ä N ╪╡┘ü╪¡╪º╪¬',
-        fromPreview: '╪º╪«╪¬┘è╪º╪▒ ┘à┘å ╪º┘ä┘à╪╣╪º┘è┘å╪⌐',
-        rangesLabel: '┘å╪╖╪º┘é╪º╪¬ ╪º┘ä╪╡┘ü╪¡╪º╪¬ (┘à╪½╪º┘ä: 1-3, 5, 8-10)', everyLabel: '╪╡┘ü╪¡╪º╪¬ ┘ä┘â┘ä ┘à┘ä┘ü',
-        splitBtn: '╪¬┘é╪│┘è┘à PDF', pageCount: '╪╡┘ü╪¡╪⌐', downloadAll: '╪¬╪¡┘à┘è┘ä ╪º┘ä┘â┘ä (ZIP)',
-        invalidRange: '┘å╪╖╪º┘é ╪║┘è╪▒ ╪╡╪º┘ä╪¡', noFile: '╪º╪«╪¬╪▒ ┘à┘ä┘ü PDF ╪ú┘ê┘ä╪º┘ï',
-        newGroup: '┘à╪¼┘à┘ê╪╣╪⌐ ╪¼╪»┘è╪»╪⌐', selectedPages: '╪º┘ä╪╡┘ü╪¡╪º╪¬ ╪º┘ä┘à╪¡╪»╪»╪⌐', noSelection: '┘ä┘à ┘è╪¬┘à ╪º╪«╪¬┘è╪º╪▒ ╪╡┘ü╪¡╪º╪¬ ╪¿╪╣╪»',
-        groups: '┘à╪¼┘à┘ê╪╣╪º╪¬ ╪º┘ä╪¬┘é╪│┘è┘à', group: '┘à╪¼┘à┘ê╪╣╪⌐', pages: '╪╡┘ü╪¡╪º╪¬'
+        title: 'تقسيم PDF', desc: 'تقسيم ملف PDF إلى عدة ملفات حسب نطاقات الصفحات. كل نطاق يصبح ملفاً منفصلاً.',
+        mode: 'وضع التقسيم', byRange: 'حسب نطاقات الصفحات', eachPage: 'كل صفحة كملف', everyN: 'كل N صفحات',
+        fromPreview: 'اختيار من المعاينة',
+        rangesLabel: 'نطاقات الصفحات (مثال: 1-3, 5, 8-10)', everyLabel: 'صفحات لكل ملف',
+        splitBtn: 'تقسيم PDF', pageCount: 'صفحة', downloadAll: 'تحميل الكل (ZIP)',
+        invalidRange: 'نطاق غير صالح', noFile: 'اختر ملف PDF أولاً',
+        newGroup: 'مجموعة جديدة', selectedPages: 'الصفحات المحددة', noSelection: 'لم يتم اختيار صفحات بعد',
+        groups: 'مجموعات التقسيم', group: 'مجموعة', pages: 'صفحات'
       } : {
         title: 'Split PDF', desc: 'Split a PDF into multiple files by page ranges. Each range becomes a separate file.',
         mode: 'Split Mode', byRange: 'By page ranges', eachPage: 'Each page as file', everyN: 'Every N pages',
@@ -199,9 +204,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       // FAQ
       const faqs = lang === 'ar' ? [
-        { q: '┘ç┘ä ╪¬┘é╪│┘è┘à PDF ┘à╪¼╪º┘å┘è╪ƒ', a: '┘å╪╣┘à╪î ┘à╪¼╪º┘å┘è ╪¬┘à╪º┘à╪º┘ï.' },
-        { q: '┘ç┘ä ┘è╪¬┘à ╪▒┘ü╪╣ ┘à┘ä┘ü╪º╪¬┘è╪ƒ', a: '┘ä╪º. ┘â┘ä ╪º┘ä┘à╪╣╪º┘ä╪¼╪⌐ ╪¬╪¬┘à ┘ü┘è ┘à╪¬╪╡┘ü╪¡┘â.' },
-        { q: '┘â┘è┘ü ╪ú┘é╪│┘à ╪¿┘å╪╖╪º┘é╪º╪¬ ╪º┘ä╪╡┘ü╪¡╪º╪¬╪ƒ', a: '╪ú╪»╪«┘ä ┘å╪╖╪º┘é╪º╪¬ ┘à╪½┘ä 1-3, 5, 8-10. ┘â┘ä ┘å╪╖╪º┘é ┘è╪╡╪¿╪¡ ┘à┘ä┘ü PDF ┘à┘å┘ü╪╡┘ä.' }
+        { q: 'هل تقسيم PDF مجاني؟', a: 'نعم، مجاني تماماً.' },
+        { q: 'هل يتم رفع ملفاتي؟', a: 'لا. كل المعالجة تتم في متصفحك.' },
+        { q: 'كيف أقسم بنطاقات الصفحات؟', a: 'أدخل نطاقات مثل 1-3, 5, 8-10. كل نطاق يصبح ملف PDF منفصل.' }
       ] : [
         { q: 'Is splitting PDF free?', a: 'Yes, completely free with no limits.' },
         { q: 'Are my files uploaded?', a: 'No. All processing happens in your browser.' },
@@ -239,7 +244,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
         pageCount = doc.getPageCount();
         document.getElementById('file-name-display').textContent = pdfFile.name;
-        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' ΓÇó ' + pageCount + ' ' + splitT.pageCount;
+        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' • ' + pageCount + ' ' + splitT.pageCount;
         dropZone.classList.add('hidden');
         fileInfo.classList.remove('hidden');
         splitOptions.classList.remove('hidden');
@@ -286,7 +291,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         else groupsDisplay.innerHTML = splitGroups.map((g, i) => {
           const pages = g.map(p => p + 1).join(', ');
           const isActive = i === currentGroupIdx;
-          return '<div class="flex items-center gap-2 text-sm ' + (isActive ? 'bg-blue-50 dark:bg-blue-900/20 rounded px-2 py-1' : '') + '"><span class="font-semibold text-blue-600">' + splitT.group + ' ' + (i+1) + (isActive ? ' ΓåÉ' : '') + ':</span><span class="text-slate-600 dark:text-slate-300">' + (pages || '—') + ' (' + g.length + ' ' + splitT.pages + ')</span>' + (splitGroups.length > 1 ? '<button class="text-red-400 hover:text-red-600 text-xs" data-del-group="' + i + '">Γ£ò</button>' : '') + '</div>';
+          return '<div class="flex items-center gap-2 text-sm ' + (isActive ? 'bg-blue-50 dark:bg-blue-900/20 rounded px-2 py-1' : '') + '"><span class="font-semibold text-blue-600">' + splitT.group + ' ' + (i+1) + (isActive ? ' ←' : '') + ':</span><span class="text-slate-600 dark:text-slate-300">' + (pages || '—') + ' (' + g.length + ' ' + splitT.pages + ')</span>' + (splitGroups.length > 1 ? '<button class="text-red-400 hover:text-red-600 text-xs" data-del-group="' + i + '">✕</button>' : '') + '</div>';
         }).join('');
         groupsDisplay.querySelectorAll('[data-del-group]').forEach(btn => {
           btn.addEventListener('click', () => {
@@ -304,7 +309,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         const pa = document.getElementById('preview-area');
         pa.innerHTML = '<p class="text-sm text-slate-500 text-center mb-3">Loading...</p>';
         const assigned = Array.from(getAssignedPages());
-        const disabledLabel = lang === 'ar' ? '┘à╪«╪╡╪╡' : 'Assigned';
+        const disabledLabel = lang === 'ar' ? 'مخصص' : 'Assigned';
         await PDFTools.renderPDFPreview(pa, pdfFile, {
           maxPages: 20, scale: 0.4, selectable: true,
           disabledPages: assigned, disabledLabel,
@@ -330,7 +335,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           document.getElementById('preview-select').classList.toggle('hidden', mode !== 'preview' && r.checked);
           previewHint.classList.toggle('hidden', mode !== 'preview' || !r.checked);
           if (mode === 'preview' && r.checked) {
-            previewHint.textContent = lang === 'ar' ? '╪º┘å┘é╪▒ ╪╣┘ä┘ë ╪º┘ä╪╡┘ü╪¡╪º╪¬ ┘ä╪Ñ╪╢╪º┘ü╪¬┘ç╪º ┘ä┘ä┘à╪¼┘à┘ê╪╣╪⌐ ╪º┘ä╪¡╪º┘ä┘è╪⌐. ╪º┘ä╪╡┘ü╪¡╪º╪¬ ╪º┘ä┘à╪«╪╡╪╡╪⌐ ┘ä┘à╪¼┘à┘ê╪╣╪⌐ ╪ú╪«╪▒┘ë ┘ä╪º ┘è┘à┘â┘å ╪º╪«╪¬┘è╪º╪▒┘ç╪º. ╪ú┘å╪┤╪ª ┘à╪¼┘à┘ê╪╣╪⌐ ╪¼╪»┘è╪»╪⌐ ┘ä┘à┘ä┘ü ┘à┘å┘ü╪╡┘ä.' : 'Click pages to add them to the current group. Assigned pages are locked. Create a new group for a separate file.';
+            previewHint.textContent = lang === 'ar' ? 'انقر على الصفحات لإضافتها للمجموعة الحالية. الصفحات المخصصة لمجموعة أخرى لا يمكن اختيارها. أنشئ مجموعة جديدة لملف منفصل.' : 'Click pages to add them to the current group. Assigned pages are locked. Create a new group for a separate file.';
             splitGroups = [[]]; currentGroupIdx = 0;
             rerenderPreviewSelectable();
             renderGroups();

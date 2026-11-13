@@ -59,9 +59,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-4E21GQ00FC');
 </script>
 
-  <link rel="alternate" hreflang="en" href="https://pettycash.site/en/pdf-tools/reorder-pages.html" />
-  <link rel="alternate" hreflang="ar" href="https://pettycash.site/ar/pdf-tools/reorder-pages.html" />
-  <link rel="alternate" hreflang="x-default" href="https://pettycash.site/" />
+  <link rel="alternate" hreflang="en" href="https://pettycash.site/en/pdf-tools/reorder-pages.html">
+  <link rel="alternate" hreflang="ar" href="https://pettycash.site/ar/pdf-tools/reorder-pages.html">
+  <link rel="alternate" hreflang="x-default" href="https://pettycash.site/">
 </head>
 <body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
   <nav id="pdftool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
@@ -74,7 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </nav>
     </div>
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
-      <div class="text-5xl mb-4">Γåò∩╕Å</div>
+      <div class="text-5xl mb-4">↕️</div>
       <h1 class="text-2xl sm:text-3xl font-extrabold mb-3" id="tool-title">Reorder Pages</h1>
       <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto" id="tool-desc">Rearrange PDF pages by drag and drop. Move, delete, and organize pages visually.</p>
     </section>
@@ -92,7 +92,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <button id="remove-file" class="text-red-500 hover:text-red-700 p-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
         </div>
         <div id="reorder-options" class="hidden space-y-4">
-          <p class="text-sm text-slate-500 text-center" id="drag-hint">Drag and drop pages to reorder. Click Γ£ò to delete a page.</p>
+          <p class="text-sm text-slate-500 text-center" id="drag-hint">Drag and drop pages to reorder. Click ✕ to delete a page.</p>
           <div id="preview-area" class="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-3"></div>
           <div class="text-center">
             <button id="reorder-btn" class="btn-pdf btn-pdf-primary">
@@ -103,7 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div id="progress-area"></div>
         <div id="result" class="hidden text-center py-8">
-          <div class="text-4xl mb-3">Γ£à</div>
+          <div class="text-4xl mb-3">✅</div>
           <p class="font-semibold text-lg mb-4" data-pt="common.done">Done!</p>
           <button id="download-btn" class="btn-pdf btn-pdf-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -117,7 +117,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="mt-12">
         <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2>
-        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <a href="./remove-pages.html" class="tool-card text-center"><div class="text-2xl">🗑️</div><p class="text-xs font-semibold mt-1">Remove Pages</p></a>
+          <a href="./rotate-pdf.html" class="tool-card text-center"><div class="text-2xl">🔄</div><p class="text-xs font-semibold mt-1">Rotate PDF</p></a>
+          <a href="./merge-pdf.html" class="tool-card text-center"><div class="text-2xl">🔗</div><p class="text-xs font-semibold mt-1">Merge PDF</p></a>
+          <a href="./split-pdf.html" class="tool-card text-center"><div class="text-2xl">✂️</div><p class="text-xs font-semibold mt-1">Split PDF</p></a>
+        </div>
       </div>
     </section>
   </main>
@@ -135,12 +140,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       PDFTools.renderNav();
       const lang = PDFTools.getLang();
       const T = lang === 'ar' ? {
-        title: '╪Ñ╪╣╪º╪»╪⌐ ╪¬╪▒╪¬┘è╪¿ ╪º┘ä╪╡┘ü╪¡╪º╪¬', desc: '╪Ñ╪╣╪º╪»╪⌐ ╪¬╪▒╪¬┘è╪¿ ╪╡┘ü╪¡╪º╪¬ PDF ╪¿╪º┘ä╪│╪¡╪¿ ┘ê╪º┘ä╪Ñ┘ü┘ä╪º╪¬. ┘å┘é┘ä ┘ê╪¡╪░┘ü ┘ê╪¬┘å╪╕┘è┘à ╪º┘ä╪╡┘ü╪¡╪º╪¬ ╪¿╪╡╪▒┘è╪º┘ï.',
-        dragHint: '╪º╪│╪¡╪¿ ┘ê╪ú┘ü┘ä╪¬ ╪º┘ä╪╡┘ü╪¡╪º╪¬ ┘ä╪Ñ╪╣╪º╪»╪⌐ ╪¬╪▒╪¬┘è╪¿┘ç╪º. ╪º╪╢╪║╪╖ Γ£ò ┘ä╪¡╪░┘ü ╪╡┘ü╪¡╪⌐.',
-        reorderBtn: '╪¡┘ü╪╕ PDF ╪º┘ä┘à╪▒╪¬╪¿', pageCount: '╪╡┘ü╪¡╪⌐', noFile: '╪º╪«╪¬╪▒ ┘à┘ä┘ü PDF ╪ú┘ê┘ä╪º┘ï'
+        title: 'إعادة ترتيب الصفحات', desc: 'إعادة ترتيب صفحات PDF بالسحب والإفلات. نقل وحذف وتنظيم الصفحات بصرياً.',
+        dragHint: 'اسحب وأفلت الصفحات لإعادة ترتيبها. اضغط ✕ لحذف صفحة.',
+        reorderBtn: 'حفظ PDF المرتب', pageCount: 'صفحة', noFile: 'اختر ملف PDF أولاً'
       } : {
         title: 'Reorder Pages', desc: 'Rearrange PDF pages by drag and drop. Move, delete, and organize pages visually.',
-        dragHint: 'Drag and drop pages to reorder. Click Γ£ò to delete a page.',
+        dragHint: 'Drag and drop pages to reorder. Click ✕ to delete a page.',
         reorderBtn: 'Save Reordered PDF', pageCount: 'pages', noFile: 'Select a PDF file first'
       };
       document.getElementById('bc-title').textContent = T.title;
@@ -150,10 +155,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       document.getElementById('reorder-btn-label').textContent = T.reorderBtn;
 
       const faqs = lang === 'ar' ? [
-        { q: '┘ç┘ä ╪Ñ╪╣╪º╪»╪⌐ ╪º┘ä╪¬╪▒╪¬┘è╪¿ ┘à╪¼╪º┘å┘è╪⌐╪ƒ', a: '┘å╪╣┘à╪î ┘à╪¼╪º┘å┘è ╪¬┘à╪º┘à╪º┘ï.' },
-        { q: '┘ç┘ä ┘è╪¬┘à ╪▒┘ü╪╣ ┘à┘ä┘ü╪º╪¬┘è╪ƒ', a: '┘ä╪º. ┘â┘ä ╪º┘ä┘à╪╣╪º┘ä╪¼╪⌐ ╪¬╪¬┘à ┘ü┘è ┘à╪¬╪╡┘ü╪¡┘â.' },
-        { q: '┘â┘è┘ü ╪ú╪╣┘è╪» ╪¬╪▒╪¬┘è╪¿ ╪º┘ä╪╡┘ü╪¡╪º╪¬╪ƒ', a: '╪º╪│╪¡╪¿ ┘ê╪ú┘ü┘ä╪¬ ┘à╪╡╪║╪▒╪º╪¬ ╪º┘ä╪╡┘ü╪¡╪º╪¬ ┘ä╪Ñ╪╣╪º╪»╪⌐ ╪¬╪▒╪¬┘è╪¿┘ç╪º.' },
-        { q: '┘ç┘ä ┘è┘à┘â┘å┘å┘è ╪¡╪░┘ü ╪º┘ä╪╡┘ü╪¡╪º╪¬ ╪ú┘è╪╢╪º┘ï╪ƒ', a: '┘å╪╣┘à╪î ╪º╪╢╪║╪╖ ╪▓╪▒ X ╪╣┘ä┘ë ╪ú┘è ╪╡┘ü╪¡╪⌐ ┘ä╪¡╪░┘ü┘ç╪º.' }
+        { q: 'هل إعادة الترتيب مجانية؟', a: 'نعم، مجاني تماماً.' },
+        { q: 'هل يتم رفع ملفاتي؟', a: 'لا. كل المعالجة تتم في متصفحك.' },
+        { q: 'كيف أعيد ترتيب الصفحات؟', a: 'اسحب وأفلت مصغرات الصفحات لإعادة ترتيبها.' },
+        { q: 'هل يمكنني حذف الصفحات أيضاً؟', a: 'نعم، اضغط زر X على أي صفحة لحذفها.' }
       ] : [
         { q: 'Is reordering PDF pages free?', a: 'Yes, completely free.' },
         { q: 'Are my files uploaded?', a: 'No. All processing happens in your browser.' },
@@ -191,7 +196,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         pageOrder = Array.from({ length: pageCount }, (_, i) => i);
         resultBlob = null;
         document.getElementById('file-name-display').textContent = pdfFile.name;
-        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' ΓÇó ' + pageCount + ' ' + T.pageCount;
+        document.getElementById('file-meta-display').textContent = PDFTools.formatBytes(pdfFile.size) + ' • ' + pageCount + ' ' + T.pageCount;
         dropZone.classList.add('hidden');
         fileInfo.classList.remove('hidden');
         reorderOptions.classList.remove('hidden');
@@ -268,7 +273,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           item.appendChild(canvas);
           const label = document.createElement('div');
           label.className = 'text-xs text-center text-slate-500 mt-1';
-          label.textContent = (lang === 'ar' ? '╪╡┘ü╪¡╪⌐ ' : 'Page ') + (origIdx + 1);
+          label.textContent = (lang === 'ar' ? 'صفحة ' : 'Page ') + (origIdx + 1);
           item.appendChild(label);
 
           // Drag events
@@ -319,14 +324,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           const badge = el.querySelector('.bg-slate-700');
           if (badge) badge.textContent = i + 1;
           const label = el.querySelector('.text-xs.text-center');
-          if (label) label.textContent = (lang === 'ar' ? '╪╡┘ü╪¡╪⌐ ' : 'Page ') + (pageOrder[i] + 1);
+          if (label) label.textContent = (lang === 'ar' ? 'صفحة ' : 'Page ') + (pageOrder[i] + 1);
           wrapper.appendChild(el);
         });
       }
 
       reorderBtn.addEventListener('click', async () => {
         if (!pdfFile) { PDFTools.toast(T.noFile); return; }
-        if (pageOrder.length === 0) { PDFTools.toast(lang === 'ar' ? '┘ä╪º ╪¬┘ê╪¼╪» ╪╡┘ü╪¡╪º╪¬' : 'No pages left'); return; }
+        if (pageOrder.length === 0) { PDFTools.toast(lang === 'ar' ? 'لا توجد صفحات' : 'No pages left'); return; }
         reorderBtn.disabled = true;
         result.classList.add('hidden');
         PDFTools.showProgress(progressArea, 10);

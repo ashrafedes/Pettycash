@@ -76,9 +76,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-4E21GQ00FC');
 </script>
 
-  <link rel="alternate" hreflang="en" href="https://pettycash.site/en/pdf-tools/merge-pdf.html" />
-  <link rel="alternate" hreflang="ar" href="https://pettycash.site/ar/pdf-tools/merge-pdf.html" />
-  <link rel="alternate" hreflang="x-default" href="https://pettycash.site/" />
+  <link rel="alternate" hreflang="en" href="https://pettycash.site/en/pdf-tools/merge-pdf.html">
+  <link rel="alternate" hreflang="ar" href="https://pettycash.site/ar/pdf-tools/merge-pdf.html">
+  <link rel="alternate" hreflang="x-default" href="https://pettycash.site/">
 </head>
 <body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
   <nav id="pdftool-nav" data-base="../" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50"></nav>
@@ -136,7 +136,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <!-- Result -->
         <div id="result" class="hidden text-center py-8">
-          <div class="text-4xl mb-3">Γ£à</div>
+          <div class="text-4xl mb-3">✅</div>
           <p class="font-semibold text-lg mb-4" data-pt="common.done">Done!</p>
           <button id="download-btn" class="btn-pdf btn-pdf-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -154,7 +154,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Related Tools -->
       <div class="mt-12">
         <h2 class="text-xl font-bold mb-4" data-pt="common.relatedTools">Related Tools</h2>
-        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+        <div id="related-tools" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <a href="./split-pdf.html" class="tool-card text-center"><div class="text-2xl">✂️</div><p class="text-xs font-semibold mt-1">Split PDF</p></a>
+          <a href="./rotate-pdf.html" class="tool-card text-center"><div class="text-2xl">🔄</div><p class="text-xs font-semibold mt-1">Rotate PDF</p></a>
+          <a href="./compress-pdf.html" class="tool-card text-center"><div class="text-2xl">📦</div><p class="text-xs font-semibold mt-1">Compress PDF</p></a>
+          <a href="./extract-pages.html" class="tool-card text-center"><div class="text-2xl">📄</div><p class="text-xs font-semibold mt-1">Extract Pages</p></a>
+        </div>
       </div>
     </section>
   </main>
@@ -176,10 +181,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       // FAQ data
       const faqs = lang === 'ar' ? [
-        { q: '┘ç┘ä ╪»┘à╪¼ ┘à┘ä┘ü╪º╪¬ PDF ┘à╪¼╪º┘å┘è╪ƒ', a: '┘å╪╣┘à╪î ┘à╪¼╪º┘å┘è ╪¬┘à╪º┘à╪º┘ï ╪¿╪»┘ê┘å ╪¡╪»┘ê╪» ╪ú┘ê ╪¬╪│╪¼┘è┘ä.' },
-        { q: '┘ç┘ä ┘è╪¬┘à ╪▒┘ü╪╣ ┘à┘ä┘ü╪º╪¬┘è ╪Ñ┘ä┘ë ╪º┘ä╪«╪º╪»┘à╪ƒ', a: '┘ä╪º. ┘â┘ä ╪º┘ä┘à╪╣╪º┘ä╪¼╪⌐ ╪¬╪¬┘à ┘ü┘è ┘à╪¬╪╡┘ü╪¡┘â. ┘à┘ä┘ü╪º╪¬┘â ┘ä╪º ╪¬╪║╪º╪»╪▒ ╪¼┘ç╪º╪▓┘â.' },
-        { q: '┘â┘à ┘à┘ä┘ü PDF ┘è┘à┘â┘å┘å┘è ╪»┘à╪¼┘ç╪ƒ', a: '┘è┘à┘â┘å┘â ╪»┘à╪¼ ╪ú┘è ╪╣╪»╪» ┘à┘å ┘à┘ä┘ü╪º╪¬ PDF. ┘ä╪º ┘è┘ê╪¼╪» ╪¡╪».' },
-        { q: '┘ç┘ä ┘è┘à┘â┘å┘å┘è ╪Ñ╪╣╪º╪»╪⌐ ╪¬╪▒╪¬┘è╪¿ ╪º┘ä┘à┘ä┘ü╪º╪¬ ┘é╪¿┘ä ╪º┘ä╪»┘à╪¼╪ƒ', a: '┘å╪╣┘à╪î ┘è┘à┘â┘å┘â ╪│╪¡╪¿ ┘ê╪Ñ┘ü┘ä╪º╪¬ ╪º┘ä┘à┘ä┘ü╪º╪¬ ┘ä╪Ñ╪╣╪º╪»╪⌐ ╪¬╪▒╪¬┘è╪¿┘ç╪º.' }
+        { q: 'هل دمج ملفات PDF مجاني؟', a: 'نعم، مجاني تماماً بدون حدود أو تسجيل.' },
+        { q: 'هل يتم رفع ملفاتي إلى الخادم؟', a: 'لا. كل المعالجة تتم في متصفحك. ملفاتك لا تغادر جهازك.' },
+        { q: 'كم ملف PDF يمكنني دمجه؟', a: 'يمكنك دمج أي عدد من ملفات PDF. لا يوجد حد.' },
+        { q: 'هل يمكنني إعادة ترتيب الملفات قبل الدمج؟', a: 'نعم، يمكنك سحب وإفلات الملفات لإعادة ترتيبها.' }
       ] : [
         { q: 'Is merging PDF files free?', a: 'Yes, completely free with no limits or signup required.' },
         { q: 'Are my files uploaded to a server?', a: 'No. All processing happens in your browser. Your files never leave your device.' },
@@ -302,7 +307,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       mergeBtn.addEventListener('click', async () => {
         if (files.length < 2) {
-          PDFTools.toast(lang === 'ar' ? '╪ú╪╢┘ü ┘à┘ä┘ü┘è┘å ╪╣┘ä┘ë ╪º┘ä╪ú┘é┘ä' : 'Add at least 2 files');
+          PDFTools.toast(lang === 'ar' ? 'أضف ملفين على الأقل' : 'Add at least 2 files');
           return;
         }
         mergeBtn.disabled = true;

@@ -140,7 +140,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       let activeCat = 'all';
 
       function renderFilters() {
-        const allLabel = lang === 'ar' ? '╪º┘ä┘â┘ä' : 'All';
+        const allLabel = lang === 'ar' ? 'الكل' : 'All';
         let html = `<button class="cat-filter text-xs font-semibold px-4 py-2 rounded-full transition-colors ${activeCat === 'all' ? 'bg-blue-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'}" data-cat="all">${allLabel}</button>`;
         cats.forEach(c => {
           const isActive = activeCat === c;
